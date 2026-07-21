@@ -1,0 +1,34 @@
+{
+  "base_image": "python",
+  "category": "Professional Knowledge Work",
+  "cwd": "/home/workspace/txmeal_watch",
+  "internet": false,
+  "judge": {
+    "eval_cmd": "cd /home/workspace/txmeal_watch && CANDIDATE_ROOT=/home/workspace/txmeal_watch JUDGE_ROOT=/judge python3 /judge/score.py",
+    "eval_timeout": 900,
+    "parser": "structured_json",
+    "score_direction": "maximize",
+    "selection": "score_first",
+    "image_tag": "4f945c5474af"
+  },
+  "name": "TX School-Meal Participation-Shortfall Watchlist",
+  "platform": "linux/amd64",
+  "submit_exclude": [
+    "data/",
+    "check.py",
+    "README.md",
+    "txmeal_watch_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc"
+  ],
+  "submit_paths": [
+    "strategy/"
+  ],
+  "task_id": "txmeal_participation_shortfall_watchlist",
+  "work": {
+    "agent_query": "Read README.md. You are the child-nutrition access / outreach desk for a Texas school-meal administrator as of 2025-12-31. Write strategy/policy.py: watchlist(universe, asof) -> {entity_id: concern}, an UNBOUNDED, prioritised watchlist of the 952 boundary-healthy Texas sponsors predicted to CROSS into the worst ~17.5% lunch-participation-collapse band in the hidden April-2026 window (real TDA claim actuals filed mid-2026). concern>0 lists a sponsor, higher = more urgent; you decide how many to list. You are graded by a precision-recall / confusion-matrix geometry on the realized collapses: PR-AUC of your ranking, a cost-weighted operating point (a missed collapse costs 5x a false alarm), and top-tier precision. Grade the CROSSING, not the level: flagging whoever is already weakest recalls only ~20% of collapses -- the signal is in the enrollment momentum, the free/reduced share, breakfast and total-participation drift and the prior-year spring seasonality. Also write strategy/watchlist_report.json describing the watchlist you submit: the judge recomputes every statistic from your concern dict and ZEROES your score if you misreport. Offline; policy.py passes a static ALLOWLIST gate -- only pure stdlib maths modules and txmeal_watch_lib import; no filesystem, no os/json/csv/numpy/random/time, no open/eval/exec/getattr. Rehearse watchlist shape with `python3 check.py`; it cannot preview your grade (the graded window is hidden by construction).",
+    "image_tag": "45f94ba95af9",
+    "specs_dir": "/home/workspace/txmeal_watch"
+  }
+}

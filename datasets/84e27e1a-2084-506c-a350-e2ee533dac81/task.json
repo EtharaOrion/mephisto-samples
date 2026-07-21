@@ -1,0 +1,36 @@
+{
+  "base_image": "python",
+  "category": "Professional Knowledge Work",
+  "cwd": "/home/workspace/liquidity",
+  "internet": false,
+  "judge": {
+    "eval_cmd": "cd /home/workspace/liquidity && CANDIDATE_ROOT=/home/workspace/liquidity JUDGE_ROOT=/judge python3 /judge/score.py",
+    "eval_timeout": 900,
+    "parser": "structured_json",
+    "score_direction": "maximize",
+    "selection": "score_first",
+    "image_tag": "ad0a199ee6ec"
+  },
+  "name": "Fund Liquidity Buffer Provisioning",
+  "platform": "linux/amd64",
+  "submit_exclude": [
+    "data/",
+    "check.py",
+    "README.md",
+    "nport_scorer.py",
+    "gate.py",
+    "constraints.json",
+    "anchors_public.json",
+    "__pycache__/",
+    "*.pyc"
+  ],
+  "submit_paths": [
+    "strategy/"
+  ],
+  "task_id": "nport_liquidity_provisioning",
+  "work": {
+    "agent_query": "Read README.md. You are the asset-manager liquidity-risk desk as of 2025-12-31. Write strategy/policy.py: allocate(universe, asof) -> {entity_id: weight}, spreading a FINITE liquidity buffer across the 5,663 eligible SEC fund share classes using the boundary feature table (net-flow lags, redemption/sales intensity, flow trend and volatility, size, cash, P&L, leverage). The judge runs your policy once and grades how much of the funds' ACTUALLY REALIZED Feb+Mar-2026 net outflows your buffer sat in front of (a hidden future window), on three lanes: coverage hit rate vs the universe median, worst-decile tail capture, and outflow captured vs the equal-weight benchmark. The buffer TARGETS the outflow tail (higher capture is better). The starter IS the equal-weight buffer and scores exactly 0.00. Copying last quarter's ranking is weak (rank persistence is only +0.35), and allocating to the largest funds realizes a WORSE capture than the benchmark -- measured, not hypothetical. Per-fund weight is capped at 0.0017667845 (= 1/566), so a legal book holds at least 566 names. Also write strategy/book_report.json describing the book you submit: the judge recomputes every statistic from your weights and ZEROES your score if you misreport. Offline; policy.py passes a static ALLOWLIST gate -- only pure stdlib maths modules and nport_scorer import; no filesystem, no os/json/csv/numpy/random/time, no open/eval/exec/getattr. Rehearse book shape with `python3 check.py`; it cannot preview your grade (the graded window is hidden by construction).",
+    "image_tag": "994e999a1b4d",
+    "specs_dir": "/home/workspace/liquidity"
+  }
+}

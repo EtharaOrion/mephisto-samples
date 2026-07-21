@@ -1,0 +1,36 @@
+{
+  "base_image": "python",
+  "category": "Professional Knowledge Work",
+  "cwd": "/home/workspace/reliability",
+  "internet": false,
+  "judge": {
+    "eval_cmd": "cd /home/workspace/reliability && CANDIDATE_ROOT=/home/workspace/reliability JUDGE_ROOT=/judge python3 /judge/score.py",
+    "eval_timeout": 900,
+    "parser": "structured_json",
+    "score_direction": "maximize",
+    "selection": "score_first",
+    "image_tag": "70dbd8376a41"
+  },
+  "name": "Station Reliability Resilience Provisioning",
+  "platform": "linux/amd64",
+  "submit_exclude": [
+    "data/",
+    "check.py",
+    "README.md",
+    "bts_scorer.py",
+    "gate.py",
+    "constraints.json",
+    "anchors_public.json",
+    "__pycache__/",
+    "*.pyc"
+  ],
+  "submit_paths": [
+    "strategy/"
+  ],
+  "task_id": "bts_station_reliability_provisioning",
+  "work": {
+    "agent_query": "Read README.md. You are the airline-group network operations-planning desk as of 2026-01-31. Write strategy/policy.py: allocate(universe, asof) -> {entity_id: weight}, spreading a FINITE operational-resilience budget across the 793 eligible carrier x airport stations using the boundary feature table (recent late rate + YoY winter change, carrier/airport baselines and changes, the FE-demeaned residual change, monthly volatility and trend, the prior-year spring late rate, volume). The judge runs your policy once and grades how much of the stations' ACTUALLY REALIZED spring-2026 deterioration in on-time reliability your budget sat in front of (a hidden future window), net of carrier and airport baselines (severity = two-way FE-demeaned YoY late-rate change), on three lanes: coverage hit rate vs the universe median, worst-decile tail capture, and deterioration captured vs the equal-weight benchmark. The budget TARGETS the deterioration tail (higher capture is better). The starter IS the equal-weight budget and scores exactly 0.00. Copying last winter's ranking is weak (FE-demeaned rank persistence is only about +0.28), and allocating to the most-delayed stations now realizes a WORSE capture than the benchmark (mean-reversion) -- measured, not hypothetical. Per-station weight is capped at 0.0126582278 (= 1/79), so a legal book holds at least 79 stations. Also write strategy/book_report.json describing the book you submit: the judge recomputes every statistic from your weights and ZEROES your score if you misreport. Offline; policy.py passes a static ALLOWLIST gate -- only pure stdlib maths modules and bts_scorer import; no filesystem, no os/json/csv/numpy/random/time, no open/eval/exec/getattr. Rehearse book shape with `python3 check.py`; it cannot preview your grade (the graded window is hidden by construction).",
+    "image_tag": "7a6587d080dd",
+    "specs_dir": "/home/workspace/reliability"
+  }
+}

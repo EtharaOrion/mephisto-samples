@@ -1,0 +1,34 @@
+{
+  "base_image": "python",
+  "category": "Professional Knowledge Work",
+  "cwd": "/home/workspace/margin_watch",
+  "internet": false,
+  "judge": {
+    "eval_cmd": "cd /home/workspace/margin_watch && CANDIDATE_ROOT=/home/workspace/margin_watch JUDGE_ROOT=/judge python3 /judge/score.py",
+    "eval_timeout": 900,
+    "parser": "structured_json",
+    "score_direction": "maximize",
+    "selection": "score_first",
+    "image_tag": "46ae284c9450"
+  },
+  "name": "SEC Operating-Margin-Collapse Triage Watchlist",
+  "platform": "linux/amd64",
+  "submit_exclude": [
+    "data/",
+    "check.py",
+    "README.md",
+    "watchlist_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc"
+  ],
+  "submit_paths": [
+    "strategy/"
+  ],
+  "task_id": "sec_margin_collapse_watchlist",
+  "work": {
+    "agent_query": "Read README.md. You are the equity/credit-research desk as of 2026-01-31. Write strategy/policy.py: watchlist(universe, asof) -> {entity_id: concern}, an UNBOUNDED, prioritised watchlist of the 2,226 boundary-healthy US SEC filers predicted to CROSS into the worst-decile operating-margin-COLLAPSE band in the hidden CY2026Q1 quarter (real filings from mid-Feb 2026). concern>0 lists an issuer, higher = more urgent; you decide how many to list. You are graded by a precision-recall / confusion-matrix geometry on the realized collapses: PR-AUC of your ranking, a cost-weighted operating point (a missed collapse costs 8x a false alarm), and top-tier precision. Grade the CROSSING, not the level: flagging whoever already has the lowest margin change recalls only ~12% of collapses -- the signal is in the margin trend, mean-reversion and fundamentals. Also write strategy/watchlist_report.json describing the watchlist you submit: the judge recomputes every statistic from your concern dict and ZEROES your score if you misreport. Offline; policy.py passes a static ALLOWLIST gate -- only pure stdlib maths modules import; no filesystem, no os/json/csv/random/time, no open/eval/exec/getattr. Rehearse with `python3 check.py` on the public dev pair (as of Q3-2024, graded on real Q1-2025 collapses), but it is a different business cycle, not a preview of your grade.",
+    "image_tag": "92428d874615",
+    "specs_dir": "/home/workspace/margin_watch"
+  }
+}
