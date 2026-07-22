@@ -12,7 +12,7 @@
     "image_tag": "3319d794d84e"
   },
   "name": "TX Mixed-Beverage Receipt-Collapse Triage Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

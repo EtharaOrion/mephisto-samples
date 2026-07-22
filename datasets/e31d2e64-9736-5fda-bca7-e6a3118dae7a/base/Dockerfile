@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.11
+FROM python:3.11
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 

@@ -12,7 +12,7 @@
     "image_tag": "70dbd8376a41"
   },
   "name": "Station Reliability Resilience Provisioning",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

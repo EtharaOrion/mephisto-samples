@@ -12,7 +12,7 @@
     "image_tag": "4a78d926f2be"
   },
   "name": "Bank Counterparty Credit Surveillance Book",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

@@ -12,7 +12,7 @@
     "image_tag": "e205c1097bc6"
   },
   "name": "OSS Dependency-Abandonment Breach-Triage Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

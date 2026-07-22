@@ -12,7 +12,7 @@
     "image_tag": "3c98ec9ca258"
   },
   "name": "Chicago Taxi Receipt-Collapse Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

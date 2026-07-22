@@ -12,7 +12,7 @@
     "image_tag": "e971f5a70559"
   },
   "name": "Chicago Taxi Receipt-Growth Book",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

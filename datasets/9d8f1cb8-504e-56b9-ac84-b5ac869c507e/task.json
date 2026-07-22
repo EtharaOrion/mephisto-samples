@@ -12,7 +12,7 @@
     "image_tag": "88da03f7806f"
   },
   "name": "Chicago Building-Code Enforcement Targeting",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

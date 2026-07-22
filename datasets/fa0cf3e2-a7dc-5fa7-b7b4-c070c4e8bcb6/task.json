@@ -12,7 +12,7 @@
     "image_tag": "0c1180e5f131"
   },
   "name": "SEC Balance-Sheet Leverage-Distress Triage Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

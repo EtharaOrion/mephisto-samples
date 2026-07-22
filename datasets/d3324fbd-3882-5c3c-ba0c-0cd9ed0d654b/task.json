@@ -12,7 +12,7 @@
     "image_tag": "f9d7df9c9792"
   },
   "name": "Direct-Loan Disbursement-Growth Provisioning",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

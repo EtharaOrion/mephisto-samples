@@ -12,7 +12,7 @@
     "image_tag": "ffeb725b7b95"
   },
   "name": "NYC Restaurant Closure-Risk Breach-Triage Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

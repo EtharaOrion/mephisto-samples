@@ -12,7 +12,7 @@
     "image_tag": "30ad293f1f18"
   },
   "name": "Pell Disbursement-Growth Provisioning",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

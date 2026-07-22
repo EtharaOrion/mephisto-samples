@@ -12,7 +12,7 @@
     "image_tag": "aa54b42810bd"
   },
   "name": "Direct-Loan Disbursement-Collapse Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

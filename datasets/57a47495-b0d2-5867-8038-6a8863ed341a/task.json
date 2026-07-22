@@ -12,7 +12,7 @@
     "image_tag": "31836970470b"
   },
   "name": "Food-Safety Inspection-Targeting Book (Montgomery County)",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

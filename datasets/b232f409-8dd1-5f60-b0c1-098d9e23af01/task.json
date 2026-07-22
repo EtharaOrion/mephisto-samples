@@ -12,7 +12,7 @@
     "image_tag": "4f945c5474af"
   },
   "name": "TX School-Meal Participation-Shortfall Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

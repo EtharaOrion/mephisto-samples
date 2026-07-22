@@ -12,7 +12,7 @@
     "image_tag": "a55ad14b661e"
   },
   "name": "TX Mixed-Beverage Receipt-Growth Book",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",

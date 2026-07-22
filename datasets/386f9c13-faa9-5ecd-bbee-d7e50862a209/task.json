@@ -12,7 +12,7 @@
     "image_tag": "536be42ce608"
   },
   "name": "Fund-Liquidity Breach-Triage Watchlist",
-  "platform": "linux/amd64",
+  "platform": "linux/amd64,linux/arm64",
   "submit_exclude": [
     "data/",
     "check.py",
