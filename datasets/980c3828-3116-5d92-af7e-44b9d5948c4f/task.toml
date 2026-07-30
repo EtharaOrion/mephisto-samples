@@ -1,0 +1,69 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/txmeal_participation_outreach"
+description = "School-Meal Participation Outreach Allocation"
+authors = ["EdgeBench"]
+keywords = [
+    "professional-knowledge-work",
+    "txmeal",
+    "participation",
+    "outreach",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.txmeal_participation_outreach:14e0e29c1cff"
+network_mode = "no-network"
+workdir = "/home/workspace/outreach"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.txmeal_participation_outreach:14e0e29c1cff"
+network_mode = "no-network"
+workdir = "/home/workspace/outreach"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "txmeal_participation_outreach"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "txmeal_scorer.py",
+    "gate.py",
+    "constraints.json",
+    "anchors_public.json",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "14e0e29c1cff"
+judge_image_tag = "14e0e29c1cff"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "Texas Dept of Agriculture, Food & Nutrition Division (data.texas.gov Socrata)"
+data_license = "Texas open data (data.texas.gov); build docstring says 'public' without an explicit licenseId. PUBLIC_DOMAIN confirmed for the same TDA carrier in the sibling txmeal_participation_shortfall_watchlist."
+license_class = "tx-open-data"
+license_confidence = "medium"
+provenance_flags = ["licence-cite-soft"]
+provenance_source = "seed/build_bundle_txmeal.py docstring; sibling seed/build_bundle_txmeal_watch.py; authored date: memory/ledger.yaml inventory"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-18"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

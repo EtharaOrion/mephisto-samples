@@ -1,0 +1,45 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/bank_supervisory_watchlist"
+description = "Bank Counterparty Breach-Triage Watchlist"
+authors = ["EdgeBench"]
+keywords = ["watchlist", "professional-knowledge-work", "supervisory", "risk-triage"]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.bank_supervisory_watchlist:bd1bc21c648c"
+network_mode = "no-network"
+workdir = "/home/workspace/watchlist"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.bank_supervisory_watchlist:bd92b9cb8f93"
+network_mode = "no-network"
+workdir = "/home/workspace/watchlist"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "bank_supervisory_watchlist"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "watchlist_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "bd1bc21c648c"
+judge_image_tag = "bd92b9cb8f93"

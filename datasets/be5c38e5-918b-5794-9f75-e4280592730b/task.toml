@@ -1,0 +1,68 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/fdic_bank_credit_surveillance"
+description = "Bank Counterparty Credit Surveillance Book"
+authors = ["EdgeBench"]
+keywords = [
+    "professional-knowledge-work",
+    "fdic",
+    "bank",
+    "credit",
+    "surveillance",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fdic_bank_credit_surveillance:42865b1ff7fd"
+network_mode = "no-network"
+workdir = "/home/workspace/credit"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fdic_bank_credit_surveillance:4a78d926f2be"
+network_mode = "no-network"
+workdir = "/home/workspace/credit"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "fdic_bank_credit_surveillance"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "credit_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "42865b1ff7fd"
+judge_image_tag = "4a78d926f2be"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "FDIC / FFIEC bank Call Reports (fdic.gov)"
+data_license = "US Government work, public domain (17 USC 105)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+provenance_flags = []
+provenance_source = "seed/build_bundle_fdic.py docstring; authored date: memory/ledger.yaml inventory"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-17"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

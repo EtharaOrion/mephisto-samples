@@ -1,0 +1,67 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/dl_disbursement_collapse_watchlist"
+description = "Direct-Loan Disbursement-Collapse Watchlist"
+authors = ["EdgeBench"]
+keywords = [
+    "professional-knowledge-work",
+    "disbursement",
+    "collapse",
+    "watchlist",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.dl_disbursement_collapse_watchlist:50802db81a75"
+network_mode = "no-network"
+workdir = "/home/workspace/dl_watch"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.dl_disbursement_collapse_watchlist:50802db81a75"
+network_mode = "no-network"
+workdir = "/home/workspace/dl_watch"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "dl_disbursement_collapse_watchlist"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "dl_watch_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "50802db81a75"
+judge_image_tag = "50802db81a75"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "Federal Student Aid 'Federal Direct Loan Volume by School' (FSA Data Center)"
+data_license = "US Government work, public domain (17 USC 105)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+provenance_flags = []
+provenance_source = "seed/build_bundle_dl_disbursement_collapse_watchlist.py docstring; authored date: memory/ledger.yaml inventory"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-19"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

@@ -1,0 +1,83 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/cms_hospital_readmission_watchlist"
+description = "CMS Hospital 30-day HF-Readmission Surge Watchlist (top-15%% ERR-delta surge over the CMS provider-data hospitals HRRP + HAC public files, FY_2025 -> FY_2026 window)"
+authors = ["Ethara.AI Mephisto"]
+keywords = [
+    "professional-knowledge-work",
+    "hospital-quality",
+    "readmission",
+    "heart-failure",
+    "hrrp",
+    "hac",
+    "surveillance",
+    "watchlist",
+    "cms",
+    "provider-data",
+    "surge",
+    "delta",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.cms_hospital_readmission_watchlist:f372867cb6c5"
+network_mode = "no-network"
+workdir = "/home/workspace/cms_hospital_readmission_watchlist"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cms_hospital_readmission_watchlist:f372867cb6c5"
+network_mode = "no-network"
+workdir = "/home/workspace/cms_hospital_readmission_watchlist"
+
+[extensions.sforge]
+task_id = "cms_hospital_readmission_watchlist"
+base_image = "python310"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "REPORT.md",
+    "TRUTH.md",
+    "cms_hospital_readmission_watchlist_scorer.py",
+    "reference.py",
+    "calibrate.py",
+    "build_panel.py",
+    "judge_constants.yaml",
+    "rubric.yaml",
+    "tests/",
+    "gate.py",
+    "constraints.json",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "f372867cb6c5"
+judge_image_tag = "f372867cb6c5"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "CMS provider-data (hospitals): HRRP FY_2025 disclosure (2025-11-26) + HRRP FY_2026 disclosure (2026-05-13) + HAC FY_2025 composite (data.cms.gov)"
+data_license = "CC0 public-domain, CMS provider-data (hospitals; HRRP + HAC)"
+license_class = "us-gov"
+license_confidence = "high"
+provenance_flags = ["hold:pilot_required", "hold:adversarial_probe_fail"]
+provenance_source = "seed/build/cms_hospital_readmission_watchlist/{contract.yaml, README.md, HANDOFF-TO-SNEHIL.md}; author-pass 2026-07-26"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-26"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

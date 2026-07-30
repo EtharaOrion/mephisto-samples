@@ -1,0 +1,68 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/crates_dependency_abandonment_watchlist"
+description = "crates.io Dependency-Abandonment Breach-Triage Watchlist"
+authors = ["EdgeBench"]
+keywords = [
+    "professional-knowledge-work",
+    "crates",
+    "dependency",
+    "abandonment",
+    "watchlist",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.crates_dependency_abandonment_watchlist:3408b1b47a59"
+network_mode = "no-network"
+workdir = "/home/workspace/crates_abandon"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.crates_dependency_abandonment_watchlist:3408b1b47a59"
+network_mode = "no-network"
+workdir = "/home/workspace/crates_abandon"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "crates_dependency_abandonment_watchlist"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "abandon_lib.py",
+    "gate.py",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "3408b1b47a59"
+judge_image_tag = "3408b1b47a59"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "crates.io / static.crates.io db-dump (Rust Foundation)"
+data_license = "crates.io Data Access Policy: db-dump is the official public bulk-access channel, no rate limit, no auth, no copyright assertion or redistribution bar; only non-copyrightable facts lifted (crate name + version publish timestamp), Feist v. Rural. kill_gates.licence PASS_REDISTRIBUTABLE."
+license_class = "redistributable-facts-only"
+license_confidence = "high"
+provenance_flags = []
+provenance_source = "seed/contract.yaml kill_gates.licence (live crates contract)"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-22"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

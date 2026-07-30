@@ -1,0 +1,70 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/chicago_food_inspection_targeting"
+description = "Chicago Food-Establishment Inspection Targeting"
+authors = ["EdgeBench"]
+keywords = [
+    "professional-knowledge-work",
+    "chicago",
+    "food",
+    "inspection",
+    "targeting",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.chicago_food_inspection_targeting:8806639b9af8"
+network_mode = "no-network"
+workdir = "/home/workspace/targeting"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.chicago_food_inspection_targeting:8806639b9af8"
+network_mode = "no-network"
+workdir = "/home/workspace/targeting"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "chicago_food_inspection_targeting"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "README.md",
+    "chicago_scorer.py",
+    "gate.py",
+    "constraints.json",
+    "anchors_public.json",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "8806639b9af8"
+judge_image_tag = "8806639b9af8"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "Chicago Data Portal Food Inspections (Socrata 4ijn-s7e5)"
+data_license = "City of Chicago Data Portal Terms of Use: open municipal data for public display, distribution and use (harvested to catalog.data.gov); redistributable, NOT formally stamped public domain (the City reserves a right to require termination of use). Same portal/terms as chicago_building_code_book and chicago_taxi_revenue_book."
+license_class = "muni-open-data-redistributable"
+license_confidence = "high"
+provenance_flags = ["redistributable-not-public-domain"]
+provenance_source = "seed/build_bundle_chicago_food.py docstring; corrected licence class to match portal-siblings chicago_building_code_book and chicago_taxi (same Chicago Data Portal Terms of Use); authored date: memory/ledger.yaml inventory"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-18"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""

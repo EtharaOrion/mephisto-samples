@@ -1,0 +1,93 @@
+schema_version = "1.4"
+
+# Harbor task.toml scaffold for sec_earnings_surprise_book.
+# TOMBSTONES (Snehil fills at image bake):
+#   - docker_image work  -> PENDING-IMAGE-BUILD-work  (retag to ECR mephisto/edgebench.work.sec_earnings_surprise_book:<tag>)
+#   - docker_image judge -> PENDING-IMAGE-BUILD-judge (retag to ECR mephisto/edgebench.judge.sec_earnings_surprise_book:<tag>)
+#   - work_image_tag / judge_image_tag -> the short digest Snehil bakes
+# After Snehil assigns UUID, this file lands at dataset/<uuid>/task.toml.
+
+[task]
+name = "edgebench/sec_earnings_surprise_book"
+description = "SEC Earnings-Surprise Book (mid-cap Q4->Q1 diluted-EPS delta, bucket-normalized to within-boundary-decile rank)"
+authors = ["Ethara.AI Mephisto"]
+keywords = [
+    "professional-knowledge-work",
+    "equity-research",
+    "earnings-surprise",
+    "sec-edgar",
+    "xbrl",
+    "eps",
+    "allocation-book",
+    "bucket-normalization",
+    "surveillance",
+]
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.sec_earnings_surprise_book:9734033a9a25"
+network_mode = "no-network"
+workdir = "/home/workspace/sec_earnings_surprise"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.sec_earnings_surprise_book:9734033a9a25"
+network_mode = "no-network"
+workdir = "/home/workspace/sec_earnings_surprise"
+
+# Fields Harbor's task.toml cannot express; consumed by harness/sforge/harness/harbor_loader.py.
+[extensions.sforge]
+task_id = "sec_earnings_surprise_book"
+base_image = "python310"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/"]
+submit_exclude = [
+    "data/",
+    "check.py",
+    "gate.py",
+    "README.md",
+    "REPORT.md",
+    "TRUTH.md",
+    "sec_earnings_surprise_book_scorer.py",
+    "calibrate.py",
+    "strong_solver.py",
+    "eps_data.py",
+    "emit_tables.py",
+    "fetch_frames.py",
+    "strong_scores.json",
+    "calibration_results.json",
+    "judge_constants.yaml",
+    "constraints.json",
+    "frames/",
+    "rubric.yaml",
+    "tests/",
+    "__pycache__/",
+    "*.pyc",
+]
+work_image_tag = "9734033a9a25"
+judge_image_tag = "9734033a9a25"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "SEC EDGAR XBRL frames API — data.sec.gov; us-gaap:EarningsPerShareDiluted (USD-per-shares)"
+data_license = "Public, US Gov works (17 USC 105)"
+license_class = "us-gov"
+license_confidence = "high"
+provenance_flags = ["hold:pilot_required", "hold:adversarial_probe_fail"]
+provenance_source = "seed/build/sec_earnings_surprise_book/REPORT.md; author-pass 2026-07-26; family DERIVED from sec_leverage_expansion_book (within-decile-rank normalization, not raw magnitude)"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-07-26"
+asserts_no_upstream_lift = true
+upstream_identity = ""
+upstream_license = ""
+modifications = ""
