@@ -1,0 +1,5 @@
+bucket,asset_thousands_lo,asset_thousands_hi,description
+community,0,1000000,Community banks (<$1B assets)
+mid,1000000,10000000,Mid-size banks ($1B-$10B assets)
+regional,10000000,100000000,Regional banks ($10B-$100B assets)
+large,100000000,10000000000,Large / SIFI banks (>$100B assets)

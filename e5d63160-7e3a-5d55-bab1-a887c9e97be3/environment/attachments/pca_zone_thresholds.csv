@@ -1,0 +1,6 @@
+zone,total_rbc_pct_ge,tier1_rwa_pct_ge,tier1_leverage_pct_ge,regulatory_reference
+well_capitalized,10.0,6.0,5.0,12 CFR § 6.4 (PCA capital categories)
+adequately_capitalized,8.0,4.5,4.0,12 CFR § 6.4 (PCA capital categories)
+undercapitalized,6.0,4.0,3.0,12 CFR § 6.4 (PCA capital categories)
+significantly_under,2.0,3.0,3.0,12 CFR § 6.4 (PCA capital categories)
+critically_under,0.0,0.0,0.0,12 CFR § 6.4 (PCA capital categories)

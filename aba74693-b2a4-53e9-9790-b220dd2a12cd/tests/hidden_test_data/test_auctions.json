@@ -1,0 +1,485 @@
+{
+  "auctions": [
+    {
+      "auction_id": "a0001",
+      "cusip": "91282CMF5",
+      "auctionDate": "2025-01-06",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0002",
+      "cusip": "91282CLW9",
+      "auctionDate": "2025-01-07",
+      "securityType": "Note",
+      "securityTerm": "9-Year 10-Month",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0003",
+      "cusip": "912810UE6",
+      "auctionDate": "2025-01-08",
+      "securityType": "Bond",
+      "securityTerm": "29-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0004",
+      "cusip": "912810UF3",
+      "auctionDate": "2025-01-22",
+      "securityType": "Bond",
+      "securityTerm": "19-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0005",
+      "cusip": "91282CMG3",
+      "auctionDate": "2025-01-27",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0006",
+      "cusip": "91282CMH1",
+      "auctionDate": "2025-01-27",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0007",
+      "cusip": "91282CMK4",
+      "auctionDate": "2025-01-28",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0008",
+      "cusip": "91282CMN8",
+      "auctionDate": "2025-02-11",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0009",
+      "cusip": "91282CMP3",
+      "auctionDate": "2025-02-24",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0010",
+      "cusip": "91282CGQ8",
+      "auctionDate": "2025-02-25",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0011",
+      "cusip": "91282CMR9",
+      "auctionDate": "2025-02-26",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0012",
+      "cusip": "91282CMS7",
+      "auctionDate": "2025-03-11",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0013",
+      "cusip": "91282CMV0",
+      "auctionDate": "2025-03-25",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0014",
+      "cusip": "91282CMU2",
+      "auctionDate": "2025-03-26",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0015",
+      "cusip": "91282CMT5",
+      "auctionDate": "2025-03-27",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0016",
+      "cusip": "91282CMW8",
+      "auctionDate": "2025-04-08",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0017",
+      "cusip": "91282CMM0",
+      "auctionDate": "2025-04-09",
+      "securityType": "Note",
+      "securityTerm": "9-Year 10-Month",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0018",
+      "cusip": "912810UG1",
+      "auctionDate": "2025-04-10",
+      "securityType": "Bond",
+      "securityTerm": "29-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0019",
+      "cusip": "912810UJ5",
+      "auctionDate": "2025-04-16",
+      "securityType": "Bond",
+      "securityTerm": "19-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0020",
+      "cusip": "91282CMY4",
+      "auctionDate": "2025-04-22",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0021",
+      "cusip": "91282CMZ1",
+      "auctionDate": "2025-04-23",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0022",
+      "cusip": "91282CNA5",
+      "auctionDate": "2025-04-24",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0023",
+      "cusip": "91282CND9",
+      "auctionDate": "2025-05-05",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0024",
+      "cusip": "91282CNE7",
+      "auctionDate": "2025-05-27",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0025",
+      "cusip": "91282CNG2",
+      "auctionDate": "2025-05-28",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0026",
+      "cusip": "91282CNF4",
+      "auctionDate": "2025-05-29",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0027",
+      "cusip": "91282CNH0",
+      "auctionDate": "2025-06-10",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0028",
+      "cusip": "91282CNL1",
+      "auctionDate": "2025-06-24",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0029",
+      "cusip": "91282CNK3",
+      "auctionDate": "2025-06-25",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0030",
+      "cusip": "91282CNJ6",
+      "auctionDate": "2025-06-26",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0031",
+      "cusip": "91282CNM9",
+      "auctionDate": "2025-07-08",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0032",
+      "cusip": "91282CNC1",
+      "auctionDate": "2025-07-09",
+      "securityType": "Note",
+      "securityTerm": "9-Year 10-Month",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0033",
+      "cusip": "912810UK2",
+      "auctionDate": "2025-07-10",
+      "securityType": "Bond",
+      "securityTerm": "29-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0034",
+      "cusip": "912810UL0",
+      "auctionDate": "2025-07-23",
+      "securityType": "Bond",
+      "securityTerm": "19-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0035",
+      "cusip": "91282CNN7",
+      "auctionDate": "2025-07-28",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0036",
+      "cusip": "91282CNP2",
+      "auctionDate": "2025-07-28",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0037",
+      "cusip": "91282CNR8",
+      "auctionDate": "2025-07-29",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0038",
+      "cusip": "91282CNU1",
+      "auctionDate": "2025-08-05",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0039",
+      "cusip": "91282CNV9",
+      "auctionDate": "2025-08-26",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0040",
+      "cusip": "91282CNX5",
+      "auctionDate": "2025-08-27",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0041",
+      "cusip": "91282CNW7",
+      "auctionDate": "2025-08-28",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0042",
+      "cusip": "91282CNY3",
+      "auctionDate": "2025-09-09",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0043",
+      "cusip": "91282CPB1",
+      "auctionDate": "2025-09-23",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0044",
+      "cusip": "91282CPA3",
+      "auctionDate": "2025-09-24",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0045",
+      "cusip": "91282CNZ0",
+      "auctionDate": "2025-09-25",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0046",
+      "cusip": "91282CPC9",
+      "auctionDate": "2025-10-07",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0047",
+      "cusip": "91282CNT4",
+      "auctionDate": "2025-10-08",
+      "securityType": "Note",
+      "securityTerm": "9-Year 10-Month",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0048",
+      "cusip": "912810UM8",
+      "auctionDate": "2025-10-09",
+      "securityType": "Bond",
+      "securityTerm": "29-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0049",
+      "cusip": "912810UN6",
+      "auctionDate": "2025-10-22",
+      "securityType": "Bond",
+      "securityTerm": "19-Year 10-Month",
+      "tenor_years": 20.0
+    },
+    {
+      "auction_id": "a0050",
+      "cusip": "91282CPD7",
+      "auctionDate": "2025-10-27",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0051",
+      "cusip": "91282CPE5",
+      "auctionDate": "2025-10-27",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0052",
+      "cusip": "91282CPF2",
+      "auctionDate": "2025-10-28",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0053",
+      "cusip": "91282CPK1",
+      "auctionDate": "2025-11-10",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0054",
+      "cusip": "91282CPL9",
+      "auctionDate": "2025-11-24",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0055",
+      "cusip": "91282CPN5",
+      "auctionDate": "2025-11-25",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0056",
+      "cusip": "91282CPM7",
+      "auctionDate": "2025-11-26",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    },
+    {
+      "auction_id": "a0057",
+      "cusip": "91282CPP0",
+      "auctionDate": "2025-12-08",
+      "securityType": "Note",
+      "securityTerm": "3-Year",
+      "tenor_years": 3.0
+    },
+    {
+      "auction_id": "a0058",
+      "cusip": "91282CPS4",
+      "auctionDate": "2025-12-22",
+      "securityType": "Note",
+      "securityTerm": "2-Year",
+      "tenor_years": 2.0
+    },
+    {
+      "auction_id": "a0059",
+      "cusip": "91282CPR6",
+      "auctionDate": "2025-12-23",
+      "securityType": "Note",
+      "securityTerm": "5-Year",
+      "tenor_years": 5.0
+    },
+    {
+      "auction_id": "a0060",
+      "cusip": "91282CPQ8",
+      "auctionDate": "2025-12-24",
+      "securityType": "Note",
+      "securityTerm": "7-Year",
+      "tenor_years": 7.0
+    }
+  ],
+  "count": 60
+}

@@ -1,0 +1,9 @@
+2026-07-31 03:06:39,369 - INFO - Judge container started: 26c8a284ba960031623f3eb5758c35b4ab8564bf4fa27c84918d22a577624f32
+2026-07-31 03:06:39,370 - INFO - Archive saved (1680678 bytes)
+2026-07-31 03:06:39,598 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
+2026-07-31 03:06:39,617 - INFO - Running eval script...
+2026-07-31 03:06:58,908 - INFO - Test runtime: 19.29s, timed_out: False
+2026-07-31 03:06:58,908 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-07-31 03:06:58,908 - INFO - Stopping container edgebench.judge.fdic_bank_capital_projection_book.8e986712f638...
+2026-07-31 03:06:59,359 - INFO - Removing container edgebench.judge.fdic_bank_capital_projection_book.8e986712f638...
+2026-07-31 03:06:59,371 - INFO - Container edgebench.judge.fdic_bank_capital_projection_book.8e986712f638 removed.

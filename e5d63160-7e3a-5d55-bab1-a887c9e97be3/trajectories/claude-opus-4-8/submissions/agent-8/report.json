@@ -1,0 +1,19 @@
+{
+  "task_id": "fdic_bank_capital_projection_book",
+  "submission_id": "2ed8f3e2cc23",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.398273,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 18.92713475227356,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785457386.7077894
+}

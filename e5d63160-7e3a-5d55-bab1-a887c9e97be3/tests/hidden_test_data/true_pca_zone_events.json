@@ -1,0 +1,2121 @@
+{
+  "events": [
+    {
+      "event_date": "20250630",
+      "cert": 1022,
+      "name": "CLARE BANK NATIONAL ASSN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 26.3071
+    },
+    {
+      "event_date": "20250630",
+      "cert": 2308,
+      "name": "WASHITA VALLEY BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 18.3113
+    },
+    {
+      "event_date": "20250630",
+      "cert": 3144,
+      "name": "CITY NB OF COLORADO CITY",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 3161,
+      "name": "TEXAS HERITAGE NATIONAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8975
+    },
+    {
+      "event_date": "20250630",
+      "cert": 3320,
+      "name": "BIG BEND BANKS N A",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 28.4822
+    },
+    {
+      "event_date": "20250630",
+      "cert": 3818,
+      "name": "FIRST B&T CO OF MURPHYSBORO",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.8171
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4087,
+      "name": "BANK OF WESTERN OKLAHOMA",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.6849
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4160,
+      "name": "REGENT BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8545
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4217,
+      "name": "COMMUNITY BANK OF OKLAHOMA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.6418
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4549,
+      "name": "CNB ST LOUIS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1161
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4621,
+      "name": "FARMERS BANK&TRUST",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.0319
+    },
+    {
+      "event_date": "20250630",
+      "cert": 4775,
+      "name": "PRAIRIE BANK OF KANSAS",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.8068
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5095,
+      "name": "STAR BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.6729
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5110,
+      "name": "WESTERN NATIONAL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 26.3381
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5131,
+      "name": "WESTERN NATIONAL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.5508
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5377,
+      "name": "FARMERS&MERCHANTS BK ASHLAND",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5619,
+      "name": "COMMUNITY STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5722,
+      "name": "PHILO EXCHANGE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 5821,
+      "name": "FIRST STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 6101,
+      "name": "DECATUR COUNTY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1514
+    },
+    {
+      "event_date": "20250630",
+      "cert": 6623,
+      "name": "LCNB NATIONAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2105
+    },
+    {
+      "event_date": "20250630",
+      "cert": 8207,
+      "name": "PRAIRIE SUN BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.919
+    },
+    {
+      "event_date": "20250630",
+      "cert": 8857,
+      "name": "GROVE BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 12.433
+    },
+    {
+      "event_date": "20250630",
+      "cert": 9121,
+      "name": "STATE BANK OF BOTTINEAU",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9618
+    },
+    {
+      "event_date": "20250630",
+      "cert": 9332,
+      "name": "BANK OF MAPLE PLAIN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 26.1358
+    },
+    {
+      "event_date": "20250630",
+      "cert": 9388,
+      "name": "CORNER STONE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 9822,
+      "name": "STATE BANK OF TABLE ROCK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10011,
+      "name": "WOODFORD STATE BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2203
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10169,
+      "name": "SHERBURNE STATE BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0574
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10437,
+      "name": "FIRST STATE BANK OF OLMSTED",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10463,
+      "name": "MIDDLETOWN STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.4924
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10471,
+      "name": "CAMP GROVE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10492,
+      "name": "FARMERS&MERCHANTS SB",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 17.0899
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10641,
+      "name": "RIVERSTONE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 10903,
+      "name": "CENTRAL STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.4584
+    },
+    {
+      "event_date": "20250630",
+      "cert": 11343,
+      "name": "ASHTON STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 11763,
+      "name": "VISIONBANK OF IOWA",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2585
+    },
+    {
+      "event_date": "20250630",
+      "cert": 11767,
+      "name": "FREEDOMBANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.3584
+    },
+    {
+      "event_date": "20250630",
+      "cert": 11810,
+      "name": "HURON COMMUNITY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 12383,
+      "name": "CARROLLTON BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0522
+    },
+    {
+      "event_date": "20250630",
+      "cert": 12722,
+      "name": "SICILY ISLAND STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 12758,
+      "name": "FARMERS STB ALLEN OKLAHOMA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 16.9583
+    },
+    {
+      "event_date": "20250630",
+      "cert": 13905,
+      "name": "FIRST TEXOMA NATIONAL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 16.7122
+    },
+    {
+      "event_date": "20250630",
+      "cert": 15270,
+      "name": "MERIT BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 11.7118
+    },
+    {
+      "event_date": "20250630",
+      "cert": 15496,
+      "name": "FIRST STATE BANK OF BLAKELY",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 15510,
+      "name": "AMERISTATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 12.1787
+    },
+    {
+      "event_date": "20250630",
+      "cert": 15545,
+      "name": "FRONTIER BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9566
+    },
+    {
+      "event_date": "20250630",
+      "cert": 15555,
+      "name": "CENTRAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.4579
+    },
+    {
+      "event_date": "20250630",
+      "cert": 16339,
+      "name": "TRI-COUNTY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 16561,
+      "name": "STATE BANK OF EASTON",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 19.6403
+    },
+    {
+      "event_date": "20250630",
+      "cert": 16900,
+      "name": "PRINCEVILLE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 16953,
+      "name": "BANK OF CLARKS",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9011
+    },
+    {
+      "event_date": "20250630",
+      "cert": 17211,
+      "name": "CITIZENS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1778
+    },
+    {
+      "event_date": "20250630",
+      "cert": 18641,
+      "name": "FIRST B&T CO OF ILLINOIS",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 18677,
+      "name": "VICTORY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 20164,
+      "name": "SUNWEST BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.034
+    },
+    {
+      "event_date": "20250630",
+      "cert": 21284,
+      "name": "BANK OF PENSACOLA",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 23220,
+      "name": "WOODFOREST NATIONAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0144
+    },
+    {
+      "event_date": "20250630",
+      "cert": 23404,
+      "name": "EVERGREEN NATIONAL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 17.968
+    },
+    {
+      "event_date": "20250630",
+      "cert": 25796,
+      "name": "COMMUNITY B&T WEST GEORGIA",
+      "kind": "adequately_capitalized_to_significantly_under",
+      "tier1_pct": 5.6425
+    },
+    {
+      "event_date": "20250630",
+      "cert": 26620,
+      "name": "READING COOP BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.819
+    },
+    {
+      "event_date": "20250630",
+      "cert": 28722,
+      "name": "KENTLAND FS&LA",
+      "kind": "undercapitalized_to_well_capitalized",
+      "tier1_pct": 19.9308
+    },
+    {
+      "event_date": "20250630",
+      "cert": 29186,
+      "name": "LAWRENCEBURG FEDERAL BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 29379,
+      "name": "SIDNEY FS&LA",
+      "kind": "significantly_under_to_well_capitalized",
+      "tier1_pct": 51.1678
+    },
+    {
+      "event_date": "20250630",
+      "cert": 29696,
+      "name": "BUFFALO FEDERAL BANK",
+      "kind": "adequately_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 29809,
+      "name": "FIRST SB OF HEGEWISCH",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 37.6744
+    },
+    {
+      "event_date": "20250630",
+      "cert": 30039,
+      "name": "HAVEN SAVINGS BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 12.9668
+    },
+    {
+      "event_date": "20250630",
+      "cert": 33802,
+      "name": "TIOGA-FRANKLIN SAVINGS BANK",
+      "kind": "undercapitalized_to_significantly_under",
+      "tier1_pct": 5.8487
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34460,
+      "name": "MILLENNIAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.324
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34644,
+      "name": "KEY COMMUNITY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2487
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34728,
+      "name": "INDEPENDENT BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8227
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34778,
+      "name": "FIRST TRUST BANK OF ILLINOIS",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34857,
+      "name": "COMMUNITY BANK OF OELWEIN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 34997,
+      "name": "BAYFIRST NATIONAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9771
+    },
+    {
+      "event_date": "20250630",
+      "cert": 35019,
+      "name": "CURRENCY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 35276,
+      "name": "FREEDOM BANK OF SOUTHERN MO",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.7891
+    },
+    {
+      "event_date": "20250630",
+      "cert": 35477,
+      "name": "CITIZENS FIRST BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9976
+    },
+    {
+      "event_date": "20250630",
+      "cert": 57488,
+      "name": "METROPOLITAN CAPITAL B&T",
+      "kind": "undercapitalized_to_significantly_under",
+      "tier1_pct": 5.9854
+    },
+    {
+      "event_date": "20250630",
+      "cert": 57892,
+      "name": "VISIONBANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1302
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58018,
+      "name": "ST LOUIS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1937
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58057,
+      "name": "TRADITION CAPITAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9411
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58324,
+      "name": "LONE STAR BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58377,
+      "name": "CENTRAL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.3516
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58407,
+      "name": "UNIBANK",
+      "kind": "undercapitalized_to_adequately_capitalized",
+      "tier1_pct": 9.2179
+    },
+    {
+      "event_date": "20250630",
+      "cert": 58534,
+      "name": "SOLERA NATIONAL BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250630",
+      "cert": 59138,
+      "name": "MI BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.3108
+    },
+    {
+      "event_date": "20250630",
+      "cert": 59143,
+      "name": "NEW VALLEY BANK&TRUST",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0986
+    },
+    {
+      "event_date": "20250630",
+      "cert": 59273,
+      "name": "GAINEY BUSINESS BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.1575
+    },
+    {
+      "event_date": "20250930",
+      "cert": 899,
+      "name": "GERBER STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 1022,
+      "name": "CLARE BANK NATIONAL ASSN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 1639,
+      "name": "FCNB BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3598
+    },
+    {
+      "event_date": "20250930",
+      "cert": 1833,
+      "name": "STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 1865,
+      "name": "KANSAS STB OVERBROOK KANSAS",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 1900,
+      "name": "FIRST INDEPENDENT BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9864
+    },
+    {
+      "event_date": "20250930",
+      "cert": 2290,
+      "name": "FARMERS SAVINGS BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 53.3071
+    },
+    {
+      "event_date": "20250930",
+      "cert": 2308,
+      "name": "WASHITA VALLEY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 3161,
+      "name": "TEXAS HERITAGE NATIONAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3672
+    },
+    {
+      "event_date": "20250930",
+      "cert": 3320,
+      "name": "BIG BEND BANKS N A",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 3579,
+      "name": "FIRST NB OF MOUNT DORA",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 3719,
+      "name": "AMERICAN COMMERCIAL B&T NA",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1546
+    },
+    {
+      "event_date": "20250930",
+      "cert": 3787,
+      "name": "DIETERICH BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9154
+    },
+    {
+      "event_date": "20250930",
+      "cert": 4122,
+      "name": "1ST BANK IN HOMINY",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 4144,
+      "name": "FARMERS&MERCHANTS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 4217,
+      "name": "COMMUNITY BANK OF OKLAHOMA",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 4549,
+      "name": "CNB ST LOUIS BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9358
+    },
+    {
+      "event_date": "20250930",
+      "cert": 4683,
+      "name": "VISTA NATIONAL BANK&TRUST",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 5097,
+      "name": "FIRST BANK BLUE EARTH",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 12.1083
+    },
+    {
+      "event_date": "20250930",
+      "cert": 5116,
+      "name": "GRANITE BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.274
+    },
+    {
+      "event_date": "20250930",
+      "cert": 5336,
+      "name": "PILLAR BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 5496,
+      "name": "CORNERSTONE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 5749,
+      "name": "FORESIGHT BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.5844
+    },
+    {
+      "event_date": "20250930",
+      "cert": 6100,
+      "name": "LINEAGE BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.5878
+    },
+    {
+      "event_date": "20250930",
+      "cert": 6101,
+      "name": "DECATUR COUNTY BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9099
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8110,
+      "name": "KENDALL BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.34
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8207,
+      "name": "PRAIRIE SUN BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2099
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8387,
+      "name": "BANKNORTH",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9693
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8499,
+      "name": "UNION STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8503,
+      "name": "FARMERS STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8535,
+      "name": "FIRST COMMUNITY BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 16.3794
+    },
+    {
+      "event_date": "20250930",
+      "cert": 8865,
+      "name": "HERITAGE BANK MINNESOTA",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9622
+    },
+    {
+      "event_date": "20250930",
+      "cert": 9196,
+      "name": "HOME BANKING CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 9332,
+      "name": "BANK OF MAPLE PLAIN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 9388,
+      "name": "CORNER STONE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 18.7003
+    },
+    {
+      "event_date": "20250930",
+      "cert": 10015,
+      "name": "SECURITY BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.0559
+    },
+    {
+      "event_date": "20250930",
+      "cert": 10635,
+      "name": "BANK OF STEINAUER",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 16.3122
+    },
+    {
+      "event_date": "20250930",
+      "cert": 10903,
+      "name": "CENTRAL STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 11319,
+      "name": "LONGVIEW COMMUNITY BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.6584
+    },
+    {
+      "event_date": "20250930",
+      "cert": 11343,
+      "name": "ASHTON STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 18.9315
+    },
+    {
+      "event_date": "20250930",
+      "cert": 11750,
+      "name": "BANK OF KAMPSVILLE",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 39.1263
+    },
+    {
+      "event_date": "20250930",
+      "cert": 11862,
+      "name": "BANK OF BEAVER CITY",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 12139,
+      "name": "FORD COUNTY STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 12402,
+      "name": "EXCHANGE STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.3306
+    },
+    {
+      "event_date": "20250930",
+      "cert": 12758,
+      "name": "FARMERS STB ALLEN OKLAHOMA",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 13584,
+      "name": "TAMPA STATE BANK",
+      "kind": "well_capitalized_to_undercapitalized",
+      "tier1_pct": 6.7271
+    },
+    {
+      "event_date": "20250930",
+      "cert": 13794,
+      "name": "MCINTOSH COUNTY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 13905,
+      "name": "FIRST TEXOMA NATIONAL BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 13951,
+      "name": "COMMUNITY BANK OF LOUISIANA",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 14026,
+      "name": "SCRIBNER BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 14291,
+      "name": "BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.6548
+    },
+    {
+      "event_date": "20250930",
+      "cert": 14349,
+      "name": "BANK OF SALEM",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 14410,
+      "name": "CITY STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 14705,
+      "name": "DEWITT BANK&TRUST CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 15010,
+      "name": "COLUMBUS BANK&TRUST CO",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.5278
+    },
+    {
+      "event_date": "20250930",
+      "cert": 15101,
+      "name": "SENATH STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 32.5348
+    },
+    {
+      "event_date": "20250930",
+      "cert": 15164,
+      "name": "FARMERS STB OF WESTMORELAND",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.3087
+    },
+    {
+      "event_date": "20250930",
+      "cert": 15478,
+      "name": "UNITED VALLEY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 15729,
+      "name": "PARTNERS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16094,
+      "name": "EXCHANGE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16111,
+      "name": "HIGHLAND BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8532
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16282,
+      "name": "BANK OF BEARDEN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 21.6999
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16448,
+      "name": "SECURITY STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 13.0856
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16916,
+      "name": "F&M BANK&TRUST CO",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 12.3694
+    },
+    {
+      "event_date": "20250930",
+      "cert": 16953,
+      "name": "BANK OF CLARKS",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.7963
+    },
+    {
+      "event_date": "20250930",
+      "cert": 17403,
+      "name": "HAVILAND STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.1878
+    },
+    {
+      "event_date": "20250930",
+      "cert": 17825,
+      "name": "BOELUS STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 18463,
+      "name": "HERITAGE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 17.4619
+    },
+    {
+      "event_date": "20250930",
+      "cert": 18930,
+      "name": "BANK OF BELLE GLADE",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 26.052
+    },
+    {
+      "event_date": "20250930",
+      "cert": 19123,
+      "name": "FIRST WESTERN BANK&TRUST",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 19349,
+      "name": "FIRST MISSOURI BANK OF SEMO",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.5191
+    },
+    {
+      "event_date": "20250930",
+      "cert": 19772,
+      "name": "INCREDIBLEBANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.4831
+    },
+    {
+      "event_date": "20250930",
+      "cert": 20776,
+      "name": "BORDER BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.93
+    },
+    {
+      "event_date": "20250930",
+      "cert": 22855,
+      "name": "OKLAHOMA HERITAGE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.2302
+    },
+    {
+      "event_date": "20250930",
+      "cert": 23404,
+      "name": "EVERGREEN NATIONAL BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 25054,
+      "name": "SUMMIT NATIONAL BANK",
+      "kind": "undercapitalized_to_significantly_under",
+      "tier1_pct": 5.3479
+    },
+    {
+      "event_date": "20250930",
+      "cert": 25750,
+      "name": "COMMUNITY BANK",
+      "kind": "critically_under_to_undercapitalized",
+      "tier1_pct": 7.4426
+    },
+    {
+      "event_date": "20250930",
+      "cert": 25796,
+      "name": "COMMUNITY B&T WEST GEORGIA",
+      "kind": "significantly_under_to_undercapitalized",
+      "tier1_pct": 7.8674
+    },
+    {
+      "event_date": "20250930",
+      "cert": 26358,
+      "name": "STATE BANK OF SOUTHWEST MO",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8944
+    },
+    {
+      "event_date": "20250930",
+      "cert": 26620,
+      "name": "READING COOP BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.439
+    },
+    {
+      "event_date": "20250930",
+      "cert": 26760,
+      "name": "GREEN BELT BANK&TRUST",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2335
+    },
+    {
+      "event_date": "20250930",
+      "cert": 27210,
+      "name": "INTERBANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1653
+    },
+    {
+      "event_date": "20250930",
+      "cert": 28266,
+      "name": "CONNECT COMMUNITY BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.7984
+    },
+    {
+      "event_date": "20250930",
+      "cert": 28722,
+      "name": "KENTLAND FS&LA",
+      "kind": "well_capitalized_to_undercapitalized",
+      "tier1_pct": 7.5013
+    },
+    {
+      "event_date": "20250930",
+      "cert": 28908,
+      "name": "IRON WORKERS SAVINGS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 29521,
+      "name": "FIDELITY FS&LA OF DELAWARE",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 29705,
+      "name": "FIRST FED CMTY BK OF BUCYRUS",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9555
+    },
+    {
+      "event_date": "20250930",
+      "cert": 29809,
+      "name": "FIRST SB OF HEGEWISCH",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 30152,
+      "name": "MILFORD BUILDING&LOAN ASSN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 24.3911
+    },
+    {
+      "event_date": "20250930",
+      "cert": 33802,
+      "name": "TIOGA-FRANKLIN SAVINGS BANK",
+      "kind": "significantly_under_to_undercapitalized",
+      "tier1_pct": 6.3267
+    },
+    {
+      "event_date": "20250930",
+      "cert": 34728,
+      "name": "INDEPENDENT BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2288
+    },
+    {
+      "event_date": "20250930",
+      "cert": 35276,
+      "name": "FREEDOM BANK OF SOUTHERN MO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 35543,
+      "name": "BANK OF FRANKLIN COUNTY",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57363,
+      "name": "CHEYENNE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57488,
+      "name": "METROPOLITAN CAPITAL B&T",
+      "kind": "significantly_under_to_undercapitalized",
+      "tier1_pct": 7.0552
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57624,
+      "name": "CLARION CNTY CMTY BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9183
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57884,
+      "name": "PARAMOUNT BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 14.6412
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57892,
+      "name": "VISIONBANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9213
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57953,
+      "name": "LEGACY NATIONAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.838
+    },
+    {
+      "event_date": "20250930",
+      "cert": 57974,
+      "name": "CALIFORNIA INTL BANK N A",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 58230,
+      "name": "FIRST MO STB OF CAPE COUNTY",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.5773
+    },
+    {
+      "event_date": "20250930",
+      "cert": 58481,
+      "name": "FIRST BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1543
+    },
+    {
+      "event_date": "20250930",
+      "cert": 58826,
+      "name": "REDSTONE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20250930",
+      "cert": 59106,
+      "name": "BEACON COMMUNITY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.477
+    },
+    {
+      "event_date": "20250930",
+      "cert": 59273,
+      "name": "GAINEY BUSINESS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 248,
+      "name": "STATE SAVINGS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2578
+    },
+    {
+      "event_date": "20251231",
+      "cert": 1022,
+      "name": "CLARE BANK NATIONAL ASSN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 24.4747
+    },
+    {
+      "event_date": "20251231",
+      "cert": 1528,
+      "name": "SOUTHERN BCORP BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 1900,
+      "name": "FIRST INDEPENDENT BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3136
+    },
+    {
+      "event_date": "20251231",
+      "cert": 2308,
+      "name": "WASHITA VALLEY BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 17.3299
+    },
+    {
+      "event_date": "20251231",
+      "cert": 2691,
+      "name": "CUMBERLAND VALLEY NB&T CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 3400,
+      "name": "TEXAS REPUBLIC BANK NA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.7722
+    },
+    {
+      "event_date": "20251231",
+      "cert": 3693,
+      "name": "LEMONT NATIONAL BANK",
+      "kind": "well_capitalized_to_undercapitalized",
+      "tier1_pct": 7.5622
+    },
+    {
+      "event_date": "20251231",
+      "cert": 3719,
+      "name": "AMERICAN COMMERCIAL B&T NA",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9941
+    },
+    {
+      "event_date": "20251231",
+      "cert": 3826,
+      "name": "FIRST NB OF OKAWVILLE",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 4087,
+      "name": "BANK OF WESTERN OKLAHOMA",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3595
+    },
+    {
+      "event_date": "20251231",
+      "cert": 4160,
+      "name": "REGENT BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.385
+    },
+    {
+      "event_date": "20251231",
+      "cert": 4549,
+      "name": "CNB ST LOUIS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3528
+    },
+    {
+      "event_date": "20251231",
+      "cert": 4621,
+      "name": "FARMERS BANK&TRUST",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 5095,
+      "name": "STAR BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2321
+    },
+    {
+      "event_date": "20251231",
+      "cert": 5097,
+      "name": "FIRST BANK BLUE EARTH",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 5116,
+      "name": "GRANITE BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8503
+    },
+    {
+      "event_date": "20251231",
+      "cert": 6101,
+      "name": "DECATUR COUNTY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 11.0099
+    },
+    {
+      "event_date": "20251231",
+      "cert": 8110,
+      "name": "KENDALL BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 8205,
+      "name": "AMERICANA COMMUNITY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 8252,
+      "name": "OMB BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0313
+    },
+    {
+      "event_date": "20251231",
+      "cert": 8322,
+      "name": "NEBRASKA STATE BANK&TRUST CO",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.0309
+    },
+    {
+      "event_date": "20251231",
+      "cert": 8387,
+      "name": "BANKNORTH",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.2436
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9024,
+      "name": "CALHOUN COUNTY BANK INC",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9100,
+      "name": "PILOT GROVE SAVINGS BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.01
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9121,
+      "name": "STATE BANK OF BOTTINEAU",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.4854
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9332,
+      "name": "BANK OF MAPLE PLAIN",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 28.5743
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9336,
+      "name": "BATTLE BANK NATIONAL ASSN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9388,
+      "name": "CORNER STONE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9462,
+      "name": "FARMERS&MERCHANTS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 9737,
+      "name": "MIDWEST BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 10015,
+      "name": "SECURITY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 10492,
+      "name": "FARMERS&MERCHANTS SB",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 10571,
+      "name": "FARMERS&MERCHANTS STB ALPHA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.7668
+    },
+    {
+      "event_date": "20251231",
+      "cert": 10903,
+      "name": "CENTRAL STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.1374
+    },
+    {
+      "event_date": "20251231",
+      "cert": 11319,
+      "name": "LONGVIEW COMMUNITY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.3671
+    },
+    {
+      "event_date": "20251231",
+      "cert": 11417,
+      "name": "WELCOME STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 11750,
+      "name": "BANK OF KAMPSVILLE",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 11778,
+      "name": "CITIZENS ST B&T ELLSWORTH KS",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 12383,
+      "name": "CARROLLTON BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.806
+    },
+    {
+      "event_date": "20251231",
+      "cert": 12402,
+      "name": "EXCHANGE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 13599,
+      "name": "FIRST LOCKHART BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 13794,
+      "name": "MCINTOSH COUNTY BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.8453
+    },
+    {
+      "event_date": "20251231",
+      "cert": 13801,
+      "name": "FARMERS&MERCHANTS BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.3017
+    },
+    {
+      "event_date": "20251231",
+      "cert": 13887,
+      "name": "FARMERS&MERCHANTS BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 14349,
+      "name": "BANK OF SALEM",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.6351
+    },
+    {
+      "event_date": "20251231",
+      "cert": 14604,
+      "name": "COMMUNITY POINT BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.0844
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15010,
+      "name": "COLUMBUS BANK&TRUST CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15101,
+      "name": "SENATH STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15164,
+      "name": "FARMERS STB OF WESTMORELAND",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15496,
+      "name": "FIRST STATE BANK OF BLAKELY",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 26.8083
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15510,
+      "name": "AMERISTATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15545,
+      "name": "FRONTIER BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1202
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15566,
+      "name": "HOOSIER HEARTLAND STATE BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9776
+    },
+    {
+      "event_date": "20251231",
+      "cert": 15751,
+      "name": "FLAT BRANCH BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 16111,
+      "name": "HIGHLAND BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.4399
+    },
+    {
+      "event_date": "20251231",
+      "cert": 16282,
+      "name": "BANK OF BEARDEN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 16396,
+      "name": "LAFAYETTE STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17001,
+      "name": "FIRST SECURITY BANK&TRUST CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17162,
+      "name": "DAIRY STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 19.3924
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17211,
+      "name": "CITIZENS BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9245
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17232,
+      "name": "SIDNEY STATE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17450,
+      "name": "DEFIANCE STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.3399
+    },
+    {
+      "event_date": "20251231",
+      "cert": 17825,
+      "name": "BOELUS STATE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 40.6483
+    },
+    {
+      "event_date": "20251231",
+      "cert": 18930,
+      "name": "BANK OF BELLE GLADE",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 20241,
+      "name": "AMERICAN BANK NATIONAL ASSN",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 8.7838
+    },
+    {
+      "event_date": "20251231",
+      "cert": 21955,
+      "name": "STRYV BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.8172
+    },
+    {
+      "event_date": "20251231",
+      "cert": 22139,
+      "name": "PROGRESSIVE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 22319,
+      "name": "LEGACY BANK&TRUST CO",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 22502,
+      "name": "FIRST CITIZENS BANK OF BUTTE",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.8074
+    },
+    {
+      "event_date": "20251231",
+      "cert": 25750,
+      "name": "COMMUNITY BANK",
+      "kind": "undercapitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 25796,
+      "name": "COMMUNITY B&T WEST GEORGIA",
+      "kind": "undercapitalized_to_adequately_capitalized",
+      "tier1_pct": 8.4143
+    },
+    {
+      "event_date": "20251231",
+      "cert": 26358,
+      "name": "STATE BANK OF SOUTHWEST MO",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.1553
+    },
+    {
+      "event_date": "20251231",
+      "cert": 26576,
+      "name": "WRENTHAM COOP BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 21.4008
+    },
+    {
+      "event_date": "20251231",
+      "cert": 26760,
+      "name": "GREEN BELT BANK&TRUST",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.7716
+    },
+    {
+      "event_date": "20251231",
+      "cert": 27210,
+      "name": "INTERBANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.823
+    },
+    {
+      "event_date": "20251231",
+      "cert": 28480,
+      "name": "COLUMBIA SAVINGS&LOAN ASSN",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.0747
+    },
+    {
+      "event_date": "20251231",
+      "cert": 28722,
+      "name": "KENTLAND FS&LA",
+      "kind": "undercapitalized_to_adequately_capitalized",
+      "tier1_pct": 8.8548
+    },
+    {
+      "event_date": "20251231",
+      "cert": 28894,
+      "name": "SECURITY FSB",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 29521,
+      "name": "FIDELITY FS&LA OF DELAWARE",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 32.6594
+    },
+    {
+      "event_date": "20251231",
+      "cert": 29705,
+      "name": "FIRST FED CMTY BK OF BUCYRUS",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.5898
+    },
+    {
+      "event_date": "20251231",
+      "cert": 29783,
+      "name": "HIGH COUNTRY BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 30155,
+      "name": "HATBORO FEDERAL SAVINGS FA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 41.9944
+    },
+    {
+      "event_date": "20251231",
+      "cert": 31390,
+      "name": "AXIOM BANK NATIONAL ASSN",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 31936,
+      "name": "FAYETTE SAVINGS BANK SSB",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 33216,
+      "name": "NORTHRIM BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 11.8472
+    },
+    {
+      "event_date": "20251231",
+      "cert": 33645,
+      "name": "LEE BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 33802,
+      "name": "TIOGA-FRANKLIN SAVINGS BANK",
+      "kind": "undercapitalized_to_significantly_under",
+      "tier1_pct": 5.3253
+    },
+    {
+      "event_date": "20251231",
+      "cert": 34460,
+      "name": "MILLENNIAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.7284
+    },
+    {
+      "event_date": "20251231",
+      "cert": 34606,
+      "name": "AMERICAN BANK OF OKLAHOMA",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 14.2287
+    },
+    {
+      "event_date": "20251231",
+      "cert": 34778,
+      "name": "FIRST TRUST BANK OF ILLINOIS",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 15.0082
+    },
+    {
+      "event_date": "20251231",
+      "cert": 35031,
+      "name": "FREEDOM FINANCIAL BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9982
+    },
+    {
+      "event_date": "20251231",
+      "cert": 35118,
+      "name": "COMMUNITY BK OF WICHITA INC",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 11.0326
+    },
+    {
+      "event_date": "20251231",
+      "cert": 35138,
+      "name": "MILLENNIUM BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.2086
+    },
+    {
+      "event_date": "20251231",
+      "cert": 35543,
+      "name": "BANK OF FRANKLIN COUNTY",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.4617
+    },
+    {
+      "event_date": "20251231",
+      "cert": 57127,
+      "name": "GUARDIAN BANK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    },
+    {
+      "event_date": "20251231",
+      "cert": 57488,
+      "name": "METROPOLITAN CAPITAL B&T",
+      "kind": "undercapitalized_to_significantly_under",
+      "tier1_pct": 3.0239
+    },
+    {
+      "event_date": "20251231",
+      "cert": 57624,
+      "name": "CLARION CNTY CMTY BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0328
+    },
+    {
+      "event_date": "20251231",
+      "cert": 57694,
+      "name": "FIRST NB OF DECATUR COUNTY",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.7464
+    },
+    {
+      "event_date": "20251231",
+      "cert": 57899,
+      "name": "1ST ADVANTAGE BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 10.5665
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58057,
+      "name": "TRADITION CAPITAL BANK",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0285
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58220,
+      "name": "HERITAGE BANK&TRUST",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9517
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58230,
+      "name": "FIRST MO STB OF CAPE COUNTY",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.5739
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58357,
+      "name": "SOUTHERN INDEPENDENT BANK",
+      "kind": "critically_under_to_well_capitalized",
+      "tier1_pct": 21.3784
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58590,
+      "name": "NANO BANC",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 8.8111
+    },
+    {
+      "event_date": "20251231",
+      "cert": 58741,
+      "name": "FIELDPOINT PRIVATE B&T",
+      "kind": "adequately_capitalized_to_well_capitalized",
+      "tier1_pct": 10.0706
+    },
+    {
+      "event_date": "20251231",
+      "cert": 59181,
+      "name": "GULF ATLANTIC BANK",
+      "kind": "well_capitalized_to_adequately_capitalized",
+      "tier1_pct": 9.9828
+    },
+    {
+      "event_date": "20251231",
+      "cert": 59273,
+      "name": "GAINEY BUSINESS BANK",
+      "kind": "critically_under_to_adequately_capitalized",
+      "tier1_pct": 9.328
+    },
+    {
+      "event_date": "20251231",
+      "cert": 91280,
+      "name": "BANK OF LITTLE ROCK",
+      "kind": "well_capitalized_to_critically_under",
+      "tier1_pct": 0.0
+    }
+  ],
+  "count": 302,
+  "method": "IDT1RWAJR threshold walk across 2025 Q1-Q4 per CERT",
+  "window": "20250331..20251231"
+}

@@ -1,0 +1,46 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace
++ mkdir -p /logs/verifier
++ echo IyEvYmluL2Jhc2gKc2V0ICtlCm1rZGlyIC1wIC9sb2dzL3ZlcmlmaWVyIC9ob21lL3dvcmtzcGFjZQoKZm9yIGYgaW4gL2xvZ3MvYXJ0aWZhY3RzLyo7IGRvCiAgWyAtZiAiJGYiIF0gfHwgY29udGludWUKICBjcCAiJGYiICIvaG9tZS93b3Jrc3BhY2UvJChiYXNlbmFtZSAiJGYiKSIKZG9uZQoKaWYgWyAtZiAvaG9tZS93b3Jrc3BhY2UvcmVxdWlyZW1lbnRzLnR4dCBdOyB0aGVuCiAgcGlwIGluc3RhbGwgLS11c2VyIC0tcXVpZXQgLXIgL2hvbWUvd29ya3NwYWNlL3JlcXVpcmVtZW50cy50eHQgMj4mMSB8IHRhaWwgLTIwIHx8IHRydWUKZmkKCmNkIC9ob21lL3dvcmtzcGFjZQpweXRob24zIC9ob21lL3dvcmtzcGFjZS9zY29yaW5nL2V2YWxfc2NyaXB0LnB5IDI+JjEgfCB0ZWUgL2xvZ3MvdmVyaWZpZXIvc2NvcmluZ19zdGRvdXQubG9nCgpTQ09SRT0kKGdyZXAgLW9FICJUT1RBTF9TQ09SRVxzKy0/WzAtOV0rKFwuWzAtOV0rKT8iIC9sb2dzL3ZlcmlmaWVyL3Njb3Jpbmdfc3Rkb3V0LmxvZyB8IHRhaWwgLTEgfCBhd2sgJ3twcmludCAkMn0nKQppZiBbIC16ICIkU0NPUkUiIF07IHRoZW4KICBTQ09SRT0kKGdyZXAgLW9FICJGaW5hbCB0b3RhbCBzY29yZTpccyotP1swLTldKyhcLlswLTldKyk/IiAvbG9ncy92ZXJpZmllci9zY29yaW5nX3N0ZG91dC5sb2cgfCB0YWlsIC0xIHwgZ3JlcCAtb0UgIlwtP1swLTldKyhcLlswLTldKyk/JCIpCmZpCmlmIFsgLXogIiRTQ09SRSIgXTsgdGhlbgogIGVjaG8gIkVSUk9SOiBjb3VsZCBub3QgZXh0cmFjdCBzY29yZSBmcm9tIHN0ZG91dCIgPiYyCiAgZWNobyAwID4gL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLnR4dAogIGV4aXQgMQpmaQoKU0NPUkVfTk9STT0kKHB5dGhvbjMgLWMgInByaW50KHJvdW5kKGZsb2F0KCckU0NPUkUnKSAvIDExMC4wLCA2KSkiKQplY2hvICIkU0NPUkVfTk9STSIgPiAvbG9ncy92ZXJpZmllci9yZXdhcmQudHh0CmNobW9kIDY0NCAvbG9ncy92ZXJpZmllci9yZXdhcmQudHh0CmVjaG8gIkhhcmJvciByZXdhcmQgd3JpdHRlbjogcmF3PSRTQ09SRSBub3JtYWxpemVkPSRTQ09SRV9OT1JNIgo=
++ base64 -d
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+======================================================================
+eval_script.py started at 2026-07-31 08:20:55
+======================================================================
+Loaded 4539 test institutions, 302 true PCA-zone events, 17893 realized rows, prior-train rows=0
+detected PCA-zone events: 41; matched 22/302 true events; bonus=10.00
+
+=== Per-Lane Averages Across 17893 Observations ===
+  L1_capital_ratio_projection            0.00 / 25
+  L2_earnings_projection                 0.00 / 15
+  L3_tail_risk_control                  13.08 / 15
+  L4_pca_zone_classification             9.74 / 10
+  L5_asset_growth_projection             5.67 / 10
+  L6_deposit_stability                   5.31 / 10
+  L7_anti_fabrication                    0.00 / 5
+  L8_cross_size_bucket_stability         0.00 / 10
+  Base total                            33.81 / 100
+  PCA-zone-transition bonus             10.00 / 10
+
+Score report written to /home/workspace/score_report.json
+
+Final total score: 43.81 / 110
+TOTAL_SCORE 43.81
+Harbor reward written: raw=43.81 normalized=0.398273
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.398273
++ echo '{"score": 0.398273}'
+{"score": 0.398273}
++ EXIT_CODE=0
+>>>>> End Test Output
+Exit code: 0
++ echo '>>>>> End Test Output'
++ echo 'Exit code: 0'
++ exit 0

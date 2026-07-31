@@ -1,0 +1,49 @@
+{
+  "events": [
+    {
+      "event_date": "2025-05-31",
+      "kind": "dgs10_z_transition",
+      "magnitude_z": 1.2269490500198668,
+      "source": "FRED DGS10 6M-rolling z-score |delta|>=1.0"
+    },
+    {
+      "event_date": "2025-07-31",
+      "kind": "dgs10_z_transition",
+      "magnitude_z": 1.4747398665137967,
+      "source": "FRED DGS10 6M-rolling z-score |delta|>=1.0"
+    },
+    {
+      "event_date": "2025-08-31",
+      "kind": "dgs10_z_transition",
+      "magnitude_z": -1.4917481417273128,
+      "source": "FRED DGS10 6M-rolling z-score |delta|>=1.0"
+    },
+    {
+      "event_date": "2025-09-18",
+      "kind": "dff_step",
+      "magnitude_pct": -0.25,
+      "source": "FRED DFF |delta|>0.10"
+    },
+    {
+      "event_date": "2025-10-30",
+      "kind": "dff_step",
+      "magnitude_pct": -0.25,
+      "source": "FRED DFF |delta|>0.10"
+    },
+    {
+      "event_date": "2025-12-11",
+      "kind": "dff_step",
+      "magnitude_pct": -0.25,
+      "source": "FRED DFF |delta|>0.10"
+    },
+    {
+      "event_date": "2025-12-31",
+      "kind": "dgs10_z_transition",
+      "magnitude_z": 1.4103062545620728,
+      "source": "FRED DGS10 6M-rolling z-score |delta|>=1.0"
+    }
+  ],
+  "count": 7,
+  "method": "DFF |delta|>0.10 OR DGS10 6M-rolling z-score |delta|>=1.0 monthly-resample, deduped within 2 days",
+  "window": "2025-01-01..2026-01-01"
+}

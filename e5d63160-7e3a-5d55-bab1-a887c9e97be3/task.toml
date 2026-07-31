@@ -1,0 +1,54 @@
+artifacts = [
+  { source = "/home/workspace/bank_capital_projection.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/projection_results.json" },
+]
+
+[task]
+name = "edgebench/fdic_bank_capital_projection_book"
+description = "US FDIC-insured bank capital forecaster. Agent produces per-institution per-quarter forward projections for regulatory capital metrics (Tier-1 leverage, CET1, Tier-1 risk-based, total risk-based capital), earnings metrics (NIM, ROA, ROE), and asset-quality metrics (nonperforming assets, net charge-offs) plus a PCA capital-adequacy zone classification. Scored on realized 2025 quarterly call-report outcomes across all held-out institution-quarter observations with a size-bucket stability lane and a PCA-zone-transition detection bonus."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "bank-regulatory-capital",
+  "cross-sectional-panel-forecasting",
+  "macro-regime-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fdic_bank_capital_projection_book:cebcc2031e8a"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fdic_bank_capital_projection_book:da45ab3bdb19"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "fdic_bank_capital_projection_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["bank_capital_projection.py", "requirements.txt", "projection_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "cebcc2031e8a"
+judge_image_tag = "da45ab3bdb19"
+
+[metadata]
+source_host = "FDIC BankFind Financials + FDIC BankFind Institutions (banks.data.fdic.gov, follows 301 to api.fdic.gov) + FRED clean-series (fred.stlouisfed.org)"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_source = "US FDIC + Federal Reserve Bank of St. Louis"

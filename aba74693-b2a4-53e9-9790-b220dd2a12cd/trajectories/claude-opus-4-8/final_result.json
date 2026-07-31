@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "treasury_auction_bidding_calibration",
+  "run_id": "aba74693-b2a4-53e9-9790-b220dd2a12cd-1e68a590a8e8",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-103",
+  "total_rounds": 127,
+  "agent_submissions": 104,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43199.28070092201,
+  "archive_size_bytes": 32488,
+  "resume_count": 2,
+  "best_score": 0.385091
+}

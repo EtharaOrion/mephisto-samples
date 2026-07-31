@@ -1,0 +1,19 @@
+{
+  "task_id": "treasury_auction_bidding_calibration",
+  "submission_id": "df9d3000f7c2",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.382636,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 2.104017496109009,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785466192.8754554
+}

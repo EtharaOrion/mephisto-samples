@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "fdic_bank_capital_projection_book",
+  "run_id": "e5d63160-7e3a-5d55-bab1-a887c9e97be3-fe68e1b6a56c",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-4",
+  "total_rounds": 286,
+  "agent_submissions": 263,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43199.83311676979,
+  "archive_size_bytes": 1680575,
+  "resume_count": 17,
+  "best_score": 0.398273
+}
