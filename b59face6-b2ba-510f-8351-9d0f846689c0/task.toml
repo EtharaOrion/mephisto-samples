@@ -1,0 +1,54 @@
+artifacts = [
+  { source = "/home/workspace/curve_positioning.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/positioning_results.json" },
+]
+
+[task]
+name = "edgebench/treasury_curve_positioning_book"
+description = "Dynamic US Treasury Yield-Curve Positioning Book with duration/convexity/butterfly exposure control, macro-regime-adaptive rebalancing, and turnover discipline. Scored across 20 disjoint held-out 3-week windows."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "treasury-curve-positioning",
+  "duration-convexity",
+  "macro-regime-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.treasury_curve_positioning_book:e64b4b7b1fd9@sha256:c0ccf709b041001c300d011c00bb4cc162c8737b3443139060694df4b164b287"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.treasury_curve_positioning_book:a9b837468b29@sha256:9cd7fd412eabc04f9267285e0fade0a656540584f1487418b82c2730e56e721d"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "treasury_curve_positioning_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["curve_positioning.py", "requirements.txt", "positioning_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "e64b4b7b1fd9"
+judge_image_tag = "a9b837468b29"
+
+[metadata]
+source_host = "US Treasury Daily Yield Curve (home.treasury.gov) + FRED clean-series (fred.stlouisfed.org)"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_source = "Treasury Department + Federal Reserve Bank of St. Louis"

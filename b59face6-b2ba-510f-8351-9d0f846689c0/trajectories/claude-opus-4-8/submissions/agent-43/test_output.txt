@@ -1,0 +1,129 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace
++ mkdir -p /logs/verifier
++ echo IyEvYmluL2Jhc2gKIyBIYXJib3IgdmVyaWZpZXIgYWRhcHRlciBmb3IgdHJlYXN1cnlfY3VydmVfcG9zaXRpb25pbmdfYm9vay4KIyBCcmlkZ2VzIEhhcmJvcidzIGFydGlmYWN0LWRlbGl2ZXJ5IGNvbnZlbnRpb24gKGFnZW50IHN1Ym1pdHMgbGFuZCBhdAojIC9sb2dzL2FydGlmYWN0cy8pIGludG8gdGhlIGV2YWxfc2NyaXB0LnB5IGNvbnRyYWN0IChzdWJtaXNzaW9uIGV4cGVjdGVkIGF0CiMgL2hvbWUvd29ya3NwYWNlLyksIHRoZW4gdHJhbnNsYXRlcyBldmFsIG91dHB1dCBpbnRvIC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC50eHQuCnNldCArZQpta2RpciAtcCAvbG9ncy92ZXJpZmllciAvaG9tZS93b3Jrc3BhY2UKCmZvciBmIGluIC9sb2dzL2FydGlmYWN0cy8qOyBkbwogIFsgLWYgIiRmIiBdIHx8IGNvbnRpbnVlCiAgY3AgIiRmIiAiL2hvbWUvd29ya3NwYWNlLyQoYmFzZW5hbWUgIiRmIikiCmRvbmUKCmlmIFsgLWYgL2hvbWUvd29ya3NwYWNlL3JlcXVpcmVtZW50cy50eHQgXTsgdGhlbgogIHBpcCBpbnN0YWxsIC0tdXNlciAtLXF1aWV0IC1yIC9ob21lL3dvcmtzcGFjZS9yZXF1aXJlbWVudHMudHh0IDI+JjEgfCB0YWlsIC0yMCB8fCB0cnVlCmZpCgpjZCAvaG9tZS93b3Jrc3BhY2UKcHl0aG9uMyAvaG9tZS93b3Jrc3BhY2Uvc2NvcmluZy9ldmFsX3NjcmlwdC5weSAyPiYxIHwgdGVlIC9sb2dzL3ZlcmlmaWVyL3Njb3Jpbmdfc3Rkb3V0LmxvZwoKU0NPUkU9JChncmVwIC1vRSAiVE9UQUxfU0NPUkVccystP1swLTldKyhcLlswLTldKyk/IiAvbG9ncy92ZXJpZmllci9zY29yaW5nX3N0ZG91dC5sb2cgfCB0YWlsIC0xIHwgYXdrICd7cHJpbnQgJDJ9JykKaWYgWyAteiAiJFNDT1JFIiBdOyB0aGVuCiAgU0NPUkU9JChncmVwIC1vRSAiRmluYWwgdG90YWwgc2NvcmU6XHMqLT9bMC05XSsoXC5bMC05XSspPyIgL2xvZ3MvdmVyaWZpZXIvc2NvcmluZ19zdGRvdXQubG9nIHwgdGFpbCAtMSB8IGdyZXAgLW9FICJcLT9bMC05XSsoXC5bMC05XSspPyQiKQpmaQppZiBbIC16ICIkU0NPUkUiIF07IHRoZW4KICBlY2hvICJFUlJPUjogY291bGQgbm90IGV4dHJhY3Qgc2NvcmUgZnJvbSBzdGRvdXQiID4mMgogIGVjaG8gMCA+IC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC50eHQKICBleGl0IDEKZmkKClNDT1JFX05PUk09JChweXRob24zIC1jICJwcmludChyb3VuZChmbG9hdCgnJFNDT1JFJykgLyAxMTAuMCwgNikpIikKZWNobyAiJFNDT1JFX05PUk0iID4gL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLnR4dApjaG1vZCA2NDQgL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLnR4dAplY2hvICJIYXJib3IgcmV3YXJkIHdyaXR0ZW46IHJhdz0kU0NPUkUgbm9ybWFsaXplZD0kU0NPUkVfTk9STSIK
++ base64 -d
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+======================================================================
+eval_script.py started at 2026-07-31 07:49:39
+======================================================================
+Loaded 20 test windows, 6 true regime events, 383 test curve rows
+
+--- window 1 [2025-01-06 -> 2025-01-26] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 2 [2025-02-03 -> 2025-02-23] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 3 [2025-03-03 -> 2025-03-23] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 4 [2025-03-31 -> 2025-04-20] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 5 [2025-04-28 -> 2025-05-18] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 6 [2025-05-26 -> 2025-06-15] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 7 [2025-06-23 -> 2025-07-13] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 8 [2025-07-21 -> 2025-08-10] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 9 [2025-08-18 -> 2025-09-07] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 10 [2025-09-15 -> 2025-10-05] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 11 [2025-10-13 -> 2025-11-02] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 12 [2025-11-10 -> 2025-11-30] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 13 [2025-12-08 -> 2025-12-28] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 14 [2026-01-05 -> 2026-01-25] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 15 [2026-02-02 -> 2026-02-22] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 16 [2026-03-02 -> 2026-03-22] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 17 [2026-03-30 -> 2026-04-19] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 18 [2026-04-27 -> 2026-05-17] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 19 [2026-05-25 -> 2026-06-14] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+--- window 20 [2026-06-22 -> 2026-07-12] ---
+  recompute WARN: insufficient curve rows
+  sharpe=0.000, dd=0.000, hit=0.00, sub_total=35.00, L7_veto=True
+
+======================================================================
+Aggregating...
+detected regime events: 6; matched 0/6 true events; bonus=0.00
+
+=== Per-Lane Averages Across 20 Windows ===
+  L1_risk_adjusted_return               0.00 / 25
+  L2_directional_accuracy               5.00 / 20
+  L3_duration_precision                15.00 / 15
+  L4_convexity_capture                  0.00 / 15
+  L5_drawdown_control                  10.00 / 10
+  L6_turnover_discipline                5.00 / 5
+  L7_anti_fabrication                   0.00 / 5
+  L8_cross_window_stability             0.00 / 5
+  Base total                           35.00 / 100
+  Regime-shift bonus                    0.00 / 10
+
+Score report written to /home/workspace/score_report.json
+
+Final total score: 35.00 / 110
+TOTAL_SCORE 35.00
+Harbor reward written: raw=35.00 normalized=0.318182
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.318182
++ echo '{"score": 0.318182}'
+{"score": 0.318182}
++ EXIT_CODE=0
++ echo '>>>>> End Test Output'
++ echo 'Exit code: 0'
++ exit 0
+>>>>> End Test Output
+Exit code: 0

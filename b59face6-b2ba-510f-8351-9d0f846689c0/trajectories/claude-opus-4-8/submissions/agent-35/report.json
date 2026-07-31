@@ -1,0 +1,19 @@
+{
+  "task_id": "treasury_curve_positioning_book",
+  "submission_id": "b744e76b8422",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.590909,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 11.194329261779785,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785482785.2318344
+}

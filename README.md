@@ -3,14 +3,14 @@ license: cc-by-nc-nd-4.0
 tags:
   - professional-knowledge-work
   - long-horizon
-pretty_name: "Mephisto — Professional Knowledge Work Tasks"
+pretty_name: "Mephisto: Professional Knowledge Work Tasks"
 size_categories:
   - n<1K
 ---
 
 <div align="center">
 
-# Mephisto — Professional Knowledge Work Tasks
+# Mephisto: Professional Knowledge Work Tasks
 
 <img src="assets/banner.webp" alt="Mephisto" width="100%" />
 
@@ -32,96 +32,121 @@ size_categories:
 
 Pretraining scaling laws revealed that model capability improves predictably with data and compute. But once agents are deployed, they must learn from *interaction* with real-world environments, and whether that learning obeys any clean scaling law was, until recently, unknown.
 
-**Mephisto** distills the empirical and theoretical findings behind a large-scale study of agent and environment interaction across many real-world tasks. This dataset is the **Professional Knowledge Work** slice: white-collar decision deliverables graded not by a rubric of opinion but by **real, external, post-cutoff outcomes** — what actually happened after the agent's information boundary.
+**Mephisto** distills the empirical and theoretical findings behind a large-scale study of agent and environment interaction across many real-world tasks. This dataset is the **Professional Knowledge Work** slice: white-collar decision deliverables graded not by a rubric of opinion but by **real, external, post-cutoff outcomes**: what actually happened after the agent's information boundary.
 
-Every task hands the agent a decision a professional actually makes (allocate a supervisory budget, target inspections, flag which entities will cross into distress) at a frozen information boundary, then grades the deliverable against the settled real-world result. **Nobody authored the answer key.** The graded truth is a public record filed by thousands of independent parties after the agent's cutoff, so it cannot have been memorized before the cutoff, and it is withheld from the agent by network isolation at run time. Because the graded truth is a future outcome rather than a restatement of the boundary data, the deliverable cannot be gamed by echoing the past — it has to predict what actually changes.
+Every task hands the agent a decision a professional actually makes, at a frozen information boundary, then grades the deliverable against what the world actually did next. **The answer key is a record of events, not a rubric.** The graded outcome is drawn from public data published after the boundary the agent is given, and it is withheld at run time: the agent container has no network, and the held-out data exists only inside the judge image. Because the graded truth is a realized future outcome rather than a restatement of the boundary data, the deliverable cannot be gamed by echoing the past; it has to project what actually changes.
 
 ## Realistic, multi-level feedback
 
 Real workflows are driven by rich feedback. Tasks are built for a **dual-loop protocol**:
 
-- **Inner loop (local, agent-driven).** A writable workspace with the public boundary data, the exact (public) scorer, and a starter deliverable. Unlimited fast iteration.
-- **Outer loop (judge-mediated).** Each submitted deliverable is graded by a hidden judge container against the private, post-cutoff outcome. The agent submits repeatedly over the run and the judge grades every submission; submissions are rate-limited by a cooldown and capped at a maximum (in the reference invocation, a 120 s cooldown and a 400-submission cap over the 12-hour budget), and the host additionally auto-evaluates the workspace on a fixed interval. Slower, authoritative, submission-gated.
+- **Inner loop (local, agent-driven).** A writable workspace holding the public boundary data and a train/validation split the agent may iterate against freely. Unlimited fast iteration, no network.
+- **Outer loop (judge-mediated).** Each submitted deliverable is graded by a hidden judge container against the private, post-cutoff outcome. The agent submits repeatedly over the run and the judge grades every submission; submissions are rate-limited by a cooldown and capped at a maximum (in the reference invocation, a 120 s cooldown and a 300-submission cap over the 12-hour budget), and the host additionally auto-evaluates the workspace on a fixed interval. Slower, authoritative, submission-gated.
 
-The judge is deterministic and pure: it reads only the weights the submitted policy returns and its own frozen outcome. A static allowlist gate blocks any attempt to exfiltrate the hidden answer; anti-fabrication blocks any self-reported score.
+The judge is deterministic: it re-executes the submitted deliverable against its own frozen post-cutoff data and scores only what that execution produces. Anti-fabrication is structural: every self-reported metric is independently recomputed from the raw submitted output, and a deviation beyond tolerance zeroes both the integrity lane and the primary lane for that window.
 
 ## What's in this dataset
 
-30 task bundles, one per `<uuid>/task.json`, where `<uuid>` is a deterministic UUIDv5 (fixed FORGE namespace) over the bundle's canonical SHA-256 content hash, so identical content maps to a stable id and distinct content is collision-resistant.
-
-The tasks come in two archetypes:
-
-**Allocation books (17)** — distribute a finite attention/exposure budget across a universe, graded on the realized outcome the book covered.
-
-| Task                                     | Domain                      |
-| ---------------------------------------- | --------------------------- |
-| `fdic_bank_credit_surveillance`        | finance / banking           |
-| `nport_liquidity_provisioning`         | finance / funds             |
-| `cms_ma_retention_provisioning`        | healthcare / plans          |
-| `cfpb_complaint_surge_surveillance`    | finance / consumer          |
-| `sec_opmargin_expansion_book`          | finance / corporate         |
-| `sec_leverage_expansion_book`          | finance / corporate         |
-| `pell_grant_disbursement_growth`       | education / access          |
-| `dl_disbursement_growth`               | education / access          |
-| `fafsa_completion_provisioning`        | education / access          |
-| `txmeal_participation_outreach`        | education / access          |
-| `nyc_restaurant_inspection_targeting`  | enforcement / municipal     |
-| `chicago_food_inspection_targeting`    | enforcement / municipal     |
-| `chicago_building_code_book`           | enforcement / municipal     |
-| `montgomery_food_safety_book`          | enforcement / public-health |
-| `bts_station_reliability_provisioning` | transport                   |
-| `tx_mixedbev_tax_book`                 | public finance              |
-| `chicago_taxi_revenue_book`            | public finance / municipal  |
-
-**Breach-triage watchlists (13)** — flag the entities that will cross into a worst-case band next period, graded by precision-recall over the realized crossing.
-
-| Task                                         | Domain                                  |
-| -------------------------------------------- | --------------------------------------- |
-| `bank_supervisory_watchlist`               | finance / banking                       |
-| `nport_liquidity_watchlist`                | finance / funds                         |
-| `cms_ma_retention_watchlist`               | healthcare / plans                      |
-| `cfpb_surge_watchlist`                     | finance / consumer                      |
-| `sec_margin_collapse_watchlist`            | finance / corporate                     |
-| `sec_leverage_distress_watchlist`          | finance / corporate                     |
-| `pell_disbursement_shortfall_watchlist`    | education / access                      |
-| `dl_disbursement_collapse_watchlist`       | education / access                      |
-| `txmeal_participation_shortfall_watchlist` | education / access                      |
-| `nyc_restaurant_closure_risk_watchlist`    | enforcement / municipal                 |
-| `tx_mixedbev_collapse_watchlist`           | public finance                          |
-| `chicago_taxi_collapse_watchlist`          | public finance / municipal              |
-| `oss_dependency_abandonment_watchlist`     | open-source software / package registry |
-
-## Bundle schema
+30 task bundles. Each is one self-contained `<uuid>/` directory sitting at the repository root, with no intermediate collection directory:
 
 ```
-ethara/mephisto/
-├── <uuid>/
-│   ├── task.json                 # self-contained bundle spec
-│   ├── base/
-│   │   └── Dockerfile            # base image: python:3.11 + system deps + agent user
-│   ├── work/
-│   │   ├── Dockerfile            # agent workspace image, atop base
-│   │   └── setup_workspace.sh    # provisions boundary data, scorer, allowlist gate, starter deliverable
-│   └── judge/
-│       ├── Dockerfile            # grader image, atop base
-│       └── setup_judge.sh        # provisions hidden outcome, allowlist gate, runner, score.py
+mephisto/
+├── <uuid>/                          # one self-contained task bundle (× 30)
 ├── assets/banner.webp
+├── LICENSE
 └── README.md
 ```
 
-Each `task.json` carries `task_id`, `category`, `base_image`, `cwd`, `internet: false`, the submit manifest, and `work.image_tag` / `judge.image_tag` — 12-character content hashes pointing at prebuilt, hosted images. Grading is deterministic against a real, post-cutoff outcome.
+Every task has the same shape. Only the domain, the data, the decision boundary and the held-out grading window change.
+
+## Bundle schema
+
+Every bundle is the same seven-part tree:
+
+```
+<uuid>/
+├── task.toml                        # Harbor task contract
+├── task.json                        # the same contract for the sforge/EdgeBench runner
+├── instruction.md                   # the full task brief handed to the agent
+│
+├── environment/                     # → the agent image
+│   ├── Dockerfile
+│   └── attachments/                 # everything public: data, specs, dependency list
+│
+├── tests/                           # → the judge image (agent never sees it)
+│   ├── Dockerfile
+│   ├── test.sh                      # harness adapter → /logs/verifier/reward.txt
+│   ├── scoring/
+│   │   ├── eval_script.py           # per-window runner; emits TOTAL_SCORE <N>
+│   │   ├── score.py                 # the scoring lanes
+│   │   ├── scorer_manifest.json     # entrypoint, required files, score parsing, failure policy
+│   │   └── judge_requirements.txt
+│   └── hidden_test_data/            # held-out data + the answer key
+│
+├── solution/                        # → the oracle (never uploaded to real agents)
+│   ├── solve.sh
+│   ├── <task>_reference.py
+│   ├── reference_state.json
+│   ├── requirements.txt
+│   └── TRUTH.md                     # provenance + golden trajectory, judge-side only
+│
+└── trajectories/                    # → recorded reference runs
+    └── <model-id>/
+        ├── run_config.json          # model, timeouts, submission cap, cooldown, eval interval
+        ├── agent_prompt.md          # the iterative-evaluation preamble the agent received
+        ├── agent_output.txt
+        ├── auto_eval_ticks.log
+        └── submissions/
+            └── {agent,auto}-<n>/    # one directory per graded submission
+                ├── submission.tar.gz
+                ├── report.json      # score, validity, runtime, timestamp
+                ├── eval.sh
+                ├── allowed_files.txt
+                ├── test_output.txt
+                └── run_instance.log
+```
+
+`<uuid>` is a deterministic UUIDv5 (fixed FORGE namespace) over the bundle's canonical SHA-256 content hash, so identical content maps to a stable id and distinct content is collision-resistant.
+
+### `task.toml` / `task.json`: the contract
+
+Both files pin the same runtime, in the two forms consumers need. `[environment]` and `[verifier.environment]` name the prebuilt images by tag **and** `sha256` digest; both carry `network_mode = "no-network"`. `[agent] timeout_sec` sets the run budget (12 h in the reference invocation) and `[verifier] timeout_sec` the grading budget, with `environment_mode = "separate"` keeping the judge in its own container. The top-level `artifacts` list and the `[extensions.sforge]` `submit_paths` / `submit_exclude` define exactly which files travel to the judge; `parser`, `selection` and `score_direction` fix the scoring convention. `[metadata]` records the upstream source and the licence class of the underlying public record.
+
+`task.json` additionally embeds two things the runner needs inline: the full brief as `work.agent_query`, and the judge invocation as `judge.eval_cmd`. Both are copies of files that also ship unpacked in the bundle (`instruction.md` and `tests/test.sh`), so treat the unpacked files as the source of truth and regenerate `task.json` rather than editing it by hand.
+
+### `instruction.md`: the brief
+
+Delivered verbatim to the agent. It states the professional role and the decision boundary, the components the system must contain, the scoring lanes with their point weights and target/full-marks thresholds, the benchmark it is scored against, a table of every provided file, the hard constraints (exposure limits, costs, no future data, no network, per-invocation runtime ceilings), the exact deliverable filenames and output schema, and an explicit anti-fabrication warning.
+
+### `environment/`: what the agent gets
+
+`Dockerfile` builds the agent image and symlinks everything in `attachments/` into the workspace root. `attachments/` holds the entire public information boundary: the raw source data, any reference tables, an explicit train/validation period split, a deliverables guide, and the dependency list. Nothing observed after the decision boundary appears here. Because the container has no network, that dependency list is installed at build time and fixes what the agent can import; it is not an at-run-time install manifest.
+
+### `tests/`: the judge
+
+A separate, network-isolated image. `hidden_test_data/` carries the held-out data, the window definitions, and the labelled answer key. `eval_script.py` re-executes the submitted deliverable once per held-out window against that data, independently recomputes every self-reported metric from the raw submitted output (anti-fabrication), scores each window through `score.py`, and aggregates with the cross-window stability penalty and detection bonus. `test.sh` bridges the harness's artifact-delivery convention into that contract and writes a normalized reward. `scorer_manifest.json` declares the entrypoint, required submission and scoring files, the score-extraction regex and scale, and the failure policy for every degenerate case (missing submission, parse failure, non-zero exit).
+
+### `solution/`: the oracle
+
+A reference implementation that scores the task end to end, plus `TRUTH.md`: canary tokens, the contract hash, and the full generation recipe: source endpoints, the boundary split, feature construction, and the reference method stage by stage. Real evaluation agents never receive this directory; only the harness's oracle agent mounts it.
+
+### `trajectories/`: recorded runs
+
+One directory per evaluated model, holding the exact run configuration and every graded submission from that run, both agent-initiated (`agent-<n>`) and the harness's periodic auto-evaluations (`auto-<n>`), with the submitted archive and its scored report preserved for each.
 
 ## Reproducibility & image distribution
 
-Each bundle ships in two forms simultaneously — pick whichever fits your environment:
+Each bundle ships in two forms simultaneously. Pick whichever fits your environment:
 
-- **Prebuilt images (fast path).** `work.image_tag` and `judge.image_tag` in `task.json` are 12-character content hashes for images hosted in the Mephisto container registry. Pull once, run.
-- **From source (fully offline).** Every bundle also ships the complete build inputs: `base/Dockerfile` (pinned to `python:3.11` plus a fixed set of system packages and an `agent` user), `work/Dockerfile` + `setup_workspace.sh`, `judge/Dockerfile` + `setup_judge.sh`. The setup scripts are self-contained shell — they base64/gunzip inline payloads into place and fetch nothing over the network — so `docker build` alone reproduces the identical runtime with no hosted dependencies beyond `python:3.11`.
+- **Prebuilt images (fast path).** `[environment]` and `[verifier.environment]` in `task.toml` name images hosted in the Mephisto container registry, pinned by both a 12-character content-hash tag and a `sha256` digest. Pull once, run.
+- **From source (fully offline).** Every bundle also ships the complete build inputs: `environment/Dockerfile` + `environment/attachments/` for the agent image, and `tests/Dockerfile` + `tests/scoring/` + `tests/hidden_test_data/` for the judge. Both are pinned to `python:3.11-slim` plus a fixed set of system packages, and every file they `COPY` is committed alongside them, so `docker build` alone reproduces the identical runtime, with no hosted dependency beyond the base image and the pinned Python packages.
 
-The `work/` and `judge/` Dockerfiles currently `FROM` the hosted base image tag for convenience; consumers building fully from source can retag their locally-built `base/` image to match (or edit the `FROM` line) — the sibling `base/Dockerfile` is the authoritative recipe.
+Grading integrity does not depend on hiding the outcome from bundle bytes. The graded truth is baked into the judge image at build time and is unreachable from the **agent** container while the agent works: both containers run with `network_mode = "no-network"`, the judge is a separate image under `environment_mode = "separate"`, and only the declared `submit_paths` cross from one to the other. `solution/` is likewise build-time material; the harness mounts it only for oracle runs, never for an evaluated agent. On top of that, every self-reported metric is independently recomputed from the raw submitted output before it can earn a point.
 
-Grading integrity does not depend on hiding the outcome from bundle bytes. The graded truth is provisioned into the judge image at build time and is unreachable from the agent's workspace at run time: the agent container runs with `internet: false`, the judge lives in a separate container, a static allowlist gate blocks any import outside a fixed set of pure-stdlib maths modules, and an anti-fabrication check rejects any self-reported score. The earlier `setup_cmds` form (which inlined the build recipe into `task.json`) has been fully retired in favor of the standard Dockerfile layout above.
+Two limits are worth stating plainly. The submitted deliverable is re-executed **inside** the judge image, so the held-out data is on disk in the process that runs it; the no-future-data rule is a scoring contract, not a sandbox boundary. And the "boundary" is a property of the task, not of any particular model: it fixes what the bundle hands the agent, and it cannot guarantee that a given model has not seen the underlying public series during pretraining.
+
+Because each bundle ships its own answer key, treat these tasks as single-use per model, and exclude this repository from training corpora.
 
 ## License
 
-Released under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/). Underlying graded data are public records from their respective sources — government open-data portals (federal and municipal) and, for the software task, public package-registry release metadata. © 2026 Ethara.AI.
+Released under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/). Underlying graded data are public records; each bundle records its own `source_host`, `data_license`, `license_class` and `license_source` in the `[metadata]` block of its `task.toml`. © 2026 Ethara.AI.
