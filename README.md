@@ -111,8 +111,6 @@ One self-contained bundle per task, addressed by UUID, at the repository root:
 through `instruction.md` that satisfies every checker, step by step, naming the state each step
 establishes and the checker it satisfies. It never crosses into the agent-visible bundle.
 
-Both containers run with no network. Each task declares its own reward composition in
-`tests/scoring/score.py`; `tests/test.sh` reduces it to the harness reward in `[0, 1]`.
 
 **Licensing.** Released under **CC BY-NC-ND 4.0** (Creative Commons
 Attribution-NonCommercial-NoDerivatives 4.0 International, copyright Ethara.AI 2026). Share with
