@@ -71,11 +71,10 @@ measurement.
 ## Scaling laws of learning from real world environments
 
 Pretraining scaling laws model language-model loss as a power law in training scale. Agents also
-continue to learn *after* deployment, by interacting with an environment, and it was unclear
-whether that obeys any comparable law.
-These environments are built
-to make that trajectory measurable: the 12-hour window and the recorded submission history are what
-the curve is fitted to.
+continue to learn *after* deployment, by interacting with an environment, and whether that learning
+obeys a comparable law is the question these environments are built to answer. The 12-hour window
+and the full recorded submission history are what make a learning trajectory measurable in the
+first place, rather than a single endpoint score.
 
 ## Bundle structure
 
@@ -110,7 +109,7 @@ One self-contained bundle per task, addressed by UUID, at the repository root:
 
 `solution/TRUTH.md` is the task's **ground-truth record**: a human-readable statement of the route
 through `instruction.md` that satisfies every checker, step by step, naming the state each step
-establishes and the checker it satisfies. It never crossing into the agent-visible bundle.
+establishes and the checker it satisfies. It never crosses into the agent-visible bundle.
 
 Both containers run with no network. Each task declares its own reward composition in
 `tests/scoring/score.py`; `tests/test.sh` reduces it to the harness reward in `[0, 1]`.
