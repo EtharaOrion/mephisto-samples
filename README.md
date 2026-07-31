@@ -1,6 +1,7 @@
 ---
 license: cc-by-nc-nd-4.0
-tags: - professional-knowledge-work
+tags:
+  - professional-knowledge-work
   - long-horizon
 pretty_name: "Mephisto — Professional Knowledge Work Tasks"
 size_categories:
