@@ -1,31 +1,12 @@
 ---
 license: cc-by-nc-nd-4.0
-tags:
-  - agentic-benchmark
-  - professional-knowledge-work
+tags: - professional-knowledge-work
   - long-horizon
 pretty_name: "Mephisto — Professional Knowledge Work Tasks"
 size_categories:
   - n<1K
 ---
-
 <div align="center">
-
-# Mephisto — Professional Knowledge Work Tasks
-
-<img src="assets/banner.webp" alt="Mephisto" width="100%" />
-
-**A study of how autonomous agents learn from real-world environments.**
-
-<p>
-  <img src="https://img.shields.io/badge/Family-Professional%20Knowledge%20Work-16a34a?style=flat-square" alt="Professional Knowledge Work">
-  <img src="https://img.shields.io/badge/Tasks-30-1f6feb?style=flat-square" alt="30 Tasks">
-  <img src="https://img.shields.io/badge/Horizon-≥12h%20per%20task-f59e0b?style=flat-square" alt="≥12h per task">
-  <img src="https://img.shields.io/badge/Grading-Deterministic%20·%20Post--cutoff-8957e5?style=flat-square" alt="Deterministic post-cutoff grading">
-  <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-black?style=flat-square" alt="CC BY-NC-ND 4.0 License">
-</p>
-
-</div>
 
 ---
 
@@ -54,43 +35,43 @@ The tasks come in two archetypes:
 
 **Allocation books (17)** — distribute a finite attention/exposure budget across a universe, graded on the realized outcome the book covered.
 
-| Task | Domain |
-|------|--------|
-| `fdic_bank_credit_surveillance` | finance / banking |
-| `nport_liquidity_provisioning` | finance / funds |
-| `cms_ma_retention_provisioning` | healthcare / plans |
-| `cfpb_complaint_surge_surveillance` | finance / consumer |
-| `sec_opmargin_expansion_book` | finance / corporate |
-| `sec_leverage_expansion_book` | finance / corporate |
-| `pell_grant_disbursement_growth` | education / access |
-| `dl_disbursement_growth` | education / access |
-| `fafsa_completion_provisioning` | education / access |
-| `txmeal_participation_outreach` | education / access |
-| `nyc_restaurant_inspection_targeting` | enforcement / municipal |
-| `chicago_food_inspection_targeting` | enforcement / municipal |
-| `chicago_building_code_book` | enforcement / municipal |
-| `montgomery_food_safety_book` | enforcement / public-health |
-| `bts_station_reliability_provisioning` | transport |
-| `tx_mixedbev_tax_book` | public finance |
-| `chicago_taxi_revenue_book` | public finance / municipal |
+| Task                                     | Domain                      |
+| ---------------------------------------- | --------------------------- |
+| `fdic_bank_credit_surveillance`        | finance / banking           |
+| `nport_liquidity_provisioning`         | finance / funds             |
+| `cms_ma_retention_provisioning`        | healthcare / plans          |
+| `cfpb_complaint_surge_surveillance`    | finance / consumer          |
+| `sec_opmargin_expansion_book`          | finance / corporate         |
+| `sec_leverage_expansion_book`          | finance / corporate         |
+| `pell_grant_disbursement_growth`       | education / access          |
+| `dl_disbursement_growth`               | education / access          |
+| `fafsa_completion_provisioning`        | education / access          |
+| `txmeal_participation_outreach`        | education / access          |
+| `nyc_restaurant_inspection_targeting`  | enforcement / municipal     |
+| `chicago_food_inspection_targeting`    | enforcement / municipal     |
+| `chicago_building_code_book`           | enforcement / municipal     |
+| `montgomery_food_safety_book`          | enforcement / public-health |
+| `bts_station_reliability_provisioning` | transport                   |
+| `tx_mixedbev_tax_book`                 | public finance              |
+| `chicago_taxi_revenue_book`            | public finance / municipal  |
 
 **Breach-triage watchlists (13)** — flag the entities that will cross into a worst-case band next period, graded by precision-recall over the realized crossing.
 
-| Task | Domain |
-|------|--------|
-| `bank_supervisory_watchlist` | finance / banking |
-| `nport_liquidity_watchlist` | finance / funds |
-| `cms_ma_retention_watchlist` | healthcare / plans |
-| `cfpb_surge_watchlist` | finance / consumer |
-| `sec_margin_collapse_watchlist` | finance / corporate |
-| `sec_leverage_distress_watchlist` | finance / corporate |
-| `pell_disbursement_shortfall_watchlist` | education / access |
-| `dl_disbursement_collapse_watchlist` | education / access |
-| `txmeal_participation_shortfall_watchlist` | education / access |
-| `nyc_restaurant_closure_risk_watchlist` | enforcement / municipal |
-| `tx_mixedbev_collapse_watchlist` | public finance |
-| `chicago_taxi_collapse_watchlist` | public finance / municipal |
-| `oss_dependency_abandonment_watchlist` | open-source software / package registry |
+| Task                                         | Domain                                  |
+| -------------------------------------------- | --------------------------------------- |
+| `bank_supervisory_watchlist`               | finance / banking                       |
+| `nport_liquidity_watchlist`                | finance / funds                         |
+| `cms_ma_retention_watchlist`               | healthcare / plans                      |
+| `cfpb_surge_watchlist`                     | finance / consumer                      |
+| `sec_margin_collapse_watchlist`            | finance / corporate                     |
+| `sec_leverage_distress_watchlist`          | finance / corporate                     |
+| `pell_disbursement_shortfall_watchlist`    | education / access                      |
+| `dl_disbursement_collapse_watchlist`       | education / access                      |
+| `txmeal_participation_shortfall_watchlist` | education / access                      |
+| `nyc_restaurant_closure_risk_watchlist`    | enforcement / municipal                 |
+| `tx_mixedbev_collapse_watchlist`           | public finance                          |
+| `chicago_taxi_collapse_watchlist`          | public finance / municipal              |
+| `oss_dependency_abandonment_watchlist`     | open-source software / package registry |
 
 ## Bundle schema
 
