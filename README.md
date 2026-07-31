@@ -7,7 +7,24 @@ pretty_name: "Mephisto — Professional Knowledge Work Tasks"
 size_categories:
   - n<1K
 ---
+
 <div align="center">
+
+# Mephisto — Professional Knowledge Work Tasks
+
+<img src="assets/banner.webp" alt="Mephisto" width="100%" />
+
+**A study of how autonomous agents learn from real-world environments.**
+
+<p>
+  <img src="https://img.shields.io/badge/Family-Professional%20Knowledge%20Work-16a34a?style=flat-square" alt="Professional Knowledge Work">
+  <img src="https://img.shields.io/badge/Tasks-30-1f6feb?style=flat-square" alt="30 Tasks">
+  <img src="https://img.shields.io/badge/Horizon-≥12h%20per%20task-f59e0b?style=flat-square" alt="≥12h per task">
+  <img src="https://img.shields.io/badge/Grading-Deterministic%20·%20Post--cutoff-8957e5?style=flat-square" alt="Deterministic post-cutoff grading">
+  <img src="https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-black?style=flat-square" alt="CC BY-NC-ND 4.0 License">
+</p>
+
+</div>
 
 ---
 
