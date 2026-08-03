@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="Mephisto. Measured by a judge it never sees.">
+  <title>Mephisto</title>
+  <desc>The Void Flame: a dark flame held inside hovering metallic rings.</desc>
+
+  <defs>
+    <radialGradient id="vf-bg" cx="26%" cy="42%" r="92%">
+      <stop offset="0" stop-color="#1A0933"/>
+      <stop offset="1" stop-color="#0B0B10"/>
+    </radialGradient>
+
+    <linearGradient id="vf-orbit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D9488"/>
+      <stop offset="0.5" stop-color="#00F5D4"/>
+      <stop offset="1" stop-color="#8A2BE2"/>
+    </linearGradient>
+
+    <linearGradient id="vf-hex" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9B5DE5"/>
+      <stop offset="1" stop-color="#E63946"/>
+    </linearGradient>
+
+    <linearGradient id="vf-flame" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#1A0933"/>
+      <stop offset="0.45" stop-color="#8A2BE2"/>
+      <stop offset="1" stop-color="#E63946"/>
+    </linearGradient>
+
+    <linearGradient id="vf-core" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0" stop-color="#E63946"/>
+      <stop offset="1" stop-color="#00F5D4"/>
+    </linearGradient>
+
+    <filter id="vf-glow" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="9" result="vf-blur"/>
+      <feMerge>
+        <feMergeNode in="vf-blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="vf-soft" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="4" result="vf-blur2"/>
+      <feMerge>
+        <feMergeNode in="vf-blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#vf-bg)"/>
+
+  <g opacity="0.85">
+    <ellipse cx="230" cy="200" rx="170" ry="58" fill="none" stroke="url(#vf-orbit)" stroke-width="2.5" transform="rotate(-22 230 200)"/>
+    <ellipse cx="230" cy="200" rx="170" ry="58" fill="none" stroke="url(#vf-orbit)" stroke-width="2.5" transform="rotate(22 230 200)"/>
+  </g>
+
+  <polygon points="230,70 342.58,135 342.58,265 230,330 117.42,265 117.42,135" fill="none" stroke="url(#vf-hex)" stroke-width="3" stroke-linejoin="round" opacity="0.9"/>
+
+  <g filter="url(#vf-glow)">
+    <path d="M 230 96 C 246 140, 276 158, 286 196 C 296 234, 276 286, 230 286 C 184 286, 164 234, 174 196 C 182 164, 208 146, 230 96 Z" fill="url(#vf-flame)" stroke="#9B5DE5" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#vf-soft)">
+    <path d="M 230 168 C 240 196, 252 208, 252 226 C 252 250, 242 264, 230 264 C 218 264, 208 250, 208 226 C 208 208, 220 196, 230 168 Z" fill="url(#vf-core)" opacity="0.95"/>
+  </g>
+
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="460" y="148" font-size="20" letter-spacing="7" fill="#00F5D4" opacity="0.85">ETHARA.AI</text>
+    <text x="460" y="232" font-size="92" font-weight="700" letter-spacing="10" fill="#F5F3FF">MEPHISTO</text>
+    <text x="463" y="282" font-size="26" fill="#CBB8F0">Measured by a judge it never sees.</text>
+  </g>
+</svg>
