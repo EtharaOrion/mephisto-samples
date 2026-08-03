@@ -1,4 +1,4 @@
-<p align="center"><img alt="Mephisto. Measured by a judge it never sees." src="assets/hero.svg" width="880"></p>
+<p align="center"><img alt="Mephisto. Measured by a judge it never sees." src="images/hero.svg" width="880"></p>
 
 <p align="center"><strong>Three professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
 
