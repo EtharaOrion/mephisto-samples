@@ -1,0 +1,9 @@
+2026-08-01 01:43:16,328 - INFO - Judge container started: e9b6f1bd2bb18c10cb0fe63856d70b29223cd1ee57a6c5e33e283e760ff49978
+2026-08-01 01:43:16,328 - INFO - Archive saved (176463 bytes)
+2026-08-01 01:43:16,516 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
+2026-08-01 01:43:16,535 - INFO - Running eval script...
+2026-08-01 01:43:19,833 - INFO - Test runtime: 3.30s, timed_out: False
+2026-08-01 01:43:19,833 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-08-01 01:43:19,833 - INFO - Stopping container edgebench.judge.sec_fundamental_momentum_calibration.9d969dccc37f...
+2026-08-01 01:43:20,187 - INFO - Removing container edgebench.judge.sec_fundamental_momentum_calibration.9d969dccc37f...
+2026-08-01 01:43:20,191 - INFO - Container edgebench.judge.sec_fundamental_momentum_calibration.9d969dccc37f removed.

@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "fed_funds_regime_positioning_book",
+  "run_id": "60cab9e2-ae65-5e56-b113-0b1d40e33558-f3ecb9dde314",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-108",
+  "total_rounds": 195,
+  "agent_submissions": 172,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43199.66646385193,
+  "archive_size_bytes": 14301,
+  "resume_count": 1,
+  "best_score": 0.152727
+}

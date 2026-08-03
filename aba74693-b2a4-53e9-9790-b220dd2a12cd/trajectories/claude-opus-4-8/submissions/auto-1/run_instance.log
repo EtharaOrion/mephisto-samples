@@ -1,9 +1,0 @@
-2026-07-30 23:51:20,798 - INFO - Judge container started: 9a8a9f23a830301e386d69d25fa754f7f5e5090d5814f232e7cc83afc3c73c69
-2026-07-30 23:51:20,799 - INFO - Archive saved (24596 bytes)
-2026-07-30 23:51:21,013 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
-2026-07-30 23:51:21,031 - INFO - Running eval script...
-2026-07-30 23:51:23,045 - INFO - Test runtime: 2.01s, timed_out: False
-2026-07-30 23:51:23,046 - INFO - Result: 0/0 passed (pass_rate=0.00%)
-2026-07-30 23:51:23,046 - INFO - Stopping container edgebench.judge.treasury_auction_bidding_calibration.f7e3f7f6f8ed...
-2026-07-30 23:51:23,627 - INFO - Removing container edgebench.judge.treasury_auction_bidding_calibration.f7e3f7f6f8ed...
-2026-07-30 23:51:23,637 - INFO - Container edgebench.judge.treasury_auction_bidding_calibration.f7e3f7f6f8ed removed.

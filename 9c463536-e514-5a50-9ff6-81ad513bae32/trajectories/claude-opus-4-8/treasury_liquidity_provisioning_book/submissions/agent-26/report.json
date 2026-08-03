@@ -1,0 +1,19 @@
+{
+  "task_id": "treasury_liquidity_provisioning_book",
+  "submission_id": "e4935eaa50d7",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.484273,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 1.5222558975219727,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785613589.7106774
+}

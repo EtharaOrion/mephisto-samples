@@ -1,0 +1,9 @@
+2026-08-02 00:32:56,239 - INFO - Judge container started: 08d3915e4ed1b7ee1b723b3b3ba0e1e47834e5c2b96a2edeb30e5a2dae0f86b2
+2026-08-02 00:32:56,239 - INFO - Archive saved (4466 bytes)
+2026-08-02 00:32:56,416 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
+2026-08-02 00:32:56,435 - INFO - Running eval script...
+2026-08-02 00:33:02,986 - INFO - Test runtime: 6.55s, timed_out: False
+2026-08-02 00:33:02,987 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-08-02 00:33:02,987 - INFO - Stopping container edgebench.judge.treasury_liquidity_provisioning_book.ed3636b0fdeb...
+2026-08-02 00:33:03,343 - INFO - Removing container edgebench.judge.treasury_liquidity_provisioning_book.ed3636b0fdeb...
+2026-08-02 00:33:03,348 - INFO - Container edgebench.judge.treasury_liquidity_provisioning_book.ed3636b0fdeb removed.

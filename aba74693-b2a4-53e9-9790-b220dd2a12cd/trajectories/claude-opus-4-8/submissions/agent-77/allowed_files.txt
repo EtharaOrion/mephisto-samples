@@ -1,3 +1,0 @@
-auction_bidding.py
-requirements.txt
-bidding_results.json

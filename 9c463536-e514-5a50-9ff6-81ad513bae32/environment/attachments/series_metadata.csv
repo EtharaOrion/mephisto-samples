@@ -1,0 +1,8 @@
+series,source,license,cadence,window
+sofr,NY Fed Markets SOFR /last/5000 + FRED SOFR backfill,US Gov work,business daily,2018-04+
+repo,NY Fed Markets RRP /last/5000 + FRED RRPONTSYD,US Gov work,business daily,2013+
+pd_positions,NY Fed Markets Primary Dealer via /get/{series}/timeseries,US Gov work,weekly,post-SBN2024 subset
+tga_dts,fiscaldata DTS operating_cash_balance,US Gov work,business daily,2018-04+
+macro,FRED DFF/IORB/DGS2/DGS10 + fiscaldata debt_to_penny,US Gov work,business daily,2018-04+
+bill_auctions,TreasuryDirect auctions endpoint (Bill filter),US Gov work,irregular,2018-04+
+short_end_curve,home.treasury.gov daily yields + FRED DGS1MO/3MO/6MO/1 backfill,US Gov work,business daily,2018-04+

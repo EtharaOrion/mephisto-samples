@@ -1,0 +1,19 @@
+{
+  "task_id": "sec_leverage_trajectory_projection_book",
+  "submission_id": "f3f1c3805055",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.392455,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 8.252540111541748,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785528678.6642768
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "sec_fundamental_momentum_calibration",
+  "submission_id": "8779a160c98b",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.682636,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 3.3219425678253174,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785566837.9105065
+}

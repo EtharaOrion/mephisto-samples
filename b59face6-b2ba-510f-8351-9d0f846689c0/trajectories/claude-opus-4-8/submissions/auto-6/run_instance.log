@@ -1,9 +1,0 @@
-2026-07-31 07:37:23,798 - INFO - Judge container started: 372ef682312573e28bf567f7590f816ef8787be9865166d22faf02cdb74045a5
-2026-07-31 07:37:23,798 - INFO - Archive saved (12296 bytes)
-2026-07-31 07:37:24,014 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
-2026-07-31 07:37:24,033 - INFO - Running eval script...
-2026-07-31 07:37:34,666 - INFO - Test runtime: 10.63s, timed_out: False
-2026-07-31 07:37:34,666 - INFO - Result: 0/0 passed (pass_rate=0.00%)
-2026-07-31 07:37:34,667 - INFO - Stopping container edgebench.judge.treasury_curve_positioning_book.b4929e97a2ea...
-2026-07-31 07:37:35,038 - INFO - Removing container edgebench.judge.treasury_curve_positioning_book.b4929e97a2ea...
-2026-07-31 07:37:35,042 - INFO - Container edgebench.judge.treasury_curve_positioning_book.b4929e97a2ea removed.

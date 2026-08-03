@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/treasury_liquidity.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/positioning_results.json" },
+]
+
+[task]
+name = "edgebench/treasury_liquidity_provisioning_book"
+description = "US Treasury short-end cash allocation book — daily-cadence 6-bin cross-sectional cash mix across the Treasury bill maturity spread (4W/8W/13W/26W bills + O/N RRP + IORB proxy) with SOFR/RRP/TGA funding-condition overlays. Agent produces per-day 6-bin cash mix + 4-class funding label + extreme-stress flag + weekly issuance direction + composite book across a hidden 2025-01-01 to 2026-07-31 daily window (~395 rebalance dates). Scored on 8 lanes + funding-cycle bonus, 0-110."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "treasury-bill-liquidity",
+  "short-end-cash-allocation",
+  "funding-condition-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.treasury_liquidity_provisioning_book:03a5d353@sha256:03a5d353a94fd2e9325933bd68e0fb69308e78526fa37e12718ed234aae7275f"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.treasury_liquidity_provisioning_book:99341f5f@sha256:99341f5f649bbe205c3b828855efd0c2db36ddfc9e680b67cd6b7cc4edff3609"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "treasury_liquidity_provisioning_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["treasury_liquidity.py", "requirements.txt", "positioning_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "03a5d353"
+judge_image_tag = "99341f5f"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "NY Fed Markets (markets.newyorkfed.org) + FRED (fred.stlouisfed.org) + fiscaldata.treasury.gov + TreasuryDirect (treasurydirect.gov) + home.treasury.gov"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "NY Fed markets data + Federal Reserve Bank of St. Louis (FRED) + fiscaldata Bureau of the Fiscal Service + TreasuryDirect auctions + Federal Reserve H.15"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector", "multiarch-linux-amd64-arm64"]
+provenance_source = "FORGE-authored 2026-08-01 (T9/10 finance-adjacent Framework B slate), structural mirror of dataset/d3cd6658-d997-5f26-89e3-97e5443046b4/ (sec_leverage_trajectory_projection_book, T7) per PKW-FAMILIES section 3 Framework B"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-08-01"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/d3cd6658-d997-5f26-89e3-97e5443046b4/ (T7 sec_leverage_trajectory_projection_book) per PKW-FAMILIES section 3 Framework B, differentiated by short-end Treasury liquidity cadence combining ~395 daily rebalance-dates across 2025-01-01 to 2026-07-31 spanning the QT normalization to potential-cutting-cycle transitions. GRADER_SALT preemptive perturbation baked in at Phase 1. Multiarch (linux/amd64 + linux/arm64) manifest lists per operator directive."

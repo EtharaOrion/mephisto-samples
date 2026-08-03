@@ -1,0 +1,19 @@
+{
+  "task_id": "fed_funds_regime_positioning_book",
+  "submission_id": "28f4f18b0f69",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.146545,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 2.310809373855591,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1785563202.550132
+}

@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "sec_fundamental_momentum_calibration",
+  "run_id": "5cb28005-2b9a-5520-b4f8-de58beb5640d-4d78f001f39c",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-264",
+  "total_rounds": 290,
+  "agent_submissions": 267,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.08090496063,
+  "archive_size_bytes": 178297,
+  "resume_count": 0,
+  "best_score": 0.683091
+}

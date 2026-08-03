@@ -1,0 +1,100 @@
+{
+  "task_id": "treasury_liquidity_provisioning_book",
+  "bundle_uuid": "9c463536-e514-5a50-9ff6-81ad513bae32",
+  "framework": "B",
+  "score_scale": "0-110",
+  "scoring_direction": "higher-better",
+  "entrypoint": "eval_script.py",
+  "kind": "shell",
+  "command": [
+    "/bin/bash",
+    "-lc",
+    "python3 /home/workspace/scoring/eval_script.py --submission-dir /home/workspace --input-dir /home/workspace/scoring/dataset --output /home/workspace/score_report.json"
+  ],
+  "working_dir": "/home/workspace",
+  "required_submission_files": [
+    "positioning_results.json"
+  ],
+  "required_scoring_files": [
+    "eval_script.py",
+    "score.py",
+    "scorer_manifest.json",
+    "treasury_liquidity_reference.py",
+    "dataset/sofr_test.csv",
+    "dataset/repo_test.csv",
+    "dataset/tga_dts_test.csv",
+    "dataset/macro_test.csv",
+    "dataset/bill_auctions_test.csv",
+    "dataset/short_end_curve_test.csv",
+    "dataset/test_ladder_dates.json",
+    "dataset/true_ladder_returns.json"
+  ],
+  "score_output": {
+    "source": "stdout",
+    "format": "regex",
+    "pattern": "(?:TOTAL_SCORE\\s+|Final total score:\\s*)(-?\\d+(?:\\.\\d+)?)",
+    "scale_max": 110
+  },
+  "score_normalization": {
+    "raw_min": 0,
+    "raw_max": 110,
+    "target_min": 0,
+    "target_max": 110
+  },
+  "failure_policy": {
+    "missing_submission": "zero_score",
+    "missing_dependency": "infra_error",
+    "missing_scoring_file": "infra_error",
+    "parse_failure": "zero_score",
+    "nonzero_exit_without_score": "zero_score"
+  },
+  "lanes": [
+    {"id": "L1_ladder_return_lane", "weight": 20, "metric": "annualized_sharpe", "anchor_floor": 0.0, "anchor_full": 1.5, "anchor_source": "T-bill positioning-book realistic Sharpe cap per ICI industry data + Fama 1984 JFE term-premia"},
+    {"id": "L2_repo_regime_classification", "weight": 15, "metric": "4-class accuracy", "anchor_floor": 0.25, "anchor_full": 0.85, "anchor_source": "4-state K-means baseline 25%; Wu-Xia 2016 JMCB shadow-rate literature skilled 55-70%"},
+    {"id": "L3_extreme_stress_detection", "weight": 15, "metric": "binary F1", "anchor_floor": 0.10, "anchor_full": 0.85, "anchor_source": "Rare-event F1 base rate ~5-8%; skilled floor 0.30"},
+    {"id": "L4_bill_supply_direction_ranking", "weight": 10, "metric": "3-class accuracy", "anchor_floor": 0.33, "anchor_full": 0.85, "anchor_source": "3-class random 33%; skilled direction 55-65% for weekly bill-supply signal"},
+    {"id": "L5_ny_fed_pd_position_change", "weight": 10, "metric": "subset-scoring direction accuracy (SBN2024 series-break subset)", "anchor_floor": 0.33, "anchor_full": 0.75, "anchor_source": "Adrian-Fleming-Vogt 2017 JMCB dealer-inventory literature; subset PD default awarded on unavailable series"},
+    {"id": "L6_money_market_pnl_proxy", "weight": 10, "metric": "MM Sharpe (RRP+IORB legs, annualized)", "anchor_floor": 0.0, "anchor_full": 1.5, "anchor_source": "Money-market fund Sharpe historically 0.5-1.5 per ICI"},
+    {"id": "L7_anti_fabrication", "weight": 5, "metric": "self_report vs judge_recomputed tolerance",
+      "tolerances": {
+        "L1_ladder_return_lane_est": 0.20,
+        "L2_regime_classification_est": 0.20,
+        "L3_extreme_stress_detection_est": 0.20,
+        "L4_supply_direction_est": 0.20,
+        "L6_money_market_pnl_proxy_est": 0.20,
+        "L8_cross_week_stability_est": 0.20
+      }},
+    {"id": "L8_cross_week_stability", "weight": 10, "metric": "cross-week mean_perf × variance-penalty", "variance_baseline": 0.08},
+    {"id": "liquidity_cycle_bonus", "weight": 10, "metric": "QT-regime + extreme-stress precision (combined)", "saturation_precision": 0.75}
+  ],
+  "lane_total": 95,
+  "free_padding": 5,
+  "base_total": 100,
+  "bonus_total": 10,
+  "grand_max": 110,
+  "parser": {
+    "submission_schema": {
+      "task_id": "string",
+      "bundle_uuid": "string",
+      "per_date": [
+        {
+          "date": "ISO YYYY-MM-DD",
+          "allocation": "dict of {b4w,b8w,b13w,b26w,rrp,iorb} floats summing to 1.0",
+          "regime_label": "one of deep_qt|normal|elevated_stress|extreme_stress",
+          "extreme_stress_flag": "bool",
+          "extreme_stress_probability": "float [0,1]",
+          "supply_direction": "one of up|flat|down",
+          "self_reported_certainty": "float [0,1]"
+        }
+      ],
+      "self_reported_metrics": "dict"
+    }
+  },
+  "confidence": "high",
+  "evidence": [
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "8 lanes + liquidity_cycle_bonus weights match seed/contract.yaml.reference_emulation exactly (95 base + 5 free = 100 + bonus 10 = 110).",
+    "Reference lands 74.03/110 IN-BAND [65, 78] with +59pt margin over naive baselines.",
+    "GRADER_SALT-seeded perturbation PRE-BUILT at Phase 1 (preempts T6 Phase 2b retrofit)."
+  ]
+}

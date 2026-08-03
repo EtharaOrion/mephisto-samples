@@ -1,0 +1,26 @@
+2026-07-31 19:26:59,032 - INFO - Images ready
+2026-07-31 19:26:59,039 - INFO - Registered session with judge server
+2026-07-31 19:26:59,057 - INFO - Network isolation enabled: iptables preflight passed
+2026-07-31 19:27:02,918 - INFO - Container started: sforge.run.sec_leverage_trajectory_projection_book.d3cd6658-d997-5f26-89e3-97e5443046b4-8cec3be4c70b (judge_url=http://host.docker.internal:8082)
+2026-07-31 19:27:02,918 - INFO - Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-07-31 19:27:04,683 - INFO - Install step 1 done (1.8s)
+2026-07-31 19:27:04,683 - INFO - Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+2026-07-31 19:27:08,953 - INFO - Install step 2 done (4.3s)
+2026-07-31 19:27:08,953 - INFO - Agent installation complete
+2026-07-31 19:27:09,084 - INFO - Installed sforge-submit script
+2026-07-31 19:27:09,120 - INFO - Installed Claude Code stop hook
+2026-07-31 19:27:09,140 - INFO - Configured Claude Code settings with hooks
+2026-07-31 19:27:09,140 - INFO - Host-side auto-eval started (interval=1800s)
+2026-07-31 19:27:09,269 - INFO - Network isolation applied: chain=SFORGE_76bbe0abc471, ip=172.17.0.3, ip6=None, allowed=2 endpoints
+2026-07-31 19:27:09,434 - INFO - Prompt written (21435 bytes)
+2026-07-31 19:27:09,435 - INFO - Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-4-8[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+2026-08-01 07:27:09,568 - INFO - Agent finished: runtime=43200.1s, timed_out=True, resumes=0, pool_paused=0s
+2026-08-01 07:27:09,568 - INFO - Auto-eval thread stopped
+2026-08-01 07:27:09,611 - INFO - Final archive: 172471 bytes
+2026-08-01 07:27:09,649 - INFO - Work container processes stopped
+2026-08-01 07:27:09,657 - INFO - Done: best=0.00% (round 'auto-17'), agent_subs=243, auto_subs=23, resumes=0, runtime=43200.1s
+2026-08-01 07:27:10,053 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_76bbe0abc471 failed: ip6tables: No chain/target/match by that name.
+2026-08-01 07:27:10,053 - INFO - Network isolation cleaned up: chain=SFORGE_76bbe0abc471
+2026-08-01 07:27:10,053 - INFO - Stopping container sforge.run.sec_leverage_trajectory_projection_book.d3cd6658-d997-5f26-89e3-97e5443046b4-8cec3be4c70b...
+2026-08-01 07:27:10,417 - INFO - Removing container sforge.run.sec_leverage_trajectory_projection_book.d3cd6658-d997-5f26-89e3-97e5443046b4-8cec3be4c70b...
+2026-08-01 07:27:10,516 - INFO - Container sforge.run.sec_leverage_trajectory_projection_book.d3cd6658-d997-5f26-89e3-97e5443046b4-8cec3be4c70b removed.

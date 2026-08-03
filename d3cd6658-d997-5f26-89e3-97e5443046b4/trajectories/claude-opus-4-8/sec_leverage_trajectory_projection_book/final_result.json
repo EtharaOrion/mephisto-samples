@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "sec_leverage_trajectory_projection_book",
+  "run_id": "d3cd6658-d997-5f26-89e3-97e5443046b4-8cec3be4c70b",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "auto-17",
+  "total_rounds": 266,
+  "agent_submissions": 243,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.12044262886,
+  "archive_size_bytes": 172471,
+  "resume_count": 0,
+  "best_score": 0.539273
+}

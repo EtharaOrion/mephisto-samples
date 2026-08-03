@@ -1,0 +1,27 @@
+{
+  "run_id": "9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1",
+  "experiment": null,
+  "stagger": null,
+  "tasks": {
+    "treasury_liquidity_provisioning_book": {
+      "task_id": "treasury_liquidity_provisioning_book",
+      "agent": "claude-code",
+      "model": "claude-opus-4-8[1m]",
+      "timeout": 43200,
+      "eval_interval": 1800,
+      "disable_stop_hook": false,
+      "disable_auto_eval": false,
+      "disable_auto_resume": false,
+      "internet": false,
+      "judge_url": "http://host.docker.internal:8081",
+      "work_cpu_limit": null,
+      "work_mem_limit": null,
+      "judge_cpu_limit": null,
+      "judge_mem_limit": null,
+      "max_submissions": 300,
+      "submission_cooldown": 120,
+      "api_base_url": "http://host.docker.internal:9091",
+      "api_key": "c6339354..."
+    }
+  }
+}

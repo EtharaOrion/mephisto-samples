@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "treasury_liquidity_provisioning_book",
+  "run_id": "9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1",
+  "model": "claude-opus-4-8[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-282",
+  "total_rounds": 305,
+  "agent_submissions": 282,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.12012052536,
+  "archive_size_bytes": 5720,
+  "resume_count": 0,
+  "best_score": 0.672909
+}

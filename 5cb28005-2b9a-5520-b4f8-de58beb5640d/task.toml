@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/fundamental_momentum.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/momentum_results.json" },
+]
+
+[task]
+name = "edgebench/sec_fundamental_momentum_calibration"
+description = "US SEC EDGAR-XBRL cross-sectional fundamental momentum on top-1000 filers by Assets. Agent produces per-filer-quarter composite momentum score + peer-conditional rank + earnings-surprise classification + extreme-filer probability + positioning book across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the observed post-2022-hike margin-compression-to-recovery regime shift. Scored on 8 lanes + earnings-cycle bonus, 0-110."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "sec-xbrl-fundamental-panel",
+  "cross-sectional-momentum",
+  "earnings-cycle-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.sec_fundamental_momentum_calibration:e6bd619657c5@sha256:e6bd619657c530ce08dedee7a82bb5cf6a7c49a94b80566fb73257d2e5d2a5a4"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.sec_fundamental_momentum_calibration:53ac6a9d48c9@sha256:6ce0b01c865eb3c61eaba8c9ed6653c925409d9144737f909296804bdfcb207b"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "sec_fundamental_momentum_calibration"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["fundamental_momentum.py", "requirements.txt", "momentum_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "e6bd619657c5"
+judge_image_tag = "53ac6a9d48c9"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "SEC EDGAR XBRL frames (data.sec.gov/api/xbrl/frames/us-gaap/) - US Government public disclosure per 17 CFR 232.301 + FRED redistribution route (fred.stlouisfed.org) for DGS10, DFF, UNRATE - US Government work, public domain"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "US SEC EDGAR fair-access policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DGS10/DFF/UNRATE"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
+provenance_source = "FORGE-authored 2026-07-31, structural mirror of dataset/60cab9e2-ae65-5e56-b113-0b1d40e33558/ (fed_funds_regime_positioning_book, T5) per PKW-FAMILIES section 3 Framework B"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-07-31"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/60cab9e2-ae65-5e56-b113-0b1d40e33558/ (T5, fed_funds_regime_positioning_book) per PKW-FAMILIES section 3 Framework B, differentiated from T1-T5 by the SEC-XBRL cross-sectional fundamental momentum cadence combining per-filer-quarter composite score + peer-conditional rank + earnings-surprise classification + extreme-filer probability + positioning across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the post-2022-hike margin-compression-to-recovery regime shift."

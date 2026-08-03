@@ -1,0 +1,9 @@
+2026-07-31 21:22:57,838 - INFO - Judge container started: eb1c1e959f39e01c1bc2775d579a64a9b3759446953ea5fde4707c8fc485dd00
+2026-07-31 21:22:57,838 - INFO - Archive saved (162933 bytes)
+2026-07-31 21:22:58,036 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
+2026-07-31 21:22:58,056 - INFO - Running eval script...
+2026-07-31 21:23:07,759 - INFO - Test runtime: 9.70s, timed_out: False
+2026-07-31 21:23:07,759 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-07-31 21:23:07,759 - INFO - Stopping container edgebench.judge.sec_leverage_trajectory_projection_book.a5c4f59adfc2...
+2026-07-31 21:23:08,129 - INFO - Removing container edgebench.judge.sec_leverage_trajectory_projection_book.a5c4f59adfc2...
+2026-07-31 21:23:08,134 - INFO - Container edgebench.judge.sec_leverage_trajectory_projection_book.a5c4f59adfc2 removed.

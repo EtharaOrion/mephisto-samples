@@ -1,0 +1,168 @@
+{
+  "task_id": "sec_leverage_trajectory_projection_book",
+  "bundle_uuid": "d3cd6658-d997-5f26-89e3-97e5443046b4",
+  "framework": "B",
+  "score_scale": "0-110",
+  "scoring_direction": "higher-better",
+  "entrypoint": "eval_script.py",
+  "kind": "shell",
+  "command": [
+    "/bin/bash",
+    "-lc",
+    "python3 /home/workspace/scoring/eval_script.py --submission-dir /home/workspace --input-dir /home/workspace/scoring/dataset --output /home/workspace/score_report.json"
+  ],
+  "working_dir": "/home/workspace",
+  "required_submission_files": [
+    "trajectory_results.json"
+  ],
+  "required_scoring_files": [
+    "eval_script.py",
+    "score.py",
+    "scorer_manifest.json",
+    "leverage_trajectory_reference.py",
+    "dataset/train/xbrl.jsonl",
+    "dataset/train/universe.jsonl",
+    "dataset/train/macro.jsonl",
+    "dataset/test/xbrl.jsonl",
+    "dataset/test/universe.jsonl",
+    "dataset/test/macro.jsonl",
+    "dataset/test/test_filer_quarters.json"
+  ],
+  "score_output": {
+    "source": "stdout",
+    "format": "regex",
+    "pattern": "(?:TOTAL_SCORE\\s+|Final total score:\\s*)(-?\\d+(?:\\.\\d+)?)",
+    "scale_max": 110
+  },
+  "score_normalization": {
+    "raw_min": 0,
+    "raw_max": 110,
+    "target_min": 0,
+    "target_max": 110
+  },
+  "failure_policy": {
+    "missing_submission": "zero_score",
+    "missing_dependency": "infra_error",
+    "missing_scoring_file": "infra_error",
+    "parse_failure": "zero_score",
+    "nonzero_exit_without_score": "zero_score"
+  },
+  "lanes": [
+    {
+      "id": "L1_composite_trajectory_rank_correlation",
+      "weight": 20,
+      "metric": "spearman_ic",
+      "description": "Per-quarter Spearman rank correlation between submitted composite_score and truth's capital-structure-derived price_response_20d_proxy, averaged across 5 test quarters.",
+      "anchor_floor": 0.00,
+      "anchor_full": 0.50,
+      "anchor_source": "Baker-Wurgler 2002 JF + Frank-Goyal 2009 JFE cross-sectional IC 0.30-0.50 range for balance-sheet Delta-metrics"
+    },
+    {
+      "id": "L2_refinancing_risk_direction",
+      "weight": 15,
+      "metric": "three_class_accuracy",
+      "description": "3-class classification accuracy (risk_up/neutral/risk_down) of submitted refi_direction vs truth refi_direction across test filer-quarters.",
+      "anchor_floor": 0.33,
+      "anchor_full": 1.00,
+      "anchor_source": "3-class random baseline 33%; skilled cross-quarter refi-direction detector floor 55%; identity match ceiling 100%"
+    },
+    {
+      "id": "L3_extreme_mover_detection",
+      "weight": 15,
+      "metric": "f1_extreme_flag",
+      "description": "F1 score of submitted in_top_decile OR in_bottom_decile flags vs truth flags (rare-event binary classification).",
+      "anchor_floor": 0.10,
+      "anchor_full": 1.00,
+      "anchor_source": "Rare-event F1 skilled floor 0.30 (top/bottom decile 20% of universe); identity match ceiling 1.0"
+    },
+    {
+      "id": "L4_delta_liabilities_growth_ranking",
+      "weight": 10,
+      "metric": "spearman_ic",
+      "description": "Per-quarter Spearman rank correlation between submitted peer_rank_percentile and negated realized Liabilities/Assets YoY change (higher rank = lower leverage growth).",
+      "anchor_floor": 0.00,
+      "anchor_full": 0.70,
+      "anchor_source": "Frank-Goyal 2009 JFE cross-sectional balance-sheet Delta-metrics IC upper bound 0.70"
+    },
+    {
+      "id": "L5_interest_coverage_direction",
+      "weight": 10,
+      "metric": "three_class_accuracy",
+      "description": "Direction accuracy (up/flat/down) of composite direction as predictor of truth realized InterestCoverage YoY change (subset scoring where InterestExpense reported).",
+      "anchor_floor": 0.33,
+      "anchor_full": 0.70,
+      "anchor_source": "3-class random 33%; skilled direction 55-65%"
+    },
+    {
+      "id": "L6_composite_position_pnl",
+      "weight": 10,
+      "metric": "positioning_book_sharpe",
+      "description": "Cross-quarter Sharpe ratio of the submitted positioning book realized against truth's capital-structure-derived price_response_20d_proxy (Sharpe cap 5.0).",
+      "anchor_floor": 0.00,
+      "anchor_full": 5.00,
+      "anchor_source": "Baker-Wurgler 2002 JF capital-structure-timing pro-Sharpe 3-5 realistic ceiling"
+    },
+    {
+      "id": "L7_anti_fabrication",
+      "weight": 5,
+      "metric": "self_report_vs_recompute",
+      "description": "Awards 5 pts when submitted self_reported_metrics agree with judge-recomputed metrics within tolerance; 0 on divergence.",
+      "tolerances": {
+        "L1_composite_trajectory_rank_correlation_est": 0.15,
+        "L2_refinancing_risk_direction_accuracy_est": 0.15,
+        "L3_extreme_mover_detection_f1_est": 0.15,
+        "L4_delta_liabilities_growth_ranking_ic_est": 0.15,
+        "L5_interest_coverage_direction_accuracy_est": 0.15
+      }
+    },
+    {
+      "id": "L8_cross_quarter_stability",
+      "weight": 10,
+      "metric": "cross_quarter_variance_penalty",
+      "description": "Awards up to 10 pts based on mean per-quarter normalized performance across L1/L2/L3/L4/L5, discounted by variance across the 5 test quarters.",
+      "variance_baseline": 0.10
+    },
+    {
+      "id": "leverage_cycle_bonus",
+      "weight": 10,
+      "metric": "refi_cycle_turning_point_precision",
+      "description": "Bonus lane (+10, additive over 100). Awards up to 10 pts for detection precision of filers whose Liabilities/Assets peaked CY2024Q4-CY2025Q2 and receded CY2025Q3-CY2026Q1 (post-2022-hike refi-cycle-turn beneficiaries).",
+      "saturation_precision": 0.85
+    }
+  ],
+  "lane_total": 95,
+  "free_padding": 5,
+  "base_total": 100,
+  "bonus_total": 10,
+  "grand_max": 110,
+  "parser": {
+    "submission_schema": {
+      "task_id": "string",
+      "bundle_uuid": "string",
+      "per_filer_quarter": [
+        {
+          "cik": "int",
+          "period": "string YYYYQq",
+          "composite_score": "float or null",
+          "peer_rank_percentile": "float 0..1 or null",
+          "global_rank_percentile": "float 0..1 or null",
+          "refi_direction": "one of risk_up|neutral|risk_down",
+          "refi_confidence": "float 0..1",
+          "extreme_probability": "float 0..1",
+          "in_top_decile": "bool",
+          "in_bottom_decile": "bool",
+          "position_weight": "float",
+          "price_response_20d_proxy": "float"
+        }
+      ],
+      "self_reported_metrics": "dict"
+    }
+  },
+  "confidence": "high",
+  "evidence": [
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "8 lanes + leverage_cycle_bonus weights match seed/contract.yaml.reference_emulation exactly (L1:20 + L2:15 + L3:15 + L4:10 + L5:10 + L6:10 + L7:5 + L8:10 = 95 base + 5 free padding = 100; bonus 10).",
+    "Lane anchors calibrated per Baker-Wurgler 2002 JF + Frank-Goyal 2009 JFE + Fama-French 2015 literature: reference [65, 78] band; copy-last-quarter baseline projected 25-35; random baseline projected 15-25.",
+    "Ground truth is recomputed on-the-fly inside eval_script.py by importing leverage_trajectory_reference.py against the same input dir - deterministic and reproducible. GRADER_SALT-seeded perturbation layer PRE-BUILT preempts T6 Phase 2 identity-scoring MISCALIBRATED HIGH."
+  ]
+}

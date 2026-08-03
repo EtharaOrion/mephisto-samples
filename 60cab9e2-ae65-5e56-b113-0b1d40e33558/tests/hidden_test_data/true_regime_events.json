@@ -1,0 +1,68 @@
+{
+  "count": 9,
+  "events": [
+    {
+      "event_date": "2025-03-31",
+      "event_month": "2025-03",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": 0.0,
+      "dff_change_prev_1q": -0.5
+    },
+    {
+      "event_date": "2025-04-30",
+      "event_month": "2025-04",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": 0.0,
+      "dff_change_prev_1q": -0.5
+    },
+    {
+      "event_date": "2025-05-31",
+      "event_month": "2025-05",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": 0.0,
+      "dff_change_prev_1q": -0.25
+    },
+    {
+      "event_date": "2025-09-30",
+      "event_month": "2025-09",
+      "kind": "holding_to_cutting",
+      "dff_change_1q": -0.24,
+      "dff_change_prev_1q": 0.0
+    },
+    {
+      "event_date": "2025-10-31",
+      "event_month": "2025-10",
+      "kind": "holding_to_cutting",
+      "dff_change_1q": -0.47,
+      "dff_change_prev_1q": 0.0
+    },
+    {
+      "event_date": "2025-11-30",
+      "event_month": "2025-11",
+      "kind": "holding_to_cutting",
+      "dff_change_1q": -0.44,
+      "dff_change_prev_1q": 0.0
+    },
+    {
+      "event_date": "2026-03-31",
+      "event_month": "2026-03",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": 0.0,
+      "dff_change_prev_1q": -0.45
+    },
+    {
+      "event_date": "2026-04-30",
+      "event_month": "2026-04",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": 0.0,
+      "dff_change_prev_1q": -0.22
+    },
+    {
+      "event_date": "2026-05-31",
+      "event_month": "2026-05",
+      "kind": "cutting_to_holding",
+      "dff_change_1q": -0.02,
+      "dff_change_prev_1q": -0.25
+    }
+  ]
+}

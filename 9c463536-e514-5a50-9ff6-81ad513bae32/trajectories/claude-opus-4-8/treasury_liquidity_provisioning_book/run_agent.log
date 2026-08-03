@@ -1,0 +1,26 @@
+2026-08-01 18:37:05,016 - INFO - Images ready
+2026-08-01 18:37:05,024 - INFO - Registered session with judge server
+2026-08-01 18:37:05,040 - INFO - Network isolation enabled: iptables preflight passed
+2026-08-01 18:37:05,448 - INFO - Container started: sforge.run.treasury_liquidity_provisioning_book.9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1 (judge_url=http://host.docker.internal:8081)
+2026-08-01 18:37:05,448 - INFO - Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-08-01 18:37:07,317 - INFO - Install step 1 done (1.9s)
+2026-08-01 18:37:07,317 - INFO - Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+2026-08-01 18:37:09,522 - INFO - Install step 2 done (2.2s)
+2026-08-01 18:37:09,522 - INFO - Agent installation complete
+2026-08-01 18:37:09,634 - INFO - Installed sforge-submit script
+2026-08-01 18:37:09,670 - INFO - Installed Claude Code stop hook
+2026-08-01 18:37:09,689 - INFO - Configured Claude Code settings with hooks
+2026-08-01 18:37:09,689 - INFO - Host-side auto-eval started (interval=1800s)
+2026-08-01 18:37:09,814 - INFO - Network isolation applied: chain=SFORGE_ba7d431a18d3, ip=172.17.0.5, ip6=None, allowed=2 endpoints
+2026-08-01 18:37:09,934 - INFO - Prompt written (13783 bytes)
+2026-08-01 18:37:09,935 - INFO - Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-4-8[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+2026-08-02 06:37:10,060 - INFO - Agent finished: runtime=43200.1s, timed_out=True, resumes=0, pool_paused=0s
+2026-08-02 06:37:10,060 - INFO - Auto-eval thread stopped
+2026-08-02 06:37:10,083 - INFO - Final archive: 5720 bytes
+2026-08-02 06:37:10,121 - INFO - Work container processes stopped
+2026-08-02 06:37:10,129 - INFO - Done: best=0.00% (round 'agent-282'), agent_subs=282, auto_subs=23, resumes=0, runtime=43200.1s
+2026-08-02 06:37:10,653 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_ba7d431a18d3 failed: ip6tables: No chain/target/match by that name.
+2026-08-02 06:37:10,653 - INFO - Network isolation cleaned up: chain=SFORGE_ba7d431a18d3
+2026-08-02 06:37:10,653 - INFO - Stopping container sforge.run.treasury_liquidity_provisioning_book.9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1...
+2026-08-02 06:37:11,110 - INFO - Removing container sforge.run.treasury_liquidity_provisioning_book.9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1...
+2026-08-02 06:37:11,204 - INFO - Container sforge.run.treasury_liquidity_provisioning_book.9c463536-e514-5a50-9ff6-81ad513bae32-689634a2fde1 removed.

@@ -1,0 +1,9 @@
+2026-07-31 21:23:02,485 - INFO - Judge container started: 1dded6127508b221c4714c4436e514d2eb9f450524e7bd90778ef2a6f7a60491
+2026-07-31 21:23:02,485 - INFO - Archive saved (9553 bytes)
+2026-07-31 21:23:02,663 - INFO - Archive extracted: 3 file(s) allowed, 0 rejected
+2026-07-31 21:23:02,682 - INFO - Running eval script...
+2026-07-31 21:23:04,935 - INFO - Test runtime: 2.25s, timed_out: False
+2026-07-31 21:23:04,935 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-07-31 21:23:04,935 - INFO - Stopping container edgebench.judge.fed_funds_regime_positioning_book.b24c8966ce14...
+2026-07-31 21:23:05,334 - INFO - Removing container edgebench.judge.fed_funds_regime_positioning_book.b24c8966ce14...
+2026-07-31 21:23:05,338 - INFO - Container edgebench.judge.fed_funds_regime_positioning_book.b24c8966ce14 removed.

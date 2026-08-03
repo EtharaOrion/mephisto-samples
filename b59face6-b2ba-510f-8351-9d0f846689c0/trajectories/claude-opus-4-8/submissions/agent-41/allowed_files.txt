@@ -1,3 +1,0 @@
-curve_positioning.py
-requirements.txt
-positioning_results.json

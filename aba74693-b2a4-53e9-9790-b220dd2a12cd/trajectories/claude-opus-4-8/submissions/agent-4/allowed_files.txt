@@ -1,2 +1,0 @@
-auction_bidding.py
-requirements.txt

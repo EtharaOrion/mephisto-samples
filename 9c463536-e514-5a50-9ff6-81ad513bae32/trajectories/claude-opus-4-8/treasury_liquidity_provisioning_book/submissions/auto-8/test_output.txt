@@ -1,0 +1,44 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace
++ mkdir -p /logs/verifier
++ echo IyEvYmluL2Jhc2gKc2V0ICtlCm1rZGlyIC1wIC9sb2dzL3ZlcmlmaWVyIC9ob21lL3dvcmtzcGFjZQoKZm9yIGYgaW4gL2xvZ3MvYXJ0aWZhY3RzLyo7IGRvCiAgWyAtZiAiJGYiIF0gfHwgY29udGludWUKICBjcCAiJGYiICIvaG9tZS93b3Jrc3BhY2UvJChiYXNlbmFtZSAiJGYiKSIKZG9uZQoKaWYgWyAtZiAvaG9tZS93b3Jrc3BhY2UvcmVxdWlyZW1lbnRzLnR4dCBdOyB0aGVuCiAgcGlwIGluc3RhbGwgLS11c2VyIC0tcXVpZXQgLXIgL2hvbWUvd29ya3NwYWNlL3JlcXVpcmVtZW50cy50eHQgMj4mMSB8IHRhaWwgLTIwIHx8IHRydWUKZmkKCmNkIC9ob21lL3dvcmtzcGFjZQoKcHl0aG9uMyAvaG9tZS93b3Jrc3BhY2Uvc2NvcmluZy9ldmFsX3NjcmlwdC5weSBcCiAgICAtLXN1Ym1pc3Npb24tZGlyIC9ob21lL3dvcmtzcGFjZSBcCiAgICAtLWlucHV0LWRpciAgICAgIC9ob21lL3dvcmtzcGFjZS9zY29yaW5nL2RhdGFzZXQgXAogICAgLS1vdXRwdXQgICAgICAgICAvaG9tZS93b3Jrc3BhY2Uvc2NvcmVfcmVwb3J0Lmpzb24gXAogICAgMj4mMSB8IHRlZSAvbG9ncy92ZXJpZmllci9zY29yaW5nX3N0ZG91dC5sb2cKClNDT1JFPSQoZ3JlcCAtb0UgIlRPVEFMX1NDT1JFXHMrLT9bMC05XSsoXC5bMC05XSspPyIgL2xvZ3MvdmVyaWZpZXIvc2NvcmluZ19zdGRvdXQubG9nIHwgdGFpbCAtMSB8IGF3ayAne3ByaW50ICQyfScpCmlmIFsgLXogIiRTQ09SRSIgXTsgdGhlbgogIFNDT1JFPSQoZ3JlcCAtb0UgIkZpbmFsIHRvdGFsIHNjb3JlOlxzKi0/WzAtOV0rKFwuWzAtOV0rKT8iIC9sb2dzL3ZlcmlmaWVyL3Njb3Jpbmdfc3Rkb3V0LmxvZyB8IHRhaWwgLTEgfCBncmVwIC1vRSAiXC0/WzAtOV0rKFwuWzAtOV0rKT8kIikKZmkKaWYgWyAteiAiJFNDT1JFIiBdOyB0aGVuCiAgZWNobyAiRVJST1I6IGNvdWxkIG5vdCBleHRyYWN0IHNjb3JlIGZyb20gc3Rkb3V0IiA+JjIKICBlY2hvIDAgPiAvbG9ncy92ZXJpZmllci9yZXdhcmQudHh0CiAgZXhpdCAxCmZpCgpTQ09SRV9OT1JNPSQocHl0aG9uMyAtYyAicHJpbnQocm91bmQoZmxvYXQoJyRTQ09SRScpIC8gMTEwLjAsIDYpKSIpCmVjaG8gIiRTQ09SRV9OT1JNIiA+IC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC50eHQKY2htb2QgNjQ0IC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC50eHQKZWNobyAiSGFyYm9yIHJld2FyZCB3cml0dGVuOiByYXc9JFNDT1JFIG5vcm1hbGl6ZWQ9JFNDT1JFX05PUk0iCg==
++ base64 -d
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+======================================================================
+eval_script.py (treasury_liquidity_provisioning_book) elapsed 0.189s
+======================================================================
+submission_rows=396  reference_rows=395
+
+=== Per-lane scores ===
+  L1_ladder_return_lane                      20.000 /  20.0   Sharpe (annualized) = 1.5018 over 395 dates (cap 1.5; mu=0.000044 sd=0.000464)
+  L2_repo_regime_classification               7.611 /  15.0   accuracy = 0.5544 (219/395) (anchor 0.25->0pt, 0.85->15.0pt)
+  L3_extreme_stress_detection                 4.545 /  15.0   F1 = 0.3273 (P=0.346 R=0.310 TP=9 FP=17 FN=20 TN=349)
+  L4_bill_supply_direction_ranking            3.878 /  10.0   accuracy = 0.5316 (210/395)
+  L5_ny_fed_pd_position_change                5.000 /  10.0   PD series unavailable/subset skipped — awarded 50% default per subset-scoring gap
+  L6_money_market_pnl_proxy                   0.000 /  10.0   MM Sharpe = -0.2357 over 395 dates (cap 1.5)
+  L7_anti_fabrication                         0.000 /   5.0   fabrication: L2_regime_classification_est: sr=0.900 vs judge=0.554; L6_money_market_pnl_proxy_est: sr=0.550 vs judge=-0.157
+  L8_cross_week_stability                     5.832 /  10.0   mean_norm=0.5850 var_frac=0.9970 weeks=83
+  free_padding                                5.000 /   5.0
+  BASE_TOTAL                                 51.866 / 100
+  liquidity_cycle_bonus                       6.265 /  10.0   qt_precision=0.5935 (TP=184 FP=126); stress_precision=0.3462 (TP=9 FP=17); combined=0.4699; saturates at 0.75
+
+Final total score: 58.13 / 110.0
+TOTAL_SCORE 58.13
+Harbor reward written: raw=58.13 normalized=0.528455
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.528455
++ echo '{"score": 0.528455}'
+{"score": 0.528455}
++ EXIT_CODE=0
+>>>>> End Test Output
+Exit code: 0
++ echo '>>>>> End Test Output'
++ echo 'Exit code: 0'
++ exit 0

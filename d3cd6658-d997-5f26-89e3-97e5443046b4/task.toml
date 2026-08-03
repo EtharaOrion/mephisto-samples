@@ -1,0 +1,67 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/leverage_trajectory.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/trajectory_results.json" },
+]
+
+[task]
+name = "edgebench/sec_leverage_trajectory_projection_book"
+description = "US SEC EDGAR-XBRL cross-sectional capital-structure trajectory projection on top-1000 filers by Assets. Agent produces per-filer-quarter composite capital-structure trajectory score + peer-conditional rank + refinancing-risk direction classification + extreme-mover probability + positioning book across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the observed CY2025 rate-hike-plateau-to-cutting-cycle turning point. Scored on 8 lanes + leverage-cycle bonus, 0-110."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "sec-xbrl-fundamental-panel",
+  "capital-structure-trajectory",
+  "leverage-projection-book",
+  "rate-cycle-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.sec_leverage_trajectory_projection_book:e1f1d886633e@sha256:e1f1d886633ee757264d30455c4ed4fbfc6692162b51249a506aaec407425262"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.sec_leverage_trajectory_projection_book:9251fda55c0f@sha256:9251fda55c0f01d64557d0f305a14b681f1bd9c631518d7bb6e8040cb324a25b"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "sec_leverage_trajectory_projection_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["leverage_trajectory.py", "requirements.txt", "trajectory_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "e1f1d886633e"
+judge_image_tag = "9251fda55c0f"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "SEC EDGAR XBRL frames (data.sec.gov/api/xbrl/frames/us-gaap/) - US Government public disclosure per 17 CFR 232.301 + FRED redistribution route (fred.stlouisfed.org) for DGS10, DGS2, DFF, T10Y2Y - US Government work, public domain"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "US SEC EDGAR fair-access policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DGS10/DGS2/DFF/T10Y2Y"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
+provenance_source = "FORGE-authored 2026-07-31, structural mirror of dataset/5cb28005-2b9a-5520-b4f8-de58beb5640d/ (sec_fundamental_momentum_calibration, T6) per PKW-FAMILIES section 3 Framework B"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-07-31"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/5cb28005-2b9a-5520-b4f8-de58beb5640d/ (T6, sec_fundamental_momentum_calibration) per PKW-FAMILIES section 3 Framework B, differentiated from T1-T6 by the SEC-XBRL cross-sectional capital-structure trajectory projection cadence combining per-filer-quarter composite trajectory score + peer-conditional rank + refinancing-risk direction classification + extreme-mover probability + positioning across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the CY2025 rate-hike-plateau-to-cutting-cycle turning point. Shipment change from T2-T6: multiarch (linux/amd64 + linux/arm64) manifest lists per operator directive 2026-07-31."

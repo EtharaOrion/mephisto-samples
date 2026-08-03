@@ -1,0 +1,53 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace
++ mkdir -p /logs/verifier
++ echo IyEvYmluL2Jhc2gKc2V0ICtlCm1rZGlyIC1wIC9sb2dzL3ZlcmlmaWVyIC9ob21lL3dvcmtzcGFjZQoKZm9yIGYgaW4gL2xvZ3MvYXJ0aWZhY3RzLyo7IGRvCiAgWyAtZiAiJGYiIF0gfHwgY29udGludWUKICBjcCAiJGYiICIvaG9tZS93b3Jrc3BhY2UvJChiYXNlbmFtZSAiJGYiKSIKZG9uZQoKaWYgWyAtZiAvaG9tZS93b3Jrc3BhY2UvcmVxdWlyZW1lbnRzLnR4dCBdOyB0aGVuCiAgcGlwIGluc3RhbGwgLS11c2VyIC0tcXVpZXQgLXIgL2hvbWUvd29ya3NwYWNlL3JlcXVpcmVtZW50cy50eHQgMj4mMSB8IHRhaWwgLTIwIHx8IHRydWUKZmkKCmNkIC9ob21lL3dvcmtzcGFjZQpjcCAvaG9tZS93b3Jrc3BhY2Uvc2NvcmluZy9mZWRfZnVuZHNfdGVzdC5jc3YgICAgICAgICAgICAgICAgIC9ob21lL3dvcmtzcGFjZS9mZWRfZnVuZHNfdGVzdC5jc3YKY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvcmF0ZXNfdGVzdC5jc3YgICAgICAgICAgICAgICAgICAgICAvaG9tZS93b3Jrc3BhY2UvcmF0ZXNfdGVzdC5jc3YKY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvbWFjcm9fdGVzdC5jc3YgICAgICAgICAgICAgICAgICAgICAvaG9tZS93b3Jrc3BhY2UvbWFjcm9fdGVzdC5jc3YKY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvZm9tY19tZWV0aW5nc190ZXN0XzIwMjVfMjAyNi5jc3YgICAvaG9tZS93b3Jrc3BhY2UvZm9tY19tZWV0aW5nc190ZXN0XzIwMjVfMjAyNi5jc3YKY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvdGVzdF93aW5kb3dzX3NjaGVkdWxlLmpzb24gICAgICAgICAvaG9tZS93b3Jrc3BhY2UvdGVzdF93aW5kb3dzX3NjaGVkdWxlLmpzb24KY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvdGVzdF93aW5kb3dzX3RydXRoLmpzb24gICAgICAgICAgICAvaG9tZS93b3Jrc3BhY2UvdGVzdF93aW5kb3dzX3RydXRoLmpzb24KY3AgL2hvbWUvd29ya3NwYWNlL3Njb3JpbmcvdGVzdF9mb21jX2V2ZW50cy5qc29uICAgICAgICAgICAgICAvaG9tZS93b3Jrc3BhY2UvdGVzdF9mb21jX2V2ZW50cy5qc29uCmNwIC9ob21lL3dvcmtzcGFjZS9zY29yaW5nL3RydWVfcmVnaW1lX2V2ZW50cy5qc29uICAgICAgICAgICAgL2hvbWUvd29ya3NwYWNlL3RydWVfcmVnaW1lX2V2ZW50cy5qc29uCgpweXRob24zIC9ob21lL3dvcmtzcGFjZS9zY29yaW5nL2V2YWxfc2NyaXB0LnB5IDI+JjEgfCB0ZWUgL2xvZ3MvdmVyaWZpZXIvc2NvcmluZ19zdGRvdXQubG9nCgpTQ09SRT0kKGdyZXAgLW9FICJUT1RBTF9TQ09SRVxzKy0/WzAtOV0rKFwuWzAtOV0rKT8iIC9sb2dzL3ZlcmlmaWVyL3Njb3Jpbmdfc3Rkb3V0LmxvZyB8IHRhaWwgLTEgfCBhd2sgJ3twcmludCAkMn0nKQppZiBbIC16ICIkU0NPUkUiIF07IHRoZW4KICBTQ09SRT0kKGdyZXAgLW9FICJGaW5hbCB0b3RhbCBzY29yZTpccyotP1swLTldKyhcLlswLTldKyk/IiAvbG9ncy92ZXJpZmllci9zY29yaW5nX3N0ZG91dC5sb2cgfCB0YWlsIC0xIHwgZ3JlcCAtb0UgIlwtP1swLTldKyhcLlswLTldKyk/JCIpCmZpCmlmIFsgLXogIiRTQ09SRSIgXTsgdGhlbgogIGVjaG8gIkVSUk9SOiBjb3VsZCBub3QgZXh0cmFjdCBzY29yZSBmcm9tIHN0ZG91dCIgPiYyCiAgZWNobyAwID4gL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLnR4dAogIGV4aXQgMQpmaQoKU0NPUkVfTk9STT0kKHB5dGhvbjMgLWMgInByaW50KHJvdW5kKGZsb2F0KCckU0NPUkUnKSAvIDExMC4wLCA2KSkiKQplY2hvICIkU0NPUkVfTk9STSIgPiAvbG9ncy92ZXJpZmllci9yZXdhcmQudHh0CmNobW9kIDY0NCAvbG9ncy92ZXJpZmllci9yZXdhcmQudHh0CmVjaG8gIkhhcmJvciByZXdhcmQgd3JpdHRlbjogcmF3PSRTQ09SRSBub3JtYWxpemVkPSRTQ09SRV9OT1JNIgo=
++ base64 -d
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+
+[notice] A new release of pip is available: 24.0 -> 26.2
+[notice] To update, run: pip install --upgrade pip
+======================================================================
+eval_script.py started at 2026-08-01 05:01:14
+======================================================================
+Loaded 77 truth windows, 12 FOMC events
+
+=== Per-Lane Scores ===
+  L1_regime_classification                 0.00 / 20
+  L2_yield_2y_forecast                     0.00 / 15
+  L3_yield_10y_forecast                    0.00 / 15
+  L4_duration_positioning_pnl              0.00 / 15
+  L5_slope_positioning_pnl                 0.00 / 10
+  L6_carry_position_pnl                    0.00 / 10
+  L7_anti_fabrication                      0.00 / 5
+  L8_cross_cadence_stability               6.80 / 10
+  Base total                               6.80 / 100
+  FOMC-decision bonus                     10.00 / 10  (matched 12/12)
+
+=== Judge-recomputed metrics ===
+  regime_accuracy                          0.7403
+  yield_2y_mae_bps                         8.0987
+  yield_10y_mae_bps                        7.5325
+  duration_pnl_sum                        19.3600
+  slope_pnl_sum                            1.3200
+  carry_pnl_sum                           59.1120
+
+Score report written to /home/workspace/score_report.json
+
+Final total score: 16.80 / 110
+TOTAL_SCORE 16.80
+Harbor reward written: raw=16.80 normalized=0.152727
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.152727
++ echo '{"score": 0.152727}'
+{"score": 0.152727}
++ EXIT_CODE=0
++ echo '>>>>> End Test Output'
+>>>>> End Test Output
+Exit code: 0
++ echo 'Exit code: 0'
++ exit 0

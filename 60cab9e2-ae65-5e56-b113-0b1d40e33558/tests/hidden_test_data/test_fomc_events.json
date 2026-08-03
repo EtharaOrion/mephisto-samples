@@ -1,0 +1,65 @@
+{
+  "count": 12,
+  "events": [
+    {
+      "meeting_date": "2025-01-29",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2025-03-19",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2025-05-07",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2025-06-18",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2025-07-30",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2025-09-17",
+      "meeting_type": "regular",
+      "true_rate_decision": "cut_25"
+    },
+    {
+      "meeting_date": "2025-10-29",
+      "meeting_type": "regular",
+      "true_rate_decision": "cut_25"
+    },
+    {
+      "meeting_date": "2025-12-10",
+      "meeting_type": "regular",
+      "true_rate_decision": "cut_25"
+    },
+    {
+      "meeting_date": "2026-01-28",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2026-03-18",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2026-04-29",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    },
+    {
+      "meeting_date": "2026-06-17",
+      "meeting_type": "regular",
+      "true_rate_decision": "hold"
+    }
+  ]
+}

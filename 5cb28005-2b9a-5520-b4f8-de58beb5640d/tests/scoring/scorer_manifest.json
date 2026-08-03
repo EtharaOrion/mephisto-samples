@@ -1,0 +1,168 @@
+{
+  "task_id": "sec_fundamental_momentum_calibration",
+  "bundle_uuid": "5cb28005-2b9a-5520-b4f8-de58beb5640d",
+  "framework": "B",
+  "score_scale": "0-110",
+  "scoring_direction": "higher-better",
+  "entrypoint": "eval_script.py",
+  "kind": "shell",
+  "command": [
+    "/bin/bash",
+    "-lc",
+    "python3 /home/workspace/scoring/eval_script.py --submission-dir /home/workspace --input-dir /home/workspace/scoring/dataset --output /home/workspace/score_report.json"
+  ],
+  "working_dir": "/home/workspace",
+  "required_submission_files": [
+    "momentum_results.json"
+  ],
+  "required_scoring_files": [
+    "eval_script.py",
+    "score.py",
+    "scorer_manifest.json",
+    "fundamental_momentum_reference.py",
+    "dataset/train/fundamentals.jsonl",
+    "dataset/train/universe.jsonl",
+    "dataset/train/macro.jsonl",
+    "dataset/test/fundamentals.jsonl",
+    "dataset/test/universe.jsonl",
+    "dataset/test/macro.jsonl",
+    "dataset/test/test_filer_quarters.json"
+  ],
+  "score_output": {
+    "source": "stdout",
+    "format": "regex",
+    "pattern": "(?:TOTAL_SCORE\\s+|Final total score:\\s*)(-?\\d+(?:\\.\\d+)?)",
+    "scale_max": 110
+  },
+  "score_normalization": {
+    "raw_min": 0,
+    "raw_max": 110,
+    "target_min": 0,
+    "target_max": 110
+  },
+  "failure_policy": {
+    "missing_submission": "zero_score",
+    "missing_dependency": "infra_error",
+    "missing_scoring_file": "infra_error",
+    "parse_failure": "zero_score",
+    "nonzero_exit_without_score": "zero_score"
+  },
+  "lanes": [
+    {
+      "id": "L1_composite_score_rank_correlation",
+      "weight": 20,
+      "metric": "spearman_ic",
+      "description": "Per-quarter Spearman rank correlation between submitted composite_score and truth's fundamentals-derived price_response_20d_proxy, averaged across 5 test quarters.",
+      "anchor_floor": 0.00,
+      "anchor_full": 0.50,
+      "anchor_source": "Novy-Marx 2013 JFE quality-factor IC range 0.30-0.50 for cross-sectional fundamental momentum strategies"
+    },
+    {
+      "id": "L2_earnings_surprise_direction",
+      "weight": 15,
+      "metric": "three_class_accuracy",
+      "description": "3-class classification accuracy (beat/in_line/miss) of submitted surprise_direction vs truth surprise_direction across test filer-quarters.",
+      "anchor_floor": 0.33,
+      "anchor_full": 1.00,
+      "anchor_source": "3-class random baseline 33%; skilled cross-quarter surprise detector floor 55%; identity match ceiling 100%"
+    },
+    {
+      "id": "L3_extreme_filer_detection",
+      "weight": 15,
+      "metric": "f1_extreme_flag",
+      "description": "F1 score of submitted in_top_decile OR in_bottom_decile flags vs truth flags (rare-event binary classification).",
+      "anchor_floor": 0.10,
+      "anchor_full": 1.00,
+      "anchor_source": "Rare-event F1 skilled floor 0.30 (top/bottom decile 20% of universe); identity match ceiling 1.0"
+    },
+    {
+      "id": "L4_revenue_growth_ranking",
+      "weight": 10,
+      "metric": "spearman_ic",
+      "description": "Per-quarter Spearman rank correlation between submitted peer_rank_percentile and truth's realized Revenues YoY growth ratio.",
+      "anchor_floor": 0.00,
+      "anchor_full": 0.70,
+      "anchor_source": "Novy-Marx 2013 JFE cross-sectional IC frontier upper bound; revenue-growth-rank IC 0.35-0.70 (persistent metric, aligned with quality-factor frontier)"
+    },
+    {
+      "id": "L5_margin_expansion_direction",
+      "weight": 10,
+      "metric": "three_class_accuracy",
+      "description": "Direction accuracy (up/flat/down) of submitted composite direction as predictor of truth realized margin change YoY.",
+      "anchor_floor": 0.33,
+      "anchor_full": 0.70,
+      "anchor_source": "3-class random 33%; skilled margin-direction 55-60%"
+    },
+    {
+      "id": "L6_composite_position_pnl",
+      "weight": 10,
+      "metric": "positioning_book_sharpe",
+      "description": "Cross-quarter Sharpe ratio of the submitted positioning book realized against truth's price_response_20d_proxy (capped at 1.5).",
+      "anchor_floor": 0.00,
+      "anchor_full": 5.00,
+      "anchor_source": "Novy-Marx 2013 JFE realized cross-sectional factor-momentum pro-Sharpe ceiling 3-5 (out-of-sample, cap 5.0 as documented realistic upper bound)"
+    },
+    {
+      "id": "L7_anti_fabrication",
+      "weight": 5,
+      "metric": "self_report_vs_recompute",
+      "description": "Awards 5 pts when submitted self_reported_metrics agree with judge-recomputed metrics within tolerance; 0 on divergence (cross-lane veto NOT applied — L7 is standalone here per PKW-FAMILIES §3 Framework B minimum-viable variant).",
+      "tolerances": {
+        "L1_composite_score_rank_correlation_est": 0.15,
+        "L2_earnings_surprise_direction_accuracy_est": 0.15,
+        "L3_extreme_filer_detection_f1_est": 0.15,
+        "L4_revenue_growth_ranking_ic_est": 0.15,
+        "L5_margin_expansion_direction_accuracy_est": 0.15
+      }
+    },
+    {
+      "id": "L8_cross_quarter_stability",
+      "weight": 10,
+      "metric": "cross_quarter_variance_penalty",
+      "description": "Awards up to 10 pts based on mean per-quarter normalized performance across L1/L2/L3/L4/L5/L6, discounted by variance across the 5 test quarters. Copy-last-quarter is stable but low-mean; genuine momentum capture has moderate variance and higher mean.",
+      "variance_baseline": 0.10
+    },
+    {
+      "id": "earnings_cycle_bonus",
+      "weight": 10,
+      "metric": "margin_cycle_precision",
+      "description": "Bonus lane (+10, additive over 100). Awards up to 10 pts for detection precision of filers whose OperatingIncomeLoss/Revenues bottomed in CY2024Q4-CY2025Q2 and recovered CY2025Q3-CY2026Q1 (post-2022-hike margin-compression-to-recovery regime shift).",
+      "saturation_precision": 0.85
+    }
+  ],
+  "lane_total": 95,
+  "free_padding": 5,
+  "base_total": 100,
+  "bonus_total": 10,
+  "grand_max": 110,
+  "parser": {
+    "submission_schema": {
+      "task_id": "string",
+      "bundle_uuid": "string",
+      "per_filer_quarter": [
+        {
+          "cik": "int",
+          "period": "string YYYYQq",
+          "composite_score": "float or null",
+          "peer_rank_percentile": "float 0..1 or null",
+          "global_rank_percentile": "float 0..1 or null",
+          "surprise_direction": "one of beat|in_line|miss",
+          "surprise_confidence": "float 0..1",
+          "extreme_probability": "float 0..1",
+          "in_top_decile": "bool",
+          "in_bottom_decile": "bool",
+          "position_weight": "float",
+          "price_response_20d_proxy": "float"
+        }
+      ],
+      "self_reported_metrics": "dict"
+    }
+  },
+  "confidence": "high",
+  "evidence": [
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "8 lanes + earnings_cycle_bonus weights match seed/contract.yaml.reference_emulation exactly (L1:20 + L2:15 + L3:15 + L4:10 + L5:10 + L6:10 + L7:5 + L8:10 = 95 base + 5 free padding = 100; bonus 10).",
+    "Lane anchors calibrated per seed/oracle.md control-ladder projection: reference [65, 78] band; copy-last-quarter baseline projected 32-42; random baseline projected 18-28.",
+    "Ground truth is recomputed on-the-fly inside eval_script.py by importing fundamental_momentum_reference.py against the same input dir — deterministic and reproducible."
+  ]
+}

@@ -1,0 +1,28 @@
+2026-07-31 19:39:42,419 - INFO - Images ready
+2026-07-31 19:39:42,427 - INFO - Registered session with judge server
+2026-07-31 19:39:42,443 - INFO - Network isolation enabled: iptables preflight passed
+2026-07-31 19:39:52,599 - INFO - Container started: sforge.run.fed_funds_regime_positioning_book.60cab9e2-ae65-5e56-b113-0b1d40e33558-f3ecb9dde314 (judge_url=http://host.docker.internal:8082)
+2026-07-31 19:39:52,599 - INFO - Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-07-31 19:39:54,242 - INFO - Install step 1 done (1.6s)
+2026-07-31 19:39:54,242 - INFO - Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+2026-07-31 19:39:56,408 - INFO - Install step 2 done (2.2s)
+2026-07-31 19:39:56,409 - INFO - Agent installation complete
+2026-07-31 19:39:56,524 - INFO - Installed sforge-submit script
+2026-07-31 19:39:56,560 - INFO - Installed Claude Code stop hook
+2026-07-31 19:39:56,579 - INFO - Configured Claude Code settings with hooks
+2026-07-31 19:39:56,579 - INFO - Host-side auto-eval started (interval=1800s)
+2026-07-31 19:39:56,703 - INFO - Network isolation applied: chain=SFORGE_1491b9553249, ip=172.17.0.4, ip6=None, allowed=2 endpoints
+2026-07-31 19:39:56,853 - INFO - Prompt written (12720 bytes)
+2026-07-31 19:39:56,854 - INFO - Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-4-8[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+2026-08-01 07:31:30,430 - INFO - Agent exited after 42693.6s, will resume
+2026-08-01 07:31:30,430 - INFO - Resuming agent (attempt 1/100, 506s left): claude --continue -p "Continue working." --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-4-8[1m]' --disallowedTools WebSearch,WebFetch...
+2026-08-01 07:39:56,542 - INFO - Agent finished: runtime=43199.7s, timed_out=True, resumes=1, pool_paused=0s
+2026-08-01 07:39:56,542 - INFO - Auto-eval thread stopped
+2026-08-01 07:39:56,565 - INFO - Final archive: 14301 bytes
+2026-08-01 07:39:56,603 - INFO - Work container processes stopped
+2026-08-01 07:39:56,610 - INFO - Done: best=0.00% (round 'agent-108'), agent_subs=172, auto_subs=23, resumes=1, runtime=43199.7s
+2026-08-01 07:39:57,053 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_1491b9553249 failed: ip6tables: No chain/target/match by that name.
+2026-08-01 07:39:57,053 - INFO - Network isolation cleaned up: chain=SFORGE_1491b9553249
+2026-08-01 07:39:57,053 - INFO - Stopping container sforge.run.fed_funds_regime_positioning_book.60cab9e2-ae65-5e56-b113-0b1d40e33558-f3ecb9dde314...
+2026-08-01 07:39:57,422 - INFO - Removing container sforge.run.fed_funds_regime_positioning_book.60cab9e2-ae65-5e56-b113-0b1d40e33558-f3ecb9dde314...
+2026-08-01 07:39:57,515 - INFO - Container sforge.run.fed_funds_regime_positioning_book.60cab9e2-ae65-5e56-b113-0b1d40e33558-f3ecb9dde314 removed.

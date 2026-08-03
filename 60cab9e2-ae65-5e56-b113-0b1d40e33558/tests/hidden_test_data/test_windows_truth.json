@@ -1,0 +1,775 @@
+{
+  "count": 77,
+  "windows": [
+    {
+      "window_date": "2025-01-03",
+      "realized_2y_bps": 428.0,
+      "realized_10y_bps": 460.0,
+      "realized_2y_bps_next_wk": 440.0,
+      "realized_10y_bps_next_wk": 477.0,
+      "realized_2y_delta_next_wk_bps": 12.0,
+      "realized_10y_delta_next_wk_bps": 17.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-01-10",
+      "realized_2y_bps": 440.0,
+      "realized_10y_bps": 477.0,
+      "realized_2y_bps_next_wk": 427.0,
+      "realized_10y_bps_next_wk": 461.0,
+      "realized_2y_delta_next_wk_bps": -13.0,
+      "realized_10y_delta_next_wk_bps": -16.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-01-17",
+      "realized_2y_bps": 427.0,
+      "realized_10y_bps": 461.0,
+      "realized_2y_bps_next_wk": 427.0,
+      "realized_10y_bps_next_wk": 463.0,
+      "realized_2y_delta_next_wk_bps": 0.0,
+      "realized_10y_delta_next_wk_bps": 2.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-01-24",
+      "realized_2y_bps": 427.0,
+      "realized_10y_bps": 463.0,
+      "realized_2y_bps_next_wk": 422.0,
+      "realized_10y_bps_next_wk": 458.0,
+      "realized_2y_delta_next_wk_bps": -5.0,
+      "realized_10y_delta_next_wk_bps": -5.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-01-31",
+      "realized_2y_bps": 422.0,
+      "realized_10y_bps": 458.0,
+      "realized_2y_bps_next_wk": 429.0,
+      "realized_10y_bps_next_wk": 449.0,
+      "realized_2y_delta_next_wk_bps": 7.0,
+      "realized_10y_delta_next_wk_bps": -9.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-02-07",
+      "realized_2y_bps": 429.0,
+      "realized_10y_bps": 449.0,
+      "realized_2y_bps_next_wk": 426.0,
+      "realized_10y_bps_next_wk": 447.0,
+      "realized_2y_delta_next_wk_bps": -3.0,
+      "realized_10y_delta_next_wk_bps": -2.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-02-14",
+      "realized_2y_bps": 426.0,
+      "realized_10y_bps": 447.0,
+      "realized_2y_bps_next_wk": 419.0,
+      "realized_10y_bps_next_wk": 442.0,
+      "realized_2y_delta_next_wk_bps": -7.0,
+      "realized_10y_delta_next_wk_bps": -5.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-02-21",
+      "realized_2y_bps": 419.0,
+      "realized_10y_bps": 442.0,
+      "realized_2y_bps_next_wk": 399.0,
+      "realized_10y_bps_next_wk": 424.0,
+      "realized_2y_delta_next_wk_bps": -20.0,
+      "realized_10y_delta_next_wk_bps": -18.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-02-28",
+      "realized_2y_bps": 399.0,
+      "realized_10y_bps": 424.0,
+      "realized_2y_bps_next_wk": 399.0,
+      "realized_10y_bps_next_wk": 432.0,
+      "realized_2y_delta_next_wk_bps": 0.0,
+      "realized_10y_delta_next_wk_bps": 8.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-03-07",
+      "realized_2y_bps": 399.0,
+      "realized_10y_bps": 432.0,
+      "realized_2y_bps_next_wk": 402.0,
+      "realized_10y_bps_next_wk": 431.0,
+      "realized_2y_delta_next_wk_bps": 3.0,
+      "realized_10y_delta_next_wk_bps": -1.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-03-14",
+      "realized_2y_bps": 402.0,
+      "realized_10y_bps": 431.0,
+      "realized_2y_bps_next_wk": 394.0,
+      "realized_10y_bps_next_wk": 425.0,
+      "realized_2y_delta_next_wk_bps": -8.0,
+      "realized_10y_delta_next_wk_bps": -6.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-03-21",
+      "realized_2y_bps": 394.0,
+      "realized_10y_bps": 425.0,
+      "realized_2y_bps_next_wk": 389.0,
+      "realized_10y_bps_next_wk": 427.0,
+      "realized_2y_delta_next_wk_bps": -5.0,
+      "realized_10y_delta_next_wk_bps": 2.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-03-28",
+      "realized_2y_bps": 389.0,
+      "realized_10y_bps": 427.0,
+      "realized_2y_bps_next_wk": 368.0,
+      "realized_10y_bps_next_wk": 401.0,
+      "realized_2y_delta_next_wk_bps": -21.0,
+      "realized_10y_delta_next_wk_bps": -26.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-04-04",
+      "realized_2y_bps": 368.0,
+      "realized_10y_bps": 401.0,
+      "realized_2y_bps_next_wk": 396.0,
+      "realized_10y_bps_next_wk": 448.0,
+      "realized_2y_delta_next_wk_bps": 28.0,
+      "realized_10y_delta_next_wk_bps": 47.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-04-11",
+      "realized_2y_bps": 396.0,
+      "realized_10y_bps": 448.0,
+      "realized_2y_bps_next_wk": 381.0,
+      "realized_10y_bps_next_wk": 434.0,
+      "realized_2y_delta_next_wk_bps": -15.0,
+      "realized_10y_delta_next_wk_bps": -14.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-04-18",
+      "realized_2y_bps": 381.0,
+      "realized_10y_bps": 434.0,
+      "realized_2y_bps_next_wk": 374.0,
+      "realized_10y_bps_next_wk": 429.0,
+      "realized_2y_delta_next_wk_bps": -7.0,
+      "realized_10y_delta_next_wk_bps": -5.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-04-25",
+      "realized_2y_bps": 374.0,
+      "realized_10y_bps": 429.0,
+      "realized_2y_bps_next_wk": 383.0,
+      "realized_10y_bps_next_wk": 433.0,
+      "realized_2y_delta_next_wk_bps": 9.0,
+      "realized_10y_delta_next_wk_bps": 4.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-05-02",
+      "realized_2y_bps": 383.0,
+      "realized_10y_bps": 433.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 437.0,
+      "realized_2y_delta_next_wk_bps": 5.0,
+      "realized_10y_delta_next_wk_bps": 4.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-05-09",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 437.0,
+      "realized_2y_bps_next_wk": 398.0,
+      "realized_10y_bps_next_wk": 443.0,
+      "realized_2y_delta_next_wk_bps": 10.0,
+      "realized_10y_delta_next_wk_bps": 6.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-05-16",
+      "realized_2y_bps": 398.0,
+      "realized_10y_bps": 443.0,
+      "realized_2y_bps_next_wk": 400.0,
+      "realized_10y_bps_next_wk": 451.0,
+      "realized_2y_delta_next_wk_bps": 2.0,
+      "realized_10y_delta_next_wk_bps": 8.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-05-23",
+      "realized_2y_bps": 400.0,
+      "realized_10y_bps": 451.0,
+      "realized_2y_bps_next_wk": 389.0,
+      "realized_10y_bps_next_wk": 441.0,
+      "realized_2y_delta_next_wk_bps": -11.0,
+      "realized_10y_delta_next_wk_bps": -10.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-05-30",
+      "realized_2y_bps": 389.0,
+      "realized_10y_bps": 441.0,
+      "realized_2y_bps_next_wk": 404.0,
+      "realized_10y_bps_next_wk": 451.0,
+      "realized_2y_delta_next_wk_bps": 15.0,
+      "realized_10y_delta_next_wk_bps": 10.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-06-06",
+      "realized_2y_bps": 404.0,
+      "realized_10y_bps": 451.0,
+      "realized_2y_bps_next_wk": 396.0,
+      "realized_10y_bps_next_wk": 441.0,
+      "realized_2y_delta_next_wk_bps": -8.0,
+      "realized_10y_delta_next_wk_bps": -10.0,
+      "realized_regime": "on_hold_hawkish"
+    },
+    {
+      "window_date": "2025-06-13",
+      "realized_2y_bps": 396.0,
+      "realized_10y_bps": 441.0,
+      "realized_2y_bps_next_wk": 390.0,
+      "realized_10y_bps_next_wk": 438.0,
+      "realized_2y_delta_next_wk_bps": -6.0,
+      "realized_10y_delta_next_wk_bps": -3.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-06-20",
+      "realized_2y_bps": 390.0,
+      "realized_10y_bps": 438.0,
+      "realized_2y_bps_next_wk": 373.0,
+      "realized_10y_bps_next_wk": 429.0,
+      "realized_2y_delta_next_wk_bps": -17.0,
+      "realized_10y_delta_next_wk_bps": -9.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-06-27",
+      "realized_2y_bps": 373.0,
+      "realized_10y_bps": 429.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 435.0,
+      "realized_2y_delta_next_wk_bps": 15.0,
+      "realized_10y_delta_next_wk_bps": 6.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-07-04",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 435.0,
+      "realized_2y_bps_next_wk": 390.0,
+      "realized_10y_bps_next_wk": 443.0,
+      "realized_2y_delta_next_wk_bps": 2.0,
+      "realized_10y_delta_next_wk_bps": 8.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-07-11",
+      "realized_2y_bps": 390.0,
+      "realized_10y_bps": 443.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 444.0,
+      "realized_2y_delta_next_wk_bps": -2.0,
+      "realized_10y_delta_next_wk_bps": 1.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-07-18",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 444.0,
+      "realized_2y_bps_next_wk": 391.0,
+      "realized_10y_bps_next_wk": 440.0,
+      "realized_2y_delta_next_wk_bps": 3.0,
+      "realized_10y_delta_next_wk_bps": -4.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-07-25",
+      "realized_2y_bps": 391.0,
+      "realized_10y_bps": 440.0,
+      "realized_2y_bps_next_wk": 369.0,
+      "realized_10y_bps_next_wk": 423.0,
+      "realized_2y_delta_next_wk_bps": -22.0,
+      "realized_10y_delta_next_wk_bps": -17.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-08-01",
+      "realized_2y_bps": 369.0,
+      "realized_10y_bps": 423.0,
+      "realized_2y_bps_next_wk": 376.0,
+      "realized_10y_bps_next_wk": 427.0,
+      "realized_2y_delta_next_wk_bps": 7.0,
+      "realized_10y_delta_next_wk_bps": 4.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-08-08",
+      "realized_2y_bps": 376.0,
+      "realized_10y_bps": 427.0,
+      "realized_2y_bps_next_wk": 375.0,
+      "realized_10y_bps_next_wk": 433.0,
+      "realized_2y_delta_next_wk_bps": -1.0,
+      "realized_10y_delta_next_wk_bps": 6.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-08-15",
+      "realized_2y_bps": 375.0,
+      "realized_10y_bps": 433.0,
+      "realized_2y_bps_next_wk": 368.0,
+      "realized_10y_bps_next_wk": 426.0,
+      "realized_2y_delta_next_wk_bps": -7.0,
+      "realized_10y_delta_next_wk_bps": -7.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-08-22",
+      "realized_2y_bps": 368.0,
+      "realized_10y_bps": 426.0,
+      "realized_2y_bps_next_wk": 359.0,
+      "realized_10y_bps_next_wk": 423.0,
+      "realized_2y_delta_next_wk_bps": -9.0,
+      "realized_10y_delta_next_wk_bps": -3.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-08-29",
+      "realized_2y_bps": 359.0,
+      "realized_10y_bps": 423.0,
+      "realized_2y_bps_next_wk": 351.0,
+      "realized_10y_bps_next_wk": 410.0,
+      "realized_2y_delta_next_wk_bps": -8.0,
+      "realized_10y_delta_next_wk_bps": -13.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2025-09-05",
+      "realized_2y_bps": 351.0,
+      "realized_10y_bps": 410.0,
+      "realized_2y_bps_next_wk": 356.0,
+      "realized_10y_bps_next_wk": 406.0,
+      "realized_2y_delta_next_wk_bps": 5.0,
+      "realized_10y_delta_next_wk_bps": -4.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-09-12",
+      "realized_2y_bps": 356.0,
+      "realized_10y_bps": 406.0,
+      "realized_2y_bps_next_wk": 357.0,
+      "realized_10y_bps_next_wk": 414.0,
+      "realized_2y_delta_next_wk_bps": 1.0,
+      "realized_10y_delta_next_wk_bps": 8.0,
+      "realized_regime": "on_hold_dovish"
+    },
+    {
+      "window_date": "2025-09-19",
+      "realized_2y_bps": 357.0,
+      "realized_10y_bps": 414.0,
+      "realized_2y_bps_next_wk": 363.0,
+      "realized_10y_bps_next_wk": 420.0,
+      "realized_2y_delta_next_wk_bps": 6.0,
+      "realized_10y_delta_next_wk_bps": 6.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-09-26",
+      "realized_2y_bps": 363.0,
+      "realized_10y_bps": 420.0,
+      "realized_2y_bps_next_wk": 358.0,
+      "realized_10y_bps_next_wk": 413.0,
+      "realized_2y_delta_next_wk_bps": -5.0,
+      "realized_10y_delta_next_wk_bps": -7.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-10-03",
+      "realized_2y_bps": 358.0,
+      "realized_10y_bps": 413.0,
+      "realized_2y_bps_next_wk": 352.0,
+      "realized_10y_bps_next_wk": 405.0,
+      "realized_2y_delta_next_wk_bps": -6.0,
+      "realized_10y_delta_next_wk_bps": -8.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-10-10",
+      "realized_2y_bps": 352.0,
+      "realized_10y_bps": 405.0,
+      "realized_2y_bps_next_wk": 346.0,
+      "realized_10y_bps_next_wk": 402.0,
+      "realized_2y_delta_next_wk_bps": -6.0,
+      "realized_10y_delta_next_wk_bps": -3.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-10-17",
+      "realized_2y_bps": 346.0,
+      "realized_10y_bps": 402.0,
+      "realized_2y_bps_next_wk": 348.0,
+      "realized_10y_bps_next_wk": 402.0,
+      "realized_2y_delta_next_wk_bps": 2.0,
+      "realized_10y_delta_next_wk_bps": 0.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-10-24",
+      "realized_2y_bps": 348.0,
+      "realized_10y_bps": 402.0,
+      "realized_2y_bps_next_wk": 360.0,
+      "realized_10y_bps_next_wk": 411.0,
+      "realized_2y_delta_next_wk_bps": 12.0,
+      "realized_10y_delta_next_wk_bps": 9.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-10-31",
+      "realized_2y_bps": 360.0,
+      "realized_10y_bps": 411.0,
+      "realized_2y_bps_next_wk": 355.0,
+      "realized_10y_bps_next_wk": 411.0,
+      "realized_2y_delta_next_wk_bps": -5.0,
+      "realized_10y_delta_next_wk_bps": 0.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-11-07",
+      "realized_2y_bps": 355.0,
+      "realized_10y_bps": 411.0,
+      "realized_2y_bps_next_wk": 362.0,
+      "realized_10y_bps_next_wk": 414.0,
+      "realized_2y_delta_next_wk_bps": 7.0,
+      "realized_10y_delta_next_wk_bps": 3.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-11-14",
+      "realized_2y_bps": 362.0,
+      "realized_10y_bps": 414.0,
+      "realized_2y_bps_next_wk": 351.0,
+      "realized_10y_bps_next_wk": 406.0,
+      "realized_2y_delta_next_wk_bps": -11.0,
+      "realized_10y_delta_next_wk_bps": -8.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-11-21",
+      "realized_2y_bps": 351.0,
+      "realized_10y_bps": 406.0,
+      "realized_2y_bps_next_wk": 347.0,
+      "realized_10y_bps_next_wk": 402.0,
+      "realized_2y_delta_next_wk_bps": -4.0,
+      "realized_10y_delta_next_wk_bps": -4.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-11-28",
+      "realized_2y_bps": 347.0,
+      "realized_10y_bps": 402.0,
+      "realized_2y_bps_next_wk": 356.0,
+      "realized_10y_bps_next_wk": 414.0,
+      "realized_2y_delta_next_wk_bps": 9.0,
+      "realized_10y_delta_next_wk_bps": 12.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-12-05",
+      "realized_2y_bps": 356.0,
+      "realized_10y_bps": 414.0,
+      "realized_2y_bps_next_wk": 352.0,
+      "realized_10y_bps_next_wk": 419.0,
+      "realized_2y_delta_next_wk_bps": -4.0,
+      "realized_10y_delta_next_wk_bps": 5.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-12-12",
+      "realized_2y_bps": 352.0,
+      "realized_10y_bps": 419.0,
+      "realized_2y_bps_next_wk": 348.0,
+      "realized_10y_bps_next_wk": 416.0,
+      "realized_2y_delta_next_wk_bps": -4.0,
+      "realized_10y_delta_next_wk_bps": -3.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-12-19",
+      "realized_2y_bps": 348.0,
+      "realized_10y_bps": 416.0,
+      "realized_2y_bps_next_wk": 346.0,
+      "realized_10y_bps_next_wk": 414.0,
+      "realized_2y_delta_next_wk_bps": -2.0,
+      "realized_10y_delta_next_wk_bps": -2.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2025-12-26",
+      "realized_2y_bps": 346.0,
+      "realized_10y_bps": 414.0,
+      "realized_2y_bps_next_wk": 347.0,
+      "realized_10y_bps_next_wk": 419.0,
+      "realized_2y_delta_next_wk_bps": 1.0,
+      "realized_10y_delta_next_wk_bps": 5.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-01-02",
+      "realized_2y_bps": 347.0,
+      "realized_10y_bps": 419.0,
+      "realized_2y_bps_next_wk": 354.0,
+      "realized_10y_bps_next_wk": 418.0,
+      "realized_2y_delta_next_wk_bps": 7.0,
+      "realized_10y_delta_next_wk_bps": -1.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-01-09",
+      "realized_2y_bps": 354.0,
+      "realized_10y_bps": 418.0,
+      "realized_2y_bps_next_wk": 359.0,
+      "realized_10y_bps_next_wk": 424.0,
+      "realized_2y_delta_next_wk_bps": 5.0,
+      "realized_10y_delta_next_wk_bps": 6.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-01-16",
+      "realized_2y_bps": 359.0,
+      "realized_10y_bps": 424.0,
+      "realized_2y_bps_next_wk": 360.0,
+      "realized_10y_bps_next_wk": 424.0,
+      "realized_2y_delta_next_wk_bps": 1.0,
+      "realized_10y_delta_next_wk_bps": 0.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-01-23",
+      "realized_2y_bps": 360.0,
+      "realized_10y_bps": 424.0,
+      "realized_2y_bps_next_wk": 352.0,
+      "realized_10y_bps_next_wk": 426.0,
+      "realized_2y_delta_next_wk_bps": -8.0,
+      "realized_10y_delta_next_wk_bps": 2.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-01-30",
+      "realized_2y_bps": 352.0,
+      "realized_10y_bps": 426.0,
+      "realized_2y_bps_next_wk": 350.0,
+      "realized_10y_bps_next_wk": 422.0,
+      "realized_2y_delta_next_wk_bps": -2.0,
+      "realized_10y_delta_next_wk_bps": -4.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-02-06",
+      "realized_2y_bps": 350.0,
+      "realized_10y_bps": 422.0,
+      "realized_2y_bps_next_wk": 340.0,
+      "realized_10y_bps_next_wk": 404.0,
+      "realized_2y_delta_next_wk_bps": -10.0,
+      "realized_10y_delta_next_wk_bps": -18.0,
+      "realized_regime": "cutting"
+    },
+    {
+      "window_date": "2026-02-13",
+      "realized_2y_bps": 340.0,
+      "realized_10y_bps": 404.0,
+      "realized_2y_bps_next_wk": 348.0,
+      "realized_10y_bps_next_wk": 408.0,
+      "realized_2y_delta_next_wk_bps": 8.0,
+      "realized_10y_delta_next_wk_bps": 4.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-02-20",
+      "realized_2y_bps": 348.0,
+      "realized_10y_bps": 408.0,
+      "realized_2y_bps_next_wk": 338.0,
+      "realized_10y_bps_next_wk": 397.0,
+      "realized_2y_delta_next_wk_bps": -10.0,
+      "realized_10y_delta_next_wk_bps": -11.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-02-27",
+      "realized_2y_bps": 338.0,
+      "realized_10y_bps": 397.0,
+      "realized_2y_bps_next_wk": 356.0,
+      "realized_10y_bps_next_wk": 415.0,
+      "realized_2y_delta_next_wk_bps": 18.0,
+      "realized_10y_delta_next_wk_bps": 18.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-03-06",
+      "realized_2y_bps": 356.0,
+      "realized_10y_bps": 415.0,
+      "realized_2y_bps_next_wk": 373.0,
+      "realized_10y_bps_next_wk": 428.0,
+      "realized_2y_delta_next_wk_bps": 17.0,
+      "realized_10y_delta_next_wk_bps": 13.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-03-13",
+      "realized_2y_bps": 373.0,
+      "realized_10y_bps": 428.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 439.0,
+      "realized_2y_delta_next_wk_bps": 15.0,
+      "realized_10y_delta_next_wk_bps": 11.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-03-20",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 439.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 444.0,
+      "realized_2y_delta_next_wk_bps": 0.0,
+      "realized_10y_delta_next_wk_bps": 5.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-03-27",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 444.0,
+      "realized_2y_bps_next_wk": 384.0,
+      "realized_10y_bps_next_wk": 435.0,
+      "realized_2y_delta_next_wk_bps": -4.0,
+      "realized_10y_delta_next_wk_bps": -9.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-04-03",
+      "realized_2y_bps": 384.0,
+      "realized_10y_bps": 435.0,
+      "realized_2y_bps_next_wk": 381.0,
+      "realized_10y_bps_next_wk": 431.0,
+      "realized_2y_delta_next_wk_bps": -3.0,
+      "realized_10y_delta_next_wk_bps": -4.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-04-10",
+      "realized_2y_bps": 381.0,
+      "realized_10y_bps": 431.0,
+      "realized_2y_bps_next_wk": 371.0,
+      "realized_10y_bps_next_wk": 426.0,
+      "realized_2y_delta_next_wk_bps": -10.0,
+      "realized_10y_delta_next_wk_bps": -5.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-04-17",
+      "realized_2y_bps": 371.0,
+      "realized_10y_bps": 426.0,
+      "realized_2y_bps_next_wk": 378.0,
+      "realized_10y_bps_next_wk": 431.0,
+      "realized_2y_delta_next_wk_bps": 7.0,
+      "realized_10y_delta_next_wk_bps": 5.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-04-24",
+      "realized_2y_bps": 378.0,
+      "realized_10y_bps": 431.0,
+      "realized_2y_bps_next_wk": 388.0,
+      "realized_10y_bps_next_wk": 439.0,
+      "realized_2y_delta_next_wk_bps": 10.0,
+      "realized_10y_delta_next_wk_bps": 8.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-05-01",
+      "realized_2y_bps": 388.0,
+      "realized_10y_bps": 439.0,
+      "realized_2y_bps_next_wk": 390.0,
+      "realized_10y_bps_next_wk": 438.0,
+      "realized_2y_delta_next_wk_bps": 2.0,
+      "realized_10y_delta_next_wk_bps": -1.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-05-08",
+      "realized_2y_bps": 390.0,
+      "realized_10y_bps": 438.0,
+      "realized_2y_bps_next_wk": 409.0,
+      "realized_10y_bps_next_wk": 459.0,
+      "realized_2y_delta_next_wk_bps": 19.0,
+      "realized_10y_delta_next_wk_bps": 21.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-05-15",
+      "realized_2y_bps": 409.0,
+      "realized_10y_bps": 459.0,
+      "realized_2y_bps_next_wk": 413.0,
+      "realized_10y_bps_next_wk": 456.0,
+      "realized_2y_delta_next_wk_bps": 4.0,
+      "realized_10y_delta_next_wk_bps": -3.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-05-22",
+      "realized_2y_bps": 413.0,
+      "realized_10y_bps": 456.0,
+      "realized_2y_bps_next_wk": 398.0,
+      "realized_10y_bps_next_wk": 445.0,
+      "realized_2y_delta_next_wk_bps": -15.0,
+      "realized_10y_delta_next_wk_bps": -11.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-05-29",
+      "realized_2y_bps": 398.0,
+      "realized_10y_bps": 445.0,
+      "realized_2y_bps_next_wk": 417.0,
+      "realized_10y_bps_next_wk": 455.0,
+      "realized_2y_delta_next_wk_bps": 19.0,
+      "realized_10y_delta_next_wk_bps": 10.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-06-05",
+      "realized_2y_bps": 417.0,
+      "realized_10y_bps": 455.0,
+      "realized_2y_bps_next_wk": 409.0,
+      "realized_10y_bps_next_wk": 448.0,
+      "realized_2y_delta_next_wk_bps": -8.0,
+      "realized_10y_delta_next_wk_bps": -7.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-06-12",
+      "realized_2y_bps": 409.0,
+      "realized_10y_bps": 448.0,
+      "realized_2y_bps_next_wk": 419.0,
+      "realized_10y_bps_next_wk": 446.0,
+      "realized_2y_delta_next_wk_bps": 10.0,
+      "realized_10y_delta_next_wk_bps": -2.0,
+      "realized_regime": "on_hold_neutral"
+    },
+    {
+      "window_date": "2026-06-19",
+      "realized_2y_bps": 419.0,
+      "realized_10y_bps": 446.0,
+      "realized_2y_bps_next_wk": 407.0,
+      "realized_10y_bps_next_wk": 438.0,
+      "realized_2y_delta_next_wk_bps": -12.0,
+      "realized_10y_delta_next_wk_bps": -8.0,
+      "realized_regime": "on_hold_neutral"
+    }
+  ]
+}
