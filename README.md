@@ -69,6 +69,7 @@ The tier vocabulary is `Baseline`, `Hard` and `Frontier-defeat`, and a hardness 
 ```mermaid
 %%{init: {"theme":"base","themeVariables":{"primaryColor":"#1A0933","primaryTextColor":"#F5F3FF","primaryBorderColor":"#9B5DE5","lineColor":"#0D9488","textColor":"#9B5DE5","secondaryColor":"#0B0B10","tertiaryColor":"#0B0B10","fontFamily":"Helvetica Neue, Arial, sans-serif"}} }%%
 stateDiagram-v2
+    direction LR
     [*] --> CANDIDATE
     CANDIDATE --> CANDIDATE: unsigned run recorded, no promotion
     CANDIDATE --> ANCHORED: signed pilot outcome ingested
