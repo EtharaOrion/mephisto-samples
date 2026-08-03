@@ -75,7 +75,9 @@ stateDiagram-v2
     state "SUPERSEDED" as SUP
     [*] --> CAN
     CAN --> ANC: resolvable published anchor cited
-    ANC --> SUP: anchor expires or later anchor clears the cohort
+    ANC --> SUP: anchor over citation horizon
+    ANC --> SUP: later anchor clears the cohort
+    ANC --> SUP: verified CFER expires every anchored lever
 ```
 
 ## Evidence status
