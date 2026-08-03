@@ -1,6 +1,6 @@
 <p align="center"><img alt="Mephisto. Measured by a judge it never sees." src="images/hero.svg" width="880"></p>
 
-<p align="center"><strong>Three professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
+<p align="center"><strong>Five professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
 
 <p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Five tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-5-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a> <a href="#evidence-status"><img alt="Evidence on hold. Pilot required." src="https://img.shields.io/badge/evidence-HOLD%3APILOT__REQUIRED-1A0933"></a></p>
 
@@ -229,7 +229,7 @@ Four limitations remain open, stated plainly. No external pilot has run, so diff
   title        = {Mephisto Samples: Professional Knowledge Work RL Environments},
   author       = {{Ethara.AI}},
   year         = {2026},
-  howpublished = {Sample release of three task bundles},
+  howpublished = {Sample release of five task bundles},
   note         = {No signed pilot evidence at time of release},
   url          = {https://github.com/Ethara-Ai}
 }
