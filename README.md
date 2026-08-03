@@ -2,7 +2,7 @@
 
 <p align="center"><strong>Three professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
 
-<p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Three tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-3-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a> <a href="#evidence-status"><img alt="Evidence on hold. Pilot required." src="https://img.shields.io/badge/evidence-HOLD%3APILOT__REQUIRED-1A0933"></a></p>
+<p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Five tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-5-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a> <a href="#evidence-status"><img alt="Evidence on hold. Pilot required." src="https://img.shields.io/badge/evidence-HOLD%3APILOT__REQUIRED-1A0933"></a></p>
 
 <p align="center"><sub><a href="#abstract">Abstract</a> &middot; <a href="#why-this-is-hard">Why this is hard</a> &middot; <a href="#evidence-status">Evidence status</a> &middot; <a href="#dataset-structure">Dataset structure</a> &middot; <a href="#reproduction">Reproduction</a></sub></p>
 
@@ -10,7 +10,7 @@
 
 ## Abstract
 
-Mephisto Samples publishes three reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. What this release establishes is structural: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible. What remains unproven is difficulty, because no signed pilot outcome exists yet, so this repository publishes no pass rate, no tier assignment and no model ranking.
+Mephisto Samples publishes five reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. What this release establishes is structural: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible. What remains unproven is difficulty, because no signed pilot outcome exists yet, so this repository publishes no pass rate, no tier assignment and no model ranking.
 
 ## Why this is hard
 
@@ -32,7 +32,7 @@ Two further traps sit under the same task. Regulatory PCA thresholds are hard cl
 
 | Property | Value |
 | --- | --- |
-| Task bundles in this release | 3 |
+| Task bundles in this release | 5 |
 | Capability family | Professional Knowledge Work |
 | Agent interaction window | 43200 s per task |
 | Verifier timeout | 3600 s |
@@ -58,7 +58,7 @@ Two further traps sit under the same task. Regulatory PCA thresholds are hard cl
 | [TheAgentCompany](https://arxiv.org/abs/2412.14161) | CMU, 2024-12 | 175 | ~27 steps | partial credit checkpoints | not architecturally separated | no |
 | [OSWorld 2.0](https://arxiv.org/abs/2606.29537) | multi-institution, 2026-06 | 108 workflows | ~318 tool calls | binary plus continuous partial | environment state check | no |
 | [SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified/) | OpenAI, 2024-08 | 500 | single patch | binary hidden unit tests | hidden tests, same sandbox | no |
-| Mephisto Samples | Ethara.AI, 2026-08 | 3 in this release | 12 h | continuous, 110 point composition | separate judge container | yes |
+| Mephisto Samples | Ethara.AI, 2026-08 | 5 in this release | 12 h | continuous, 110 point composition | separate judge container | yes |
 
 The 12 hour window is not the longest agent budget on this table, since MLE-bench grants 24 hours. The differentiating axes are the last two columns.
 
@@ -67,20 +67,20 @@ The 12 hour window is not the longest agent budget on this table, since MLE-benc
 The tier vocabulary is `Baseline`, `Hard` and `Frontier-defeat`, and a hardness row moves through `CANDIDATE`, `ANCHORED` and `SUPERSEDED`. A row reaches `ANCHORED` only when a signed pilot outcome over frozen task bytes against a frozen solver registry is ingested. Every row for this family is currently `CANDIDATE`, so no tier is assigned to any bundle in this release. The mechanism is drawn below; the reason no row has advanced is stated once in [Evidence status](#evidence-status).
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#1A0933","primaryTextColor":"#F5F3FF","primaryBorderColor":"#9B5DE5","lineColor":"#0D9488","textColor":"#9B5DE5","secondaryColor":"#0B0B10","tertiaryColor":"#0B0B10","fontFamily":"Helvetica Neue, Arial, sans-serif"}} }%%
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#1A0933","primaryTextColor":"#F5F3FF","primaryBorderColor":"#9B5DE5","lineColor":"#0D9488","textColor":"#9B5DE5","secondaryColor":"#0B0B10","tertiaryColor":"#0B0B10","fontFamily":"Arial, sans-serif"}} }%%
 stateDiagram-v2
+    direction TB
     state "CANDIDATE" as CAN
     state "ANCHORED" as ANC
     state "SUPERSEDED" as SUP
     [*] --> CAN
-    CAN --> CAN: unsigned run recorded,\nno promotion
-    CAN --> ANC: signed pilot outcome\ningested
-    ANC --> SUP: newer signed row\nanchors
+    CAN --> ANC: signed pilot outcome ingested
+    ANC --> SUP: newer signed row anchors
 ```
 
 ## Evidence status
 
-No signed pilot evidence exists for this family at the time of release. The ledger carries zero attestation envelopes and reads `STALE`, which is the honest pre-evidence state for a project that has not yet run an external pilot, not a data integrity failure. All fourteen lever rows read `WATCH` rather than `ACTIVE`, the proof store holds no signed envelope, and the project disposition is `HOLD:PILOT_REQUIRED`. The audit side records `BLOCK` on two named checks, absent external signature over the manifest and absent completed-run evidence. That disposition is the instrument working: the gate refuses to convert a single unsigned run into a difficulty claim. One condition clears it, a signed multi-cohort pilot outcome over frozen task bytes against a frozen solver registry, deposited into the proof store and ingested by the deterministic path. Until then every performance figure is absent from this document rather than estimated, illustrative or carried across from a sibling project.
+No signed pilot evidence exists for this family at the time of release. The ledger carries zero attestation envelopes and reads `STALE`, which is the honest pre-evidence state for a project that has not yet run an external pilot, not a data integrity failure. Every lever row reads `WATCH` rather than `ACTIVE`, the proof store holds no signed envelope, and the project disposition is `HOLD:PILOT_REQUIRED`. The audit side records `BLOCK` on two named checks, absent external signature over the manifest and absent completed-run evidence. That disposition is the instrument working: the gate refuses to convert a single unsigned run into a difficulty claim. One condition clears it, a signed multi-cohort pilot outcome over frozen task bytes against a frozen solver registry, deposited into the proof store and ingested by the deterministic path. Until then every performance figure is absent from this document rather than estimated, illustrative or carried across from a sibling project.
 
 ## Results
 
@@ -92,7 +92,7 @@ The analysis this design supports, once signed evidence exists, is a learning cu
 
 ## Coverage
 
-Two coverage gaps are recorded in the task bundles themselves and are reported here as authored facts. The treasury auction bundle descopes its test set to Notes and Bonds, excluding Bills, and realizes 60 test auctions against an authoring target of 100 to 250. The curve positioning bundle ships no run-level summary file, so any cross-bundle trajectory figure for it is derived by scanning individual submission reports rather than read from a summary. At the family level this release covers finance only; the healthcare, legal and education verticals named in the family charter have no bundle here. Coverage of performance across models is a separate question and is governed by [Evidence status](#evidence-status).
+At the family level this release covers finance only; the healthcare, legal and education verticals named in the family charter have no bundle here. Coverage of performance across models is a separate question and is governed by [Evidence status](#evidence-status).
 
 ## Dataset structure
 
@@ -151,11 +151,13 @@ The recorded submission counts below are properties of the published tree rather
 
 | Bundle | Agent-initiated | Evaluator-only | Total | Recorded resumes |
 | --- | --- | --- | --- | --- |
-| `aba74693` treasury auction bidding | 104 | 23 | 127 | 2 |
-| `b59face6` curve positioning book | 52 | 11 | 63 | not recorded |
-| `e5d63160` bank capital projection | 263 | 23 | 286 | 17 |
+| `9c463536` treasury liquidity provisioning | 282 | 23 | 305 | 0 |
+| `5cb28005` sec fundamental momentum calibration | 267 | 23 | 290 | 0 |
+| `e5d63160` fdic bank capital projection | 263 | 23 | 286 | 17 |
+| `d3cd6658` sec leverage trajectory projection | 243 | 23 | 266 | 0 |
+| `60cab9e2` fed funds regime positioning | 172 | 23 | 195 | 1 |
 
-Two of the three recorded runs terminated by exhausting the 12 hour window rather than by converging, which means the episode did not finish and carries no implication about difficulty. That reading is governed by [Evidence status](#evidence-status).
+All five recorded runs terminated by exhausting the 12 hour window rather than by converging, which means the episodes did not finish and carry no implication about difficulty. That reading is governed by [Evidence status](#evidence-status).
 
 ## Scoring methodology
 
@@ -173,7 +175,7 @@ Every bundle composes 100 base points across eight lanes plus a 10 point adaptat
 | `L8_cross_size_bucket_stability` | 10 | uniform quality across size buckets | one bucket carries the score |
 | `pca_zone_transition_bonus` | 10 | 3 detected transitions | none detected |
 
-Lane six on the curve positioning bundle is deliberately bidirectional: annualized one-way turnover must land inside a 60% to 100% band, so over-trading and under-trading both score zero. The reference implementation was tuned at authoring time to land inside a `[65, 78]` band on this 110 point scale. That number is a design target for the scoring surface and not evidence about difficulty, because a self-solve does not count under the evidence rule.
+The reference implementations were tuned at authoring time to land inside a design band on this 110 point scale. Those numbers are design targets for the scoring surface and not evidence about difficulty, because a self-solve does not count under the evidence rule.
 
 ## Threat model
 
