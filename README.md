@@ -64,7 +64,7 @@ The 12 hour window is not the longest agent budget on this table, since MLE-benc
 
 ## Difficulty tiers
 
-The tier vocabulary is `Baseline`, `Hard` and `Frontier-defeat`, and a hardness row moves through `CANDIDATE`, `ANCHORED` and `SUPERSEDED`. A row reaches `ANCHORED` only when a signed pilot outcome over frozen task bytes against a frozen solver registry is ingested. Every row for this family is currently `CANDIDATE`, so no tier is assigned to any bundle in this release. The mechanism is drawn below; the reason no row has advanced is stated once in [Evidence status](#evidence-status).
+The tier vocabulary is `Baseline`, `Hard` and `Frontier-defeat`, and a hardness row moves through `CANDIDATE`, `ANCHORED` and `SUPERSEDED`. A row reaches `ANCHORED` only when a resolvable published anchor is cited to it: a named public benchmark, an arXiv identifier whose stem is present in `research/`, a named model cohort, a reported score, and a report date inside the bound citation horizon. A row moves to `SUPERSEDED` when its anchor passes the citation horizon, when a later anchor reports the same cohort clearing the reported score, or when a verified signed CFER has expired every lever the row anchors; a superseded row is retained with its superseding anchor recorded beside it and is never deleted. A row state is never a lever state, and no row alone makes a lever `ACTIVE` or is difficulty evidence on its own. Every row for this family is currently `CANDIDATE`, so no tier is assigned to any bundle in this release. The mechanism is drawn below; the reason no row has advanced is stated once in [Evidence status](#evidence-status).
 
 ```mermaid
 %%{init: {"theme":"base","themeVariables":{"primaryColor":"#1A0933","primaryTextColor":"#F5F3FF","primaryBorderColor":"#9B5DE5","lineColor":"#0D9488","textColor":"#9B5DE5","secondaryColor":"#0B0B10","tertiaryColor":"#0B0B10","fontFamily":"Arial, sans-serif"}} }%%
@@ -74,8 +74,8 @@ stateDiagram-v2
     state "ANCHORED" as ANC
     state "SUPERSEDED" as SUP
     [*] --> CAN
-    CAN --> ANC: signed pilot outcome ingested
-    ANC --> SUP: newer signed row anchors
+    CAN --> ANC: resolvable published anchor cited
+    ANC --> SUP: anchor expires or later anchor clears the cohort
 ```
 
 ## Evidence status
