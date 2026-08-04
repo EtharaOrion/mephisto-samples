@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720" role="img" aria-label="Mephisto. Measured by a judge it never sees.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Mephisto. Measured by a judge it never sees.">
   <title>Mephisto</title>
   <desc>The Void Flame: a dark flame held inside hovering metallic rings.</desc>
 
   <defs>
-    <radialGradient id="vf-bg" cx="50%" cy="35%" r="80%">
+    <radialGradient id="vf-bg" cx="30%" cy="42%" r="85%">
       <stop offset="0" stop-color="#1A0933"/>
       <stop offset="1" stop-color="#0B0B10"/>
     </radialGradient>
@@ -30,6 +30,11 @@
       <stop offset="1" stop-color="#00F5D4"/>
     </linearGradient>
 
+    <linearGradient id="vf-rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00F5D4" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#8A2BE2" stop-opacity="0"/>
+    </linearGradient>
+
     <filter id="vf-glow" x="-70%" y="-70%" width="240%" height="240%">
       <feGaussianBlur stdDeviation="9" result="vf-blur"/>
       <feMerge>
@@ -47,10 +52,10 @@
     </filter>
   </defs>
 
-  <rect width="800" height="720" fill="url(#vf-bg)"/>
+  <rect width="1280" height="720" fill="url(#vf-bg)"/>
 
-  <!-- MASCOT: original geometry centered at (230, 200), translated to be centered at (400, 200) -->
-  <g transform="translate(170, 0)">
+  <!-- MASCOT: original geometry centered at (230, 200), translated to be centered at (360, 360) -->
+  <g transform="translate(130, 160)">
     <g opacity="0.85">
       <ellipse cx="230" cy="200" rx="170" ry="58" fill="none" stroke="url(#vf-orbit)" stroke-width="2.5" transform="rotate(-22 230 200)"/>
       <ellipse cx="230" cy="200" rx="170" ry="58" fill="none" stroke="url(#vf-orbit)" stroke-width="2.5" transform="rotate(22 230 200)"/>
@@ -67,10 +72,11 @@
     </g>
   </g>
 
-  <!-- TEXT BLOCK: below the mascot, centered at x=400, spaced apart with ~100px gap from mascot bottom -->
-  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="middle">
-    <text x="400" y="450" font-size="20" letter-spacing="7" fill="#00F5D4" opacity="0.85">ETHARA.AI</text>
-    <text x="400" y="550" font-size="92" font-weight="700" letter-spacing="10" fill="#F5F3FF">MEPHISTO</text>
-    <text x="400" y="610" font-size="26" fill="#CBB8F0">Measured by a judge it never sees.</text>
+  <!-- TEXT BLOCK: right column, left-aligned at x=660, optically centered on y=360 -->
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" text-anchor="start">
+    <text x="660" y="296" font-size="20" letter-spacing="7" fill="#00F5D4" opacity="0.85">ETHARA.AI</text>
+    <text x="660" y="396" font-size="80" font-weight="700" letter-spacing="9" fill="#F5F3FF">MEPHISTO</text>
+    <rect x="660" y="422" width="220" height="2" fill="url(#vf-rule)"/>
+    <text x="660" y="466" font-size="26" fill="#CBB8F0">Measured by a judge it never sees.</text>
   </g>
 </svg>
