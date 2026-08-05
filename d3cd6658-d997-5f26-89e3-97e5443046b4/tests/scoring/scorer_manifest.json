@@ -47,14 +47,40 @@
     "parse_failure": "zero_score",
     "nonzero_exit_without_score": "zero_score"
   },
+  "failure_reasons": {
+    "nonzero_exit_without_score": {
+      "code": "SCORER_NONZERO_EXIT",
+      "detail": "Scoring process exited nonzero and produced no parseable score in stdout"
+    },
+    "missing_submission": {
+      "code": "SUBMISSION_MISSING",
+      "detail": "Required submission file(s) not found in submission directory"
+    },
+    "missing_scoring_file": {
+      "code": "SCORING_FILE_MISSING",
+      "detail": "A required scoring input file listed in required_scoring_files is absent"
+    },
+    "parse_failure": {
+      "code": "SUBMISSION_PARSE_ERROR",
+      "detail": "Submission file could not be parsed against expected schema/format"
+    },
+    "infra_error": {
+      "code": "INFRA_ERROR",
+      "detail": "Infrastructure-level failure not attributable to agent submission; audit re-run required"
+    },
+    "missing_dependency": {
+      "code": "SCORING_DEPENDENCY_MISSING",
+      "detail": "A required Python dependency for the scoring pipeline could not be imported"
+    }
+  },
   "lanes": [
     {
       "id": "L1_composite_trajectory_rank_correlation",
       "weight": 20,
       "metric": "spearman_ic",
       "description": "Per-quarter Spearman rank correlation between submitted composite_score and truth's capital-structure-derived price_response_20d_proxy, averaged across 5 test quarters.",
-      "anchor_floor": 0.00,
-      "anchor_full": 0.50,
+      "anchor_floor": 0.0,
+      "anchor_full": 0.5,
       "anchor_source": "Baker-Wurgler 2002 JF + Frank-Goyal 2009 JFE cross-sectional IC 0.30-0.50 range for balance-sheet Delta-metrics"
     },
     {
@@ -63,7 +89,7 @@
       "metric": "three_class_accuracy",
       "description": "3-class classification accuracy (risk_up/neutral/risk_down) of submitted refi_direction vs truth refi_direction across test filer-quarters.",
       "anchor_floor": 0.33,
-      "anchor_full": 1.00,
+      "anchor_full": 1.0,
       "anchor_source": "3-class random baseline 33%; skilled cross-quarter refi-direction detector floor 55%; identity match ceiling 100%"
     },
     {
@@ -71,8 +97,8 @@
       "weight": 15,
       "metric": "f1_extreme_flag",
       "description": "F1 score of submitted in_top_decile OR in_bottom_decile flags vs truth flags (rare-event binary classification).",
-      "anchor_floor": 0.10,
-      "anchor_full": 1.00,
+      "anchor_floor": 0.1,
+      "anchor_full": 1.0,
       "anchor_source": "Rare-event F1 skilled floor 0.30 (top/bottom decile 20% of universe); identity match ceiling 1.0"
     },
     {
@@ -80,8 +106,8 @@
       "weight": 10,
       "metric": "spearman_ic",
       "description": "Per-quarter Spearman rank correlation between submitted peer_rank_percentile and negated realized Liabilities/Assets YoY change (higher rank = lower leverage growth).",
-      "anchor_floor": 0.00,
-      "anchor_full": 0.70,
+      "anchor_floor": 0.0,
+      "anchor_full": 0.7,
       "anchor_source": "Frank-Goyal 2009 JFE cross-sectional balance-sheet Delta-metrics IC upper bound 0.70"
     },
     {
@@ -90,7 +116,7 @@
       "metric": "three_class_accuracy",
       "description": "Direction accuracy (up/flat/down) of composite direction as predictor of truth realized InterestCoverage YoY change (subset scoring where InterestExpense reported).",
       "anchor_floor": 0.33,
-      "anchor_full": 0.70,
+      "anchor_full": 0.7,
       "anchor_source": "3-class random 33%; skilled direction 55-65%"
     },
     {
@@ -98,8 +124,8 @@
       "weight": 10,
       "metric": "positioning_book_sharpe",
       "description": "Cross-quarter Sharpe ratio of the submitted positioning book realized against truth's capital-structure-derived price_response_20d_proxy (Sharpe cap 5.0).",
-      "anchor_floor": 0.00,
-      "anchor_full": 5.00,
+      "anchor_floor": 0.0,
+      "anchor_full": 5.0,
       "anchor_source": "Baker-Wurgler 2002 JF capital-structure-timing pro-Sharpe 3-5 realistic ceiling"
     },
     {
@@ -120,7 +146,7 @@
       "weight": 10,
       "metric": "cross_quarter_variance_penalty",
       "description": "Awards up to 10 pts based on mean per-quarter normalized performance across L1/L2/L3/L4/L5, discounted by variance across the 5 test quarters.",
-      "variance_baseline": 0.10
+      "variance_baseline": 0.1
     },
     {
       "id": "leverage_cycle_bonus",
@@ -160,7 +186,7 @@
   },
   "confidence": "high",
   "evidence": [
-    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md \u00a73.",
     "8 lanes + leverage_cycle_bonus weights match seed/contract.yaml.reference_emulation exactly (L1:20 + L2:15 + L3:15 + L4:10 + L5:10 + L6:10 + L7:5 + L8:10 = 95 base + 5 free padding = 100; bonus 10).",
     "Lane anchors calibrated per Baker-Wurgler 2002 JF + Frank-Goyal 2009 JFE + Fama-French 2015 literature: reference [65, 78] band; copy-last-quarter baseline projected 25-35; random baseline projected 15-25.",
     "Ground truth is recomputed on-the-fly inside eval_script.py by importing leverage_trajectory_reference.py against the same input dir - deterministic and reproducible. GRADER_SALT-seeded perturbation layer PRE-BUILT preempts T6 Phase 2 identity-scoring MISCALIBRATED HIGH."

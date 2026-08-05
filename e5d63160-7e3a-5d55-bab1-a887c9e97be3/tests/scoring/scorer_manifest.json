@@ -42,6 +42,32 @@
     "parse_failure": "zero_score",
     "nonzero_exit_without_score": "zero_score"
   },
+  "failure_reasons": {
+    "nonzero_exit_without_score": {
+      "code": "SCORER_NONZERO_EXIT",
+      "detail": "Scoring process exited nonzero and produced no parseable score in stdout"
+    },
+    "missing_submission": {
+      "code": "SUBMISSION_MISSING",
+      "detail": "Required submission file(s) not found in submission directory"
+    },
+    "missing_scoring_file": {
+      "code": "SCORING_FILE_MISSING",
+      "detail": "A required scoring input file listed in required_scoring_files is absent"
+    },
+    "parse_failure": {
+      "code": "SUBMISSION_PARSE_ERROR",
+      "detail": "Submission file could not be parsed against expected schema/format"
+    },
+    "infra_error": {
+      "code": "INFRA_ERROR",
+      "detail": "Infrastructure-level failure not attributable to agent submission; audit re-run required"
+    },
+    "missing_dependency": {
+      "code": "SCORING_DEPENDENCY_MISSING",
+      "detail": "A required Python dependency for the scoring pipeline could not be imported"
+    }
+  },
   "confidence": "high",
   "evidence": [
     "eval_script.py invocation: python3 eval_script.py; no CLI args.",

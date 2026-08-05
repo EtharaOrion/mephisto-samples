@@ -22,7 +22,7 @@ name = "Mephisto"
 timeout_sec = 43200
 
 [environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fdic_bank_capital_projection_book:cebcc2031e8a"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fdic_bank_capital_projection_book:cebcc2031e8a@sha256:cebcc2031e8aef528133152f0cd5eded92b94563946cf37f7520034a17235ef6"
 network_mode = "no-network"
 workdir = "/home/workspace"
 
@@ -31,7 +31,7 @@ timeout_sec = 3600
 environment_mode = "separate"
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fdic_bank_capital_projection_book:da45ab3bdb19"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fdic_bank_capital_projection_book:da45ab3bdb19@sha256:da45ab3bdb19a059984553d75e4a461276eb699d3f62cadc72969fb15b1cc470"
 network_mode = "no-network"
 workdir = "/home/workspace"
 

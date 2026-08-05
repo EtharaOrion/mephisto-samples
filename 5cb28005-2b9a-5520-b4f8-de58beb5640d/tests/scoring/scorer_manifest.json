@@ -47,14 +47,40 @@
     "parse_failure": "zero_score",
     "nonzero_exit_without_score": "zero_score"
   },
+  "failure_reasons": {
+    "nonzero_exit_without_score": {
+      "code": "SCORER_NONZERO_EXIT",
+      "detail": "Scoring process exited nonzero and produced no parseable score in stdout"
+    },
+    "missing_submission": {
+      "code": "SUBMISSION_MISSING",
+      "detail": "Required submission file(s) not found in submission directory"
+    },
+    "missing_scoring_file": {
+      "code": "SCORING_FILE_MISSING",
+      "detail": "A required scoring input file listed in required_scoring_files is absent"
+    },
+    "parse_failure": {
+      "code": "SUBMISSION_PARSE_ERROR",
+      "detail": "Submission file could not be parsed against expected schema/format"
+    },
+    "infra_error": {
+      "code": "INFRA_ERROR",
+      "detail": "Infrastructure-level failure not attributable to agent submission; audit re-run required"
+    },
+    "missing_dependency": {
+      "code": "SCORING_DEPENDENCY_MISSING",
+      "detail": "A required Python dependency for the scoring pipeline could not be imported"
+    }
+  },
   "lanes": [
     {
       "id": "L1_composite_score_rank_correlation",
       "weight": 20,
       "metric": "spearman_ic",
       "description": "Per-quarter Spearman rank correlation between submitted composite_score and truth's fundamentals-derived price_response_20d_proxy, averaged across 5 test quarters.",
-      "anchor_floor": 0.00,
-      "anchor_full": 0.50,
+      "anchor_floor": 0.0,
+      "anchor_full": 0.5,
       "anchor_source": "Novy-Marx 2013 JFE quality-factor IC range 0.30-0.50 for cross-sectional fundamental momentum strategies"
     },
     {
@@ -63,7 +89,7 @@
       "metric": "three_class_accuracy",
       "description": "3-class classification accuracy (beat/in_line/miss) of submitted surprise_direction vs truth surprise_direction across test filer-quarters.",
       "anchor_floor": 0.33,
-      "anchor_full": 1.00,
+      "anchor_full": 1.0,
       "anchor_source": "3-class random baseline 33%; skilled cross-quarter surprise detector floor 55%; identity match ceiling 100%"
     },
     {
@@ -71,8 +97,8 @@
       "weight": 15,
       "metric": "f1_extreme_flag",
       "description": "F1 score of submitted in_top_decile OR in_bottom_decile flags vs truth flags (rare-event binary classification).",
-      "anchor_floor": 0.10,
-      "anchor_full": 1.00,
+      "anchor_floor": 0.1,
+      "anchor_full": 1.0,
       "anchor_source": "Rare-event F1 skilled floor 0.30 (top/bottom decile 20% of universe); identity match ceiling 1.0"
     },
     {
@@ -80,8 +106,8 @@
       "weight": 10,
       "metric": "spearman_ic",
       "description": "Per-quarter Spearman rank correlation between submitted peer_rank_percentile and truth's realized Revenues YoY growth ratio.",
-      "anchor_floor": 0.00,
-      "anchor_full": 0.70,
+      "anchor_floor": 0.0,
+      "anchor_full": 0.7,
       "anchor_source": "Novy-Marx 2013 JFE cross-sectional IC frontier upper bound; revenue-growth-rank IC 0.35-0.70 (persistent metric, aligned with quality-factor frontier)"
     },
     {
@@ -90,7 +116,7 @@
       "metric": "three_class_accuracy",
       "description": "Direction accuracy (up/flat/down) of submitted composite direction as predictor of truth realized margin change YoY.",
       "anchor_floor": 0.33,
-      "anchor_full": 0.70,
+      "anchor_full": 0.7,
       "anchor_source": "3-class random 33%; skilled margin-direction 55-60%"
     },
     {
@@ -98,15 +124,15 @@
       "weight": 10,
       "metric": "positioning_book_sharpe",
       "description": "Cross-quarter Sharpe ratio of the submitted positioning book realized against truth's price_response_20d_proxy (capped at 1.5).",
-      "anchor_floor": 0.00,
-      "anchor_full": 5.00,
+      "anchor_floor": 0.0,
+      "anchor_full": 5.0,
       "anchor_source": "Novy-Marx 2013 JFE realized cross-sectional factor-momentum pro-Sharpe ceiling 3-5 (out-of-sample, cap 5.0 as documented realistic upper bound)"
     },
     {
       "id": "L7_anti_fabrication",
       "weight": 5,
       "metric": "self_report_vs_recompute",
-      "description": "Awards 5 pts when submitted self_reported_metrics agree with judge-recomputed metrics within tolerance; 0 on divergence (cross-lane veto NOT applied — L7 is standalone here per PKW-FAMILIES §3 Framework B minimum-viable variant).",
+      "description": "Awards 5 pts when submitted self_reported_metrics agree with judge-recomputed metrics within tolerance; 0 on divergence (cross-lane veto NOT applied \u2014 L7 is standalone here per PKW-FAMILIES \u00a73 Framework B minimum-viable variant).",
       "tolerances": {
         "L1_composite_score_rank_correlation_est": 0.15,
         "L2_earnings_surprise_direction_accuracy_est": 0.15,
@@ -120,7 +146,7 @@
       "weight": 10,
       "metric": "cross_quarter_variance_penalty",
       "description": "Awards up to 10 pts based on mean per-quarter normalized performance across L1/L2/L3/L4/L5/L6, discounted by variance across the 5 test quarters. Copy-last-quarter is stable but low-mean; genuine momentum capture has moderate variance and higher mean.",
-      "variance_baseline": 0.10
+      "variance_baseline": 0.1
     },
     {
       "id": "earnings_cycle_bonus",
@@ -160,9 +186,9 @@
   },
   "confidence": "high",
   "evidence": [
-    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md \u00a73.",
     "8 lanes + earnings_cycle_bonus weights match seed/contract.yaml.reference_emulation exactly (L1:20 + L2:15 + L3:15 + L4:10 + L5:10 + L6:10 + L7:5 + L8:10 = 95 base + 5 free padding = 100; bonus 10).",
     "Lane anchors calibrated per seed/oracle.md control-ladder projection: reference [65, 78] band; copy-last-quarter baseline projected 32-42; random baseline projected 18-28.",
-    "Ground truth is recomputed on-the-fly inside eval_script.py by importing fundamental_momentum_reference.py against the same input dir — deterministic and reproducible."
+    "Ground truth is recomputed on-the-fly inside eval_script.py by importing fundamental_momentum_reference.py against the same input dir \u2014 deterministic and reproducible."
   ]
 }
