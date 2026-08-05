@@ -2,7 +2,7 @@
 
 <p align="center"><strong>Five professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
 
-<p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Five tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-5-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a> <a href="#evidence-status"><img alt="Evidence on hold. Pilot required." src="https://img.shields.io/badge/evidence-HOLD%3APILOT__REQUIRED-1A0933"></a></p>
+<p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Five tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-5-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a>
 
 <p align="center"><sub><a href="#abstract">Abstract</a> &middot; <a href="#why-this-is-hard">Why this is hard</a> &middot; <a href="#evidence-status">Evidence status</a> &middot; <a href="#dataset-structure">Dataset structure</a> &middot; <a href="#reproduction">Reproduction</a></sub></p>
 
