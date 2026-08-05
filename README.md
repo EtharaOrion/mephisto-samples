@@ -10,7 +10,7 @@
 
 ## Abstract
 
-EdgeBench publishes five reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. This release establishes the structural contract: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible.
+[EdgeBench](https://arxiv.org/abs/2607.05155) publishes five reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. This release establishes the structural contract: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible.
 
 ## Why this is hard
 
