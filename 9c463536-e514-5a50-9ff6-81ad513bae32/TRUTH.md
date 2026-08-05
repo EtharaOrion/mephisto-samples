@@ -227,15 +227,3 @@ Route F. Ignoring the grader perturbation model (GRADER_SALT=TLP_2026_08_01_GRAD
 {"allocation": {"b13w": 0.24998, "b26w": 0.220039, "b4w": 0.12998, "b8w": 0.19998, "iorb": 0.070039, "rrp": 0.12998}, "date": "2025-01-29", "demand_signal": 0.260576, "extreme_stress_flag": false, "extreme_stress_probability": 0.5, "ladder_duration_years": 0.213827, "regime_label": "normal", "self_reported_certainty": 0.425432, "supply_direction": "down", "supply_projection_b": 332.0021, "weekly_rank_key": "2025-01-29", "weekly_supply_direction_ranking": "down"}
 {"allocation": {"b13w": 0.25, "b26w": 0.220001, "b4w": 0.13, "b8w": 0.2, "iorb": 0.070001, "rrp": 0.13}, "date": "2025-01-30", "demand_signal": 0.252474, "extreme_stress_flag": false, "extreme_stress_probability": 0.5, "ladder_duration_years": 0.213817, "regime_label": "normal", "self_reported_certainty": 0.440787, "supply_direction": "down", "supply_projection_b": 332.0021}
 ```
-
-## Grounding snapshot
-
-Full source of truth: `seed/build/treasury_liquidity_provisioning_book/grounding.yaml`. Contract binding: SHA-256
-`d3ba087a3b8089345088586826a8aa68b6b001b7bf331cde5999affc091fc41d` (matches `seed/contract.approved`;
-temper gate OPEN as of 2026-08-01).
-
-## Canary tokens (redundancy for leak-detection assay)
-
-- `MEPHISTO_CANARY_TLP_2026_08_01_216CFSB0`
-- `MEPHISTO_CANARY_TLP_2026_08_01_3P9YEY73`
-- `MEPHISTO_CANARY_TLP_2026_08_01_D4GPQNQZ`

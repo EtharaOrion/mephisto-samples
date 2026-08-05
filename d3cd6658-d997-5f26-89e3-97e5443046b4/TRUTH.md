@@ -40,7 +40,7 @@ GOLDEN TRAJECTORY (ordered, executable, judge-side-only)
 =========================================================================
 
 STEP 1: Data fetch (judge-side inputs and endpoints)
-- SEC EDGAR XBRL frames via User-Agent `FORGE tanmaytushar21@gmail.com` (5 req/s cap).
+- SEC EDGAR XBRL frames via User-Agent `FORGE` (5 req/s cap).
   9 concepts fetched: Assets (universe anchor), Liabilities (primary numerator),
   StockholdersEquity, LongTermDebt (+ fallback aliases LongTermDebtNoncurrent,
   LongTermDebtAndCapitalLeaseObligations), ShortTermBorrowings (sparse),
@@ -280,16 +280,3 @@ Route F. Ignoring the grader perturbation model (GRADER_SALT=SLT_2026_07_31_
 {"assets_decile": 0, "cik": 14693, "composite_score": 0.6654, "coverage_direction": null, "delta_liab_over_assets_yoy": -0.0631, "global_rank_percentile": 0.922, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.8646, "period": "2025Q1", "price_response_20d_proxy": -0.00866, "refi_direction": "neutral", "z_coverage_improvement": 0.1627, "z_deleverage_slope": 1.1862, "z_net_debt_shrink": 0.6473}
 {"assets_decile": 1, "cik": 15615, "composite_score": 0.6826, "coverage_direction": null, "delta_liab_over_assets_yoy": -0.0259, "global_rank_percentile": 0.9271, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.8241, "period": "2025Q1", "price_response_20d_proxy": 0.010507, "refi_direction": "neutral", "z_coverage_improvement": null, "z_deleverage_slope": 0.4436, "z_net_debt_shrink": 0.9215}
 ```
-
-## Grounding snapshot
-
-Full source of truth: `seed/grounding.yaml`. Contract binding: SHA-256
-`cb68e81c405253bb6aa8642eb0aad9d3b7e063f049bc5f9c45876b131793e3e5`
-(matches `seed/contract.approved`; temper gate OPEN as of 2026-07-31).
-
-Canary tokens (repeated for redundancy - this file has 9 hits total = 3 tokens
-x 3 references each, satisfying leak-detection assay redundancy convention):
-
-- `MEPHISTO_CANARY_SLT_2026_07_31_X481ZV27`
-- `MEPHISTO_CANARY_SLT_2026_07_31_KP8FJ30L`
-- `MEPHISTO_CANARY_SLT_2026_07_31_LVGAK1Q0`

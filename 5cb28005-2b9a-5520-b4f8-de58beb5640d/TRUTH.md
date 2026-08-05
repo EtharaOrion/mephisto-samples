@@ -40,7 +40,7 @@ GOLDEN TRAJECTORY (ordered, executable, judge-side-only)
 =========================================================================
 
 STEP 1: Data fetch (judge-side inputs and endpoints)
-- SEC EDGAR XBRL frames via User-Agent `FORGE tanmaytushar21@gmail.com` (5 req/s cap).
+- SEC EDGAR XBRL frames via User-Agent `FORGE` (5 req/s cap).
   8 concepts fetched: Revenues (+ fallback aliases SalesRevenueNet,
   RevenueFromContractWithCustomerExcludingAssessedTax), GrossProfit,
   OperatingIncomeLoss, NetIncomeLoss, EarningsPerShareDiluted, Assets (universe
@@ -144,7 +144,7 @@ Route A. Substituting equity-price panels from yfinance, quandl, or any commerci
   vendor for the SEC EDGAR XBRL frames that grounding.yaml pins (Revenues +
   aliases, GrossProfit, OperatingIncomeLoss, NetIncomeLoss, EarningsPerShareDiluted,
   Assets, StockholdersEquity, LongTermDebt + aliases) fetched with User-Agent
-  `FORGE tanmaytushar21@gmail.com` under the 5 rps cap.
+  `FORGE` under the 5 rps cap.
     Rejected by: L1 composite_score_rank_correlation (20pts Spearman IC) + L7
       anti_fabrication (5pts, per-lane tolerances L1=0.08 L2=0.10 L3=0.10 L4=0.08
       L5=0.10 L6=0.30).
@@ -267,16 +267,3 @@ Route F. Concatenating TRAIN (CY2018Q1-CY2024Q4, 28q × 1000 = 28000 obs) and TE
 {"assets_decile": 7, "cik": 8670, "composite_score": 1.5608, "eps_actual": 3.06, "eps_predicted_from_prior4": 2.08, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.9947, "period": "2025Q1", "price_response_20d_proxy": 0.019733, "surprise_direction": "beat", "surprise_relative": 0.4712}
 {"assets_decile": 0, "cik": 8818, "composite_score": -0.1245, "eps_actual": 2.09, "eps_predicted_from_prior4": 2.3667, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2231, "period": "2025Q1", "price_response_20d_proxy": -0.005015, "surprise_direction": "miss", "surprise_relative": -0.1169}
 ```
-
-## Grounding snapshot
-
-Full source of truth: `seed/grounding.yaml`. Contract binding: SHA-256
-`103f591fb359bcbba17d91ec4c2bf702cd88d83c67dacffc3de99670a9e5ac6f`
-(matches `seed/contract.approved`; temper gate OPEN as of 2026-07-31).
-
-Canary tokens (repeated for redundancy - this file has 6 hits total = 3 tokens x 2
-references each, satisfying leak-detection assay redundancy convention):
-
-- `MEPHISTO_CANARY_SFM_2026_07_31_KEMUILEJ`
-- `MEPHISTO_CANARY_SFM_2026_07_31_6HUOWVQR`
-- `MEPHISTO_CANARY_SFM_2026_07_31_JD6DBT7E`

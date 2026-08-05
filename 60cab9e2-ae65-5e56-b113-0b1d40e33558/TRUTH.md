@@ -246,23 +246,3 @@ the pre-2010 exclusion that grounding.yaml pins per gap_zlb_period_exclusion_cho
   10 on_hold_dovish, 1 on_hold_hawkish
 - 9 true regime-transition events (Mar/Apr/May 2025 cutting→holding,
   Sep/Oct/Nov 2025 holding→cutting, Mar/Apr/May 2026 cutting→holding)
-
-## Grounding.yaml snapshot
-
-```yaml
-task_id: fed_funds_regime_positioning_book
-bundle_uuid: 60cab9e2-ae65-5e56-b113-0b1d40e33558
-contract_sha256: "d53cefa16ceebb2873f04767161e00d2e3f694ed1131e4ae91f8f0e7d4522a71"
-hardness_catalog_digest: "543b83fb4ca8759cf6d8620f2914467b7e918bee74edab08a7dd3ac5d0096866"
-
-canary_tokens:
-  - "MEPHISTO_CANARY_FFR_2026_07_31_19XW5YVI"
-  - "MEPHISTO_CANARY_FFR_2026_07_31_ZWCXHZLD"
-  - "MEPHISTO_CANARY_FFR_2026_07_31_43L3ZXZT"
-
-reference_solver:
-  path: "dataset/60cab9e2-.../solution/fed_funds_positioning_reference.py"
-  method_family: "JUDGE-SIDE ONLY four-stage composition (FedRegimeClassifier
-    + PolicyPathProjection + MacroTransmissionModel +
-    RegimeConditionalPositioner) - method NAMES are opaque to agent."
-```
