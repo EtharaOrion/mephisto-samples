@@ -1,3 +1,15 @@
+---
+license: cc-by-nc-nd-4.0
+task_categories:
+  - reinforcement-learning
+language:
+  - en
+tags:
+  - professional-knowledge-work
+  - long-horizon
+  - agent-evaluation
+---
+
 <p align="center"><img alt="Mephisto. Measured by a judge it never sees." src="images/hero.svg" width="880"></p>
 
 <p align="center"><strong>Five professional knowledge work RL environments. Measured by a judge the agent never sees.</strong></p>
