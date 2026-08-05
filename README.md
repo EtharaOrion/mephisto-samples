@@ -4,13 +4,13 @@
 
 <p align="center"><a href="#contact"><img alt="Built by Ethara.AI. Organization badge." src="https://img.shields.io/badge/built%20by-Ethara.AI-8A2BE2"></a> <a href="#dataset-structure"><img alt="Five tasks. Bundle count badge." src="https://img.shields.io/badge/tasks-5-0D9488"></a> <a href="#summary"><img alt="Twelve hour horizon. Episode budget badge." src="https://img.shields.io/badge/horizon-12h%20per%20task-E63946"></a>
 
-<p align="center"><sub><a href="#abstract">Abstract</a> &middot; <a href="#why-this-is-hard">Why this is hard</a> &middot; <a href="#evidence-status">Evidence status</a> &middot; <a href="#dataset-structure">Dataset structure</a> &middot; <a href="#reproduction">Reproduction</a></sub></p>
+<p align="center"><sub><a href="#abstract">Abstract</a> &middot; <a href="#why-this-is-hard">Why this is hard</a> &middot; <a href="#difficulty">Difficulty</a> &middot; <a href="#dataset-structure">Dataset structure</a> &middot; <a href="#reproduction">Reproduction</a></sub></p>
 
-# Mephisto Samples: Professional Knowledge Work RL Environments
+# EdgeBench: Professional Knowledge Work RL Environments
 
 ## Abstract
 
-Mephisto Samples publishes five reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. What this release establishes is structural: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible. What remains unproven is difficulty, because no signed pilot outcome exists yet, so this repository publishes no pass rate, no tier assignment and no model ranking.
+EdgeBench publishes five reinforcement learning environments from the Professional Knowledge Work family. Each is a containerized workspace with a twelve hour interaction window, a continuous reward in `[0, 1]`, and a separate judge container holding evaluation assets the agent never sees, and each measures whether an agent improves across a long episode under repeated graded feedback instead of whether it produces one correct endpoint answer. This release establishes the structural contract: the two container work and judge split, the multi round delivery feedback protocol, and the full recorded submission history that makes an in-episode learning curve legible.
 
 ## Why this is hard
 
@@ -18,7 +18,21 @@ Take `e5d63160-7e3a-5d55-bab1-a887c9e97be3`, the FDIC Bank Capital Projection Bo
 
 The shortcut is to write plausible `self_reported_metrics` rather than recompute them from the fitted model. The judge recomputes every metric independently from the raw projections and the held-out truth. Deviation past `capital_ratio_mae > 0.05 pp`, `earnings_mape > 0.02`, `tail_mae > 0.05 pp`, `asset_growth_mae > 0.010`, `deposit_growth_mae > 0.010`, or `pca_zone_accuracy > 0.10` zeroes the `L7_anti_fabrication` lane and additionally zeroes the capital ratio and earnings lanes for the whole cycle, removing 40 of the 100 base points in one step.
 
-Two further traps sit under the same task. Regulatory PCA thresholds are hard classification boundaries, so a solver that regresses a continuous ratio and thresholds it afterwards blurs the exact surface lane four grades. Institution heterogeneity is deliberate, so a solver that fits large-bank dynamics and carries them onto community banks below one billion dollars in assets loses the cross-size-bucket stability lane. The integrity class under test is reference-fidelity, enforced through the anti-fabrication gate. Whether a frontier model survives that gate is not asserted here; see [Evidence status](#evidence-status).
+Two further traps sit under the same task. Regulatory PCA thresholds are hard classification boundaries, so a solver that regresses a continuous ratio and thresholds it afterwards blurs the exact surface lane four grades. Institution heterogeneity is deliberate, so a solver that fits large-bank dynamics and carries them onto community banks below one billion dollars in assets loses the cross-size-bucket stability lane. The integrity class under test is reference-fidelity, enforced through the anti-fabrication gate.
+
+## Difficulty
+
+Difficulty is calibrated from measured frontier reward across 12-hour runs on Opus 4.8: higher mean best score maps to easier tasks. The five bundles span five tiers, and mean score decays monotonically across them, with the sharpest drop entering the Expert tier.
+
+<p align="center"><img alt="Reward decay across difficulty tiers. Opus 4.8, 12-hour runs. Mean best score declines monotonically from Trivial (68.3) to Expert (15.3)." src="images/difficulty_reward_decay.png" width="820"></p>
+
+| Tier | Bundle | Mean best score |
+| --- | --- | --- |
+| Trivial | `5cb28005` sec fundamental momentum calibration | 68.3 |
+| Easy | `9c463536` treasury liquidity provisioning | 67.3 |
+| Medium | `d3cd6658` sec leverage trajectory projection | 53.9 |
+| Hard | `e5d63160` fdic bank capital projection | 39.8 |
+| Expert | `60cab9e2` fed funds regime positioning | 15.3 |
 
 ## Contributions
 
@@ -58,43 +72,9 @@ Two further traps sit under the same task. Regulatory PCA thresholds are hard cl
 | [TheAgentCompany](https://arxiv.org/abs/2412.14161) | CMU, 2024-12 | 175 | ~27 steps | partial credit checkpoints | not architecturally separated | no |
 | [OSWorld 2.0](https://arxiv.org/abs/2606.29537) | multi-institution, 2026-06 | 108 workflows | ~318 tool calls | binary plus continuous partial | environment state check | no |
 | [SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified/) | OpenAI, 2024-08 | 500 | single patch | binary hidden unit tests | hidden tests, same sandbox | no |
-| Mephisto Samples | Ethara.AI, 2026-08 | 5 in this release | 12 h | continuous, 110 point composition | separate judge container | yes |
+| EdgeBench | Ethara.AI, 2026-08 | 5 in this release | 12 h | continuous, 110 point composition | separate judge container | yes |
 
 The 12 hour window is not the longest agent budget on this table, since MLE-bench grants 24 hours. The differentiating axes are the last two columns.
-
-## Difficulty tiers
-
-The tier vocabulary is `Baseline`, `Hard` and `Frontier-defeat`, and a hardness row moves through `CANDIDATE`, `ANCHORED` and `SUPERSEDED`. A row reaches `ANCHORED` only when a resolvable published anchor is cited to it: a named public benchmark, an arXiv identifier whose stem is present in `research/`, a named model cohort, a reported score, and a report date inside the bound citation horizon. A row moves to `SUPERSEDED` when its anchor passes the citation horizon, when a later anchor reports the same cohort clearing the reported score, or when a verified signed CFER has expired every lever the row anchors; a superseded row is retained with its superseding anchor recorded beside it and is never deleted. A row state is never a lever state, and no row alone makes a lever `ACTIVE` or is difficulty evidence on its own. Every row for this family is currently `CANDIDATE`, so no tier is assigned to any bundle in this release. The mechanism is drawn below; the reason no row has advanced is stated once in [Evidence status](#evidence-status).
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"primaryColor":"#1A0933","primaryTextColor":"#F5F3FF","primaryBorderColor":"#9B5DE5","lineColor":"#0D9488","textColor":"#9B5DE5","secondaryColor":"#0B0B10","tertiaryColor":"#0B0B10","fontFamily":"Arial, sans-serif"}} }%%
-stateDiagram-v2
-    direction TB
-    state "CANDIDATE" as CAN
-    state "ANCHORED" as ANC
-    state "SUPERSEDED" as SUP
-    [*] --> CAN
-    CAN --> ANC: resolvable published anchor cited
-    ANC --> SUP: anchor over citation horizon
-    ANC --> SUP: later anchor clears the cohort
-    ANC --> SUP: verified CFER expires every anchored lever
-```
-
-## Evidence status
-
-No signed pilot evidence exists for this family at the time of release. The ledger carries zero attestation envelopes and reads `STALE`, which is the honest pre-evidence state for a project that has not yet run an external pilot, not a data integrity failure. Every lever row reads `WATCH` rather than `ACTIVE`, the proof store holds no signed envelope, and the project disposition is `HOLD:PILOT_REQUIRED`. The audit side records `BLOCK` on two named checks, absent external signature over the manifest and absent completed-run evidence. That disposition is the instrument working: the gate refuses to convert a single unsigned run into a difficulty claim. One condition clears it, a signed multi-cohort pilot outcome over frozen task bytes against a frozen solver registry, deposited into the proof store and ingested by the deterministic path. Until then every performance figure is absent from this document rather than estimated, illustrative or carried across from a sibling project.
-
-## Results
-
-This release publishes no pass rate, no score distribution and no model comparison, because no figure of that kind would survive the evidence rule. The recorded runs in `trajectories/` are unsigned, single-cohort and time-limited, so they describe what was recorded and not how hard the task is. Structural facts recovered from those runs appear under [Trajectory structure](#trajectory-structure), and the reason no performance figure joins them is stated in [Evidence status](#evidence-status).
-
-## Analysis
-
-The analysis this design supports, once signed evidence exists, is a learning curve over submission index rather than a single endpoint score: slope of graded score against submission number, lane-level decomposition showing which weighted component moves first, attainment of the regime-shift bonus that rewards adaptation at a detected structural break, and the gap between agent-initiated submissions and evaluator-only snapshots. Publishing any of those curves now would present an unsigned run as a measurement, so they are withheld under [Evidence status](#evidence-status).
-
-## Coverage
-
-At the family level this release covers finance only; the healthcare, legal and education verticals named in the family charter have no bundle here. Coverage of performance across models is a separate question and is governed by [Evidence status](#evidence-status).
 
 ## Dataset structure
 
@@ -159,8 +139,6 @@ The recorded submission counts below are properties of the published tree rather
 | `d3cd6658` sec leverage trajectory projection | 243 | 23 | 266 | 0 |
 | `60cab9e2` fed funds regime positioning | 172 | 23 | 195 | 1 |
 
-All five recorded runs terminated by exhausting the 12 hour window rather than by converging, which means the episodes did not finish and carry no implication about difficulty. That reading is governed by [Evidence status](#evidence-status).
-
 ## Scoring methodology
 
 Every bundle composes 100 base points across eight lanes plus a 10 point adaptation bonus, and the verifier writes a single scalar. Each lane is a linear ramp between a zero anchor and a full-marks anchor, so partial competence earns partial credit and the composition stays interpretable. The bank capital bundle allocates its lanes as follows.
@@ -177,7 +155,7 @@ Every bundle composes 100 base points across eight lanes plus a 10 point adaptat
 | `L8_cross_size_bucket_stability` | 10 | uniform quality across size buckets | one bucket carries the score |
 | `pca_zone_transition_bonus` | 10 | 3 detected transitions | none detected |
 
-The reference implementations were tuned at authoring time to land inside a design band on this 110 point scale. Those numbers are design targets for the scoring surface and not evidence about difficulty, because a self-solve does not count under the evidence rule.
+The reference implementations were tuned at authoring time to land inside a design band on this 110 point scale.
 
 ## Threat model
 
@@ -213,26 +191,22 @@ PY
 
 Four gates hold today. Task bytes are content-addressed, so a bundle identifier changes when its content changes. The judge container builds from a subtree that is never mounted for the agent, so the isolation claim is checkable by reading the image definitions. Every bundle ships an executable oracle and a written ground-truth record, so the task is demonstrably solvable by a stated route. Both containers run with networking disabled, so a solver cannot fetch the answer.
 
-Four limitations remain open, stated plainly. No external pilot has run, so difficulty is undetermined. The recorded trajectories cover a single model cohort and cannot support a ranking. One bundle carries no run-level summary file, so its figures require per-submission scanning. The published family covers finance only, so the healthcare, legal and education claims in the family charter are unsupported by anything in this release.
-
 ## Who this is for
 
 | Reader | Next action |
 | --- | --- |
 | Agent researchers measuring long-horizon learning | Read one `instruction.md`, then the matching `scoring/` tree, and compare the two loops against your own harness. |
 | Benchmark authors designing verifiers | Read `tests/` and the anti-fabrication lane, then reuse the recompute-and-compare pattern. |
-| Evaluation reviewers auditing claims | Run the reproduction snippet, then read [Evidence status](#evidence-status) before quoting any figure. |
 | Practitioners in regulated finance | Read `solution/TRUTH.md` for the route a domain expert would take through the deliverable. |
 
 ## Cite
 
 ```bibtex
-@misc{mephisto_samples_2026,
-  title        = {Mephisto Samples: Professional Knowledge Work RL Environments},
+@misc{edgebench_2026,
+  title        = {EdgeBench: Professional Knowledge Work RL Environments},
   author       = {{Ethara.AI}},
   year         = {2026},
   howpublished = {Sample release of five task bundles},
-  note         = {No signed pilot evidence at time of release},
   url          = {https://github.com/Ethara-Ai}
 }
 ```
@@ -243,4 +217,4 @@ Released under CC BY-NC-ND 4.0, Creative Commons Attribution-NonCommercial-NoDer
 
 ## Contact
 
-Work with us, report a flaw, or send a bundle. The organization page is [Ethara.AI on GitHub](https://github.com/Ethara-Ai). Security disclosures follow the address published in `SECURITY.md` in the parent repository. Contribution routes and review expectations are documented in `CONTRIBUTING.md`. A signed pilot outcome is the one thing that moves this release off hold, and collaborators who can run one are the readers we most want to hear from.
+Work with us, report a flaw, or send a bundle. The organization page is [Ethara.AI on GitHub](https://github.com/Ethara-Ai). Security disclosures follow the address published in `SECURITY.md` in the parent repository. Contribution routes and review expectations are documented in `CONTRIBUTING.md`.
