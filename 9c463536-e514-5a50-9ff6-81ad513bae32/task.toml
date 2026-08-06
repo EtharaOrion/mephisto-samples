@@ -24,7 +24,7 @@ name = "Mephisto"
 timeout_sec = 43200
 
 [environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.treasury_liquidity_provisioning_book:03a5d353@sha256:03a5d353a94fd2e9325933bd68e0fb69308e78526fa37e12718ed234aae7275f"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.treasury_liquidity_provisioning_book:03a5d353a94f@sha256:03a5d353a94fd2e9325933bd68e0fb69308e78526fa37e12718ed234aae7275f"
 network_mode = "no-network"
 workdir = "/home/workspace"
 
@@ -33,7 +33,7 @@ timeout_sec = 3600
 environment_mode = "separate"
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.treasury_liquidity_provisioning_book:99341f5f@sha256:99341f5f649bbe205c3b828855efd0c2db36ddfc9e680b67cd6b7cc4edff3609"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.treasury_liquidity_provisioning_book:99341f5f649b@sha256:99341f5f649bbe205c3b828855efd0c2db36ddfc9e680b67cd6b7cc4edff3609"
 network_mode = "no-network"
 workdir = "/home/workspace"
 
@@ -46,8 +46,8 @@ selection = "score_first"
 score_direction = "maximize"
 submit_paths = ["treasury_liquidity.py", "requirements.txt", "positioning_results.json"]
 submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
-work_image_tag = "03a5d353"
-judge_image_tag = "99341f5f"
+work_image_tag = "03a5d353a94f"
+judge_image_tag = "99341f5f649b"
 
 [metadata]
 provenance_schema_version = "1"

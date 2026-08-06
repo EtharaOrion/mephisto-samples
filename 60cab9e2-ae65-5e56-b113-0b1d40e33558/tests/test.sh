@@ -22,13 +22,22 @@ cp /home/workspace/scoring/test_fomc_events.json              /home/workspace/te
 cp /home/workspace/scoring/true_regime_events.json            /home/workspace/true_regime_events.json
 
 python3 /home/workspace/scoring/eval_script.py 2>&1 | tee /logs/verifier/scoring_stdout.log
+EVAL_EXIT=${PIPESTATUS[0]}
 
 SCORE=$(grep -oE "TOTAL_SCORE\s+-?[0-9]+(\.[0-9]+)?" /logs/verifier/scoring_stdout.log | tail -1 | awk '{print $2}')
 if [ -z "$SCORE" ]; then
   SCORE=$(grep -oE "Final total score:\s*-?[0-9]+(\.[0-9]+)?" /logs/verifier/scoring_stdout.log | tail -1 | grep -oE "\-?[0-9]+(\.[0-9]+)?$")
 fi
 if [ -z "$SCORE" ]; then
-  echo "ERROR: could not extract score from stdout" >&2
+  if [ "$EVAL_EXIT" -ne 0 ]; then
+    REASON="SCORER_NONZERO_EXIT"
+    DETAIL="eval_script.py exited with status $EVAL_EXIT"
+  else
+    REASON="SUBMISSION_PARSE_ERROR"
+    DETAIL="eval_script.py exited 0 but TOTAL_SCORE not found in output"
+  fi
+  echo "ERROR: $DETAIL" >&2
+  printf '{"score": 0, "reason": "%s", "detail": "%s"}\n' "$REASON" "$DETAIL" > /logs/verifier/reward.json
   echo 0 > /logs/verifier/reward.txt
   exit 1
 fi
