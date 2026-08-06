@@ -72,7 +72,6 @@ Difficulty is calibrated from measured frontier reward across 12-hour runs on Op
 | [TheAgentCompany](https://arxiv.org/abs/2412.14161) | CMU, 2024-12 | 175 | ~27 steps | partial credit checkpoints | not architecturally separated | no |
 | [OSWorld 2.0](https://arxiv.org/abs/2606.29537) | multi-institution, 2026-06 | 108 workflows | ~318 tool calls | binary plus continuous partial | environment state check | no |
 | [SWE-bench Verified](https://openai.com/index/introducing-swe-bench-verified/) | OpenAI, 2024-08 | 500 | single patch | binary hidden unit tests | hidden tests, same sandbox | no |
-| [EdgeBench](https://arxiv.org/abs/2607.05155) | Ethara.AI, 2026-08 | 5 in this release | 12 h | continuous, 110 point composition | separate judge container | yes |
 
 The 12 hour window is not the longest agent budget on this table, since MLE-bench grants 24 hours. The differentiating axes are the last two columns.
 
