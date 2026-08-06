@@ -56,11 +56,9 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "NY Fed markets data + Federal Reserve Bank of St. Louis (FRED) + fiscaldata Bureau of the Fiscal Service + TreasuryDirect auctions + Federal Reserve H.15"
-provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector", "multiarch-linux-amd64-arm64"]
-provenance_source = "FORGE-authored 2026-08-01 (T9/10 finance-adjacent Framework B slate), structural mirror of dataset/d3cd6658-d997-5f26-89e3-97e5443046b4/ (sec_leverage_trajectory_projection_book, T7) per PKW-FAMILIES section 3 Framework B"
+provenance_flags = ["mephisto-native", "multiarch-linux-amd64-arm64"]
 
 [metadata.upstream_provenance]
 origin = "mephisto-native"
 provenance_date = "2026-08-01"
 asserts_no_upstream_lift = true
-modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/d3cd6658-d997-5f26-89e3-97e5443046b4/ (T7 sec_leverage_trajectory_projection_book) per PKW-FAMILIES section 3 Framework B, differentiated by short-end Treasury liquidity cadence combining ~395 daily rebalance-dates across 2025-01-01 to 2026-07-31 spanning the QT normalization to potential-cutting-cycle transitions. GRADER_SALT preemptive perturbation baked in at Phase 1. Multiarch (linux/amd64 + linux/arm64) manifest lists per operator directive."

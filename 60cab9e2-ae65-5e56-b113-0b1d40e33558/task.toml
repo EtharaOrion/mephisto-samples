@@ -56,11 +56,9 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "Federal Reserve Bank of St. Louis (FRED) + BLS + FOMC public disclosure"
-provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
-provenance_source = "FORGE-authored 2026-07-31, structural mirror of touchstones/portfolio_risk_calibration/"
+provenance_flags = ["mephisto-native"]
 
 [metadata.upstream_provenance]
 origin = "mephisto-native"
 provenance_date = "2026-07-31"
 asserts_no_upstream_lift = true
-modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ per PKW-FAMILIES section 3 Framework B, differentiated from Tasks 1/2/3/4 by the Fed policy regime + Treasury positioning book cadence combining weekly rate windows + FOMC-event classifications across 89 hidden 2025-2026H1 events (77 weekly + 12 FOMC)."

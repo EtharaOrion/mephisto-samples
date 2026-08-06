@@ -57,11 +57,9 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "US SEC EDGAR fair-access policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DGS10/DGS2/DFF/T10Y2Y"
-provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
-provenance_source = "FORGE-authored 2026-07-31, structural mirror of dataset/5cb28005-2b9a-5520-b4f8-de58beb5640d/ (sec_fundamental_momentum_calibration, T6) per PKW-FAMILIES section 3 Framework B"
+provenance_flags = ["mephisto-native"]
 
 [metadata.upstream_provenance]
 origin = "mephisto-native"
 provenance_date = "2026-07-31"
 asserts_no_upstream_lift = true
-modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/5cb28005-2b9a-5520-b4f8-de58beb5640d/ (T6, sec_fundamental_momentum_calibration) per PKW-FAMILIES section 3 Framework B, differentiated from T1-T6 by the SEC-XBRL cross-sectional capital-structure trajectory projection cadence combining per-filer-quarter composite trajectory score + peer-conditional rank + refinancing-risk direction classification + extreme-mover probability + positioning across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the CY2025 rate-hike-plateau-to-cutting-cycle turning point. Shipment change from T2-T6: multiarch (linux/amd64 + linux/arm64) manifest lists per operator directive 2026-07-31."

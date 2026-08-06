@@ -56,11 +56,9 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "US SEC EDGAR fair-access policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DGS10/DFF/UNRATE"
-provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
-provenance_source = "FORGE-authored 2026-07-31, structural mirror of dataset/60cab9e2-ae65-5e56-b113-0b1d40e33558/ (fed_funds_regime_positioning_book, T5) per PKW-FAMILIES section 3 Framework B"
+provenance_flags = ["mephisto-native"]
 
 [metadata.upstream_provenance]
 origin = "mephisto-native"
 provenance_date = "2026-07-31"
 asserts_no_upstream_lift = true
-modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/60cab9e2-ae65-5e56-b113-0b1d40e33558/ (T5, fed_funds_regime_positioning_book) per PKW-FAMILIES section 3 Framework B, differentiated from T1-T5 by the SEC-XBRL cross-sectional fundamental momentum cadence combining per-filer-quarter composite score + peer-conditional rank + earnings-surprise classification + extreme-filer probability + positioning across a hidden CY2025Q1-CY2026Q1 window (5 quarters x ~1000 filers = ~5000 filer-quarter observations) spanning the post-2022-hike margin-compression-to-recovery regime shift."
