@@ -24,7 +24,7 @@ name = "Mephisto"
 timeout_sec = 43200
 
 [environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fed_funds_regime_positioning_book:2ee6ed8d89f5@sha256:ac651e240f4503b8284e4043dfed50a74e544bc612a850f3fa1516078acf182b"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fed_funds_regime_positioning_book:01224846f2f4@sha256:01224846f2f4af7ce8037ab86250554349150096ea4bc5dfecbd178332319c2e"
 network_mode = "no-network"
 workdir = "/home/workspace"
 
@@ -33,21 +33,21 @@ timeout_sec = 3600
 environment_mode = "separate"
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fed_funds_regime_positioning_book:121ab7cfd189@sha256:121ab7cfd189ccb35bb5ce740b6daa54af69a8ed5c9332886be9e1b020e8e88e"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fed_funds_regime_positioning_book:541dc63ea89b@sha256:541dc63ea89b3d7bc872556546bdb387b881a52e8640b6110b5edc4bc9cb7364"
 network_mode = "no-network"
 workdir = "/home/workspace"
 
 [extensions.sforge]
 task_id = "fed_funds_regime_positioning_book"
 base_image = "python"
-platform = "linux/amd64"
+platform = "linux/amd64,linux/arm64"
 parser = "structured_json"
 selection = "score_first"
 score_direction = "maximize"
 submit_paths = ["fed_funds_positioning.py", "requirements.txt", "positioning_results.json"]
 submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
-work_image_tag = "2ee6ed8d89f5"
-judge_image_tag = "121ab7cfd189"
+work_image_tag = "01224846f2f4"
+judge_image_tag = "541dc63ea89b"
 
 [metadata]
 provenance_schema_version = "1"
