@@ -57,9 +57,3 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "US SEC EDGAR fair-access policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DGS10/DGS2/DFF/T10Y2Y"
-provenance_flags = ["mephisto-native"]
-
-[metadata.upstream_provenance]
-origin = "mephisto-native"
-provenance_date = "2026-07-31"
-asserts_no_upstream_lift = true

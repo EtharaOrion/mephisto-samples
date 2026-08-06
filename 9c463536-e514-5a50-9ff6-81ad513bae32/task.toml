@@ -56,9 +56,3 @@ data_license = "US Government work, public domain (no copyright)"
 license_class = "us-gov-public-domain"
 license_confidence = "high"
 license_source = "NY Fed markets data + Federal Reserve Bank of St. Louis (FRED) + fiscaldata Bureau of the Fiscal Service + TreasuryDirect auctions + Federal Reserve H.15"
-provenance_flags = ["mephisto-native", "multiarch-linux-amd64-arm64"]
-
-[metadata.upstream_provenance]
-origin = "mephisto-native"
-provenance_date = "2026-08-01"
-asserts_no_upstream_lift = true
