@@ -1,0 +1,60 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/libpcap_bpf_codegen_fidelity"
+description = "Rebuild libpcap 1.10.6's BPF filter compiler in C from observable behaviour alone, with no libpcap source, header, binary, or network. Graded on exact cBPF bytecode tuple equality and exact libpcap error-string equality against 12,000 hidden (dlt, snaplen, optimize, netmask, filter) cases across 8 weighted strata, plus a gated interleaved compile-throughput term."
+
+keywords = [
+  "optimization",
+  "bounded-continuous",
+  "systems-and-se",
+  "reimplementation-fidelity",
+  "packet-filter-compiler-codegen",
+  "libpcap-1.10.6",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+# 12 h. This is the max_timeout binding: 12 * 3600 = 43200.
+timeout_sec = 43200
+
+[environment]
+docker_image = "mephisto/bpfc-work@sha256:3b9258eba722fe4608fe86178714be21964d60a5d01cea00e41822e372e6a4d1"
+network_mode = "no-network"
+
+workdir = "/home/workspace/bpfc"
+
+cpus = 8
+memory_mb = 6144
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "mephisto/bpfc-judge@sha256:a0a4f154bc7cfdfff0379e6ab0bdcbfb50eb868c61cab6f9007b470ffecea396"
+network_mode = "no-network"
+workdir = "/home/workspace/bpfc"
+cpus = 4
+memory_mb = 3072
+
+[extensions.sforge]
+task_id = "libpcap_bpf_codegen_fidelity"
+base_image = "cpp"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+# Whitelist applied to the submission tar by run_evaluation.py
+# _filter_archive_files, then extracted into [environment].workdir.
+submit_paths = ["src/", "include/", "Makefile"]
+# Verbatim from the task contract boundaries.submit_exclude.
+submit_exclude = ["build/", "**/*.o", "**/__pycache__/", "public_cases.jsonl", "results.jsonl", "score_out.json", ".git/"]
+
+[extensions.optimization_lane]
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 12                 
+max_attempts = 50
+final_selection = "best"              

@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "libpcap_bpf_codegen_fidelity",
+  "run_id": "62b54382-a910-5b29-ad0e-1efa993cc615-5c15613cf593",
+  "model": "claude-opus-5[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "auto-15",
+  "total_rounds": 113,
+  "agent_submissions": 90,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.156683683395,
+  "archive_size_bytes": 71673,
+  "resume_count": 0,
+  "best_score": 0.99564
+}

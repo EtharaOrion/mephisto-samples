@@ -1,0 +1,213 @@
+# PRIVATE DERIVATION SOURCE - dataset/<uuid>/solution/grounding.yaml
+#
+# FORGE Phase 1 item 10. Every generated canonical bundle artifact descends
+# from this file through solution/recompute.py: the executable oracle
+# solution/solve.sh, the human-readable ground truth solution/TRUTH.md, the
+# reference-based rubric solution/rubrics.json, and the compiled deterministic
+# rubric tests tests/test_output.py. Because all four come from one source they
+# cannot disagree with each other or with the checker fixtures.
+#
+# recompute.py never invokes a model, a network, a clock, a locale, or a random
+# source. Criterion prose below is a FROZEN LITERAL, drafted once at authoring
+# time and stored here verbatim, exactly as FORGE item 10f requires.
+#
+# PRIVATE. Lives outside the agent-visible boundary. Carries canary tokens
+# under item 11a and is forbidden from both ENGRAM projections.
+
+schema_version: 1
+task_id: libpcap_bpf_codegen_fidelity
+
+# --------------------------------------------------------------------------
+# Pinned inputs. Any change here changes every generated artifact.
+# --------------------------------------------------------------------------
+
+upstream:
+  identity: "the-tcpdump-group/libpcap"
+  version: "1.10.6"
+  tarball_url: "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz"
+  tarball_sha256: "872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9"
+  license: "BSD-3-Clause"
+  build: "configure --disable-shared --without-libnl --disable-dbus --disable-rdma, then make"
+  build_rationale: >-
+    Built from the pinned source tarball rather than a distro package. ubuntu:22.04 ships libpcap 1.10.1 and this task grades against 1.10.6, so a package install would silently grade the wrong bytecode.
+
+oracle_image:
+  tag: "mephisto/bpfc-oracle:1.10.6"
+  entrypoint: "/usr/local/bin/bpfc-oracle"
+  base: "ubuntu:22.04"
+  netbase_required: true
+  netbase_rationale: >-
+    ubuntu:22.04 ships no /etc/services and no /etc/protocols. Without netbase libpcap resolves `port ssh` to the error "unknown port 'ssh'", which turns every named-lookup case into a silent error case and corrupts the golden corpus. The image build asserts /etc/services is non-empty and contains ssh.
+
+pinned_name_tables:
+  source: "/pinned/etc in the oracle image, copied byte-identically into both delivery images"
+  sha256:
+    services:  "f6183055fd949f9c53d49ee620f85d0150123ea691d25ed1bba0c641b4ee2f48"
+    protocols: "a90a2be9c2a88be6fbfc1fc73ba76f34698377bb19513e5de503dbb0bfe13be1"
+    hosts:     "f969610b9f4ed5f29917185f0dcf4a611dc618e9918a61504baf5dbb7b187a1a"
+    networks:  "20f4b0486ba8a442644f0f10fc1c947db554c83f31037d6a2ba9be8d67998c25"
+    ethers:    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  ethers_note: "genuinely absent upstream, pinned as the empty-file digest so its absence is itself bound"
+
+corpus:
+  generator: "generator/gen_cases.py"
+  assembler: "generator/build_corpus.py"
+  hidden_seed: 20260813
+  public_seed: 71047
+  hidden_count: 12000
+  public_count: 2000
+  oversample: 2.2
+  service_names_resolve: true
+  purity_rule: >-
+    Stratum membership is decided by OBSERVED oracle behaviour, never by the generator's static satisfiability prediction. error-paths admits only expressions the pinned upstream actually rejected; every other stratum admits only expressions it actually compiled. Measured after the rule: zero error-path cases compile and zero valid-stratum cases reject, on both corpora.
+  purity_history: >-
+    The predictive model failed in both directions when the oracle image gained netbase: 51 error-path cases began compiling and 64 valid cases began rejecting, because the generator had been tuned against an image without /etc/services. The prediction was replaced with oracle verification rather than re-tuned.
+
+# --------------------------------------------------------------------------
+# Reward constants. These MUST agree with seed/contract.yaml scoring.
+# --------------------------------------------------------------------------
+
+reward:
+  formula: "R = clip(0.88*C + 0.12*P*min(1, C/0.25), 0, 1)"
+  w_conformance: 0.88
+  w_throughput: 0.12
+  correctness_gate_C: 0.25
+  score_exact_prog: 1.00
+  score_similar_scale: 0.60
+  score_exact_err: 1.00
+  score_other_err: 0.45
+  score_invalid: 0.00
+  P_r_lo: 0.5
+  P_r_hi: 4.0
+  P_dead_zone_r: 1.05
+  P_fidelity_normalized: true
+  P_normalization_rule: "r = (t_upstream / N_total) / (t_candidate / N_exact); N_exact counts compiled_exact and rejected_exact_err; N_exact = 0 yields r = 0"
+  similarity_floor_program: [[6, 0, 0, 0]]
+  similarity_floor_note: "BPF_RET|BPF_K with k=0, i.e. `ret #0`; the floor subtracted so a constant program scores exactly 0"
+
+strata_weights:
+  basic-proto: 0.12
+  host-net-addr: 0.12
+  port-portrange: 0.10
+  boolean-nesting: 0.12
+  byte-slice-arith: 0.12
+  link-layer-and-encap: 0.12
+  error-paths: 0.18
+  optimizer-only: 0.12
+
+anti_shortcut:
+  containment_n: 5
+  containment_threshold: 0.15
+  containment_string_literals_excluded: true
+  containment_rationale: >-
+    String literals are excluded because roughly 18 percent of the graded surface is exact error-text fidelity, so libpcap's error strings are the required answer. Counting them would fire the control hardest on the submissions that did the task correctly.
+  containment_calibration:
+    starter: 0.0600
+    verbatim_copy: 0.9481
+    renamed_copy: 0.7381
+    error_strings_only: 0.0976
+  link_denylist: ["any dynamic import outside libc and libm"]
+  network: "no-network in both containers"
+
+# --------------------------------------------------------------------------
+# Measured anchors. Recorded, never predicted.
+# --------------------------------------------------------------------------
+
+measured_anchors:
+  measured_on: "AMD Ryzen AI 9 365, x86_64 native, 20 threads, 22 GiB RAM"
+  measured_date: "2026-08-13"
+  empty_submission: {R: 0.000000, reason: empty_submission}
+  weak_starter: {R: 0.054229, C: 0.061624, P: 0.0, N_exact: 0}
+  upstream_shim: {C: 1.000000, R_without_bench: 0.880000}
+  hard_kill_line: 0.12
+  optimizer_divergence_whole_corpus: 0.614
+  optimizer_divergence_within_stratum: 0.944
+  bench_upstream_elapsed_sec_60000_compiles: 1.545418893
+
+# --------------------------------------------------------------------------
+# Rubric items. FROZEN LITERALS drafted once at authoring time.
+# recompute.py reads these verbatim and never calls a model.
+# Every item whose judgment reduces deterministically over its evidence MUST
+# carry mode: compiled, per invariant 24.
+# --------------------------------------------------------------------------
+
+rubric_items:
+  - id: R1_exact_bytecode
+    dimension: conformance
+    weight: 0.40
+    evaluation_target: out.jsonl
+    criterion: "For every case the pinned upstream compiled, the submitted prog array is the identical sequence of four-tuples the upstream emitted, element for element."
+    judgment: "tuple-sequence equality against the golden program"
+    evidence: [out.jsonl]
+    mode: compiled
+  - id: R2_error_text
+    dimension: conformance
+    weight: 0.18
+    evaluation_target: out.jsonl
+    criterion: "For every case the pinned upstream rejected, the submitted err string is byte-identical to the upstream error text."
+    judgment: "string equality against the golden error"
+    evidence: [out.jsonl]
+    mode: compiled
+  - id: R3_structural_validity
+    dimension: correctness
+    weight: 0.10
+    evaluation_target: out.jsonl
+    criterion: "Every emitted program passes the structural validator: all jump targets land inside the program, no load reads past the packet or scratch bounds, and the program terminates."
+    judgment: "validator returns no rejection reason"
+    evidence: [out.jsonl]
+    mode: compiled
+  - id: R4_record_integrity
+    dimension: correctness
+    weight: 0.08
+    evaluation_target: out.jsonl
+    criterion: "The output carries exactly one well-formed record per input case, in input order, with no duplicate and no missing index."
+    judgment: "index set equality and order equality against the input"
+    evidence: [out.jsonl]
+    mode: compiled
+  - id: R5_no_upstream_copy
+    dimension: integrity
+    weight: 0.10
+    evaluation_target: containment_report
+    criterion: "Normalized five-gram containment of the submitted sources against the pinned upstream sources stays below the bound threshold, with string literals excluded."
+    judgment: "containment strictly below 0.15"
+    evidence: [containment_report]
+    mode: compiled
+  - id: R6_no_forbidden_link
+    dimension: integrity
+    weight: 0.08
+    evaluation_target: nm_ldd_report
+    criterion: "The built binary imports nothing outside libc and libm, so it neither links nor dynamically loads the upstream library."
+    judgment: "import set difference against the allowed set is empty"
+    evidence: [nm_ldd_report]
+    mode: compiled
+  - id: R7_throughput_earned
+    dimension: efficiency
+    weight: 0.06
+    evaluation_target: reward.json
+    criterion: "Throughput credit is charged against byte-exact cases only, so a submission with no exact cases earns no throughput credit."
+    judgment: "P equals zero whenever N_exact equals zero"
+    evidence: [reward.json]
+    mode: compiled
+
+compilation_floor: 0.80
+compilation_floor_check: >-
+  All seven items are mode compiled, so the compiled weight share is 1.00 against a floor of 0.80. No item is left judged, because every judgment above reduces deterministically over its named evidence. An item left judged when it is deterministically reducible is BLOCK:INVALID_TASK under invariant 24.
+
+# --------------------------------------------------------------------------
+# Canary tokens, item 11a. Derived from canonical_content_hash at freeze time,
+# never stored here as values. This block records the DERIVATION, not the tokens.
+# --------------------------------------------------------------------------
+
+canary:
+  derivation: "HMAC-SHA256(key=canonical_content_hash, msg='bpfc-canary-' || slot_index), first 16 hex chars"
+  slots_per_artifact: 3
+  planted_in:
+    - solution/grounding.yaml
+    - solution/recompute.py
+    - solution/TRUTH.md
+    - solution/rubrics.json
+    - solution/solve.sh
+    - solution/provenance.yaml
+  acyclicity_note: >-
+    canonical_content_hash is computed under canary normalization: each designated slot value is replaced by its fixed public placeholder before hashing. Planted token bytes therefore sit outside the hash preimage, yet each is fixed exactly by the derivation relation, so no slot is a free region. Hashing precedes planting and planting precedes the item 10i binding block.
+  placeholder: "__CANARY_SLOT_%d__"

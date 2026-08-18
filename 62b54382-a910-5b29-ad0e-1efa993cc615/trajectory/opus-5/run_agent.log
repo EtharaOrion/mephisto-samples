@@ -1,0 +1,26 @@
+2026-08-13 10:23:56,828 - INFO - Images ready
+2026-08-13 10:23:56,837 - INFO - Registered session with judge server
+2026-08-13 10:23:56,855 - INFO - Network isolation enabled: iptables preflight passed
+2026-08-13 10:23:57,236 - INFO - Container started: sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-5c15613cf593 (judge_url=http://host.docker.internal:8080)
+2026-08-13 10:23:57,236 - INFO - Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-08-13 10:23:59,609 - INFO - Install step 1 done (2.4s)
+2026-08-13 10:23:59,609 - INFO - Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+2026-08-13 10:24:01,850 - INFO - Install step 2 done (2.2s)
+2026-08-13 10:24:01,851 - INFO - Agent installation complete
+2026-08-13 10:24:02,035 - INFO - Installed sforge-submit script
+2026-08-13 10:24:02,096 - INFO - Installed Claude Code stop hook
+2026-08-13 10:24:02,127 - INFO - Configured Claude Code settings with hooks
+2026-08-13 10:24:02,128 - INFO - Host-side auto-eval started (interval=1800s)
+2026-08-13 10:24:02,258 - INFO - Network isolation applied: chain=SFORGE_cbc8f883b13a, ip=172.17.0.2, ip6=None, allowed=2 endpoints
+2026-08-13 10:24:02,321 - INFO - Prompt written (15310 bytes)
+2026-08-13 10:24:02,322 - INFO - Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-5[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+2026-08-13 22:24:02,514 - INFO - Agent finished: runtime=43200.2s, timed_out=True, resumes=0, pool_paused=0s
+2026-08-13 22:24:02,514 - INFO - Auto-eval thread stopped
+2026-08-13 22:24:02,590 - INFO - Final archive: 71673 bytes
+2026-08-13 22:24:02,707 - INFO - Work container processes stopped
+2026-08-13 22:24:02,716 - INFO - Done: best=0.00% (round 'auto-15'), agent_subs=90, auto_subs=23, resumes=0, runtime=43200.2s
+2026-08-13 22:24:03,501 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_cbc8f883b13a failed: ip6tables: No chain/target/match by that name.
+2026-08-13 22:24:03,501 - INFO - Network isolation cleaned up: chain=SFORGE_cbc8f883b13a
+2026-08-13 22:24:03,501 - INFO - Stopping container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-5c15613cf593...
+2026-08-13 22:24:03,503 - INFO - Removing container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-5c15613cf593...
+2026-08-13 22:24:03,776 - INFO - Container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-5c15613cf593 removed.

@@ -1,0 +1,55 @@
+# GENERATED SECTION. DO NOT HAND-EDIT.
+# Source of truth: seed/contract.yaml policy block, bound at Phase 0.5.
+#
+# CANARY-BLOCK-BEGIN
+# slot-0: 4b7e7965df483025
+# slot-1: 1c7bcc4b193e7c8a
+# slot-2: 2ab0df8a10929412
+# CANARY-BLOCK-END
+#
+# STATES INTENT AND NOTHING MORE. This manifest never establishes that a
+# control was enforced; that claim belongs to the operator attestation
+# alone. It carries no detector rule, threshold, fixture, canary material,
+# watched location, or audit outcome.
+
+schema_version: 1
+task_id: libpcap_bpf_codegen_fidelity
+channels:
+  accelerator:
+    state: denied
+    note: >-
+      zero accelerators required; the harness has no GPU attachment path at all
+  dynamic_linking_external:
+    state: denied
+    note: >-
+      any import outside libc and libm; symbol tables are inspected too, so a static link cannot pass vacuously
+  filesystem_read_hidden_corpus:
+    state: restricted
+    note: >-
+      hidden_cases.jsonl is readable because the candidate is graded on it; golden.jsonl, manifest.json and the fingerprint set are 0600 root-only and the verifier asserts the runner cannot read them before grading
+  filesystem_write_judge_assets:
+    state: denied
+    note: >-
+      judge assets are root-owned; agent code executes as an unprivileged runner
+  filesystem_write_submitted_paths:
+    state: allowed
+    note: >-
+      src/, include/ and Makefile only; everything else is outside submit_paths
+  network_egress_solver:
+    state: denied
+    note: >-
+      No internet inside the solving sandbox. This departs from Optimization lane item 5, which provisions open egress, and the departure is load-bearing: with a network the agent clones the public upstream and the task measures porting rather than excavation. No requirements/ grant authorises it, so gap_egress_grant_absent stands open and the human waived it knowingly on 2026-08-13.
+  network_egress_verifier:
+    state: denied
+  privilege_escalation:
+    state: denied
+    note: >-
+      every agent-authored execution runs under setpriv as uid 1001
+  subprocess_spawn:
+    state: denied
+    note: >-
+      execve, fork, system and popen are in the forbidden symbol set
+  wall_clock_self_report:
+    state: denied
+    note: >-
+      the judge measures elapsed time itself and never reads the candidate's own timing output
