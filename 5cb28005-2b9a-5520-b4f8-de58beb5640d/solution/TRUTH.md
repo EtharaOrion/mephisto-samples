@@ -1,0 +1,246 @@
+# TRUTH — sec_fundamental_momentum_calibration
+
+Judge-side reference
+ground truth for Phase 1 scaffold (T6/10 of the finance-adjacent Framework B
+slate, 2026-07-31). NEVER shipped to work image.
+
+## Task identity
+
+- task_id: `sec_fundamental_momentum_calibration`
+- bundle_uuid: `5cb28005-2b9a-5520-b4f8-de58beb5640d`
+- contract SHA-256 at Phase 0.5 sign: `103f591fb359bcbba17d91ec4c2bf702cd88d83c67dacffc3de99670a9e5ac6f`
+- hardness_catalog_digest: `543b83fb4ca8759cf6d8620f2914467b7e918bee74edab08a7dd3ac5d0096866`
+- authored: 2026-07-31
+
+=========================================================================
+GOLDEN TRAJECTORY (ordered, executable, judge-side-only)
+=========================================================================
+
+STEP 1: Data fetch (judge-side inputs and endpoints)
+- SEC EDGAR XBRL frames (5 req/s cap).
+  8 concepts fetched: Revenues (+ fallback aliases SalesRevenueNet,
+  RevenueFromContractWithCustomerExcludingAssessedTax), GrossProfit,
+  OperatingIncomeLoss, NetIncomeLoss, EarningsPerShareDiluted, Assets (universe
+  anchor), StockholdersEquity, LongTermDebt (+ aliases LongTermDebtNoncurrent,
+  LongTermDebtAndCapitalLeaseObligations).
+- Universe: top-1000 filers by Assets per quarter (cross-quarter entry/exit
+  flagged for survivorship-bias mitigation).
+- FRED macro anchors: DGS10 (daily), DFF (daily), UNRATE (monthly via FRED
+  redistribution route — not direct BLS). Cache dir `.cache/fred/`.
+- Boundary split: TRAIN CY2018Q1..CY2024Q4 (28 quarters × 1000 = 28000
+  filer-quarter observations); TEST CY2025Q1..CY2026Q1 (5 quarters × 1000 =
+  5000 filer-quarter observations). Pre-2018 excluded per ASC 606 revenue-
+  recognition regime shift.
+- Per-issuer equity price data is FORBIDDEN by contract (Stooq/Yahoo/Bloomberg
+  banned per MUST-NOT-DO doctrine; FRED does not carry per-CIK equity prices).
+- State established: raw XBRL fundamentals panel + FRED macro anchors + top-1000
+  universe roster per quarter.
+
+STEP 2: Feature construction (judge-side)
+- Per-filer per-quarter components:
+
+  | Component  | Formula                                                                | Data                        |
+  |------------|------------------------------------------------------------------------|-----------------------------|
+  | eps_yoy    | (EPS[q] - EPS[q-4]) / max(\|EPS[q-4]\|, 0.01)                          | EarningsPerShareDiluted     |
+  | rev_yoy    | (Rev[q] - Rev[q-4]) / max(\|Rev[q-4]\|, 1.0)                           | Revenues (aliased fallback) |
+  | margin_qoq | (OpInc[q] / Rev[q]) - (OpInc[q-4] / Rev[q-4])                          | OperatingIncomeLoss, Revenues |
+  | revision   | (EPS[q] - mean(EPS[q-1..q-3])) / max(pstdev(EPS[q-1..q-3]), 0.01)      | EarningsPerShareDiluted     |
+
+- Each component cross-sectionally z-scored per quarter (mean 0, pstdev 1 across
+  all in-universe filers with that component non-null).
+- Peer-group substitute: Assets deciles (SIC codes absent from EDGAR frames
+  responses). Per quarter, filers sorted by Assets ascending and partitioned
+  into 10 equal buckets.
+- State established: per-filer per-quarter feature matrix aligned to top-1000
+  universe.
+
+STEP 3: Reference method (JUDGE-SIDE ONLY — 4-family opacity per PKW-FAMILIES §3 Framework B)
+Stage A. FundamentalCompositeScorer. Composite = mean of non-null z-scored
+   components (eps_yoy, rev_yoy, margin_qoq, revision). Requires ≥ 2 non-null
+   components to emit a score.
+Stage B. PeerGroupRankRegressor. `peer_rank_percentile` = intra-Assets-decile
+   percentile rank of composite_score. Global `rank_percentile` = cross-sectional
+   percentile per quarter across the universe.
+Stage C. CrossQuarterSurpriseDetector. Predicted EPS[q] = linear extrapolation
+   from OLS(x = -offset, y = EPS[q-n]) over n ∈ 1..4 (requires ≥ 3 non-null
+   lagged EPS points; otherwise no surprise emitted). `surprise_relative =
+   (actual - predicted) / max(|predicted|, 0.01)`. Direction: `beat` if
+   surprise_relative > +0.05; `miss` if < -0.05; else `in_line`.
+Stage D. FactorMomentumPositioner. Position weight per filer per quarter:
+   `+1 / n_long` if global_rank_percentile ≥ 0.90 (top decile); `-1 / n_short`
+   if ≤ 0.10 (bottom decile); `0` otherwise. Book is dollar-neutral by
+   construction. Turnover cap 0.30 (roll-forward smoothing against prior
+   allocation).
+Realized return proxy (per-issuer equity prices FORBIDDEN by contract): the
+fundamentals-derived formula from grounding.yaml.reference_solver.price_response_proxy is
+
+    price_response_20d = 0.03 × sign(surprise_rel) × min(|surprise_rel|, 0.5)
+                       + hash-seeded uniform(-0.02, +0.02)
+
+where the noise seed is `int.from_bytes(sha256(f'{cik}|{period}').digest()[:8], 'big')`,
+ensuring deterministic identical noise across recompute runs. Anchor α = 0.03
+grounded in Novy-Marx 2013 (JFE) + Fama-French 2015 quality-factor findings:
+positive earnings surprises produce ~1-3% excess return over 20-day post-print window.
+
+STEP 4: Per-lane score composition
+| Lane | Points | Anchor / Metric |
+|---|---:|---|
+| L1 composite_score_rank_correlation | 20 | Spearman IC of composite_score vs realized price_response_20d_proxy |
+| L2 earnings_surprise_direction | 15 | 3-class accuracy on {beat, in_line, miss} |
+| L3 extreme_filer_detection | 15 | F1 on top-decile ∪ bottom-decile flag vs judge-side truth |
+| L4 revenue_growth_rank | 10 | Spearman of rev_yoy rank vs judge-side rank |
+| L5 margin_expansion_direction | 10 | 3-class accuracy on {up, flat, down} of margin_qoq |
+| L6 composite_position_pnl | 10 | Sharpe of dollar-neutral top/bottom decile PnL, cap 1.5 |
+| L7 anti_fabrication | 5 | Field-level tolerances (L1=0.08, L2=0.10, L3=0.10, L4=0.08, L5=0.10, L6=0.30) |
+| L8 cross_quarter_stability | 10 | 1 - min(1, var(per-quarter)/var_baseline), var_baseline=0.10 |
+| earnings_cycle_bonus | 10 | CY2025 margin-compression-to-recovery precision; saturation_hits=5; recovery_weighting=1.0 / non_recovery=0.15 |
+
+No grader perturbation is applied to lane outputs (T6 predates the perturbation
+pattern; T7 = sec_leverage_trajectory_projection_book was the first task to
+adopt it).
+
+STEP 5: Reproduction protocol
+```
+python3 seed/build/sec_fundamental_momentum_calibration/recompute.py --regenerate-truth
+python3 seed/build/sec_fundamental_momentum_calibration/recompute.py --verify
+```
+Expected: idempotent — running twice yields byte-identical outputs (all output
+SHA-256 stable across runs). Verified in Phase 1 authoring; Phase 2
+`--regenerate-truth` CLI added 2026-08-02 to replace the stale `seed/recompute.py`
+reference from the pre-layout-migration era.
+
+=========================================================================
+NEAR-MISS ROUTES the checkers reject (recorded alongside the intended route)
+=========================================================================
+
+Each route below is plausible from an agent's vantage but is rejected by a specific
+checker or scoring lane. Why the rejection is correct is recorded so the intended
+trajectory and its documented near misses live together in one artifact.
+
+Route A. Substituting equity-price panels from yfinance, quandl, or any commercial
+  vendor for the SEC EDGAR XBRL frames that grounding.yaml pins (Revenues +
+  aliases, GrossProfit, OperatingIncomeLoss, NetIncomeLoss, EarningsPerShareDiluted,
+  Assets, StockholdersEquity, LongTermDebt + aliases) fetched
+  under the 5 rps cap.
+    Rejected by: L1 composite_score_rank_correlation (20pts Spearman IC) + L7
+      anti_fabrication (5pts, per-lane tolerances L1=0.08 L2=0.10 L3=0.10 L4=0.08
+      L5=0.10 L6=0.30).
+    Why the rejection is correct: contract binds fundamentals to SEC EDGAR XBRL
+      frames as the single source of truth; equity-price vendors report distinct
+      universes with different filer-quarter cardinality, corporate-action
+      adjustments, and revision histories. Their eps/revenue values diverge from
+      the XBRL frames the judge-side recompute uses, driving L1 rank correlation
+      below anchor and pushing L7 self-reported metrics outside the L1=0.08
+      tolerance band once the reconciliation lands on the XBRL truth.
+
+Route B. Naming any of the four reference method families
+  (FundamentalCompositeScorer, PeerGroupRankRegressor, CrossQuarterSurpriseDetector,
+  FactorMomentumPositioner) in agent-visible solve.sh, imports, comments, or
+  docstrings.
+    Rejected by: leak-detection assay (canary_bindings.opacity_boundary_family_names).
+    Why the rejection is correct: PKW-FAMILIES section 3 Framework B places the
+      four family names judge-side. Naming them leaks the composite-plus-decile
+      architecture that makes reconciling per-component z-scores with the
+      cross-quarter surprise signal the intended hardness lever, collapsing the
+      task from 'construct the right composite + decile book' to 'run the named
+      stack' and voiding the four-family opacity boundary.
+
+Route C. Predicting quarterly EPS surprises from an OLS extrapolation fit on fewer
+  than 3 prior quarters (n<3), or replacing the four-quarter OLS with a naive
+  same-quarter-last-year carry.
+    Rejected by: L2 earnings_surprise_direction (15pts 3-class accuracy) + L3
+      extreme_filer_detection (15pts F1) + L7 anti_fabrication (L2=0.10 tolerance).
+    Why the rejection is correct: grounding pins predicted EPS to OLS linear
+      extrapolation from the prior 4 quarters with a hard n≥3 floor; thin-history
+      filers are correctly excluded rather than mispredicted. n<3 or year-over-year
+      carry regresses to the mean and mislabels beat/in_line/miss (thresholds
+      >+0.05 / -0.05..+0.05 / <-0.05), collapsing the 3-class accuracy anchor on L2
+      and the F1 on the ≥0.90 / ≤0.10 decile extremes that L3 grades.
+
+Route D. Sizing positions uniformly (equal-weight top decile vs equal-weight bottom
+  decile) without applying the 0.30 turnover cap, or rebalancing on every quarter
+  ignoring the composite persistence signal.
+    Rejected by: L6 composite_position_pnl (10pts Sharpe cap 1.5) + L7
+      anti_fabrication (L6=0.30 tolerance).
+    Why the rejection is correct: grounding pins +1/n_long on the top decile
+      (composite ≥ 0.90) and -1/n_short on the bottom decile (composite ≤ 0.10)
+      with a 0.30 quarterly turnover cap that suppresses churn between adjacent-
+      quarter marginal-decile filers. Uncapped rebalancing amplifies transaction
+      cost drag and inflates realized volatility, driving L6 Sharpe below the 1.5
+      cap and pushing self-reported PnL outside the L6=0.30 tolerance versus the
+      judge-recomputed cap-respecting book.
+
+Route E. Extending the training window pre-2018 (including CY2017Q4 or earlier)
+  instead of respecting the ASC 606 revenue-recognition regime shift that
+  grounding.yaml pins as the pre-training exclusion.
+    Rejected by: L1 composite_score_rank_correlation + L4 revenue_growth_rank
+      (10pts Spearman) + L5 margin_expansion_direction (10pts up/flat/down accuracy).
+    Why the rejection is correct: ASC 606 (effective 2018) reclassified revenue
+      timing across ~40%% of large filers, breaking pre-2018 revenue/margin YoY
+      comparability. Including pre-2018 quarters injects non-stationary z-scores
+      that drift the cross-sectional composite ranking, degrade L4 Spearman
+      against the 28-quarter train × 1000-filer universe, and mislabel L5 margin
+      direction on pre-ASC-606 baselines.
+
+Route F. Concatenating TRAIN (CY2018Q1-CY2024Q4, 28q × 1000 = 28000 obs) and TEST
+  (CY2025Q1-CY2026Q1, 5q × 1000 = 5000 obs) panels to compute cross-sectional
+  z-scores over the full 33-quarter window, or reusing test-period z-normalizations
+  in earlier-quarter composite computations.
+    Rejected by: L7 anti_fabrication (5pts) + L8 cross_quarter_stability (10pts,
+      var_baseline=0.10) + L1 composite_score_rank_correlation via judge-side re-run.
+    Why the rejection is correct: grounding pins per-quarter cross-sectional
+      z-scoring so each quarter's composite ranks against contemporaneous filers
+      only. Concatenation leaks CY2025-CY2026 distribution shape into CY2018
+      z-scores (hindsight); the judge-side recompute uses train-only z-baselines
+      and any self-reported composite diverges from the recomputed value beyond L7
+      tolerance and inflates the L8 cross-quarter variance metric above the 0.10
+      baseline.
+
+=========================================================================
+
+## Held-out CY2025Q1-CY2026Q1 test-panel targets
+
+| Metric                                              | Count / Value |
+|-----------------------------------------------------|--------------:|
+| Test filer-quarter observations                     | 5000 |
+| Filer-quarter observations with computed surprise   | 3257 |
+|   of which `beat`                                   | 1486 |
+|   of which `in_line`                                | 304 |
+|   of which `miss`                                   | 1467 |
+| Filer-quarters in top decile of composite rank      | 352 |
+| Filer-quarters in bottom decile of composite rank   | 352 |
+
+### Per-quarter positioning-book PnL (fundamentals-derived proxy)
+
+| Test quarter | Positioning-book PnL |
+|--------------|---------------------:|
+| 2025Q1 | +0.010720 |
+| 2025Q2 | +0.014505 |
+| 2025Q3 | +0.011496 |
+| 2025Q4 | +0.010074 |
+| 2026Q1 | +0.014693 |
+
+## Sample (first 20 held-out test-panel target rows)
+
+```jsonl
+{"assets_decile": 8, "cik": 1800, "composite_score": 0.0065, "eps_actual": 0.76, "eps_predicted_from_prior4": 1.1533, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.546, "period": "2025Q1", "price_response_20d_proxy": -0.029806, "surprise_direction": "miss", "surprise_relative": -0.341}
+{"assets_decile": 8, "cik": 2488, "composite_score": 0.3184, "eps_actual": 0.44, "eps_predicted_from_prior4": 0.8333, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.9483, "period": "2025Q1", "price_response_20d_proxy": -0.032727, "surprise_direction": "miss", "surprise_relative": -0.472}
+{"assets_decile": 7, "cik": 2969, "composite_score": -2.391, "eps_actual": -7.77, "eps_predicted_from_prior4": 2.9071, "in_bottom_decile": true, "in_top_decile": false, "peer_rank_percentile": 0.0053, "period": "2025Q1", "price_response_20d_proxy": -0.01817, "surprise_direction": "miss", "surprise_relative": -3.6727}
+{"assets_decile": 7, "cik": 3570, "composite_score": -0.955, "eps_actual": 1.57, "eps_predicted_from_prior4": 6.0, "in_bottom_decile": true, "in_top_decile": false, "peer_rank_percentile": 0.0266, "period": "2025Q1", "price_response_20d_proxy": -0.003321, "surprise_direction": "miss", "surprise_relative": -0.7383}
+{"assets_decile": 0, "cik": 4127, "composite_score": -0.2092, "eps_actual": 0.43, "eps_predicted_from_prior4": 0.9043, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.1, "period": "2025Q1", "price_response_20d_proxy": -0.02166, "surprise_direction": "miss", "surprise_relative": -0.5245}
+{"assets_decile": 2, "cik": 4281, "composite_score": 0.0905, "eps_actual": 0.84, "eps_predicted_from_prior4": 1.0133, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.7722, "period": "2025Q1", "price_response_20d_proxy": -0.014395, "surprise_direction": "miss", "surprise_relative": -0.1711}
+{"assets_decile": 6, "cik": 4447, "composite_score": -0.1252, "eps_actual": 1.39, "eps_predicted_from_prior4": 0.1033, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2865, "period": "2025Q1", "price_response_20d_proxy": 0.00248, "surprise_direction": "beat", "surprise_relative": 12.4516}
+{"assets_decile": 8, "cik": 4904, "composite_score": 0.0001, "eps_actual": 1.5, "eps_predicted_from_prior4": 1.2967, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.523, "period": "2025Q1", "price_response_20d_proxy": -0.006293, "surprise_direction": "beat", "surprise_relative": 0.1568}
+{"assets_decile": 9, "cik": 4962, "composite_score": -0.046, "eps_actual": 3.64, "eps_predicted_from_prior4": 3.8967, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2812, "period": "2025Q1", "price_response_20d_proxy": 0.014726, "surprise_direction": "miss", "surprise_relative": -0.0659}
+{"assets_decile": 8, "cik": 4977, "composite_score": -0.1832, "eps_actual": 0.05, "eps_predicted_from_prior4": -3.07, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.1322, "period": "2025Q1", "price_response_20d_proxy": 0.010294, "surprise_direction": "beat", "surprise_relative": 1.0163}
+{"assets_decile": 9, "cik": 5272, "composite_score": -0.0296, "eps_actual": 1.16, "eps_predicted_from_prior4": -2.715, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.3187, "period": "2025Q1", "price_response_20d_proxy": 0.033809, "surprise_direction": "beat", "surprise_relative": 1.4273}
+{"assets_decile": 7, "cik": 5513, "composite_score": -0.1218, "eps_actual": 1.06, "eps_predicted_from_prior4": 4.6467, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2606, "period": "2025Q1", "price_response_20d_proxy": -0.008674, "surprise_direction": "miss", "surprise_relative": -0.7719}
+{"assets_decile": 7, "cik": 6201, "composite_score": -0.0903, "eps_actual": -0.72, "eps_predicted_from_prior4": 0.475, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2926, "period": "2025Q1", "price_response_20d_proxy": -0.010588, "surprise_direction": "miss", "surprise_relative": -2.5158}
+{"assets_decile": 7, "cik": 6281, "composite_score": 0.7307, "eps_actual": 1.14, "eps_predicted_from_prior4": 0.8543, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.9628, "period": "2025Q1", "price_response_20d_proxy": 0.024332, "surprise_direction": "beat", "surprise_relative": 0.3344}
+{"assets_decile": 6, "cik": 6951, "composite_score": 0.0703, "eps_actual": 2.63, "eps_predicted_from_prior4": 1.2743, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.8146, "period": "2025Q1", "price_response_20d_proxy": 0.006138, "surprise_direction": "beat", "surprise_relative": 1.0639}
+{"assets_decile": 7, "cik": 7084, "composite_score": -0.0765, "eps_actual": 0.61, "eps_predicted_from_prior4": -1.2567, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.3351, "period": "2025Q1", "price_response_20d_proxy": 0.023832, "surprise_direction": "beat", "surprise_relative": 1.4854}
+{"assets_decile": 5, "cik": 7536, "composite_score": -0.1389, "eps_actual": 1.51, "eps_predicted_from_prior4": 2.3317, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2833, "period": "2025Q1", "price_response_20d_proxy": -0.012592, "surprise_direction": "miss", "surprise_relative": -0.3524}
+{"assets_decile": 7, "cik": 7789, "composite_score": -0.0332, "eps_actual": 0.59, "eps_predicted_from_prior4": 0.6667, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.4415, "period": "2025Q1", "price_response_20d_proxy": 0.014269, "surprise_direction": "miss", "surprise_relative": -0.115}
+{"assets_decile": 7, "cik": 8670, "composite_score": 1.5608, "eps_actual": 3.06, "eps_predicted_from_prior4": 2.08, "in_bottom_decile": false, "in_top_decile": true, "peer_rank_percentile": 0.9947, "period": "2025Q1", "price_response_20d_proxy": 0.019733, "surprise_direction": "beat", "surprise_relative": 0.4712}
+{"assets_decile": 0, "cik": 8818, "composite_score": -0.1245, "eps_actual": 2.09, "eps_predicted_from_prior4": 2.3667, "in_bottom_decile": false, "in_top_decile": false, "peer_rank_percentile": 0.2231, "period": "2025Q1", "price_response_20d_proxy": -0.005015, "surprise_direction": "miss", "surprise_relative": -0.1169}
+```

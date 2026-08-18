@@ -1,0 +1,9 @@
+2026-08-13 14:43:45,525 - INFO - Judge container started: 4d2eaf31adfc34ab410620240c479ca248d05cfec771523eab8465fe6ef14102
+2026-08-13 14:43:45,525 - INFO - Archive saved (1169410 bytes)
+2026-08-13 14:43:46,034 - INFO - Archive extracted: 31 file(s) allowed, 0 rejected -> /home/workspace/swscale-impl, /logs/artifacts/submission
+2026-08-13 14:43:46,052 - INFO - Running eval script...
+2026-08-13 14:44:13,137 - INFO - Test runtime: 27.08s, timed_out: False
+2026-08-13 14:44:13,138 - INFO - Result: 1/1 passed (pass_rate=100.00%)
+2026-08-13 14:44:13,138 - INFO - Stopping container edgebench.judge.ffmpeg_swscale_reimplementation.8edb3ab966f7...
+2026-08-13 14:44:13,526 - INFO - Removing container edgebench.judge.ffmpeg_swscale_reimplementation.8edb3ab966f7...
+2026-08-13 14:44:13,538 - INFO - Container edgebench.judge.ffmpeg_swscale_reimplementation.8edb3ab966f7 removed.

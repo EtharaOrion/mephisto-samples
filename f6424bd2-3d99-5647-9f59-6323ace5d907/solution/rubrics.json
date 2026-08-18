@@ -1,0 +1,19 @@
+{
+  "_generated_header": "ffmpeg_swscale_reimplementation (ARM64). Source: solution/grounding.yaml.",
+  "task_id": "ffmpeg_swscale_reimplementation",
+  "schema_version": 1,
+  "canary_tokens": [],
+  "scoring": {
+    "correctness_gate": "per-workload PSNR: >=60 dB same-size, >=40 dB scaling, byte-exact lossless; any fail -> score 0",
+    "reward": "geometric_mean(baseline_time / candidate_time)",
+    "rescale": {"kind": "log_anchor", "anchor_raw": 14.155, "anchor_score": 43.0, "arm_status": "INHERITED_FROM_X86_PENDING_RECAL"}
+  },
+  "items": [
+    {"id": "rubric_correctness", "dimension": "correctness", "weight": 0, "mode": "gate",
+     "criterion": "all hidden workloads meet PSNR thresholds vs FFmpeg C output", "checker_taxonomy": "INVARIANT"},
+    {"id": "rubric_speedup", "dimension": "speedup", "weight": 100, "mode": "compiled",
+     "criterion": "geometric-mean speedup vs same-machine C baseline, log_anchor rescaled", "checker_taxonomy": "VALUE"},
+    {"id": "rubric_anti_cheat", "dimension": "integrity", "weight": 0, "mode": "gate",
+     "criterion": "no dlopen/exec of reference ffmpeg (deleted pre-score); no inline asm; baseline hash intact", "checker_taxonomy": "INVARIANT"}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "ffmpeg_swscale_reimplementation",
+  "run_id": "f6424bd2-3d99-5647-9f59-6323ace5d907-ed18e72ab8f0",
+  "model": "claude-opus-5[1m]",
+  "best_pass_rate": 1.0,
+  "best_round": "agent-88",
+  "total_rounds": 112,
+  "agent_submissions": 89,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.12125325203,
+  "archive_size_bytes": 1182671,
+  "resume_count": 0,
+  "best_score": 0.78052
+}

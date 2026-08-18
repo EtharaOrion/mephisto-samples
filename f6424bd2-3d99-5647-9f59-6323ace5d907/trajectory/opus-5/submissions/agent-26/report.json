@@ -1,0 +1,32 @@
+{
+  "task_id": "ffmpeg_swscale_reimplementation",
+  "submission_id": "82645496d4f8",
+  "total_tests": 1,
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 1.0,
+  "score": 0.639889,
+  "score_0_100": 63.9889,
+  "timed_out": false,
+  "runtime_seconds": 26.863089084625244,
+  "test_details": [
+    {
+      "name": "tests/eval.py::overall_score",
+      "status": "PASSED"
+    }
+  ],
+  "valid": true,
+  "summary": "1/1 tests passed",
+  "details": [
+    {
+      "name": "tests/eval.py::overall_score",
+      "status": "PASSED",
+      "message": null,
+      "score": null,
+      "weight": null
+    }
+  ],
+  "metrics": {},
+  "submitted_at": 1786630387.5385103
+}

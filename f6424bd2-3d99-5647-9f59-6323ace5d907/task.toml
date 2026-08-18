@@ -1,0 +1,57 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/swscale-impl" },
+]
+
+[task]
+name = "edgebench/ffmpeg_swscale_reimplementation"
+description = "Re-implement FFmpeg's libswscale (image scaling + pixel-format conversion) in Rust/Zig as a C-ABI shared library, matching FFmpeg's C scalar output (PSNR-gated correctness) and beating its speed via portable SIMD. Scored by a hard correctness gate then a geometric-mean speedup ratio vs a C-only baseline that runs on the SAME machine. ARM64-native rebuild of the upstream touchstone (runs on Graviton/Apple-Silicon without emulation)."
+keywords = [
+  "systems-software-engineering",
+  "simd",
+  "image-scaling",
+  "pixel-format-conversion",
+  "ffmpeg-swscale",
+  "rust",
+  "arm64-native",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.ffmpeg_swscale_reimplementation:arm64-20260812@sha256:bf652aeaa575f18f74a5d68305c1d8ddc7cecd9f4e1797bc9162f04ec22c6502"
+network_mode = "no-network"
+workdir = "/home/workspace/swscale-impl"
+
+[verifier]
+timeout_sec = 5400
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.ffmpeg_swscale_reimplementation:arm64-20260812-fixed@sha256:936302e094e1020cfc943f9c9661d49c78c6fa4aecaf278db7b70beceb1fb8ea"
+network_mode = "no-network"
+workdir = "/home/workspace/swscale-impl"
+
+[extensions.sforge]
+task_id = "ffmpeg_swscale_reimplementation"
+base_image = "rust"
+platform = "linux/arm64"
+parser = "pytest_v"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["."]
+submit_exclude = [".git", "zig-cache", "zig-out", "target"]
+work_image_tag = "arm64-20260812"
+judge_image_tag = "arm64-20260812"
+
+[extensions.sforge.rescale]
+kind = "linear"
+lower = 0.0
+upper = 1.0
+note = "reward.json already emits the Harbor 0-1 score (grader wrapper applies the log_anchor 14.155->43 rescale then /100, correctness-gated). This linear[0,1] maps that 0-1 to score_0_100 without double-applying the anchor. The log_anchor is INHERITED from the x86 touchstone; ARM recal pending (label-only, monotonic: ranking and the 0.34 floor <-> raw 8.13x are preserved). Raw speedup retained in reward.json additional_data."
+

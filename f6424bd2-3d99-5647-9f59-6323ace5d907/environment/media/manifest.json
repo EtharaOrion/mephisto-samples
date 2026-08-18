@@ -1,0 +1,86 @@
+[
+  {
+    "name": "gradient_640x480",
+    "path": "/app/media/gradient_640x480_rgb24.raw",
+    "fmt": "rgb24",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "gradient_640x480_yuv420p",
+    "path": "/app/media/gradient_640x480_yuv420p.raw",
+    "fmt": "yuv420p",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "gradient_640x480_yuv422p",
+    "path": "/app/media/gradient_640x480_yuv422p.raw",
+    "fmt": "yuv422p",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "gradient_640x480_bgra",
+    "path": "/app/media/gradient_640x480_bgra.raw",
+    "fmt": "bgra",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "gradient_640x480_nv12",
+    "path": "/app/media/gradient_640x480_nv12.raw",
+    "fmt": "nv12",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "gradient_640x480_gray8",
+    "path": "/app/media/gradient_640x480_gray8.raw",
+    "fmt": "gray8",
+    "w": 640,
+    "h": 480
+  },
+  {
+    "name": "colorbars_1920x1080",
+    "path": "/app/media/colorbars_1920x1080_rgb24.raw",
+    "fmt": "rgb24",
+    "w": 1920,
+    "h": 1080
+  },
+  {
+    "name": "colorbars_1920x1080_yuv420p",
+    "path": "/app/media/colorbars_1920x1080_yuv420p.raw",
+    "fmt": "yuv420p",
+    "w": 1920,
+    "h": 1080
+  },
+  {
+    "name": "colorbars_1920x1080_nv12",
+    "path": "/app/media/colorbars_1920x1080_nv12.raw",
+    "fmt": "nv12",
+    "w": 1920,
+    "h": 1080
+  },
+  {
+    "name": "colorbars_1920x1080_rgba",
+    "path": "/app/media/colorbars_1920x1080_rgba.raw",
+    "fmt": "rgba",
+    "w": 1920,
+    "h": 1080
+  },
+  {
+    "name": "noise_320x240",
+    "path": "/app/media/noise_320x240_rgb24.raw",
+    "fmt": "rgb24",
+    "w": 320,
+    "h": 240
+  },
+  {
+    "name": "noise_320x240_yuv420p",
+    "path": "/app/media/noise_320x240_yuv420p.raw",
+    "fmt": "yuv420p",
+    "w": 320,
+    "h": 240
+  }
+]
