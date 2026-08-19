@@ -1,0 +1,19 @@
+{
+  "task_id": "libpcap_bpf_codegen_fidelity",
+  "submission_id": "4ce09df67203",
+  "total_tests": 0,
+  "passed": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "score": 0.828065,
+  "score_0_100": null,
+  "timed_out": false,
+  "runtime_seconds": 6.589669704437256,
+  "test_details": [],
+  "valid": true,
+  "summary": null,
+  "details": [],
+  "metrics": {},
+  "submitted_at": 1787025656.7617366
+}

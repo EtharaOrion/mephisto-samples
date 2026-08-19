@@ -1,0 +1,488 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace/swscale-impl
++ mkdir -p /logs/verifier
++ base64 -d
++ echo IyEvYmluL2Jhc2gKIyBIYXJib3IgdmVyaWZpZXIgZm9yIGZmbXBlZ19zd3NjYWxlX3JlaW1wbGVtZW50YXRpb24gKEFSTTY0KS4KIyBFeHRyYWN0ZWQgdmVyYmF0aW0gZnJvbSB0aGUgdXBzdHJlYW0ganVkZ2UgZXZhbF9jbWQuIFJlYnVpbGRzIHRoZSBhZ2VudAojIGNhbmRpZGF0ZSwgcnVucyB0aGUgY29ycmVjdG5lc3MgZ2F0ZSArIHNwZWVkdXAgYmVuY2htYXJrIHZzIHRoZSBzdGF0aWMgYmFzZWxpbmUKIyBpbiAvdmVyaWZpZXItZGF0YSwgd3JpdGVzIC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC5qc29uLiBHcmFkZXIgaXMgcHVyZSBweXRob24KIyAoYXJjaC1wb3J0YWJsZSk7IG9ubHkgdGhlIGJhc2VsaW5lIC5zbyBpcyBhcm02NC1uYXRpdmUuCm1rZGlyIC1wIC9sb2dzL3ZlcmlmaWVyIC90bXAvdmVyaWZpZXIgJiYgbG4gLXNmbiAvaG9tZS93b3Jrc3BhY2UgL2FwcCAmJiBsbiAtc2ZuIC9vcHQvdGVzdHMgL3Rlc3RzICYmIGxuIC1zZm4gL3RtcC92ZXJpZmllciAvbG9ncy92ZXJpZmllciAyPi9kZXYvbnVsbDsgZXhwb3J0IEFQUF9ESVI9L2hvbWUvd29ya3NwYWNlIFZFUklGSUVSX0RJUj0vbG9ncy92ZXJpZmllciBQWVRIT05QQVRIPS9vcHQvdGVzdHM6L3RtcDoke1BZVEhPTlBBVEg6LX0gUEFUSD0vdXNyL2xvY2FsL2NhcmdvL2JpbjokUEFUSCBDQVJHT19IT01FPS91c3IvbG9jYWwvY2FyZ28gUlVTVFVQX0hPTUU9L3Vzci9sb2NhbC9ydXN0dXAgJiYgYmFzaCAvb3B0L3Rlc3RzL3Rlc3Quc2ggPi90bXAvdmVyaWZpZXIubG9nIDI+JjEgfHwgdHJ1ZTsgY2F0IC90bXAvdmVyaWZpZXIubG9nID4mMjsgcHl0aG9uMyAtICIvbG9ncy92ZXJpZmllci9yZXdhcmQuanNvbiIgPDwnTk9STScKaW1wb3J0IGpzb24sIG1hdGgsIHN5cwpwID0gc3lzLmFyZ3ZbMV0KdHJ5OgogICAgZCA9IGpzb24ubG9hZChvcGVuKHApKQpleGNlcHQgRXhjZXB0aW9uOgogICAgc3lzLmV4aXQoMCkKcmF3ID0gZmxvYXQoZC5nZXQoInNjb3JlIikgb3IgZC5nZXQoInJld2FyZCIpIG9yIDAuMCkKIyBIYXJib3IgMC0xIG5vcm1hbGl6YXRpb24gKG1pcnJvcnMgdGhlIHJlZmVyZW5jZSB0YXNrJ3MgcmV3YXJkLnR4dCAvMTAwIHN0ZXApLgojIGxvZ19hbmNob3IgcmVzY2FsZTogYW5jaG9yX3JhdyAxNC4xNTUgLT4gYW5jaG9yX3Njb3JlIDQzLCB0aGVuIC8xMDAgLT4gWzAsMV0uCiMgTW9ub3RvbmljICsgY29ycmVjdG5lc3MtZ2F0ZWQgKHJhdyAwIC0+IDApLiBBTkNIT1IgSU5IRVJJVEVEIEZST00geDg2OyBBUk0gcmVjYWwKIyBwZW5kaW5nIChsYWJlbC1vbmx5OiByYW5raW5nIGFuZCB0aGUgMC4zNCBmbG9vciA8LT4gcmF3IDguMTN4IGFyZSBwcmVzZXJ2ZWQpLgojIFJhdyBnZW9tZXRyaWMtbWVhbiBzcGVlZHVwIHJldGFpbmVkIGluIGFkZGl0aW9uYWxfZGF0YSBmb3IgYXVkaXRhYmlsaXR5LgpzMTAwID0gbWF4KDAuMCwgbWluKDEwMC4wLCA0My4wICogbWF0aC5sb2cocmF3KSAvIG1hdGgubG9nKDE0LjE1NSkpKSBpZiByYXcgPiAwIGVsc2UgMC4wCm5vcm0gPSByb3VuZChzMTAwIC8gMTAwLjAsIDYpCmFkID0gZC5nZXQoImFkZGl0aW9uYWxfZGF0YSIpIG9yIHt9CmFkLnNldGRlZmF1bHQoImdlb21ldHJpY19tZWFuX3NwZWVkdXAiLCByYXcpCmFkWyJyYXdfc3BlZWR1cCJdID0gcmF3CmFkWyJzY29yZV8wXzEwMCJdID0gcm91bmQoczEwMCwgNCkKZFsiYWRkaXRpb25hbF9kYXRhIl0gPSBhZApkWyJzY29yZSJdID0gbm9ybQpkWyJyZXdhcmQiXSA9IG5vcm0KanNvbi5kdW1wKGQsIG9wZW4ocCwgInciKSwgaW5kZW50PTIpCm9wZW4oIi9sb2dzL3ZlcmlmaWVyL3Jld2FyZC50eHQiLCAidyIpLndyaXRlKGYie25vcm19XG4iKQpOT1JNCmJhc2ggL29wdC90ZXN0cy9weXRlc3Rfc2hpbS5zaCAiL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLmpzb24iOyBweXRob24zIC0gIi9sb2dzL3ZlcmlmaWVyL3Jld2FyZC5qc29uIiA8PCdQWScgPiYyCmltcG9ydCBqc29uCmltcG9ydCByZQppbXBvcnQgc3lzCgp0cnk6CiAgICBkYXRhID0ganNvbi5sb2FkKG9wZW4oc3lzLmFyZ3ZbMV0pKQpleGNlcHQgRXhjZXB0aW9uOgogICAgc3lzLmV4aXQoMCkKCnNjb3JlID0gZmxvYXQoZGF0YS5nZXQoInNjb3JlIikgb3IgZGF0YS5nZXQoInJld2FyZCIpIG9yIDAuMCkKYWRkaXRpb25hbCA9IGRhdGEuZ2V0KCJhZGRpdGlvbmFsX2RhdGEiKSBvciB7fQpwYXNzZWQgPSBhZGRpdGlvbmFsLmdldCgiY29ycmVjdG5lc3NfcGFzc2VkIikKdG90YWwgPSBhZGRpdGlvbmFsLmdldCgiY29ycmVjdG5lc3NfdG90YWwiKQpyZXN1bHRzID0gYWRkaXRpb25hbC5nZXQoImNvcnJlY3RuZXNzX3Jlc3VsdHMiKSBvciBbXQoKZGVmIGFzX2ludCh2YWx1ZSk6CiAgICB0cnk6CiAgICAgICAgcmV0dXJuIGludCh2YWx1ZSkKICAgIGV4Y2VwdCAoVHlwZUVycm9yLCBWYWx1ZUVycm9yKToKICAgICAgICByZXR1cm4gTm9uZQoKcGFzc2VkID0gYXNfaW50KHBhc3NlZCkKdG90YWwgPSBhc19pbnQodG90YWwpCmlmIHBhc3NlZCBpcyBOb25lIG9yIHRvdGFsIGlzIE5vbmU6CiAgICBmb3Igc3ViIGluIGRhdGEuZ2V0KCJzdWJzY29yZXMiKSBvciBbXToKICAgICAgICB0ZXh0ID0gZiJ7c3ViLmdldCgnbmFtZScsICcnKX0ge3N1Yi5nZXQoJ3N1YnRhc2snLCAnJyl9IHtzdWIuZ2V0KCdzdGRvdXQnLCAnJyl9IgogICAgICAgIGlmICJjb3JyZWN0IiBub3QgaW4gdGV4dC5sb3dlcigpOgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIG1hdGNoID0gcmUuc2VhcmNoKHIiKFxkKylccyovXHMqKFxkKykiLCB0ZXh0KQogICAgICAgIGlmIG1hdGNoOgogICAgICAgICAgICBwYXNzZWQgPSBpbnQobWF0Y2guZ3JvdXAoMSkpCiAgICAgICAgICAgIHRvdGFsID0gaW50KG1hdGNoLmdyb3VwKDIpKQogICAgICAgICAgICBicmVhawoKaWYgcGFzc2VkIGlzIE5vbmUgb3IgdG90YWwgaXMgTm9uZSBvciBwYXNzZWQgPj0gdG90YWwgb3Igc2NvcmUgPiAwOgogICAgc3lzLmV4aXQoMCkKCnl1dl9mb3JtYXRzID0gKCJ5dXY0MjBwIiwgInl1djQyMnAiLCAieXV2NDQ0cCIsICJudjEyIiwgIm52MjEiKQpyZ2JfZm9ybWF0cyA9ICgicmdiMjQiLCAiYmdyMjQiLCAicmdiYSIsICJiZ3JhIikKCmRlZiBmaXJzdChpdGVtLCAqa2V5cyk6CiAgICBmb3Iga2V5IGluIGtleXM6CiAgICAgICAgdmFsdWUgPSBpdGVtLmdldChrZXkpCiAgICAgICAgaWYgdmFsdWUgbm90IGluIChOb25lLCAiIik6CiAgICAgICAgICAgIHJldHVybiBzdHIodmFsdWUpCiAgICByZXR1cm4gIiIKCmRlZiBmYWlsZWQoaXRlbSk6CiAgICBpZiBub3QgaXNpbnN0YW5jZShpdGVtLCBkaWN0KToKICAgICAgICByZXR1cm4gRmFsc2UKICAgIGZvciBrZXkgaW4gKCJwYXNzZWQiLCAicGFzcyIsICJvayIsICJzdWNjZXNzIik6CiAgICAgICAgaWYga2V5IGluIGl0ZW06CiAgICAgICAgICAgIHJldHVybiBpdGVtLmdldChrZXkpIGlzIEZhbHNlCiAgICBzdGF0dXMgPSBzdHIoaXRlbS5nZXQoInN0YXR1cyIsICIiKSkubG93ZXIoKQogICAgaWYgc3RhdHVzIGluICgiZmFpbCIsICJmYWlsZWQiLCAiZXJyb3IiKToKICAgICAgICByZXR1cm4gVHJ1ZQogICAgcHNuciA9IGl0ZW0uZ2V0KCJwc25yIikKICAgIHRocmVzaG9sZCA9IGl0ZW0uZ2V0KCJ0aHJlc2hvbGQiKQogICAgcmV0dXJuIGlzaW5zdGFuY2UocHNuciwgKGludCwgZmxvYXQpKSBhbmQgaXNpbnN0YW5jZSh0aHJlc2hvbGQsIChpbnQsIGZsb2F0KSkgYW5kIHBzbnIgPCB0aHJlc2hvbGQKCmRlZiBkaW0oaXRlbSwgKmtleXMpOgogICAgZm9yIGtleSBpbiBrZXlzOgogICAgICAgIHZhbHVlID0gYXNfaW50KGl0ZW0uZ2V0KGtleSkpCiAgICAgICAgaWYgdmFsdWUgaXMgbm90IE5vbmU6CiAgICAgICAgICAgIHJldHVybiB2YWx1ZQogICAgcmV0dXJuIE5vbmUKCmRlZiBjYXRlZ29yeShpdGVtKToKICAgIHNyYyA9IGZpcnN0KGl0ZW0sICJzcmNfZm10IiwgInNyY19mb3JtYXQiLCAic3JjX3BpeF9mbXQiLCAic291cmNlX2Zvcm1hdCIpLmxvd2VyKCkucmVwbGFjZSgiXyIsICIiKQogICAgZHN0ID0gZmlyc3QoaXRlbSwgImRzdF9mbXQiLCAiZHN0X2Zvcm1hdCIsICJkc3RfcGl4X2ZtdCIsICJkZXN0X2Zvcm1hdCIsICJkZXN0aW5hdGlvbl9mb3JtYXQiKS5sb3dlcigpLnJlcGxhY2UoIl8iLCAiIikKICAgIGFsZ28gPSBmaXJzdChpdGVtLCAiYWxnbyIsICJhbGdvcml0aG0iLCAic2NhbGVyIiwgInNjYWxlX2FsZ28iKS5sb3dlcigpLnJlcGxhY2UoIl8iLCAiIikKICAgIGxhYmVsID0gZmlyc3QoaXRlbSwgImxhYmVsIiwgIndvcmtsb2FkIiwgIm5hbWUiLCAiY2FzZSIsICJkZXNjcmlwdGlvbiIpLmxvd2VyKCkucmVwbGFjZSgiXyIsICIiKQogICAgdGV4dCA9ICIgIi5qb2luKHBhcnQgZm9yIHBhcnQgaW4gKHNyYywgZHN0LCBhbGdvLCBsYWJlbCkgaWYgcGFydCkKCiAgICBzcmNfdyA9IGRpbShpdGVtLCAic3JjX3ciLCAic291cmNlX3ciLCAic3JjX3dpZHRoIiwgInNvdXJjZV93aWR0aCIpCiAgICBzcmNfaCA9IGRpbShpdGVtLCAic3JjX2giLCAic291cmNlX2giLCAic3JjX2hlaWdodCIsICJzb3VyY2VfaGVpZ2h0IikKICAgIGRzdF93ID0gZGltKGl0ZW0sICJkc3RfdyIsICJkZXN0X3ciLCAiZHN0X3dpZHRoIiwgImRlc3Rfd2lkdGgiKQogICAgZHN0X2ggPSBkaW0oaXRlbSwgImRzdF9oIiwgImRlc3RfaCIsICJkc3RfaGVpZ2h0IiwgImRlc3RfaGVpZ2h0IikKICAgIHNhbWVfc2l6ZSA9IHNyY193IGlzIG5vdCBOb25lIGFuZCBzcmNfaCBpcyBub3QgTm9uZSBhbmQgZHN0X3cgaXMgbm90IE5vbmUgYW5kIGRzdF9oIGlzIG5vdCBOb25lIGFuZCBzcmNfdyA9PSBkc3RfdyBhbmQgc3JjX2ggPT0gZHN0X2gKICAgIGlmIG5vdCBzYW1lX3NpemUgYW5kICgic2FtZS1zaXplIiBpbiB0ZXh0IG9yICJzYW1lc2l6ZSIgaW4gdGV4dCBvciAic2FtZSBkaW1lbnNpb25zIiBpbiB0ZXh0KToKICAgICAgICBzYW1lX3NpemUgPSBUcnVlCgogICAgc3JjX3l1diA9IGFueShmbXQgaW4gc3JjIGZvciBmbXQgaW4geXV2X2Zvcm1hdHMpIG9yIGFueShmbXQgaW4gdGV4dCBmb3IgZm10IGluIHl1dl9mb3JtYXRzKQogICAgZHN0X3JnYiA9IGFueShmbXQgaW4gZHN0IGZvciBmbXQgaW4gcmdiX2Zvcm1hdHMpIG9yIGFueShmbXQgaW4gdGV4dCBmb3IgZm10IGluIHJnYl9mb3JtYXRzKQogICAgc3JjX3JnYiA9IGFueShmbXQgaW4gc3JjIGZvciBmbXQgaW4gcmdiX2Zvcm1hdHMpIG9yIGFueShmbXQgaW4gdGV4dCBmb3IgZm10IGluIHJnYl9mb3JtYXRzKQogICAgZHN0X3JnYl9leGFjdCA9IGFueShmbXQgaW4gZHN0IGZvciBmbXQgaW4gcmdiX2Zvcm1hdHMpCiAgICBiaWxpbmVhciA9ICJiaWxpbmVhciIgaW4gYWxnbyBvciAiYmlsaW5lYXIiIGluIHRleHQKICAgIG5lYXJlc3QgPSAibmVhcmVzdCIgaW4gYWxnbyBvciAicG9pbnQiIGluIGFsZ28gb3IgIm5lYXJlc3QiIGluIHRleHQgb3IgInBvaW50IiBpbiB0ZXh0CgogICAgaWYgc2FtZV9zaXplIGFuZCBzcmNfeXV2IGFuZCBkc3RfcmdiOgogICAgICAgIHJldHVybiAic2FtZS1zaXplIFlVViAtPiBSR0IgY29udmVyc2lvbiIKICAgIGlmIHNyYyA9PSAieXV2NDIwcCIgYW5kIGRzdCA9PSAicmdiMjQiIGFuZCBiaWxpbmVhcjoKICAgICAgICByZXR1cm4gIllVVjQyMFAgLT4gUkdCMjQgYmlsaW5lYXIgZG93bnNjYWxlIgogICAgaWYgc3JjX3JnYiBhbmQgKGRzdF9yZ2JfZXhhY3Qgb3IgInJnYjI0IiBpbiB0ZXh0KSBhbmQgYmlsaW5lYXI6CiAgICAgICAgcmV0dXJuICJSR0IgYmlsaW5lYXIgZG93bnNjYWxlIgogICAgaWYgc3JjX3JnYiBhbmQgKGRzdF9yZ2JfZXhhY3Qgb3IgInJnYjI0IiBpbiB0ZXh0KSBhbmQgbmVhcmVzdDoKICAgICAgICByZXR1cm4gIlJHQiBuZWFyZXN0IGRvd25zY2FsZSIKICAgIGlmIHNyY195dXYgYW5kIGRzdF9yZ2IgYW5kIGJpbGluZWFyOgogICAgICAgIHJldHVybiAiWVVWIC0+IFJHQiBiaWxpbmVhciBzY2FsaW5nIgogICAgaWYgc3JjX3l1diBhbmQgZHN0X3JnYjoKICAgICAgICByZXR1cm4gIllVViAtPiBSR0IgY29udmVyc2lvbiIKICAgIGlmIGJpbGluZWFyOgogICAgICAgIHJldHVybiAiYmlsaW5lYXIgc2NhbGluZyIKICAgIGlmIG5lYXJlc3Q6CiAgICAgICAgcmV0dXJuICJuZWFyZXN0IHNjYWxpbmciCiAgICBpZiBzYW1lX3NpemU6CiAgICAgICAgcmV0dXJuICJmb3JtYXQgY29udmVyc2lvbiIKICAgIHJldHVybiAic2NhbGluZyIKCmNhdGVnb3JpZXMgPSBbXQpmb3IgaXRlbSBpbiByZXN1bHRzOgogICAgaWYgZmFpbGVkKGl0ZW0pOgogICAgICAgIG5hbWUgPSBjYXRlZ29yeShpdGVtKQogICAgICAgIGlmIG5hbWUgbm90IGluIGNhdGVnb3JpZXM6CiAgICAgICAgICAgIGNhdGVnb3JpZXMuYXBwZW5kKG5hbWUpCgpwcmludCgiIikKcHJpbnQoIlN1Ym1pc3Npb24gZmFpbGVkIGNvcnJlY3RuZXNzIGdhdGUuIikKcHJpbnQoZiJDb3JyZWN0bmVzczoge3Bhc3NlZH0ve3RvdGFsfSBwYXNzZWQuIikKaWYgY2F0ZWdvcmllczoKICAgIHByaW50KCJGYWlsZWQgY2F0ZWdvcmllczoiKQogICAgZm9yIG5hbWUgaW4gY2F0ZWdvcmllczoKICAgICAgICBwcmludChmIi0ge25hbWV9IikKZWxzZToKICAgIHByaW50KCJGYWlsZWQgY2F0ZWdvcmllczogdW5hdmFpbGFibGUgZnJvbSByZXdhcmQuanNvbiIpCnByaW50KCJCZW5jaG1hcmsgbm90IHJ1biBiZWNhdXNlIGNvcnJlY3RuZXNzIGZhaWxlZC4iKQpQWQo=
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+=== FFmpeg libswscale Re-implementation — Verifier ===
+
+Step 1: Removing agent reference material and system FFmpeg...
+PASS: reference material and system FFmpeg removed
+
+Step 2: Checking baseline integrity...
+PASS: baseline integrity
+
+Step 3: Scanning agent source for verifier references...
+PASS: source scan
+
+Step 4: Building candidate from source...
+Cleaning pre-built binaries from /home/workspace/swscale-impl...
+Cleaned 0 pre-built binaries
+Detected Rust project, running: cargo build --release
+   Compiling swscale-candidate v0.1.0 (/home/workspace/swscale-impl)
+    Finished `release` profile [optimized] target(s) in 5.45s
+PASS: built candidate at /home/workspace/swscale-impl/target/release/deps/libswscale_candidate.so
+
+Step 5: Checking candidate dynamic dependencies...
+PASS: no FFmpeg dynamic dependencies
+PASS: no FFmpeg symbols in candidate
+PASS: candidate is not a baseline copy
+
+Step 6: Running correctness and performance scoring...
+=== Correctness checks ===
+[swscaler @ 0xaaaac72a7810] No accelerated colorspace conversion found from yuv420p to rgb24.
+[swscaler @ 0xaaaac72ac1a0] No accelerated colorspace conversion found from yuv420p to bgra.
+[swscaler @ 0xaaaac75d6230] No accelerated colorspace conversion found from yuv422p to rgb24.
+Correctness: 30/30 workloads passed
+  [PASS] yuv420p→rgb24 720x576  PSNR=inf
+  [PASS] yuv420p→bgra 352x288  PSNR=inf
+  [PASS] rgb24→yuv420p 720x576  PSNR=69.29
+  [PASS] rgb24→bgr24 352x288  PSNR=inf
+  [PASS] rgb24→rgba 720x576  PSNR=inf
+  [PASS] rgb24→gray8 1280x720  PSNR=71.15
+  [PASS] rgba→yuv420p 720x576  PSNR=69.24
+  [PASS] bgra→rgb24 1280x720  PSNR=inf
+  [PASS] yuv422p→rgb24 1280x720  PSNR=inf
+  [PASS] yuv444p→rgb24 352x288  PSNR=inf
+  [PASS] nv12→rgb24 720x576  PSNR=inf
+  [PASS] nv21→rgb24 352x288  PSNR=inf
+  [PASS] rgb24→nv12 800x600  PSNR=69.25
+  [PASS] rgb24→nv21 1280x720  PSNR=69.18
+  [PASS] gray8→rgb24 800x600  PSNR=inf
+  [PASS] yuv420p→nv12 352x288  PSNR=inf
+  [PASS] nv12→yuv420p 352x288  PSNR=inf
+  [PASS] rgba→bgra 352x288  PSNR=inf
+  [PASS] bgr24→rgb24 800x600  PSNR=inf
+  [PASS] bgr24→yuv420p 800x600  PSNR=inf
+  [PASS] yuv444p→yuv420p 1280x720  PSNR=inf
+  [PASS] yuv420p→gray8 720x576  PSNR=inf
+  [PASS] rgb24→yuv422p 720x576  PSNR=69.24
+  [PASS] rgb24→rgb24 1280x720→640x360 bilinear  PSNR=43.8
+  [PASS] rgb24→rgb24 640x480→1280x960 bilinear  PSNR=53.84
+  [PASS] yuv420p→rgb24 1280x720→640x360 bilinear  PSNR=inf
+  [PASS] rgb24→yuv420p 800x600→400x300 bilinear  PSNR=41.69
+  [PASS] rgb24→rgb24 720x576→360x288 nearest  PSNR=inf
+  [PASS] rgb24→rgb24 352x288→704x576 bicubic  PSNR=61.28
+  [PASS] rgba→rgba 1280x720→960x540 bilinear  PSNR=53.23
+
+=== Performance benchmark ===
+[swscaler @ 0xaaaac76a94a0] No accelerated colorspace conversion found from yuv420p to rgb24.
+  yuv420p→rgb24 1080p: baseline=2.365ms candidate=1.951ms speedup=1.212x
+  rgb24→yuv420p 1080p: baseline=12.024ms candidate=2.009ms speedup=5.984x
+  rgb24→bgra 1080p: baseline=1.860ms candidate=0.432ms speedup=4.309x
+  rgb24→nv12 1080p: baseline=11.595ms candidate=2.020ms speedup=5.741x
+  rgba→rgb24 4K: baseline=6.302ms candidate=1.910ms speedup=3.300x
+  yuv420p→rgb24 4K→1080p bilinear: baseline=19.952ms candidate=18.266ms speedup=1.092x
+  rgb24 1080p→4K bilinear upscale: baseline=51.548ms candidate=3.161ms speedup=16.306x
+  rgb24→yuv420p 1080p→360p bilinear: baseline=8.335ms candidate=2.414ms speedup=3.452x
+  rgb24 1080p→360p nearest: baseline=2.825ms candidate=0.230ms speedup=12.289x
+  rgb24 720p→1080p bicubic upscale: baseline=24.850ms candidate=13.636ms speedup=1.822x
+
+Geometric mean speedup: 3.9007x
+Score: 3.900691
+{
+  "score": 3.900691,
+  "reward": 3.900691,
+  "subscores": [
+    {
+      "name": "correctness",
+      "score": 1.0
+    },
+    {
+      "name": "speedup",
+      "score": 3.9007
+    }
+  ],
+  "additional_data": {
+    "correctness_passed": 30,
+    "correctness_total": 30,
+    "geometric_mean_speedup": 3.900691,
+    "workloads_benchmarked": 10,
+    "per_workload_speedups": [
+      1.2123,
+      5.9843,
+      4.3095,
+      5.741,
+      3.2995,
+      1.0923,
+      16.3057,
+      3.452,
+      12.2894,
+      1.8224
+    ],
+    "benchmark_results": [
+      {
+        "label": "yuv420p\u2192rgb24 1080p",
+        "baseline_ms": 2.3652,
+        "candidate_ms": 1.9509,
+        "speedup": 1.2123
+      },
+      {
+        "label": "rgb24\u2192yuv420p 1080p",
+        "baseline_ms": 12.0244,
+        "candidate_ms": 2.0093,
+        "speedup": 5.9843
+      },
+      {
+        "label": "rgb24\u2192bgra 1080p",
+        "baseline_ms": 1.8603,
+        "candidate_ms": 0.4317,
+        "speedup": 4.3095
+      },
+      {
+        "label": "rgb24\u2192nv12 1080p",
+        "baseline_ms": 11.5955,
+        "candidate_ms": 2.0198,
+        "speedup": 5.741
+      },
+      {
+        "label": "rgba\u2192rgb24 4K",
+        "baseline_ms": 6.3024,
+        "candidate_ms": 1.9101,
+        "speedup": 3.2995
+      },
+      {
+        "label": "yuv420p\u2192rgb24 4K\u21921080p bilinear",
+        "baseline_ms": 19.9516,
+        "candidate_ms": 18.2659,
+        "speedup": 1.0923
+      },
+      {
+        "label": "rgb24 1080p\u21924K bilinear upscale",
+        "baseline_ms": 51.5484,
+        "candidate_ms": 3.1614,
+        "speedup": 16.3057
+      },
+      {
+        "label": "rgb24\u2192yuv420p 1080p\u2192360p bilinear",
+        "baseline_ms": 8.3345,
+        "candidate_ms": 2.4144,
+        "speedup": 3.452
+      },
+      {
+        "label": "rgb24 1080p\u2192360p nearest",
+        "baseline_ms": 2.825,
+        "candidate_ms": 0.2299,
+        "speedup": 12.2894
+      },
+      {
+        "label": "rgb24 720p\u21921080p bicubic upscale",
+        "baseline_ms": 24.8503,
+        "candidate_ms": 13.6363,
+        "speedup": 1.8224
+      }
+    ],
+    "correctness_results": [
+      {
+        "label": "yuv420p\u2192rgb24 720x576",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv420p\u2192bgra 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192yuv420p 720x576",
+        "status": "pass",
+        "min_psnr": 69.29,
+        "plane_psnrs": [
+          69.29,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192bgr24 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192rgba 720x576",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192gray8 1280x720",
+        "status": "pass",
+        "min_psnr": 71.15,
+        "plane_psnrs": [
+          71.15
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgba\u2192yuv420p 720x576",
+        "status": "pass",
+        "min_psnr": 69.24,
+        "plane_psnrs": [
+          69.24,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "bgra\u2192rgb24 1280x720",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv422p\u2192rgb24 1280x720",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv444p\u2192rgb24 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "nv12\u2192rgb24 720x576",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "nv21\u2192rgb24 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192nv12 800x600",
+        "status": "pass",
+        "min_psnr": 69.25,
+        "plane_psnrs": [
+          69.25,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192nv21 1280x720",
+        "status": "pass",
+        "min_psnr": 69.18,
+        "plane_psnrs": [
+          69.18,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "gray8\u2192rgb24 800x600",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv420p\u2192nv12 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "nv12\u2192yuv420p 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgba\u2192bgra 352x288",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "bgr24\u2192rgb24 800x600",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "bgr24\u2192yuv420p 800x600",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv444p\u2192yuv420p 1280x720",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "yuv420p\u2192gray8 720x576",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192yuv422p 720x576",
+        "status": "pass",
+        "min_psnr": 69.24,
+        "plane_psnrs": [
+          69.24,
+          Infinity,
+          Infinity
+        ],
+        "threshold": 60.0
+      },
+      {
+        "label": "rgb24\u2192rgb24 1280x720\u2192640x360 bilinear",
+        "status": "pass",
+        "min_psnr": 43.8,
+        "plane_psnrs": [
+          43.8
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "rgb24\u2192rgb24 640x480\u21921280x960 bilinear",
+        "status": "pass",
+        "min_psnr": 53.84,
+        "plane_psnrs": [
+          53.84
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "yuv420p\u2192rgb24 1280x720\u2192640x360 bilinear",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "rgb24\u2192yuv420p 800x600\u2192400x300 bilinear",
+        "status": "pass",
+        "min_psnr": 41.69,
+        "plane_psnrs": [
+          55.7,
+          42.01,
+          41.69
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "rgb24\u2192rgb24 720x576\u2192360x288 nearest",
+        "status": "pass",
+        "min_psnr": Infinity,
+        "plane_psnrs": [
+          Infinity
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "rgb24\u2192rgb24 352x288\u2192704x576 bicubic",
+        "status": "pass",
+        "min_psnr": 61.28,
+        "plane_psnrs": [
+          61.28
+        ],
+        "threshold": 40.0
+      },
+      {
+        "label": "rgba\u2192rgba 1280x720\u2192960x540 bilinear",
+        "status": "pass",
+        "min_psnr": 53.23,
+        "plane_psnrs": [
+          53.23
+        ],
+        "threshold": 40.0
+      }
+    ],
+    "reason": "Correctness OK (30/30), geometric mean speedup 3.9007x",
+    "total_time_ms": 5583
+  }
+}
+
+=== Verifier complete ===
+Score: 3.900691
+# subscore::correctness = 1.0  [diagnostic, score=1.0]
+# subscore::speedup = 3.9007  [diagnostic, score=3.9007]
+tests/eval.py::overall_score PASSED  [score=0.220861]
+=== 1 passed, 0 failed in 0.00s ===
+TOTAL_SCORE 0.220861
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.220861
++ echo '{"score": 0.220861}'
+{"score": 0.220861}
++ EXIT_CODE=0
+>>>>> End Test Output
+Exit code: 0
++ echo '>>>>> End Test Output'
++ echo 'Exit code: 0'
++ exit 0

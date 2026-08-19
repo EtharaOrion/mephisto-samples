@@ -1,0 +1,16 @@
+{
+  "agent": "codex",
+  "task": "libpcap_bpf_codegen_fidelity",
+  "run_id": "62b54382-a910-5b29-ad0e-1efa993cc615-3d4b6a3c9ed1",
+  "model": "gpt-5.6-sol",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-252",
+  "total_rounds": 299,
+  "agent_submissions": 276,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.128531217575,
+  "archive_size_bytes": 68075,
+  "resume_count": 0,
+  "best_score": 0.846401
+}

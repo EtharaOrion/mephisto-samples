@@ -1,0 +1,40 @@
+2026-08-17 19:05:45,651 - INFO - Images ready
+2026-08-17 19:05:45,659 - INFO - Registered session with judge server
+2026-08-17 19:05:45,677 - INFO - Network isolation enabled: iptables preflight passed
+2026-08-17 19:05:46,098 - INFO - Container started: sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-3d4b6a3c9ed1 (judge_url=http://host.docker.internal:8080)
+2026-08-17 19:05:46,099 - INFO - Install step 1/3: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-08-17 19:05:48,085 - INFO - Install step 1 done (2.0s)
+2026-08-17 19:05:48,086 - INFO - Install step 2/3: sudo -E npm install -g @openai/codex@0.130.0
+2026-08-17 19:05:53,003 - INFO - Install step 2 done (4.9s)
+2026-08-17 19:05:53,003 - INFO - Install step 3/3: if [ -n "$OPENAI_BASE_URL" ]; then
+    mkdir -p ~/.codex
+    cat > ~/.codex/config.toml << EOF
+model_provider = "sforge-proxy"
+model_verbosity = "medium"
+model = "${CODEX_MODEL:-gpt-5.5}"
+
+[model_providers.sforge-proxy]
+name = "sforge-proxy"
+base_url = "${OPENAI_BASE_URL}"
+env_key = "OPENAI_API_KEY"
+EOF
+fi
+2026-08-17 19:05:53,147 - INFO - Install step 3 done (0.1s)
+2026-08-17 19:05:53,147 - INFO - Agent installation complete
+2026-08-17 19:05:53,208 - INFO - Installed sforge-submit script
+2026-08-17 19:05:53,269 - INFO - Installed Codex stop hook
+2026-08-17 19:05:53,402 - INFO - Configured Codex hooks
+2026-08-17 19:05:53,403 - INFO - Host-side auto-eval started (interval=1800s)
+2026-08-17 19:05:53,537 - INFO - Network isolation applied: chain=SFORGE_7ca744c47579, ip=172.17.0.3, ip6=None, allowed=2 endpoints
+2026-08-17 19:05:53,715 - INFO - Prompt written (15310 bytes)
+2026-08-17 19:05:53,716 - INFO - Running agent: codex exec -c web_search="disabled" --dangerously-bypass-approvals-and-sandbox "$(cat /tmp/agent_prompt.md)"... (timeout=43200s)
+2026-08-18 07:05:53,854 - INFO - Agent finished: runtime=43200.1s, timed_out=True, resumes=0, pool_paused=0s
+2026-08-18 07:05:53,854 - INFO - Auto-eval thread stopped
+2026-08-18 07:05:53,899 - INFO - Final archive: 68075 bytes
+2026-08-18 07:05:53,962 - INFO - Work container processes stopped
+2026-08-18 07:05:53,973 - INFO - Done: best=0.00% (round 'agent-252'), agent_subs=276, auto_subs=23, resumes=0, runtime=43200.1s
+2026-08-18 07:05:54,514 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_7ca744c47579 failed: ip6tables: No chain/target/match by that name.
+2026-08-18 07:05:54,514 - INFO - Network isolation cleaned up: chain=SFORGE_7ca744c47579
+2026-08-18 07:05:54,514 - INFO - Stopping container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-3d4b6a3c9ed1...
+2026-08-18 07:05:54,516 - INFO - Removing container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-3d4b6a3c9ed1...
+2026-08-18 07:05:54,629 - INFO - Container sforge.run.libpcap_bpf_codegen_fidelity.62b54382-a910-5b29-ad0e-1efa993cc615-3d4b6a3c9ed1 removed.
