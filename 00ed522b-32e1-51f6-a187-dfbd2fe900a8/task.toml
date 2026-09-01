@@ -1,0 +1,42 @@
+harbor_schema_version = "1.4"
+name = "edgebench/jagua_nesting_optimization"
+task_id = "jagua_nesting_optimization"
+capability_family = "combinatorial-optimization"
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 15
+max_attempts = 50
+final_selection = "best"
+solver_egress_mode = "setup_only"
+compute_envelope = "one H100 total"
+
+[environment]
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:1081b6d6ae1d371ab43f66bb7301fc7a8e9c248192553736d9aca20990150bbf"
+platform = "linux/amd64"
+
+[verifier]
+mode = "separate"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:5430e254c4c046ab69e44da53b3abe786c0b3821b8c0961f28db081221df93b9"
+entrypoint = "tests/test.sh"
+reward_path = "/logs/verifier/reward.json"
+
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:5430e254c4c046ab69e44da53b3abe786c0b3821b8c0961f28db081221df93b9"
+[network]
+verifier_policy = "no-network"
+solver_policy = "setup_only"
+allowlist = []
+
+[reward]
+metric = "score"
+range = [0.0, 1.0]
+full_reward_value = 1.0
+aggregation = "single"
+
+[artifacts]
+graded = ["<uuid>_D1_nester_src.tar", "<uuid>_D2_placement_bundle.jsonl", "<uuid>_D3_reward_log.jsonl"]
+
+[rubric]
+present = true
+compilation_floor = 0.7
+trajectory_rubrics = "tests/rubrics.jsonl"

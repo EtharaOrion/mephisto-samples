@@ -1,0 +1,42 @@
+harbor_schema_version = "1.4"
+name = "edgebench/arc_compiler_runtime"
+task_id = "arc_compiler_runtime"
+capability_family = "systems-and-software-engineering"
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 15
+max_attempts = 50
+final_selection = "best"
+solver_egress_mode = "setup_only"
+compute_envelope = "one H100 total"
+
+[environment]
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:cd11612db46559c428fd98b95c48da7829a3eeb64297eabc3ea882e4358f3209"
+platform = "linux/amd64"
+
+[verifier]
+mode = "separate"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:82efa232f4b80010a54ed234b6e7b20471ac5a40986554f5513105c4fdb4bc9c"
+entrypoint = "tests/test.sh"
+reward_path = "/logs/verifier/reward.json"
+
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:82efa232f4b80010a54ed234b6e7b20471ac5a40986554f5513105c4fdb4bc9c"
+[network]
+verifier_policy = "no-network"
+solver_policy = "setup_only"
+allowlist = []
+
+[reward]
+metric = "score"
+range = [0.0, 1.0]
+full_reward_value = 1.0
+aggregation = "single"
+
+[artifacts]
+graded = ["<uuid>_D1_compiler_src.tar", "<uuid>_D2_suite_report.json", "<uuid>_D3_reward_log.jsonl", "<uuid>_D4_pass_pipeline.json"]
+
+[rubric]
+present = true
+compilation_floor = 0.7
+trajectory_rubrics = "tests/rubrics.jsonl"

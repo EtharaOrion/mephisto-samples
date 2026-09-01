@@ -1,0 +1,42 @@
+harbor_schema_version = "1.4"
+name = "edgebench/vliw_kernel_optimization"
+task_id = "vliw_kernel_optimization"
+capability_family = "combinatorial-optimization"
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 15
+max_attempts = 50
+final_selection = "best"
+solver_egress_mode = "setup_only"
+compute_envelope = "one H100 total"
+
+[environment]
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:c610ceb9650839da5b5f6206b8c797211cb8e383ee1fae72b2188eab47d5c813"
+platform = "linux/amd64"
+
+[verifier]
+mode = "separate"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:bf72d92c3cbe8b5bb2166574e6a8199159a4f1dbdfa53d2a5ce91ff15d005dc7"
+entrypoint = "tests/test.sh"
+reward_path = "/logs/verifier/reward.json"
+
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:bf72d92c3cbe8b5bb2166574e6a8199159a4f1dbdfa53d2a5ce91ff15d005dc7"
+[network]
+verifier_policy = "no-network"
+solver_policy = "setup_only"
+allowlist = []
+
+[reward]
+metric = "score"
+range = [0.0, 1.0]
+full_reward_value = 1.0
+aggregation = "single"
+
+[artifacts]
+graded = ["<uuid>_D1_scheduler_src.tar", "<uuid>_D2_schedule_bundle.jsonl", "<uuid>_D3_reward_log.jsonl"]
+
+[rubric]
+present = true
+compilation_floor = 0.7
+trajectory_rubrics = "tests/rubrics.jsonl"

@@ -1,0 +1,16 @@
+# forge-canary: FORGE-CANARY-C4CDF9EBB33965998B2D609A6897A25C
+schema_version: 1
+kind: policy
+slot_id: vliw_kernel_optimization
+note: Every capability channel appears exactly once with one of denied, restricted or allowed. This file is emitted from the contract policy surface and Phase 2 proves equality against it.
+channels:
+  network_solver: setup_only
+  network_verifier: denied
+  filesystem_write_workspace: allowed
+  filesystem_write_system: restricted
+  process_spawn: allowed
+  gpu: restricted
+  package_install: restricted
+  clock_read: allowed
+  randomness: restricted
+  private_boundary_read: denied

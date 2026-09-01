@@ -1,0 +1,6 @@
+{
+  "public_seed": "edgebench-vko-public-2026-08-17-3f8a1c62",
+  "hidden_seed": "edgebench-vko-hidden-2026-08-17-b7d41e09c4a6",
+  "input_seed": "edgebench-vko-inputs-2026-08-17-5c92f0ad",
+  "holdout_input_sets": 3
+}
