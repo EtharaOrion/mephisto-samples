@@ -1,0 +1,916 @@
+{
+  "run_id": "refine-ad2a8526-merged-12h",
+  "best_score": 0.461134,
+  "best_pass_rate": 0.0,
+  "best_round": "auto-47",
+  "agent_submissions": 2,
+  "auto_submissions": 47,
+  "entries": [
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "0cf80d8aff4a",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-1",
+      "pass_rate": 0.0,
+      "score": 0.127933,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "17785ae03824",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-2",
+      "pass_rate": 0.0,
+      "score": 0.123335,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "11764420fa76",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-3",
+      "pass_rate": 0.0,
+      "score": 0.123428,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-3"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ca66b2d5358d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-4",
+      "pass_rate": 0.0,
+      "score": 0.123428,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-4"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4a1dea446e35",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-5",
+      "pass_rate": 0.0,
+      "score": 0.123463,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-5"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "316d488dd0ce",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-6",
+      "pass_rate": 0.0,
+      "score": 0.117461,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-6"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e902bd891781",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-7",
+      "pass_rate": 0.0,
+      "score": 0.117461,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-7"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "515167e62c0c",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-8",
+      "pass_rate": 0.0,
+      "score": 0.118199,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-8"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "2d1e176bbb8c",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-9",
+      "pass_rate": 0.0,
+      "score": 0.118767,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-9"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1a598508aff9",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-10",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-10"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "f418054f1359",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-11",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-11"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5d23096be891",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-12",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-12"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a0cc624b34ac",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-13",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-13"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8b9e7c44de68",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-14",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-14"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a5f8e0152d75",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-15",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-15"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "fd8a96169449",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-16",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-16"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5908574805ca",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-17",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-17"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "810c106c600d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-18",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-18"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "226a4d738b24",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-19",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-19"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "7a36e269c9b0",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-20",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-20"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a52c9a9db0b3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-21",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-21"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e177b4f1be51",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-22",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-22"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "58598d290ef8",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-23",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-23"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "bf4466e434cb",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-24",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-24"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "887c29a684e2",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-25",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-25"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e24535479b60",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-26",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-26"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "9eb86af01517",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-27",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-27"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "3214b62e363a",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-28",
+      "pass_rate": 0.0,
+      "score": 0.11817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-28"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "f72d5106f897",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-29",
+      "pass_rate": 0.0,
+      "score": 0,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-29"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "fecebf21cec2",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-30",
+      "pass_rate": 0.0,
+      "score": 0,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-30"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d6c76d519271",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-31",
+      "pass_rate": 0.0,
+      "score": 0.402446,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-31"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b840c301f599",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-32",
+      "pass_rate": 0.0,
+      "score": 0.428946,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c6ef6b436933",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-33",
+      "pass_rate": 0.0,
+      "score": 0.428946,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5c8028c08857",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-34",
+      "pass_rate": 0.0,
+      "score": 0.428946,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-3"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "2ddabaa841c5",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-35",
+      "pass_rate": 0.0,
+      "score": 0.435947,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-4"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b0037ea6b099",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-36",
+      "pass_rate": 0.0,
+      "score": 0.435947,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-5"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6c1e37bc5032",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-37",
+      "pass_rate": 0.0,
+      "score": 0.404658,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-6"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "86cfa41af0ce",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-38",
+      "pass_rate": 0.0,
+      "score": 0.450104,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-7"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6c07d608b8d6",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-39",
+      "pass_rate": 0.0,
+      "score": 0.450104,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-8"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "0e06ff6202ec",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-40",
+      "pass_rate": 0.0,
+      "score": 0.450104,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-9"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e96df6614871",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-41",
+      "pass_rate": 0.0,
+      "score": 0.450899,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-10"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d075bde77a4e",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-42",
+      "pass_rate": 0.0,
+      "score": 0.46111,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-11"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1341207c67f5",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-1",
+      "pass_rate": 0.0,
+      "score": 0.46111,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "0eb4352f5508",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-43",
+      "pass_rate": 0.0,
+      "score": 0.46111,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-12"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "edabe07cff79",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-44",
+      "pass_rate": 0.0,
+      "score": 0.46111,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-13"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "990d2937d92b",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-2",
+      "pass_rate": 0.0,
+      "score": 0.459906,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "53b0a0dab937",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-45",
+      "pass_rate": 0.0,
+      "score": 0.459906,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-14"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "fe1280041c3d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-46",
+      "pass_rate": 0.0,
+      "score": 0.459906,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-15"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "9e50961b1368",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "auto-47",
+      "pass_rate": 0.0,
+      "score": 0.461134,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-16"
+      }
+    }
+  ],
+  "merged": true,
+  "merged_by": "scripts/merge_runs.py",
+  "merged_at": "2026-09-02T09:04:46",
+  "parts": [
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/muse/runs/refine-ad2a8526-l0-iter1/libpcap_bpf_codegen_fidelity",
+      "run_id": "refine-ad2a8526-l0-iter1",
+      "rounds": 31,
+      "best_score": 0.402446,
+      "runtime_seconds": 28678.0,
+      "time_offset_seconds": 0.0
+    },
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/muse/runs/refine-ad2a8526-l0-iter2/libpcap_bpf_codegen_fidelity",
+      "run_id": "refine-ad2a8526-l0-iter2",
+      "rounds": 18,
+      "best_score": 0.461134,
+      "runtime_seconds": 14520.08979177475,
+      "time_offset_seconds": -15529.0
+    }
+  ],
+  "collapsed_gap": true,
+  "merged_note": "Round ids were renumbered per kind in part order; each entry keeps its original id under merged_from. This is a TASK-level record, not one continuous session: between parts the container, the installed state and the model's context were all fresh, and any work a part did after its last submission is not present. runtime_seconds is the sum of the parts' agent time and excludes the wall clock between them.",
+  "collapsed_gap_note": "submitted_at in this run's reports was SHIFTED so the parts sit end to end on an agent-time axis: the dead wall clock between a part dying and its relaunch is removed, and each submission's timestamp is now its cumulative agent-elapsed time. Every shifted report keeps its true value in submitted_at_original with the shift in submitted_at_offset_seconds, and the per-part shift is in parts[].time_offset_seconds. Reports are otherwise byte-identical to the parts, which are untouched. Use the originals for anything that depends on when work actually happened."
+}

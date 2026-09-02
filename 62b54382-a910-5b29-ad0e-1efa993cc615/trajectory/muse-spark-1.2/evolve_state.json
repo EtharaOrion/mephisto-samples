@@ -1,0 +1,47 @@
+{
+  "best_pass_rate": 0,
+  "best_score": 0.461134,
+  "best_round": "auto-47",
+  "submissions": [
+    {
+      "kind": "agent",
+      "round": "agent-1",
+      "at": 1788269323.0,
+      "pass_rate": 0,
+      "score": 0.46111,
+      "at_original": 1788284852.0
+    },
+    {
+      "kind": "agent",
+      "round": "agent-2",
+      "at": 1788271057.0,
+      "pass_rate": 0,
+      "score": 0.459906,
+      "at_original": 1788286586.0
+    }
+  ],
+  "merged": true,
+  "merged_by": "scripts/merge_runs.py",
+  "merged_at": "2026-09-02T09:04:46",
+  "parts": [
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/muse/runs/refine-ad2a8526-l0-iter1/libpcap_bpf_codegen_fidelity",
+      "run_id": "refine-ad2a8526-l0-iter1",
+      "rounds": 31,
+      "best_score": 0.402446,
+      "runtime_seconds": 28678.0,
+      "time_offset_seconds": 0.0
+    },
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/muse/runs/refine-ad2a8526-l0-iter2/libpcap_bpf_codegen_fidelity",
+      "run_id": "refine-ad2a8526-l0-iter2",
+      "rounds": 18,
+      "best_score": 0.461134,
+      "runtime_seconds": 14520.08979177475,
+      "time_offset_seconds": -15529.0
+    }
+  ],
+  "collapsed_gap": true,
+  "merged_note": "Round ids were renumbered per kind in part order; each entry keeps its original id under merged_from. This is a TASK-level record, not one continuous session: between parts the container, the installed state and the model's context were all fresh, and any work a part did after its last submission is not present. runtime_seconds is the sum of the parts' agent time and excludes the wall clock between them.",
+  "collapsed_gap_note": "submitted_at in this run's reports was SHIFTED so the parts sit end to end on an agent-time axis: the dead wall clock between a part dying and its relaunch is removed, and each submission's timestamp is now its cumulative agent-elapsed time. Every shifted report keeps its true value in submitted_at_original with the shift in submitted_at_offset_seconds, and the per-part shift is in parts[].time_offset_seconds. Reports are otherwise byte-identical to the parts, which are untouched. Use the originals for anything that depends on when work actually happened."
+}

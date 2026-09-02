@@ -1,0 +1,51 @@
+
+===== merge_runs.py: part 1 — refine-ad2a8526-l0-iter1 (auto_eval_ticks.log) =====
+[2026-09-01T02:46:12] submitted 18222 bytes -> 0cf80d8aff4a round=auto-1
+[2026-09-01T03:01:12] submitted 20843 bytes -> 17785ae03824 round=auto-2
+[2026-09-01T03:16:12] submitted 20922 bytes -> 11764420fa76 round=auto-3
+[2026-09-01T03:31:12] submitted 20922 bytes -> ca66b2d5358d round=auto-4
+[2026-09-01T03:46:12] submitted 21730 bytes -> 4a1dea446e35 round=auto-5
+[2026-09-01T04:01:12] submitted 23957 bytes -> 316d488dd0ce round=auto-6
+[2026-09-01T04:16:13] submitted 23957 bytes -> e902bd891781 round=auto-7
+[2026-09-01T04:31:13] submitted 24165 bytes -> 515167e62c0c round=auto-8
+[2026-09-01T04:46:13] submitted 23818 bytes -> 2d1e176bbb8c round=auto-9
+[2026-09-01T05:01:13] submitted 23840 bytes -> 1a598508aff9 round=auto-10
+[2026-09-01T05:16:13] submitted 23840 bytes -> f418054f1359 round=auto-11
+[2026-09-01T05:31:13] submitted 23840 bytes -> 5d23096be891 round=auto-12
+[2026-09-01T05:46:13] submitted 23840 bytes -> a0cc624b34ac round=auto-13
+[2026-09-01T06:01:13] submitted 23840 bytes -> 8b9e7c44de68 round=auto-14
+[2026-09-01T06:16:14] submitted 23841 bytes -> a5f8e0152d75 round=auto-15
+[2026-09-01T06:31:14] submitted 23841 bytes -> fd8a96169449 round=auto-16
+[2026-09-01T06:46:14] submitted 23841 bytes -> 5908574805ca round=auto-17
+[2026-09-01T07:01:14] submitted 23841 bytes -> 810c106c600d round=auto-18
+[2026-09-01T07:16:14] submitted 113959 bytes -> 226a4d738b24 round=auto-19
+[2026-09-01T07:31:14] submitted 113959 bytes -> 7a36e269c9b0 round=auto-20
+[2026-09-01T07:46:14] submitted 114116 bytes -> a52c9a9db0b3 round=auto-21
+[2026-09-01T08:01:15] submitted 119593 bytes -> e177b4f1be51 round=auto-22
+[2026-09-01T08:16:15] submitted 123802 bytes -> 58598d290ef8 round=auto-23
+[2026-09-01T08:31:15] submitted 123802 bytes -> bf4466e434cb round=auto-24
+[2026-09-01T08:46:15] submitted 123802 bytes -> 887c29a684e2 round=auto-25
+[2026-09-01T09:01:15] submitted 144339 bytes -> e24535479b60 round=auto-26
+[2026-09-01T09:16:15] submitted 144342 bytes -> 9eb86af01517 round=auto-27
+[2026-09-01T09:31:15] submitted 146165 bytes -> 3214b62e363a round=auto-28
+[2026-09-01T09:46:16] submitted 146181 bytes -> f72d5106f897 round=auto-29
+[2026-09-01T10:01:16] submitted 146256 bytes -> fecebf21cec2 round=auto-30
+[2026-09-01T10:16:16] submitted 160072 bytes -> d6c76d519271 round=auto-31
+
+===== merge_runs.py: part 2 — refine-ad2a8526-l0-iter2 (auto_eval_ticks.log) =====
+[2026-09-01T10:44:10] submitted 161193 bytes -> b840c301f599 round=auto-32
+[2026-09-01T10:59:10] submitted 161193 bytes -> c6ef6b436933 round=auto-33
+[2026-09-01T11:14:10] submitted 161193 bytes -> 5c8028c08857 round=auto-34
+[2026-09-01T11:29:10] submitted 162257 bytes -> 2ddabaa841c5 round=auto-35
+[2026-09-01T11:44:10] submitted 162257 bytes -> b0037ea6b099 round=auto-36
+[2026-09-01T11:59:10] submitted 171853 bytes -> 6c1e37bc5032 round=auto-37
+[2026-09-01T12:14:10] submitted 173945 bytes -> 86cfa41af0ce round=auto-38
+[2026-09-01T12:29:11] submitted 173943 bytes -> 6c07d608b8d6 round=auto-39
+[2026-09-01T12:44:11] submitted 173943 bytes -> 0e06ff6202ec round=auto-40
+[2026-09-01T12:59:11] submitted 173786 bytes -> e96df6614871 round=auto-41
+[2026-09-01T13:14:11] submitted 157001 bytes -> d075bde77a4e round=auto-42
+[2026-09-01T13:29:11] submitted 157004 bytes -> 0eb4352f5508 round=auto-43
+[2026-09-01T13:44:11] submitted 157004 bytes -> edabe07cff79 round=auto-44
+[2026-09-01T13:59:12] submitted 153386 bytes -> 53b0a0dab937 round=auto-45
+[2026-09-01T14:14:12] submitted 153386 bytes -> fe1280041c3d round=auto-46
+[2026-09-01T14:29:12] submitted 156994 bytes -> 9e50961b1368 round=auto-47
