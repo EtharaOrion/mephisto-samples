@@ -11,17 +11,19 @@ compute_envelope = "one H100 total"
 
 [environment]
 image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:cd11612db46559c428fd98b95c48da7829a3eeb64297eabc3ea882e4358f3209"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:cd11612db46559c428fd98b95c48da7829a3eeb64297eabc3ea882e4358f3209"
+workdir = "/home/workspace"
 platform = "linux/amd64"
 
 [verifier]
 mode = "separate"
-image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:82efa232f4b80010a54ed234b6e7b20471ac5a40986554f5513105c4fdb4bc9c"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.arc_compiler_runtime:ee0c70915211@sha256:ee0c70915211debd8ccd368a0d5d0fde3ba0853775df58c1d10f2d7e090d9a96"
 entrypoint = "tests/test.sh"
 reward_path = "/logs/verifier/reward.json"
 
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:82efa232f4b80010a54ed234b6e7b20471ac5a40986554f5513105c4fdb4bc9c"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.arc_compiler_runtime:ee0c70915211@sha256:ee0c70915211debd8ccd368a0d5d0fde3ba0853775df58c1d10f2d7e090d9a96"
 [network]
 verifier_policy = "no-network"
 solver_policy = "setup_only"
@@ -40,3 +42,13 @@ graded = ["<uuid>_D1_compiler_src.tar", "<uuid>_D2_suite_report.json", "<uuid>_D
 present = true
 compilation_floor = 0.7
 trajectory_rubrics = "tests/rubrics.jsonl"
+
+[extensions.sforge]
+task_id = "arc_compiler_runtime"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["."]
+submit_exclude = ["starter/", "notes/", "tests/", "**/__pycache__/", "**/*.pyc", ".git/"]

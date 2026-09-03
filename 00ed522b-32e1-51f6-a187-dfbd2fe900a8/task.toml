@@ -11,17 +11,19 @@ compute_envelope = "one H100 total"
 
 [environment]
 image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:1081b6d6ae1d371ab43f66bb7301fc7a8e9c248192553736d9aca20990150bbf"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:1081b6d6ae1d371ab43f66bb7301fc7a8e9c248192553736d9aca20990150bbf"
+workdir = "/home/workspace"
 platform = "linux/amd64"
 
 [verifier]
 mode = "separate"
-image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:5430e254c4c046ab69e44da53b3abe786c0b3821b8c0961f28db081221df93b9"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:b564d71b1c88@sha256:b564d71b1c889d7e056bc6141ecff109d38bb2516ff296e91093fa8349a2f8bf"
 entrypoint = "tests/test.sh"
 reward_path = "/logs/verifier/reward.json"
 
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:5430e254c4c046ab69e44da53b3abe786c0b3821b8c0961f28db081221df93b9"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:b564d71b1c88@sha256:b564d71b1c889d7e056bc6141ecff109d38bb2516ff296e91093fa8349a2f8bf"
 [network]
 verifier_policy = "no-network"
 solver_policy = "setup_only"
@@ -40,3 +42,13 @@ graded = ["<uuid>_D1_nester_src.tar", "<uuid>_D2_placement_bundle.jsonl", "<uuid
 present = true
 compilation_floor = 0.7
 trajectory_rubrics = "tests/rubrics.jsonl"
+
+[extensions.sforge]
+task_id = "jagua_nesting_optimization"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["."]
+submit_exclude = ["starter/", "notes/", "tests/", "**/__pycache__/", "**/*.pyc", ".git/"]
