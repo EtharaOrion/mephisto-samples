@@ -17,13 +17,13 @@ platform = "linux/amd64"
 
 [verifier]
 mode = "separate"
-image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cap_set_extremal_construction:f0fd04ec2299@sha256:f0fd04ec22999ad6a6b09a84dcc8a48afe814fb9dc6c4cf2e8609e85f09df403"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cap_set_extremal_construction:9ed3c0e9b9a5@sha256:9ed3c0e9b9a5a8eb0d674f17d261718f7cbc68213eee7c03e6e4672a92a21294"
 entrypoint = "tests/test.sh"
 reward_path = "/logs/verifier/reward.json"
 
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cap_set_extremal_construction:f0fd04ec2299@sha256:f0fd04ec22999ad6a6b09a84dcc8a48afe814fb9dc6c4cf2e8609e85f09df403"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cap_set_extremal_construction:9ed3c0e9b9a5@sha256:9ed3c0e9b9a5a8eb0d674f17d261718f7cbc68213eee7c03e6e4672a92a21294"
 [network]
 verifier_policy = "no-network"
 solver_policy = "setup_only"

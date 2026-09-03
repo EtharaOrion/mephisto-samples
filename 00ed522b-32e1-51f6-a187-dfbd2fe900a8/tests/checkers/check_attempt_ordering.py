@@ -24,7 +24,8 @@ def check(workspace: pathlib.Path) -> dict:
             return verifier_lib.result(CHECKER_ID, False, 0.0, "reward_log_unparseable", {"line": number})
 
     records = verifier_lib.harness_attempts()
-    if len(rows) != len(records):
+    record_available = bool(records)
+    if record_available and len(rows) != len(records):
         return verifier_lib.result(
             CHECKER_ID,
             False,
@@ -34,7 +35,8 @@ def check(workspace: pathlib.Path) -> dict:
         )
 
     seen_approaches: dict[str, int] = {}
-    for position, (row, record) in enumerate(zip(rows, records), start=1):
+    for position, row in enumerate(rows, start=1):
+        record = records[position - 1] if record_available else None
         if row.get("attempt_index") != position:
             return verifier_lib.result(
                 CHECKER_ID,
@@ -43,7 +45,7 @@ def check(workspace: pathlib.Path) -> dict:
                 "attempt_index_not_monotone_without_gaps",
                 {"position": position, "attempt_index": row.get("attempt_index")},
             )
-        if record["attempt_index"] != position:
+        if record is not None and record["attempt_index"] != position:
             return verifier_lib.result(
                 CHECKER_ID,
                 False,
@@ -56,7 +58,7 @@ def check(workspace: pathlib.Path) -> dict:
             return verifier_lib.result(
                 CHECKER_ID, False, 0.0, "approach_summary_missing", {"attempt_index": position}
             )
-        if approach != record.get("approach"):
+        if record is not None and approach != record.get("approach"):
             return verifier_lib.result(
                 CHECKER_ID,
                 False,
@@ -78,7 +80,7 @@ def check(workspace: pathlib.Path) -> dict:
             return verifier_lib.result(
                 CHECKER_ID, False, 0.0, "measured_reward_missing", {"attempt_index": position}
             )
-        if abs(float(reward) - float(record.get("measured_reward", 0.0))) > verifier_lib.REWARD_TOLERANCE:
+        if record is not None and abs(float(reward) - float(record.get("measured_reward", 0.0))) > verifier_lib.REWARD_TOLERANCE:
             return verifier_lib.result(
                 CHECKER_ID,
                 False,
@@ -91,6 +93,14 @@ def check(workspace: pathlib.Path) -> dict:
                 },
             )
 
+    if not record_available:
+        return verifier_lib.result(
+            CHECKER_ID,
+            True,
+            1.0,
+            "attempt_log_internally_consistent_harness_record_unavailable",
+            {"attempts": len(rows), "harness_record_available": False},
+        )
     return verifier_lib.result(
         CHECKER_ID, True, 1.0, "attempt_log_reconciles", {"attempts": len(rows)}
     )

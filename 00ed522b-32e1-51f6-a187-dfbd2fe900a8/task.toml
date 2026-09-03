@@ -17,13 +17,13 @@ platform = "linux/amd64"
 
 [verifier]
 mode = "separate"
-image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:b564d71b1c88@sha256:b564d71b1c889d7e056bc6141ecff109d38bb2516ff296e91093fa8349a2f8bf"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:7f633868ff6c@sha256:7f633868ff6cd3aa0b290e322df306c004c1ee893ba9a4b9b523e8ff30892c95"
 entrypoint = "tests/test.sh"
 reward_path = "/logs/verifier/reward.json"
 
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:b564d71b1c88@sha256:b564d71b1c889d7e056bc6141ecff109d38bb2516ff296e91093fa8349a2f8bf"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.jagua_nesting_optimization:7f633868ff6c@sha256:7f633868ff6cd3aa0b290e322df306c004c1ee893ba9a4b9b523e8ff30892c95"
 [network]
 verifier_policy = "no-network"
 solver_policy = "setup_only"

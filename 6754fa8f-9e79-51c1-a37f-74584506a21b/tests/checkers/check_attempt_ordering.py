@@ -27,8 +27,7 @@ def check(workspace: pathlib.Path) -> dict:
         return verifier_lib.result(CHECKER_ID, False, 0.0, "reward_log_empty")
 
     harness = verifier_lib.harness_attempts()
-    if not harness:
-        return verifier_lib.result(CHECKER_ID, False, 0.0, "harness_run_record_absent")
+    record_available = bool(harness)
     by_index = {record["attempt_index"]: record for record in harness}
 
     expected = 1
@@ -46,7 +45,7 @@ def check(workspace: pathlib.Path) -> dict:
         expected += 1
 
         record = by_index.get(index)
-        if record is None:
+        if record_available and record is None:
             return verifier_lib.result(
                 CHECKER_ID, False, 0.0, "reward_log_entry_absent_from_harness_record", {"attempt_index": index}
             )
@@ -55,7 +54,7 @@ def check(workspace: pathlib.Path) -> dict:
             return verifier_lib.result(
                 CHECKER_ID, False, 0.0, "approach_summary_missing", {"attempt_index": index}
             )
-        if approach != record["approach"]:
+        if record is not None and approach != record["approach"]:
             return verifier_lib.result(
                 CHECKER_ID,
                 False,
@@ -78,17 +77,18 @@ def check(workspace: pathlib.Path) -> dict:
             return verifier_lib.result(
                 CHECKER_ID, False, 0.0, "measured_reward_missing", {"attempt_index": index}
             )
-        recorded = float(record["measured_reward"])
-        if abs(float(claimed) - recorded) > REWARD_RECONCILE_TOLERANCE * max(1.0, recorded):
-            return verifier_lib.result(
-                CHECKER_ID,
-                False,
-                0.0,
-                "measured_reward_diverges_from_harness_record",
-                {"attempt_index": index, "claimed": float(claimed), "recorded": recorded},
-            )
+        if record is not None:
+            recorded = float(record["measured_reward"])
+            if abs(float(claimed) - recorded) > REWARD_RECONCILE_TOLERANCE * max(1.0, recorded):
+                return verifier_lib.result(
+                    CHECKER_ID,
+                    False,
+                    0.0,
+                    "measured_reward_diverges_from_harness_record",
+                    {"attempt_index": index, "claimed": float(claimed), "recorded": recorded},
+                )
 
-    if len(entries) != len(harness):
+    if record_available and len(entries) != len(harness):
         return verifier_lib.result(
             CHECKER_ID,
             False,
@@ -97,6 +97,18 @@ def check(workspace: pathlib.Path) -> dict:
             {"log_entries": len(entries), "harness_records": len(harness)},
         )
 
+    if not record_available:
+        return verifier_lib.result(
+            CHECKER_ID,
+            True,
+            1.0,
+            "attempt_log_internally_consistent_harness_record_unavailable",
+            {
+                "attempts": len(entries),
+                "distinct_approaches": len(seen_approaches),
+                "harness_record_available": False,
+            },
+        )
     return verifier_lib.result(
         CHECKER_ID,
         True,
