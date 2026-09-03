@@ -24,10 +24,7 @@ REPORT_FIELD = "unaccelerated_programs"
 
 
 def graded_attempt_index() -> int:
-    attempts = verifier_lib.harness_attempts()
-    if not attempts:
-        return 0
-    return max(int(record.get("attempt_index", 0)) for record in attempts)
+    return verifier_lib.graded_attempt_index()
 
 
 def live_anchor_authority(attempt_index: int) -> str:

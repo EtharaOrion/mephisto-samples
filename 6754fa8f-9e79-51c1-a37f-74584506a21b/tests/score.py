@@ -42,6 +42,10 @@ PENALTY_CHECKERS = {"C_M1_machine_model_identity": 0.5, "C7_attempt_ordering": 0
 
 
 def run(workspace: pathlib.Path) -> dict:
+    try:
+        verifier_lib.ensure_live_state(workspace)
+    except Exception as exc:
+        print(f"live state bootstrap failed: {exc!r}", file=sys.stderr)
     results = []
     for name in CHECKER_MODULES:
         module = importlib.import_module(name)

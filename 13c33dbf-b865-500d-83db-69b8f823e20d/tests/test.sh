@@ -2,7 +2,7 @@
 # forge-canary: FORGE-CANARY-22582D8CBA73BFC7E63DCE10B60DAC9D
 set -euo pipefail
 # arc_compiler_runtime verifier entrypoint. Writes the bound reward path and attributes every zero to a machine readable reason.
-HERE="$(cd "$(dirname "$0")" && pwd)"
+HERE="${EDGEBENCH_HARNESS_DIR:-/verifier}"
 REWARD_PATH="${REWARD_PATH:-/logs/verifier/reward.json}"
 WORKSPACE="${EDGEBENCH_WORKSPACE:-/home/workspace}"
 mkdir -p "$(dirname "$REWARD_PATH")"

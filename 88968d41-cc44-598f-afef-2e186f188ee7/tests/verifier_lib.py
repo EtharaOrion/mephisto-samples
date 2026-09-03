@@ -123,6 +123,60 @@ def submission_present(workspace: pathlib.Path) -> bool:
     return all(find_deliverable(workspace, key) is not None for key in DELIVERABLE_GLOBS)
 
 
+def submitted_attempt_index(workspace: pathlib.Path) -> int:
+    """Attempt index claimed by the D3 reward log.
+
+    The claim is never trusted: it only selects which registry state the
+    verifier reconstructs, and every era-sensitive binding checker recomputes
+    that state against the submission, so a wrong index hard-zeros the run.
+    """
+    path = find_deliverable(workspace, "D3")
+    if path is None:
+        return 1
+    claimed = 0
+    for line in path.read_text().splitlines():
+        if not line.strip():
+            continue
+        try:
+            row = json.loads(line)
+        except ValueError:
+            continue
+        value = row.get("attempt_index")
+        if isinstance(value, int):
+            claimed = max(claimed, value)
+    return min(max(claimed, 1), 1000)
+
+
+def ensure_live_state(workspace: pathlib.Path) -> None:
+    """Advance the graded geometry state to the submission's attempt index.
+
+    When the runner mounts the live evaluator state, the mount wins untouched.
+    Otherwise the verifier materialises the same files the sealed mutation
+    applier writes, from its own byte-identical registry, at the index claimed
+    by the D3 reward log; validation by the binding gates makes that claim
+    self-certifying rather than trusted.
+    """
+    global GEOMETRY_DIR
+    if (GEOMETRY_DIR / "manifest.json").exists() and (GEOMETRY_DIR / "predicate.json").exists():
+        return
+    state = registry.resolve_state(submitted_attempt_index(workspace))
+
+    def _write(geometry_dir: pathlib.Path) -> None:
+        geometry_dir.mkdir(parents=True, exist_ok=True)
+        (geometry_dir / "manifest.json").write_text(
+            json.dumps(state["geometry"], indent=2, sort_keys=True) + "\n"
+        )
+        (geometry_dir / "predicate.json").write_text(
+            json.dumps(state["predicate"], indent=2, sort_keys=True) + "\n"
+        )
+
+    try:
+        _write(GEOMETRY_DIR)
+    except OSError:
+        GEOMETRY_DIR = pathlib.Path(tempfile.mkdtemp(prefix="edgebench-state-")) / "geometry"
+        _write(GEOMETRY_DIR)
+
+
 def reference_points() -> set:
     key = "reference_points"
     if key not in _MEMO:

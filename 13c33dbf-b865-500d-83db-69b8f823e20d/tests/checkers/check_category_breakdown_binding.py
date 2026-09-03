@@ -25,10 +25,7 @@ REPORT_FIELD = "passed_by_category"
 
 
 def graded_attempt_index() -> int:
-    attempts = verifier_lib.harness_attempts()
-    if not attempts:
-        return 0
-    return max(int(record.get("attempt_index", 0)) for record in attempts)
+    return verifier_lib.graded_attempt_index()
 
 
 def live_breakdown_mode(attempt_index: int) -> str:

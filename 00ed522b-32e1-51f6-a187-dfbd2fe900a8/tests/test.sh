@@ -2,7 +2,7 @@
 # forge-canary: FORGE-CANARY-BC70212BA9429764BED89FCADB1574A6
 set -euo pipefail
 # jagua_nesting_optimization verifier entrypoint. Writes the bound reward path and attributes every zero to a machine readable reason.
-HERE="$(cd "$(dirname "$0")" && pwd)"
+HERE="${EDGEBENCH_HARNESS_DIR:-/verifier}"
 REWARD_PATH="${REWARD_PATH:-/logs/verifier/reward.json}"
 WORKSPACE="${EDGEBENCH_WORKSPACE:-/home/workspace}"
 mkdir -p "$(dirname "$REWARD_PATH")"

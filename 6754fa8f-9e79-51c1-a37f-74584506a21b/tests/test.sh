@@ -2,7 +2,7 @@
 # forge-canary: FORGE-CANARY-CB5DCD73188C60E84FADF07F58F31424
 set -euo pipefail
 # vliw_kernel_optimization verifier entrypoint. Writes the bound reward path and attributes every zero to a machine readable reason.
-HERE="$(cd "$(dirname "$0")" && pwd)"
+HERE="${EDGEBENCH_HARNESS_DIR:-/verifier}"
 REWARD_PATH="${REWARD_PATH:-/logs/verifier/reward.json}"
 WORKSPACE="${EDGEBENCH_WORKSPACE:-/home/workspace}"
 mkdir -p "$(dirname "$REWARD_PATH")"

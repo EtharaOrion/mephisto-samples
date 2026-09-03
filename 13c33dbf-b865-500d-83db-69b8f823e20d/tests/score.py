@@ -72,6 +72,10 @@ def zero_code(checker_id: str, reason: str) -> str:
 
 
 def run(workspace: pathlib.Path) -> dict:
+    try:
+        verifier_lib.ensure_live_state(workspace)
+    except Exception as exc:
+        print(f"live state bootstrap failed: {exc!r}", file=sys.stderr)
     results = []
     for name in CHECKER_MODULES:
         module = importlib.import_module(name)

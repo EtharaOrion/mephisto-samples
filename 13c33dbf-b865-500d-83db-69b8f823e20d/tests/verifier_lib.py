@@ -205,6 +205,78 @@ def submission_present(workspace: pathlib.Path) -> bool:
     return all(find_deliverable(workspace, key) is not None for key in DELIVERABLE_GLOBS)
 
 
+def submitted_attempt_index(workspace: pathlib.Path) -> int:
+    """Attempt index claimed by the D3 reward log.
+
+    The claim is never trusted: it only selects which registry state the
+    verifier reconstructs, and every era-sensitive binding checker recomputes
+    that state against the submission, so a wrong index hard-zeros the run.
+    """
+    path = find_deliverable(workspace, "D3")
+    if path is None:
+        return 1
+    claimed = 0
+    for line in path.read_text().splitlines():
+        if not line.strip():
+            continue
+        try:
+            row = json.loads(line)
+        except ValueError:
+            continue
+        value = row.get("attempt_index")
+        if isinstance(value, int):
+            claimed = max(claimed, value)
+    return min(max(claimed, 1), 1000)
+
+
+def graded_attempt_index(workspace: pathlib.Path | None = None) -> int:
+    """Attempt index the run is graded at.
+
+    The evaluator-owned harness record wins when present. Without it, the
+    D3-claimed index is used; it also drove the state reconstructed by
+    ensure_live_state, so an overstated or understated claim regenerates a
+    whole-era state the submission cannot reconcile with.
+    """
+    attempts = harness_attempts()
+    if attempts:
+        return max(int(record.get("attempt_index", 0)) for record in attempts)
+    if "graded_attempt_index" in _MEMO:
+        return int(_MEMO["graded_attempt_index"])
+    return submitted_attempt_index(workspace or WORKSPACE)
+
+
+def ensure_live_state(workspace: pathlib.Path) -> None:
+    """Advance the graded instruction set state to the submission's attempt index.
+
+    When the runner mounts the live evaluator state, the mount wins untouched.
+    Otherwise the verifier materialises the same registry files the sealed
+    mutation applier writes, from its own byte-identical registry, at the index
+    claimed by the D3 reward log; validation by the binding gates makes that
+    claim self-certifying rather than trusted.
+    """
+    global ISA_DIR
+    if all((ISA_DIR / name).exists() for name in ("isa.json", "abi.json", "intrinsics.json")):
+        return
+    index = submitted_attempt_index(workspace)
+    _MEMO["graded_attempt_index"] = index
+    state = registry.resolve_state(index)
+
+    def _write(isa_dir: pathlib.Path) -> None:
+        isa_dir.mkdir(parents=True, exist_ok=True)
+        for name, payload in (
+            ("isa.json", state["isa"]),
+            ("abi.json", state["abi"]),
+            ("intrinsics.json", state["intrinsics"]),
+        ):
+            (isa_dir / name).write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+
+    try:
+        _write(ISA_DIR)
+    except OSError:
+        ISA_DIR = pathlib.Path(tempfile.mkdtemp(prefix="edgebench-state-")) / "isa"
+        _write(ISA_DIR)
+
+
 def extract_sources(workspace: pathlib.Path) -> dict:
     """Unpacks the submitted archive under a fresh root, refusing any member that escapes it."""
     key = f"sources:{workspace}"

@@ -149,6 +149,63 @@ def submission_present(workspace: pathlib.Path) -> bool:
     return all(find_deliverable(workspace, key) is not None for key in DELIVERABLE_GLOBS)
 
 
+def submitted_attempt_index(workspace: pathlib.Path) -> int:
+    """Attempt index claimed by the D3 reward log.
+
+    The claim is never trusted: it only selects which registry state the
+    verifier reconstructs, and every era-sensitive binding checker recomputes
+    that state against the submission, so a wrong index hard-zeros the run.
+    """
+    path = find_deliverable(workspace, "D3")
+    if path is None:
+        return 1
+    claimed = 0
+    for line in path.read_text().splitlines():
+        if not line.strip():
+            continue
+        try:
+            row = json.loads(line)
+        except ValueError:
+            continue
+        value = row.get("attempt_index")
+        if isinstance(value, int):
+            claimed = max(claimed, value)
+    return min(max(claimed, 1), 1000)
+
+
+def ensure_live_state(workspace: pathlib.Path) -> None:
+    """Advance the graded registry state to the submission's attempt index.
+
+    When the runner mounts the live evaluator state, the mount wins untouched.
+    Otherwise the verifier materialises the same files the sealed mutation
+    applier writes, from its own byte-identical registry, at the index claimed
+    by the D3 reward log; validation by the binding gates makes that claim
+    self-certifying rather than trusted.
+    """
+    global INSTANCE_DIR, AUTHORITY_DIR
+    if (INSTANCE_DIR / "manifest.json").exists() and (AUTHORITY_DIR / "authority.json").exists():
+        return
+    state = registry.resolve_state(submitted_attempt_index(workspace))
+
+    def _write(instance_dir: pathlib.Path, authority_dir: pathlib.Path) -> None:
+        instance_dir.mkdir(parents=True, exist_ok=True)
+        authority_dir.mkdir(parents=True, exist_ok=True)
+        (instance_dir / "manifest.json").write_text(
+            json.dumps(state["manifest"], indent=2, sort_keys=True) + "\n"
+        )
+        (authority_dir / "authority.json").write_text(
+            json.dumps(state["authority"], indent=2, sort_keys=True) + "\n"
+        )
+
+    try:
+        _write(INSTANCE_DIR, AUTHORITY_DIR)
+    except OSError:
+        staged = pathlib.Path(tempfile.mkdtemp(prefix="edgebench-state-"))
+        INSTANCE_DIR = staged / "instances"
+        AUTHORITY_DIR = staged / "authority"
+        _write(INSTANCE_DIR, AUTHORITY_DIR)
+
+
 def public_family() -> list[dict]:
     manifest = live_manifest()
     key = f"public:{manifest['attempt_index']}"
