@@ -1,0 +1,45 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/p6zeta_zero_one_ip_solver_from_scratch"
+description = "From-scratch 0-1 integer programming solver over seven NP-hard families. No external solvers, no benchmark lookups, hidden evaluation with private perturbation salt."
+keywords = ["edgebench", "mephisto", "combinatorial-optimization"]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:cf1852660d32@sha256:cf1852660d32418d6dad572a892368a56b2e3bccf6ddbcc50d66cd605a34645e"
+network_mode = "no-network"
+workdir = "/home/workspace/p6zeta"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:9ec72f0ff841@sha256:9ec72f0ff84142b66117db959359ce253fa7bbb8a238e5bbcec44e31662216f7"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "p6zeta_zero_one_ip_solver_from_scratch"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["build.sh", "solve", "src/"]
+submit_exclude = ["__pycache__/", "*.pyc", ".pytest_cache/", "*.log"]
+work_image_tag = "cf1852660d32"
+judge_image_tag = "9ec72f0ff841"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "Mephisto FORGE (author-generated synthetic instances)"
+data_license = "CC-BY-4.0"
+license_class = "cc-by-4.0"
+provenance_flags = ["author-generated", "synthetic-instances"]

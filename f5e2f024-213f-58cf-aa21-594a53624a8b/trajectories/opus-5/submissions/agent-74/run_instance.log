@@ -1,0 +1,9 @@
+2026-08-11 12:55:45,370 - INFO - Judge container started: fd39ff4bcdf801fa6fbacc30a41acb21903825754541cef9217a0c08f3a4f04b
+2026-08-11 12:55:45,370 - INFO - Archive saved (34173 bytes)
+2026-08-11 12:55:45,850 - INFO - Archive extracted: 14 file(s) allowed, 0 rejected
+2026-08-11 12:55:45,932 - INFO - Running eval script...
+2026-08-11 12:57:03,279 - INFO - Test runtime: 77.35s, timed_out: False
+2026-08-11 12:57:03,279 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-08-11 12:57:03,279 - INFO - Stopping container edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch.d75139bf558f...
+2026-08-11 12:57:03,901 - INFO - Removing container edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch.d75139bf558f...
+2026-08-11 12:57:03,915 - INFO - Container edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch.d75139bf558f removed.

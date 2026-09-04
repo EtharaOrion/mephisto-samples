@@ -1,0 +1,20 @@
+{
+  "task_id": "p6zeta_zero_one_ip_solver_from_scratch",
+  "agent": "claude-code",
+  "model": "claude-opus-5[1m]",
+  "timeout": 43200,
+  "eval_interval": 1800,
+  "disable_stop_hook": false,
+  "disable_auto_eval": false,
+  "disable_auto_resume": false,
+  "internet": false,
+  "judge_url": "http://host.docker.internal:8080",
+  "work_cpu_limit": null,
+  "work_mem_limit": null,
+  "judge_cpu_limit": null,
+  "judge_mem_limit": null,
+  "max_submissions": 300,
+  "submission_cooldown": 120,
+  "api_base_url": "http://host.docker.internal:9090",
+  "api_key": "ebf1d6ba..."
+}

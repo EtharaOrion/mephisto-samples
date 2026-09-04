@@ -1,0 +1,16 @@
+{
+  "agent": "claude-code",
+  "task": "p6zeta_zero_one_ip_solver_from_scratch",
+  "run_id": "f5e2f024-213f-58cf-aa21-594a53624a8b-2e12051d4dc3",
+  "model": "claude-opus-5[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-87",
+  "total_rounds": 118,
+  "agent_submissions": 95,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.10099029541,
+  "archive_size_bytes": 31253,
+  "resume_count": 0,
+  "best_score": 0.849975
+}

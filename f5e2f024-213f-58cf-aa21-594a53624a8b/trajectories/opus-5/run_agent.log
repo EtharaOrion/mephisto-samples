@@ -1,0 +1,28 @@
+2026-08-11 03:02:50,788 - INFO - Removing stale iptables chain: SFORGE_d8704615c29c
+2026-08-11 03:02:51,326 - INFO - Images ready
+2026-08-11 03:02:51,333 - INFO - Registered session with judge server
+2026-08-11 03:02:51,349 - INFO - Network isolation enabled: iptables preflight passed
+2026-08-11 03:02:51,728 - INFO - Container started: sforge.run.p6zeta_zero_one_ip_solver_from_scratch.f5e2f024-213f-58cf-aa21-594a53624a8b-2e12051d4dc3 (judge_url=http://host.docker.internal:8080)
+2026-08-11 03:02:51,728 - INFO - Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+2026-08-11 03:02:53,422 - INFO - Install step 1 done (1.7s)
+2026-08-11 03:02:53,422 - INFO - Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+2026-08-11 03:02:55,307 - INFO - Install step 2 done (1.9s)
+2026-08-11 03:02:55,308 - INFO - Agent installation complete
+2026-08-11 03:02:55,474 - INFO - Installed sforge-submit script
+2026-08-11 03:02:55,509 - INFO - Installed Claude Code stop hook
+2026-08-11 03:02:55,528 - INFO - Configured Claude Code settings with hooks
+2026-08-11 03:02:55,528 - INFO - Host-side auto-eval started (interval=1800s)
+2026-08-11 03:02:55,653 - INFO - Network isolation applied: chain=SFORGE_faf9918101eb, ip=172.17.0.2, ip6=None, allowed=2 endpoints
+2026-08-11 03:02:55,824 - INFO - Prompt written (6883 bytes)
+2026-08-11 03:02:55,824 - INFO - Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-5[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+2026-08-11 15:02:55,929 - INFO - Agent finished: runtime=43200.1s, timed_out=True, resumes=0, pool_paused=0s
+2026-08-11 15:02:55,929 - INFO - Auto-eval thread stopped
+2026-08-11 15:02:55,955 - INFO - Final archive: 31253 bytes
+2026-08-11 15:02:55,992 - INFO - Work container processes stopped
+2026-08-11 15:02:55,995 - INFO - Draining 1 pending judge evals...
+2026-08-11 15:03:11,001 - INFO - Done: best=0.00% (round 'agent-87'), agent_subs=95, auto_subs=23, resumes=0, runtime=43200.1s
+2026-08-11 15:03:11,443 - WARNING - Failed to remove v6 chain: ip6tables -F SFORGE_faf9918101eb failed: ip6tables: No chain/target/match by that name.
+2026-08-11 15:03:11,443 - INFO - Network isolation cleaned up: chain=SFORGE_faf9918101eb
+2026-08-11 15:03:11,443 - INFO - Stopping container sforge.run.p6zeta_zero_one_ip_solver_from_scratch.f5e2f024-213f-58cf-aa21-594a53624a8b-2e12051d4dc3...
+2026-08-11 15:03:11,445 - INFO - Removing container sforge.run.p6zeta_zero_one_ip_solver_from_scratch.f5e2f024-213f-58cf-aa21-594a53624a8b-2e12051d4dc3...
+2026-08-11 15:03:11,562 - INFO - Container sforge.run.p6zeta_zero_one_ip_solver_from_scratch.f5e2f024-213f-58cf-aa21-594a53624a8b-2e12051d4dc3 removed.
