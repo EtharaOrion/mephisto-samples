@@ -76,6 +76,10 @@ The artifact is ~3,600 lines of C99 against nothing but libm, in twelve files pl
 
 ```
 README.md                   this file
+plots/submissions.svg       verifier score per submission in chronological order, with the
+                            best-so-far staircase over all 118 graded rounds; filled marks
+                            are the 95 agent-initiated submissions, hollow marks the 23
+                            evaluator-only snapshots
 instruction.md              the objective handed to the agent
 task.toml                   manifest: budgets, images, network mode, submit paths, selection
 environment/                the agent-visible starting files and the work container image:
