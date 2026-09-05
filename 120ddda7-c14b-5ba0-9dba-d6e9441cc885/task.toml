@@ -1,0 +1,133 @@
+# =============================================================================
+# Harbor task descriptor - edgebench/libpcap_bpf_codegen_fidelity
+#
+# Schema in use is the one harness/sforge/harness/harbor_loader.py reads and
+# that touchstones/*/task.toml carry. Every key below is either read by
+# harbor_loader.py or attested by a real touchstone task.toml, EXCEPT the
+# [extensions.optimization_lane] block, which is called out in its own comment.
+#
+# Bundle materialization: this file lands at <bundle>/task.toml unchanged.
+# Its sibling scaffolding files map as
+#   environment_Dockerfile -> environment/Dockerfile
+#   tests_Dockerfile       -> tests/Dockerfile
+#   tests_test.sh          -> tests/test.sh      (harbor_loader.py line 109)
+# instruction.md is ALSO required at the bundle root (harbor_loader.py line 102)
+# and is not part of this scaffolding drop.
+# =============================================================================
+
+schema_version = "1.4"
+
+[task]
+name = "edgebench/libpcap_bpf_codegen_fidelity_mut1"
+description = "Rebuild a deliberately modified libpcap 1.10.6 BPF filter compiler in C from observable behaviour alone, with no libpcap source, header, binary, or network. The reference is not stock libpcap: four semantics-preserving mutations change its codegen and layout choices, so recalled upstream bytes are wrong where they diverge, and the departures must be discovered from the public corpus. Graded on exact cBPF bytecode tuple equality and exact libpcap error-string equality against 12,000 hidden (dlt, snaplen, optimize, netmask, filter) cases across 8 weighted strata, plus a gated interleaved compile-throughput term."
+
+# 'optimization' and 'bounded-continuous' are the lane tags required by
+# FORGE.md rule 27 / Optimization lane item 1. task.keywords is the only
+# attested list-of-tags field in the real schema, so the lane tags live here.
+keywords = [
+  "optimization",
+  "bounded-continuous",
+  "systems-and-se",
+  "reimplementation-fidelity",
+  "packet-filter-compiler-codegen",
+  "libpcap-1.10.6+mut1",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+# 12 h. This is the max_timeout binding: 12 * 3600 = 43200.
+timeout_sec = 43200
+
+[environment]
+# PENDING_PHASE_1. delivery.image_pin_rule: both images pinned by @sha256,
+# never a floating tag. Phase 1 replaces this placeholder with
+# <registry>/mephisto/edgebench.work.libpcap_bpf_codegen_fidelity:v1@sha256:<digest>
+docker_image = "mephisto/bpfc-work@sha256:7f19f29facf0130ef3d3d336bcffa32e4a8139b2925f28bfa4e7766b180075b7"
+network_mode = "no-network"
+# WORKDIR RULE (boundaries.workdir_rule): this string and
+# [verifier.environment].workdir are byte-identical. harbor_loader.py line 116
+# makes [environment].workdir the single TaskSpec.cwd used BOTH to extract the
+# submission tar (run_evaluation.py line 219) and to cd before the verifier runs
+# (harbor_loader.py line 56). A mismatch would extract the submission somewhere
+# the verifier never looks, which is the shape of the ANN false 0.0.
+workdir = "/home/workspace/bpfc"
+# Read by harbor_loader.py lines 149-150 -> WorkSpec.cpu_limit / mem_limit.
+cpus = 8
+memory_mb = 6144
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "mephisto/bpfc-judge@sha256:ccdc273ebfcc080084c69682087868834c7ab9b2e60f40ad2c6e64f43cd1d882"
+network_mode = "no-network"
+workdir = "/home/workspace/bpfc"
+# Read by harbor_loader.py lines 156-170 (_judge_limit) -> JudgeSpec limits.
+cpus = 4
+memory_mb = 3072
+
+[extensions.sforge]
+task_id = "libpcap_bpf_codegen_fidelity_mut1"
+base_image = "cpp"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+# Whitelist applied to the submission tar by run_evaluation.py
+# _filter_archive_files, then extracted into [environment].workdir.
+submit_paths = ["src/", "include/", "Makefile"]
+# Verbatim from seed/contract.yaml boundaries.submit_exclude.
+submit_exclude = ["build/", "**/*.o", "**/__pycache__/", "public_cases.jsonl", "results.jsonl", "score_out.json", ".git/"]
+# work_image_tag / judge_image_tag intentionally omitted until Phase 1 builds and
+# digest-pins the two images; harbor_loader.py lines 123-142 derives a stable tag
+# from docker_image when they are absent.
+
+# -----------------------------------------------------------------------------
+# NOT PART OF THE ATTESTED HARBOR SCHEMA.
+#
+# FORGE.md rule 27 and Optimization lane items 1 and 3 require task.toml to
+# carry max_timeout, the attempt cap, final_selection, the solver egress mode,
+# the compute envelope, and the reward schema. NO touchstone task.toml and NO
+# dataset task.toml carries any of those keys, and harbor_loader.py reads only
+# extensions.sforge, so these are inert to the loader and are namespaced here
+# rather than smuggled into [extensions.sforge]. Flagged as an open issue: the
+# lane bindings have no attested home in the schema actually in use.
+# -----------------------------------------------------------------------------
+[extensions.optimization_lane]
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 12                 # mirrors [agent].timeout_sec = 43200
+max_attempts = 50
+final_selection = "best"               # pairs with selection/score_direction above
+solver_egress_mode = "no-network"      # deliberate departure from lane item 5;
+                                       # see contract gap_egress_grant_absent
+accelerators_required = 0
+accelerator_budget_permitted = "one H100"
+reward_type = "float"
+reward_min = 0.0
+reward_max = 1.0
+reward_full_value = 1.0
+reward_direction = "maximize"
+reward_binary = false
+reward_contract_path = "/logs/verifier/reward.txt"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "the-tcpdump-group/libpcap release tarball libpcap-1.10.6.tar.gz (www.tcpdump.org)"
+data_license = "BSD-3-Clause"
+license_class = "bsd-3-clause"
+license_confidence = "high"
+license_source = "https://github.com/the-tcpdump-group/libpcap/blob/master/LICENSE"
+provenance_flags = ["reference-emulation", "oracle-generated-ground-truth"]
+provenance_source = "libpcap 1.10.6 built from the pinned tarball (sha256 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9) AND PATCHED by mut1.patch (sha256 f3d5502b708ac425a22e3d75068f242d73485d9ff4b21a4f1256e75afbb86600) inside the private FORGE oracle image, then invoked through pcap_open_dead / pcap_compile / pcap_geterr"
+bundle_uuid_note = "see enclosing dataset/<uuid>/ directory name once Phase 1 assigns it"
+
+[metadata.upstream_provenance]
+origin = "derived"
+provenance_date = "2026-08-13"
+asserts_no_upstream_lift = true
+upstream_identity = "the-tcpdump-group/libpcap"
+upstream_license = "BSD-3-Clause"
+modifications = "libpcap IS modified for this task. The pinned 1.10.6 release is patched by mut1.patch before it is built inside the private authoring image, and its outputs are frozen as the golden corpus. Four deterministic mutations change code generation and instruction layout choices only; the compiled filter accepts exactly the packets stock libpcap accepts, measured at 1,889,280 packet evaluations with zero acceptance divergence. BSD-3-Clause permits modification and the licence notice is retained unaltered in the patched tree. No libpcap source, patched or pristine, is shipped: it never reaches the agent-visible surface or the judge container. The graded artifact is a new C program answering a JSON invocation contract that exists nowhere upstream."

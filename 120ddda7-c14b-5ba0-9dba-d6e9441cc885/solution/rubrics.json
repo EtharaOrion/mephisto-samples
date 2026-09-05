@@ -1,0 +1,97 @@
+{
+ "_generated": "GENERATED SECTION. DO NOT HAND-EDIT.",
+ "_source_of_truth": "solution/grounding.yaml",
+ "_canary": [
+  "672168dc451ee148",
+  "9b24b041e7affb6a",
+  "b602c6f34bd3a044"
+ ],
+ "task_id": "libpcap_bpf_codegen_fidelity",
+ "compilation_floor": 0.8,
+ "items": [
+  {
+   "id": "R1_exact_bytecode",
+   "dimension": "conformance",
+   "weight": 0.4,
+   "evaluation_target": "out.jsonl",
+   "criterion": "For every case the pinned upstream compiled, the submitted prog array is the identical sequence of four-tuples the upstream emitted, element for element.",
+   "judgment": "tuple-sequence equality against the golden program",
+   "evidence": [
+    "out.jsonl"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R2_error_text",
+   "dimension": "conformance",
+   "weight": 0.18,
+   "evaluation_target": "out.jsonl",
+   "criterion": "For every case the pinned upstream rejected, the submitted err string is byte-identical to the upstream error text.",
+   "judgment": "string equality against the golden error",
+   "evidence": [
+    "out.jsonl"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R3_structural_validity",
+   "dimension": "correctness",
+   "weight": 0.1,
+   "evaluation_target": "out.jsonl",
+   "criterion": "Every emitted program passes the structural validator: all jump targets land inside the program, no load reads past the packet or scratch bounds, and the program terminates.",
+   "judgment": "validator returns no rejection reason",
+   "evidence": [
+    "out.jsonl"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R4_record_integrity",
+   "dimension": "correctness",
+   "weight": 0.08,
+   "evaluation_target": "out.jsonl",
+   "criterion": "The output carries exactly one well-formed record per input case, in input order, with no duplicate and no missing index.",
+   "judgment": "index set equality and order equality against the input",
+   "evidence": [
+    "out.jsonl"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R5_no_upstream_copy",
+   "dimension": "integrity",
+   "weight": 0.1,
+   "evaluation_target": "containment_report",
+   "criterion": "Normalized five-gram containment of the submitted sources against the pinned upstream sources stays below the bound threshold, with string literals excluded.",
+   "judgment": "containment strictly below 0.15",
+   "evidence": [
+    "containment_report"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R6_no_forbidden_link",
+   "dimension": "integrity",
+   "weight": 0.08,
+   "evaluation_target": "nm_ldd_report",
+   "criterion": "The built binary imports nothing outside libc and libm, so it neither links nor dynamically loads the upstream library.",
+   "judgment": "import set difference against the allowed set is empty",
+   "evidence": [
+    "nm_ldd_report"
+   ],
+   "mode": "compiled"
+  },
+  {
+   "id": "R7_throughput_earned",
+   "dimension": "efficiency",
+   "weight": 0.06,
+   "evaluation_target": "reward.json",
+   "criterion": "Throughput credit is charged against byte-exact cases only, so a submission with no exact cases earns no throughput credit.",
+   "judgment": "P equals zero whenever N_exact equals zero",
+   "evidence": [
+    "reward.json"
+   ],
+   "mode": "compiled"
+  }
+ ]
+}

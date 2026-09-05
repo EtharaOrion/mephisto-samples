@@ -1,0 +1,13 @@
+{
+  "task_id": "libpcap_bpf_codegen_fidelity",
+  "round": "agent-2",
+  "score": 0.0,
+  "submission_id": "cf3456935ec7",
+  "pass_rate": null,
+  "valid": null,
+  "status": null,
+  "summary": null,
+  "archive_size_bytes": 36588,
+  "_recovered": "Rebuilt from the submit output captured in agent_output.txt. The original submission.tar.gz and judge test_output.txt were lost with the directory and are NOT recoverable.",
+  "submission_id_provenance": "captured"
+}

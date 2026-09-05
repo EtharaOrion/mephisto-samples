@@ -1,0 +1,18 @@
+{
+  "agent": "claude-code",
+  "task": "libpcap_bpf_codegen_fidelity",
+  "run_id": "120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f",
+  "model": "claude-opus-5[1m]",
+  "best_score": 0.95318,
+  "best_round": "agent-102",
+  "total_rounds": 126,
+  "harness_reported_best_pct": 0.0,
+  "harness_reported_best_round": "agent-102",
+  "agent_submissions": 103,
+  "auto_submissions": 23,
+  "resume_count": 1,
+  "runtime_seconds": 43199.8,
+  "timed_out": true,
+  "archive_size_bytes": 53923,
+  "_note": "Reconstructed from rescued logs. best_score/best_round derived from the supervisor score table, which is authoritative; the harness 'Done: best=' figure is unreliable (known aggregation bug)."
+}

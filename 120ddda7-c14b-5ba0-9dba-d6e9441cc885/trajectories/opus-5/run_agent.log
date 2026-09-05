@@ -1,0 +1,70 @@
+Running agent 'claude-code' on task: libpcap_bpf_codegen_fidelity
+  Work image:  edgebench.work.libpcap_bpf_codegen_fidelity:52a6841c4c6c
+  Run ID:      120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f
+  Timeout:     43200s
+  Model:       claude-opus-5[1m]
+  Auto-eval:   1800s
+  Stop hook:   claude
+  Auto-resume: enabled
+  Internet:    disabled (judge + API only)
+  Max submissions: 300
+  Submit cooldown: 120s
+  Judge URL:   http://host.docker.internal:8081
+  Log dir:     /home/ec2-user/Mephisto/mephisto/trajectories/claude/runs/120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f/libpcap_bpf_codegen_fidelity
+  Agent log:   /home/ec2-user/Mephisto/mephisto/trajectories/claude/runs/120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f/libpcap_bpf_codegen_fidelity/run_agent.log
+  Agent output: /home/ec2-user/Mephisto/mephisto/trajectories/claude/runs/120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f/libpcap_bpf_codegen_fidelity/agent_output.txt
+
+Images ready
+Registered session with judge server
+Network isolation enabled: iptables preflight passed
+Container started: sforge.run.libpcap_bpf_codegen_fidelity.120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f (judge_url=http://host.docker.internal:8081)
+Install step 1/2: sudo -E bash -c 'NODE_MIRROR=${SFORGE_NODEJS_MIRROR_URL:-https://nodejs.org/dist} && case "$(uname -m)" in aarch64|arm64) NODE_ARCH=arm64;; *) NODE_ARCH=x64;; esac && curl -fsSL $NODE_MIRROR/v20.18.0/node-v20.18.0-linux-$NODE_ARCH.tar.xz | tar -xJ -C /usr/local --strip-components=1'
+Install step 1 done (2.0s)
+Install step 2/2: sudo -E npm install -g @anthropic-ai/claude-code@2.1.159
+Install step 2 done (2.3s)
+Agent installation complete
+Installed sforge-submit script
+Installed Claude Code stop hook
+Configured Claude Code settings with hooks
+Host-side auto-eval started (interval=1800s)
+Network isolation applied: chain=SFORGE_a79c60677fd2, ip=172.17.0.6, ip6=None, allowed=2 endpoints
+Prompt written (16864 bytes)
+Running agent: claude -p "$(cat /tmp/agent_prompt.md)" --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-5[1m]' --disallowedTools WebSearch,WebFetch... (timeout=43200s)
+Agent exited after 11300.6s, will resume
+Resuming agent (attempt 1/100, 31899s left): claude --continue -p "Continue working." --output-format stream-json --verbose --dangerously-skip-permissions --model 'claude-opus-5[1m]' --disallowedTools WebSearch,WebFetch...
+Agent finished: runtime=43199.8s, timed_out=True, resumes=1, pool_paused=0s
+Auto-eval thread stopped
+Final archive: 53923 bytes
+Work container processes stopped
+Done: best=0.00% (round 'agent-102'), agent_subs=103, auto_subs=23, resumes=1, runtime=43199.8s
+Failed to remove v6 chain: ip6tables -F SFORGE_a79c60677fd2 failed: ip6tables: No chain/target/match by that name.
+Network isolation cleaned up: chain=SFORGE_a79c60677fd2
+
+Stopping container, please wait... (Ctrl+C disabled during cleanup)
+Stopping container sforge.run.libpcap_bpf_codegen_fidelity.120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f...
+Removing container sforge.run.libpcap_bpf_codegen_fidelity.120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f...
+Container sforge.run.libpcap_bpf_codegen_fidelity.120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f removed.
+
+Agent completed in 43199.8s
+  Timed out:        True
+  Total rounds:     126
+  Best pass rate:   0.00%
+  Best score:       1
+  Best round:       agent-102
+  Final archive:    /home/ec2-user/Mephisto/mephisto/trajectories/claude/runs/120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f/libpcap_bpf_codegen_fidelity/final_archive.tar.gz
+
+  "agent": "claude-code",
+  "task": "libpcap_bpf_codegen_fidelity",
+  "run_id": "120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f",
+  "model": "claude-opus-5[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-102",
+  "total_rounds": 126,
+  "agent_submissions": 103,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43199.75434231758,
+  "archive_size_bytes": 53923,
+  "resume_count": 1,
+  "best_score": 0.95318
+}
