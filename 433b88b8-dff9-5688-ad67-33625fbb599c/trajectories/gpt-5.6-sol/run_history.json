@@ -1200,14 +1200,14 @@
   "merged_at": "2026-09-06T09:46:50",
   "parts": [
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-openhands-20260905-2106/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_dir": "/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-openhands-20260905-2106/p6zeta_zero_one_ip_solver_from_scratch_v2",
       "run_id": "p6zeta-v2-gpt56sol-openhands-20260905-2106",
       "rounds": 60,
       "best_score": 0.715274,
       "runtime_seconds": 39888.241535425186
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-20260906-seeded/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_dir": "/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-20260906-seeded/p6zeta_zero_one_ip_solver_from_scratch_v2",
       "run_id": "p6zeta-v2-gpt56sol-20260906-seeded",
       "rounds": 6,
       "best_score": 0.83843,

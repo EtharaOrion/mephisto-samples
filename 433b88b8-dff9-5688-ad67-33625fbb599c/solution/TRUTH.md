@@ -1,15 +1,9 @@
 # TRUTH.md - p6zeta_zero_one_ip_solver_from_scratch_v2
 
-<!-- GENERATED SECTION. DO NOT HAND-EDIT. Re-run solution/recompute.py <bundle_dir> to regenerate this file from grounding.yaml. -->
+<!-- Ground-truth record for the v2 route. Authoring inputs are retained privately and are not part of the published bundle. -->
 
 **task_id**: `p6zeta_zero_one_ip_solver_from_scratch_v2`
 **family**: Framework A: from-scratch combinatorial-optimization solver
-
-## Canary tokens
-
-- `MEPHISTO_CANARY_P6Z2_20260905_7C1E9A40`
-- `MEPHISTO_CANARY_P6Z2_20260905_D3B872F1`
-- `MEPHISTO_CANARY_P6Z2_20260905_5E0F4C9B`
 
 ## Golden trajectory
 
@@ -27,7 +21,7 @@
 
 ### Step 2
 
-**action**: Judge runs ./build.sh once, then invokes ./solve <instance> per hidden instance under `timeout 60s taskset -c <cpu>` from 16 parallel lanes (lane w takes every 16th instance and is pinned to cpu w), capturing stdout to scoring/outputs/<instance_id>.out.json and stderr (BEST ts= obj= tokens) to scoring/traces/<instance_id>.log.
+**action**: Judge runs ./build.sh once, then invokes ./solve <instance></instance> per hidden instance under `timeout 60s taskset -c <cpu>` from 16 parallel lanes (lane w takes every 16th instance and is pinned to cpu w), capturing stdout to scoring/outputs/<instance_id>.out.json and stderr (BEST ts= obj= tokens) to scoring/traces/<instance_id>.log.
 
 **state**: submissions collected
 
@@ -47,7 +41,7 @@
 
 ### Step 4
 
-**action**: Judge runs perturb_v2.py make to build seven perturbed variants of a fixed subset: the first lib.L5_SUBSET_PER_FAMILY=3 instances of each family in sorted id order (21 instances). Perturbations: variable_order_within_constraint (one column permutation applied to objective and all rows), constraint_reorder, coefficient_common_scale (each row and rhs times an integer in 2..9), instance_id_salt_rewrite (HMAC suffix), json_whitespace_reformat (indent=4), output_json_field_order (keys reordered in the instance and in each constraint object), output_json_trailing_whitespace (trailing blank lines). Each variant cohort is solved with the same 16-lane pinned runner; perturb_v2.py restore maps outputs back (instance_id restored, variables un-permuted) into scoring/perturb/<perturbation>/<instance_id>.out.json.
+**action**: Judge runs perturb_v2.py make to build seven perturbed variants of a fixed subset: the first lib.L5_SUBSET_PER_FAMILY=3 instances of each family in sorted id order (21 instances). Perturbations: variable_order_within_constraint (one column permutation applied to objective and all rows), constraint_reorder, coefficient_common_scale (each row and rhs times an integer in 2..9), instance_id_salt_rewrite (HMAC suffix), json_whitespace_reformat (indent=4), output_json_field_order (keys reordered in the instance and in each constraint object), output_json_trailing_whitespace (trailing blank lines). Each variant cohort is solved with the same 16-lane pinned runner; perturb_v2.py restore maps outputs back (instance_id restored, variables un-permuted) into scoring/perturb/<perturbation></perturbation>/<instance_id>.out.json.
 
 **state**: perturbation sweep complete on the 21-instance subset
 
@@ -68,28 +62,21 @@
 ## Near-miss routes
 
 - **route**: reference_naive_bnb_primal_simplex
-  **rejection_reason**: Reference solver is CALIBRATION ARTIFACT only per MEPHISTO 1.2; agent submission is graded against author-computed optima directly, never against reference output. Reference measured lands at 37.74/100 IN BAND [20, 40], confirming task is not too-easy (ref << ceiling 100) and not too-hard (ref >> floor 0). Reference hits LP-iteration-limit on 27 of 90 hardest instances (mostly capacitated-facility-location at 252-464 vars, plus graph-coloring LP-heavy cases, plus some multi-dim-knapsack), returning status unknown, which is honest degradation for a stdlib-only naive baseline. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Reference solver is CALIBRATION ARTIFACT only per MEPHISTO 1.2; agent submission is graded against author-computed optima directly, never against reference output. v2 MEASURED 2026-09-05 on the v2 judge: reference lands at 24.23/100 IN BAND [20, 40], confirming task is not too-easy (ref << ceiling 100) and not too-hard (ref >> floor 0). Reference hits its LP-iteration-limit on the hardest instances (mostly capacitated-facility-location, plus graph-coloring LP-heavy cases, plus some multi-dim-knapsack), returning status unknown, which is honest degradation for a stdlib-only naive baseline.
 - **route**: lp_round
-  **rejection_reason**: Solve LP relaxation via _solve_lp_relaxation, round x_i to nearest integer, feasibility-check via lib.feasibility_violations, set status feasible if no violations else infeasible. LP-round measured total 15.91 SAFELY BELOW reference 37.74 (margin 21.83). Fractional LP solutions rarely round to integer-feasible points on tight constraint families (CFL, GC, MDK), so L1 fails on most hard instances. Reference's B&B search dominates this shortcut. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Solve LP relaxation via _solve_lp_relaxation, round x_i to nearest integer, feasibility-check via lib.feasibility_violations, set status feasible if no violations else infeasible. LP-round measured total 15.91 on the v1 judge (2026-08-10), SAFELY BELOW the v2 reference 24.23. Fractional LP solutions rarely round to integer-feasible points on tight constraint families (CFL, GC, MDK), so L1 fails on most hard instances, and the v2 families are tighter still. Reference's B&B search dominates this shortcut.
 - **route**: all_zero
   **rejection_reason**: Submit variables=[0]*n_vars for every instance, status=feasible if feasible else infeasible. v2 MEASURED 2026-09-05 on the v2 judge: 4.44/100 (L1 4.44 from status agreement on the 40 instances where the zero vector is feasible/infeasible as the oracle says; L2 0, L3 0, L4 0, L5 0 under the credit-retained formula). Reference 24.23, margin 19.79.
-
 - **route**: greedy_set_cover
-  **rejection_reason**: Family-gated greedy (largest uncovered-element gain per subset cost) applied to set-cover family only; other 80 of 90 instances return status=unknown. Greedy-set-cover measured total 2.79 SAFELY BELOW reference 37.74 (margin 34.95). Even on the 10 set-cover instances, greedy achieves feasibility but leaves 5-15% optimality gap versus B&B optimum, yielding partial L2 credit only within that family. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Family-gated greedy (largest uncovered-element gain per subset cost) applied to set-cover family only; other 80 of 90 instances return status=unknown. Greedy-set-cover measured total 2.79 on the v1 judge (2026-08-10), SAFELY BELOW the v2 reference 24.23. Even on the 10 set-cover instances, greedy achieves feasibility but leaves 5-15% optimality gap versus B&B optimum, yielding partial L2 credit only within that family.
 - **route**: greedy_knapsack
-  **rejection_reason**: Family-gated value-per-max-weight-across-constraints density greedy applied to zero-one-knapsack plus multi-dimensional- knapsack (40 of 90 instances); other 50 return status=unknown. Greedy-knapsack measured total 14.49 SAFELY BELOW reference 37.74 (margin 23.25). Density-greedy achieves feasibility on the 40 instances but leaves 3-10% optimality gap where B&B closes to optimum on knapsack cohort. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Family-gated value-per-max-weight-across-constraints density greedy applied to zero-one-knapsack plus multi-dimensional- knapsack (40 of 90 instances); other 50 return status=unknown. Greedy-knapsack measured total 14.49 on the v1 judge (2026-08-10), SAFELY BELOW the v2 reference 24.23. Density-greedy achieves feasibility on the 40 instances but leaves 3-10% optimality gap where B&B closes to optimum on knapsack cohort.
 - **route**: hard_coded_lookup
-  **rejection_reason**: Read hidden_optima.json entry per instance_id and return oracle answers verbatim as agent output. Hard-coded-lookup RAW score 40.00 would trip KILL band clipping to 0.00 via lib.KILL_REASON_SHORTCUT_MINE_AND_RETURN. hidden_optima.json is judge-side artefact under private_boundary; agent-visible closure cannot read it. Any attempt would be detected via canary tripwire scan on hidden_optima.json filename or objective_value literal byte-match. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Read hidden_optima.json entry per instance_id and return oracle answers verbatim as agent output. Hard-coded-lookup RAW score 40.00 (v1 judge, 2026-08-10) would trip KILL band clipping to 0.00 via lib.KILL_REASON_SHORTCUT_MINE_AND_RETURN. hidden_optima.json is judge-side artefact under private_boundary; agent-visible closure cannot read it. Any attempt would be detected via canary tripwire scan on hidden_optima.json filename or objective_value literal byte-match.
 - **route**: shell_out_to_cbc_mock
-  **rejection_reason**: Import subprocess plus string-literal-mention cbc, gurobi, or_tools, pulp, glpk, scip, highs, mosek, xpress, cvxpy, python_mip, pyscipopt, z3, cvc5, minisat, kissat, cadical (any of lib.FORBIDDEN_LIBRARY_STEMS 33-tuple), or reference scipy. optimize.milp / scipy.optimize.linprog (lib.FORBIDDEN_SCIPY_ATTRS). Shell-out-to-cbc-mock RAW score 0.00 with immediate KILL band clip via lib.KILL_REASON_FORBIDDEN_LIBRARY. Detected via lib.scan_forbidden_imports source-scan over agent-shipped src/ tree at grading time. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
-
+  **rejection_reason**: Import subprocess plus string-literal-mention cbc, gurobi, or_tools, pulp, glpk, scip, highs, mosek, xpress, cvxpy, python_mip, pyscipopt, z3, cvc5, minisat, kissat, cadical (any of lib.FORBIDDEN_LIBRARY_STEMS 33-tuple), or reference scipy. optimize.milp / scipy.optimize.linprog (lib.FORBIDDEN_SCIPY_ATTRS). Shell-out-to-cbc-mock RAW score 0.00 with immediate KILL band clip via lib.KILL_REASON_FORBIDDEN_LIBRARY. Detected via lib.scan_forbidden_imports source-scan over agent-shipped src/ tree at grading time.
 - **route**: network_egress_mock
-  **rejection_reason**: Attempt outbound HTTP or DNS resolution during solve execution. Network-egress-mock RAW score 0.00 with immediate KILL band clip via lib.KILL_REASON_NETWORK_EGRESS. Docker network_mode=no-network binds work and judge containers per Harbor 1.4 environment_mode= separate contract; any egress attempt at build time or solve time fails at the network boundary and is logged for KILL attribution. [Numbers quoted here were measured on v1 (2026-08-10); v2 route re-measurement pending.]
+  **rejection_reason**: Attempt outbound HTTP or DNS resolution during solve execution. Network-egress-mock RAW score 0.00 with immediate KILL band clip via lib.KILL_REASON_NETWORK_EGRESS. Docker network_mode=no-network binds work and judge containers per Harbor 1.4 environment_mode= separate contract; any egress attempt at build time or solve time fails at the network boundary and is logged for KILL attribution.
 
 ## Lane reconciliation
 
@@ -111,7 +98,7 @@
 ### L4_anytime_progression
 
 - satisfied_by_steps: [2, 5]
-- detail: For each instance, parse stderr for BEST ts=<t> obj=<f> tokens via lib.L4_BEST_TOKEN_REGEX, require at least lib.L4_MIN_PROGRESSION_TOKENS=2 tokens to award any credit, compute area under best-so-far normalized-credit curve from t=0 to lib.PER_INSTANCE_TIMEOUT_SEC=60 using trapezoidal step-hold of credit=max(0, 1 - optimality_gap(best_so_far, oracle, sense)) at each timestamp. Score = mean across 90 instances scaled by 20 points. Reference measured: 5.50.
+- detail: For each instance, parse stderr for BEST ts=<t></t> obj=<f></f> tokens via lib.L4_BEST_TOKEN_REGEX, require at least lib.L4_MIN_PROGRESSION_TOKENS=2 tokens to award any credit, compute area under best-so-far normalized-credit curve from t=0 to lib.PER_INSTANCE_TIMEOUT_SEC=60 using trapezoidal step-hold of credit=max(0, 1 - optimality_gap(best_so_far, oracle, sense)) at each timestamp. Score = mean across 90 instances scaled by 20 points. Reference measured: 5.50.
 
 ### L5_perturbation_robustness
 
@@ -143,4 +130,3 @@
 - L5_perturbation_robustness: {'score': 14.29, 'max': 15, 'satisfied_by': [4, 5]}
 
 **score_gap_analysis**: v2 reference (the v1 from-scratch primal-simplex + best-first B&B calibration artifact) lands 24.23/100 on the v2 hidden set with the full lane-5 sweep executed. Frontier calibration on the same judge (2026-09-05): today's v1 OpenHands+Opus5 artifact (agent-27, 75.62 on v1) scores 79.67 (L1 9.78 L2 23.69 L3 12.50 L4 19.29 L5 14.42); yesterday's artifact (agent-11, 81.87 on v1) scores 72.07 (L1 10 L2 24.39 L3 3.12 L4 19.69 L5 14.88); all-zero control 4.44 (L1 only). Reference band [20, 40] retained: 24.23 is IN BAND. Full-reward threshold remains 0.95.
-

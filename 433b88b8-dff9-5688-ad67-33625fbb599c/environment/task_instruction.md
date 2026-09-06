@@ -89,4 +89,4 @@ Any of the following collapses your total to 0:
 
 ## Submission and feedback
 
-Submit with `sforge-submit` from your working directory. The judge packages `build.sh`, `solve` and `src/`, grades them in a separate container, and returns a single scalar score in [0, 1] (your total divided by 100). You may submit repeatedly: at most 300 submissions with a 120 second cooldown between them. A byte-identical resubmission returns the previous score without regrading. Per-lane breakdowns and per-instance results are not returned; use the develop set and `p6zeta_lib.py` to measure lanes locally.
+Submit with `sforge-submit` from your working directory. The judge packages `build.sh`, `solve` and `src/`, grades them in a separate container, and returns a single scalar score in [0, 1] (your total divided by 100). You may submit repeatedly: at most 60 submissions with a 900 second cooldown between them. A byte-identical resubmission returns the previous score without regrading. Per-lane breakdowns and per-instance results are not returned; use the develop set and `p6zeta_lib.py` to measure lanes locally.

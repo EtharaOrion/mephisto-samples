@@ -26,7 +26,7 @@ Two frontier runs on v1 (Claude Opus 5 on OpenHands, 2026-09-04 and 2026-09-05) 
 | Hidden instances | small (MDK n 71-97, knapsack n 259-393, ...), all solved to optimum in < 60 s by a from-scratch solver | same seven families, same schema; Chu-Beasley MDK with tight capacities, almost-subset-sum and strongly correlated knapsacks with coefficients to 10^6, dense near-unicost set cover, min-cost type-D GAP (5-8 machines), aggregated-capacity CFL, DSATUR-tight colouring with symmetry-breaking rows, 10-11 city TSP with all subtour rows. Optima certified by HiGHS (`scipy.optimize.milp`, `mip_rel_gap=0`), hardest-certified-first selection per family |
 | Lane 5 | never executed | `tests/perturb_v2.py` builds the seven perturbations on a fixed 21-instance subset (first 3 per family), the judge solves them and un-perturbs the outputs before `score.py` |
 | Judge parallelism | serial | 16 lanes, each `./solve` pinned to one cpu with `taskset` |
-| Agent instruction | claimed single-shot submission and a lane-5 sweep | describes the real `sforge-submit` loop (300 submissions, 120 s cooldown, scalar feedback, identical archives not regraded), the real lane-3 file contract, the real lane-5 subset and formula |
+| Agent instruction | claimed single-shot submission and a lane-5 sweep | describes the real `sforge-submit` loop (60 submissions, 900 s cooldown, scalar feedback, identical archives not regraded), the real lane-3 file contract, the real lane-5 subset and formula |
 | Develop set | 6 instances, no MDK | 7 instances, one per family, same generator as the hidden set |
 | `p6zeta_lib.py` | | `TASK_ID` = v2 id, `L5_SUBSET_PER_FAMILY = 3` |
 | Lane 2 curve | 30 at gap 0, 27 at <= 2%, 24 at 5%, 18 at 10%, 10 at 20%, 4 at 35% | 30 at 0, 27 at <= 0.5%, 24 at 1%, 18 at 2%, 10 at 5%, 4 at 10%. Optima are certified, so exactness is rewarded and near-misses are no longer almost free |
@@ -54,23 +54,11 @@ task_instruction.md          agent-facing spec (also copied into the work image)
 environment/                 work image: Dockerfile, README, p6zeta_lib.py, data/develop (7), ip_format_spec.md
 tests/                       judge image: Dockerfile, score.py, p6zeta_lib.py, perturb_v2.py, test.sh, data/
 tests/data/hidden_benchmarks 90 instances   tests/data/hidden_optima.json  HiGHS-certified optima + wall times
-solution/generate_instances_v2.py   deterministic generator (BASE_SEED 20260905)
-solution/compute_optima_v2.py       HiGHS certification, one record per candidate
-solution/select_hidden_v2.py        hardest-certified-first selection, writes the judge data
+solution/                    private oracle tree: TRUTH.md, reference_solver.py, rubrics.json, solve.sh
 solution/reference_solver.py        unchanged v1 reference (calibration artifact)
-solution/grounding.yaml -> TRUTH.md via solution/recompute.py
-solution/provenance.yaml            updated; provenance.sig is the v1 signature and must be re-signed
+solution/TRUTH.md                   ground-truth record for the v2 route
 ```
 
-## Regenerating the hidden set
-
-```bash
-python3 solution/generate_instances_v2.py --out /tmp/cand --split hidden --candidates 2
-python3 solution/compute_optima_v2.py --instances /tmp/cand --out /tmp/opt --time-limit 300 --workers 4
-python3 solution/select_hidden_v2.py --candidates /tmp/cand --optima /tmp/opt \
-    --out-instances tests/data/hidden_benchmarks --out-optima tests/data/hidden_optima.json
-```
-
-Requires scipy. Only HiGHS-proven optima are admitted, so the set is reproducible but the
-exact membership depends on the certification time cap and machine speed; the shipped
-`hidden_optima.json` is the frozen truth for this bundle.
+The shipped `tests/data/hidden_optima.json` is the frozen truth for this bundle. The authoring
+scripts that produced the hidden set and certified its optima are retained privately and are not
+part of the published bundle.
