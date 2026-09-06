@@ -12,7 +12,7 @@ name = "Mephisto"
 timeout_sec = 43200
 
 [environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-57ccee252d74@sha256:57ccee252d74910c0331b2b5c06b18209db5aa779f90e74cce838977cec00ba3"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-76cf72a2dc20@sha256:76cf72a2dc20cf115972567eb08c1bac96d79cc0844dd2945ef5d65b34b957b5"
 network_mode = "no-network"
 workdir = "/home/workspace/p6zeta"
 
@@ -36,7 +36,7 @@ selection = "score_first"
 score_direction = "maximize"
 submit_paths = ["build.sh", "solve", "src/"]
 submit_exclude = ["__pycache__/", "*.pyc", ".pytest_cache/", "*.log"]
-work_image_tag = "v2-57ccee252d74"
+work_image_tag = "v2-76cf72a2dc20"
 judge_image_tag = "v2-a6163921614c"
 
 [metadata]

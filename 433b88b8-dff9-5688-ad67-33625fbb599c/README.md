@@ -57,7 +57,15 @@ tests/data/hidden_benchmarks 90 instances   tests/data/hidden_optima.json  HiGHS
 solution/                    private oracle tree: TRUTH.md, reference_solver.py, rubrics.json, solve.sh
 solution/reference_solver.py        unchanged v1 reference (calibration artifact)
 solution/TRUTH.md                   ground-truth record for the v2 route
+trajectories/                two recorded runs: opus-5 (42 submissions), gpt-5.6-sol (66, merged)
+plots/score_vs_submissions.svg      both runs on one axis
+plots/opus-5.svg                    opus-5 alone
+plots/gpt-5.6-sol.svg               gpt-5.6-sol alone
 ```
+
+Plots are drawn from `trajectories/<run>/run_history.json` -> `entries[]` in array order, which is
+the true submission order. Filled dots are agent-initiated submissions, hollow dots are
+evaluator-only snapshots, and the staircase is best-so-far.
 
 The shipped `tests/data/hidden_optima.json` is the frozen truth for this bundle. The authoring
 scripts that produced the hidden set and certified its optima are retained privately and are not
