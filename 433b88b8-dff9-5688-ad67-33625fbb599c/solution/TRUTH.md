@@ -114,8 +114,9 @@
 
 - invoked_at: 2026-09-05
 - method: solve.sh invokes reference_solver.py against each hidden instance under 60-second per-instance timeout, produces per-instance stdout JSON output plus stderr progression trace, judge runs score.py to grade assembled submission. Reference IS the honest oracle for Framework A from-scratch-solver task-shape; there is no hindsight oracle CSV because grading requires solving from inputs.
-- work_image_ref: `426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-41d69325de35@sha256:41d69325de35d03f622a5e8060db07e48234fd020338b8413edbd9ce8841658c`
-- judge_image_ref: `426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:v2-968885e234f0@sha256:968885e234f05fc1faef321baeccc07b9faef4fa71c77014c4756fbdedc42881`
+- work_image_ref: `426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-57ccee252d74@sha256:57ccee252d74910c0331b2b5c06b18209db5aa779f90e74cce838977cec00ba3`
+- judge_image_ref: `426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:v2-a6163921614c@sha256:a6163921614c6326133c907a8f0e2c6158890e339b68293deda5ba2f579c4dc1`
+- image_arch_note: multi-arch manifest lists. The linux/amd64 sub-manifests are byte-identical to the single-arch images that produced the scores recorded here (work `sha256:41d69325de35...`, judge `sha256:968885e234f0...`); linux/arm64 was added without rebuilding amd64 and has not been used for any recorded run.
 - total_score_raw: 24.23
 - total_score_normalized: 0.2423
 - full_reward_threshold: 0.95

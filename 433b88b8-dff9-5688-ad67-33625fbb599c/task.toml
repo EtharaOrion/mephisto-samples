@@ -12,7 +12,7 @@ name = "Mephisto"
 timeout_sec = 43200
 
 [environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-41d69325de35@sha256:41d69325de35d03f622a5e8060db07e48234fd020338b8413edbd9ce8841658c"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-57ccee252d74@sha256:57ccee252d74910c0331b2b5c06b18209db5aa779f90e74cce838977cec00ba3"
 network_mode = "no-network"
 workdir = "/home/workspace/p6zeta"
 
@@ -21,7 +21,7 @@ timeout_sec = 7200
 environment_mode = "separate"
 
 [verifier.environment]
-docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:v2-968885e234f0@sha256:968885e234f05fc1faef321baeccc07b9faef4fa71c77014c4756fbdedc42881"
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:v2-a6163921614c@sha256:a6163921614c6326133c907a8f0e2c6158890e339b68293deda5ba2f579c4dc1"
 network_mode = "no-network"
 # tests/test.sh cds here and runs ./build.sh + ./solve, so this is where the
 # submission archive must be extracted inside the judge image.
@@ -30,14 +30,14 @@ workdir = "/home/workspace/submission"
 [extensions.sforge]
 task_id = "p6zeta_zero_one_ip_solver_from_scratch_v2"
 base_image = "python"
-platform = "linux/amd64"
+platform = "linux/amd64,linux/arm64"
 parser = "structured_json"
 selection = "score_first"
 score_direction = "maximize"
 submit_paths = ["build.sh", "solve", "src/"]
 submit_exclude = ["__pycache__/", "*.pyc", ".pytest_cache/", "*.log"]
-work_image_tag = "v2-41d69325de35"
-judge_image_tag = "v2-968885e234f0"
+work_image_tag = "v2-57ccee252d74"
+judge_image_tag = "v2-a6163921614c"
 
 [metadata]
 provenance_schema_version = "1"
