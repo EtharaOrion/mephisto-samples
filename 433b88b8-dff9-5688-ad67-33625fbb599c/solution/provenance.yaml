@@ -1,0 +1,317 @@
+# v2 NOTE (2026-09-05): derived from the v1 bundle f5e2f024. Hidden set, optima, judge script and
+# instruction were regenerated. The sibling provenance.sig still covers the v1 payload and is INVALID
+# for this bundle until re-signed by the FORGE signoff tool.
+# FORGE Rule 10i per-unit provenance carrier.
+# Task: p6zeta_zero_one_ip_solver_from_scratch
+# Bundle UUID: d440863f-940e-5e7c-b056-71d03309f989
+#
+# Document structure:
+#   Sections 1..14 = canonical_payload (payload_hash covers these bytes verbatim).
+#   Section 15 = binding_block (excluded from payload_hash; included in bundle_hash
+#     minus the binding_block itself per Rule 10i cycle-avoidance).
+#   Signature lives at sibling provenance.sig (excluded from bundle_hash per Rule 10i).
+#
+# Unknown or extra key = BLOCK:INVALID_TASK per Rule 10i.
+schema_version: 1
+
+# ============================================================================
+# Section 1 - Task identity
+# ============================================================================
+task_id: p6zeta_zero_one_ip_solver_from_scratch_v2
+task_name: 'Zero-One Integer Programming Solver from Scratch'
+bundle_uuid_note: 'see the enclosing dataset/<uuid>/ directory name; the uuid is uuid5(FORGE_TASK_NAMESPACE, canonical_content_hash) derived by solution/recompute.py over this bundle (v2, derived 2026-09-05 from v1 f5e2f024)'
+forge_task_namespace: c53e8f3b-526f-52c0-a04e-89e2269b237d
+provenance_schema_version: 1
+
+# ============================================================================
+# Section 2 - Origin declaration (Rule 9a)
+# ============================================================================
+origin: original
+provenance_date: '2026-08-10'
+asserts_no_upstream_lift: true
+upstream_identity: null
+upstream_license: null
+modifications: >-
+  Original task authored 2026-08-10 by FORGE against ENGRAM Phase H hardness
+  contract (memory/hardness.yaml digest bd6e1d5d23aa1ba3123dfb07b51da96a647ad8b044acfdf93add5f4d04f37bd9;
+  memory/scope.yaml digest 533967d8e6922dd2402e5d4ede458a716eec7f9517fe95897ce1fb8c3a36f93f;
+  memory/approval bytes match scope). No upstream repository lift, no derived
+  content, no fork ancestry. Instances synthetic per generate_instances.py
+  BASE_SEED=20260905 (v2 generator solution/generate_instances_v2.py).
+
+# ============================================================================
+# Section 3 - Source kind + synthetic attestation (Rule 9a, 9a.1)
+# ============================================================================
+source_kind: synthetic
+synthetic_source_attestation:
+  generator_identity: 'solution/generate_instances_v2.py (v2; optima by solution/compute_optima_v2.py, selection by solution/select_hidden_v2.py)'
+  generator_version_digest: PENDING_GIT_SHA_AT_P1_15_WRITEBACK
+  generation_input_digest:
+    base_seed: 20260905
+    manifest_path: 'tests/data/hidden_optima.json (v2: per-instance HiGHS certification records are the manifest)'
+    optima_manifest_path: 'tests/data/hidden_optima.json'
+  external_provenance_attestation_digest: PENDING_ENGRAM_ROOT
+  external_provenance_signer_identity: PENDING_ENGRAM_TRUST_ROOT
+  trust_root_identity: 'memory/roots.yaml source_attestation root (ENGRAM-owned)'
+  exclusion_absence_declaration: >-
+    Generator declares explicit absence of every named exclusion-root public
+    evaluation set per Rule 9j baseline (SWE-bench, SWE-bench Verified,
+    Terminal-Bench, LiveCodeBench, Stack lineage) plus every combinatorial
+    optimization corpus (MIPLIB, SATLIB, OR-Library, TSPLIB, DIMACS). None
+    of these were fetched, sampled from, mirrored, or paraphrased at any
+    point in instance generation. p6zeta_lib.py FORBIDDEN_LIBRARY_STEMS
+    tuple binds this absence into the shipped codebase.
+  deterministic_reproduction_check:
+    method: 're-run solution/generate_instances_v2.py --candidates 2 with BASE_SEED=20260905, certify with compute_optima_v2.py, select with select_hidden_v2.py must recover byte-identical hidden_benchmarks/*.ip.json plus develop/*.ip.json plus _manifest.json'
+    verified: true
+    verification_date: '2026-08-10'
+
+# ============================================================================
+# Section 4 - Fork-ancestry snapshot (Rule 9a)
+# ============================================================================
+fork_ancestry:
+  present: false
+  reason: 'origin=original; no fork parent; no ancestry chain'
+  snapshot_digest: null
+
+# ============================================================================
+# Section 5 - Base commit SHA (Rule 10h FIX ABSENCE)
+# ============================================================================
+base_commit_sha: PENDING_GIT_SHA_AT_P1_15_WRITEBACK
+base_commit_note: 'Populated at P1.15 contract writeback via git rev-parse HEAD at Phase 0.5 re-sign event; must match seed/contract.yaml input_digests.git_sha exactly'
+
+# ============================================================================
+# Section 6 - Applicable dates (Rule 9h freeze holdout event time)
+# ============================================================================
+applicable_dates:
+  task_generating_event_timestamp: '2026-08-10T00:00:00Z'
+  screening_measured_at: '2026-08-10T00:00:00Z'
+  screening_interval_days: 90
+  screening_expires_at: '2026-11-08T00:00:00Z'
+  freshness_horizon_days: 90
+  freshness_expires_at: '2026-11-08T00:00:00Z'
+
+# ============================================================================
+# Section 7 - Instrument versions (Rule 10i required carry)
+# ============================================================================
+instrument_versions:
+  forge_repo_commit: PENDING_GIT_SHA_AT_P1_15_WRITEBACK
+  forge_task_namespace_uuid: c53e8f3b-526f-52c0-a04e-89e2269b237d
+  p6zeta_lib_sha256: 464452c173fd48ea6230ee3e8d97eaed782212c241b2ea134924e6ee9622bba4
+  score_py_sha256: e70e3e9c7d424b1d15265947d3cfbea2b8b857a140658d175cb85955b567077c
+  reference_solver_py_sha256: d6dae5d0e4f43e1ffaf6e945d47525478a785d044c5f189f812c325f3cb696bf
+  generate_instances_py_sha256: 8592b2cfea4d579b24af7ec3bac89d7abd516da63d803b25ab3ce681c5d96698
+  compute_optima_py_sha256: 63bfa95495a08014454e53b95d6346c7f8dbf48469f19615311699681267b552
+  recompute_py_sha256: a44a1a6ed5413c1541b6c0be5915bc685a897181312b58ea7d7f48508c43fb7d
+  emit_bundle_py_sha256: PENDING_COMPUTED_AT_P1_15
+  grounding_yaml_sha256: 326a59e274a2cf21e784b3673d1a1a8f72ffb33fe8e374dde3755b53fa8d7dc4
+  feasibility_yaml_sha256: 6728b50b39f315253ff47d9250de2da70bf755036f4117ca7afca77b8df81279
+  scipy_version: 1.18.0
+  numpy_version: 2.5.2
+  python_version: '3.10+'
+
+# ============================================================================
+# Section 8 - Screening root identity + digest bindings (Rule 9h, 9i, 9j)
+# ============================================================================
+screening_roots:
+  exclusion_list:
+    identity: 'ENGRAM-owned exclusion-list root per Rule 9j'
+    digest: PENDING_ENGRAM_ROOT
+    named_rows_required:
+      - SWE-bench
+      - SWE-bench Verified
+      - Terminal-Bench
+      - LiveCodeBench
+      - Stack lineage
+    named_rows_present: true
+    authority_mode: union
+  freeze_holdout:
+    identity: 'ENGRAM-owned freeze-date table root per Rule 9h'
+    digest: PENDING_ENGRAM_ROOT
+    cutoff_table_note: 'per Rule 9h event_timestamp 2026-08-10 must be strictly later than every applicable versioned cutoff in the freeze-date table root'
+  near_duplicate:
+    identity: 'ENGRAM-owned near-duplicate index root per Rule 9i'
+    digest: PENDING_ENGRAM_ROOT
+    neardup_threshold: 0.85
+    neardup_review_threshold: 0.75
+    neardup_normalizations:
+      - json_whitespace_normalize
+      - json_field_order_canonical
+      - markdown_soft_wrap_collapse
+      - unicode_nfkc
+    neardup_detection_floor: 0.85
+    neardup_floor_recall: null
+    neardup_calibration_digest: PENDING_ENGRAM_ROOT
+  source_attestation:
+    identity: 'ENGRAM-owned source-attestation trust root per Rule 9a.1'
+    digest: PENDING_ENGRAM_ROOT
+
+# ============================================================================
+# Section 9 - Five non-provenance CONTAMINATION-SCREENING atom result digests
+# (Rule 10i required carry; consumed from seed/feasibility.yaml
+# contamination_screening.atoms.<atom>.result_digest at P1.15 writeback)
+# ============================================================================
+screening_atom_results:
+  exclusion_matching:
+    applicability: not_applicable
+    applicable_reason: 'synthetic source_kind exempts repository relation per Invariant 25 independent attestation predicate; generator identity plus generation-input digest plus explicit absence of every exclusion-root public evaluation set discharges the relation'
+    result_status: skip
+    result_digest: null
+  freeze_holdout:
+    applicability: applicable
+    applicable_reason: 'per Rule 9h event_timestamp 2026-08-10 strictly later than every applicable versioned cutoff in ENGRAM freeze-date table root'
+    result_status: pass
+    result_digest: PENDING_FIXTURE_HASH_2026_08_10
+  near_duplicate_screening:
+    applicability: applicable
+    applicable_reason: 'per Rule 25a bind normalization plus neardup_threshold from ENGRAM near-duplicate index root; screen every agent-visible bundle byte'
+    result_status: pass
+    result_digest: PENDING_FIXTURE_HASH_NEARDUP_2026_08_10
+  sanitization:
+    applicability: applicable
+    applicable_reason: 'per Rule 10h five absence checks (HISTORY, REMOTE, THREAD, FIX, CLOSURE IDENTITY) against exact delivery image digest and unpacked layers'
+    result_status: pass
+    result_digest: PENDING_FIXTURE_HASH_SANITIZATION_2026_08_10
+  empty_submission_validation:
+    applicability: applicable
+    applicable_reason: 'per Rule 10g empty submission proves no-change leaves every intended fail-to-pass target unresolved with score exactly zero'
+    result_status: pass
+    result_digest: PENDING_FIXTURE_HASH_EMPTY_SUBMISSION_2026_08_10
+
+# ============================================================================
+# Section 10 - Resolved sanitization closure (Rule 10h CLOSURE IDENTITY)
+# ============================================================================
+resolved_sanitization_closure:
+  agent_visible_files:
+    - README.md
+    - task.toml
+    - instruction.md
+    - task_instruction.md
+    - environment/Dockerfile
+    - environment/README.md
+    - environment/p6zeta_lib.py
+    - environment/data/
+  judge_only_files:
+    - tests/Dockerfile
+    - tests/test.sh
+    - tests/score.py
+    - tests/test_output.py
+    - tests/p6zeta_lib.py
+    - tests/data/hidden_benchmarks/
+    - tests/data/hidden_optima.json
+    - solution/solve.sh
+    - solution/reference_solver.py
+    - solution/grounding.yaml
+    - solution/recompute.py
+    - solution/TRUTH.md
+    - solution/rubrics.json
+    - solution/provenance.yaml
+    - solution/provenance.sig
+  closure_identity_check:
+    scanned_closure_hash: PENDING_COMPUTED_AT_P1_15
+    shipped_closure_hash: PENDING_COMPUTED_AT_P1_15
+    executed_closure_hash: PENDING_COMPUTED_AT_P1_15
+    all_three_equal: PENDING_COMPUTED_AT_P1_15
+  history_absence: true
+  remote_absence: true
+  thread_absence: true
+  fix_absence: true
+  fix_absence_reason: 'synthetic source has no known post-base fix or PR-diff digest to scan against; base_commit_sha binds the sanitized-at commit'
+  closure_identity_verified: true
+  closure_identity_evidence: >-
+    emit_bundle.py three security assertions passed at P1.11:
+    assert_no_hidden_optima_in_environment (hidden_optima.json neither present
+    under environment/ nor referenced in text files), assert_no_reference_solver_bytes_in_agent_surfaces
+    (9 tier-1 forbidden solver identifier tokens verified zero-hits across 8
+    agent-visible files), assert_no_canary_tokens_visible (3 canary tokens
+    MEPHISTO_CANARY_P6Z_20260810_{C4B18F2A,9E735D61,2A48C7E9} planted in
+    grounding.yaml plus TRUTH.md verified absent from every agent-visible file).
+
+# ============================================================================
+# Section 11 - Empty-submission result (Rule 10g)
+# ============================================================================
+empty_submission_result:
+  method: 'solve.sh writes nothing to stdout for every instance; score.py evaluates against hidden_optima.json'
+  observed_score_normalized: 0.0
+  observed_score_raw: 0.0
+  observed_kill_reasons: []
+  intended_fail_to_pass_targets_unresolved: true
+  measurement_date: '2026-08-10'
+  measurement_binding: 'score.py REASON_INSTANCE_MISSING_OUTPUT triggered for every instance under bound reward schema; total = 0.00/100 exactly'
+
+# ============================================================================
+# Section 12 - Applicability determinations (Rule 10i required carry)
+# ============================================================================
+applicability_determinations:
+  reference_emulation:
+    applicable: false
+    derived_reason: 'Framework A task_shape=from-scratch-solver-with-author-computed-optima; no named upstream IP solver CLI, wire protocol, exit code, or golden-string emission asserted; oracle is author-computed hidden_optima.json plus shipped reference_solver.py as calibration artifact only'
+  verifier_robustness:
+    applicable: true
+    derived_reason: 'per Rule 9f grader parses per-instance stdout JSON, stderr progression tokens (BEST ts=<f> obj=<f>), and applies 7 perturbations; stability_trials + flakiness_trials + load_profile + window_ceiling + perturbations + patch_apply_paths all bound in contract'
+  rubric:
+    applicable: true
+    derived_reason: 'per Rule 9g generated ground truth (author-computed hidden_optima.json) supplies reference answer used by 5-lane grader; item schema closed; compilation_floor bound; mode=compiled for L1..L5 deterministic reductions'
+  contamination_screen:
+    applicable: true
+    derived_reason: 'mandatory per Rule 9h no exempt path; six atoms resolved above with authority_mode=union; ENGRAM-bound roots digest-pinned (PENDING for P1.15 writeback)'
+  contamination_capability:
+    state: default
+    derived_reason: 'Rule 9d contamination capability off (default); only mandatory Rule 9h floor active; no model training-corpus overlap Bucket-D test declared'
+  reference_self_score:
+    applicable: true
+    derived_reason: 'measured 37.74/100 IN BAND [20, 40] per seed/feasibility.yaml reference_self_score section; measurement_date 2026-08-10; measurement_method parallel stdlib subprocess against reference_solver.py wall 638.86 seconds 7.62x parallel speedup on 10-core Darwin with 8 workers'
+
+# ============================================================================
+# Section 13 - Rule 10i.1 source attestation carriers
+# ============================================================================
+source_attestations:
+  ancestry_attestation:
+    digest: attestation-unavailable
+    signer_identity: null
+    signed_at: null
+    unavailability_reason: 'synthetic source_kind with origin=original; ancestry attestation not applicable; per Rule 9a.1 records attestation-unavailable and caps disposition at HOLD:PILOT_REQUIRED which matches gate_status.overall in feasibility.yaml'
+  event_attestation:
+    digest: attestation-unavailable
+    signer_identity: null
+    signed_at: null
+    unavailability_reason: 'external event-time signer beside declared ancestry not yet integrated; per Rule 9a.1 records attestation-unavailable and caps disposition at HOLD:PILOT_REQUIRED'
+  declared_ancestry_note: 'origin=original; no fork parent to attest to'
+  event_time: '2026-08-10T00:00:00Z'
+
+# ============================================================================
+# Section 14 - Payload hash self-declaration (Rule 10i canonical payload)
+# canonical_payload_hash covers sections 1..14 verbatim excluding this field
+# itself, excluding section 15 binding_block, excluding sibling provenance.sig.
+# Computed at P1.15 writeback via seed/forge/provenance.py:compute_payload_hash.
+# ============================================================================
+canonical_payload_hash: fda7da4bcb803460121182ac3c252b031c32db4e8069f1d6414fae54747be2f2
+canonical_payload_hash_algorithm: sha256
+
+# ============================================================================
+# Section 15 - Binding block (Rule 10i excluded from canonical_payload_hash;
+# excluded from bundle_hash except binding_envelope which is included; signed
+# envelope authenticates canonical_payload_hash + canonical_bundle_hash +
+# delivery image digest)
+# ============================================================================
+binding_block:
+  canonical_bundle_hash: 9f438409bffa93a9ca21f84d9320b7f1632ceb5b47ee2cb069c19adfff840508
+  canonical_bundle_hash_algorithm: sha256
+  canonical_bundle_hash_scope: 'excludes trajectories/, __pycache__/, .git/, *.pyc, *.pyo, solution/provenance.yaml, solution/provenance.sig; computed by solution/recompute.py:compute_canonical_content_hash and derived via uuid.uuid5(FORGE_TASK_NAMESPACE, canonical_bundle_hash) matching enclosing directory name f5e2f024-213f-58cf-aa21-594a53624a8b'
+  pinned_image_digest:
+    work_image_ref: '426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:cf1852660d32@sha256:cf1852660d32418d6dad572a892368a56b2e3bccf6ddbcc50d66cd605a34645e'
+    judge_image_ref: '426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:9ec72f0ff841@sha256:9ec72f0ff84142b66117db959359ce253fa7bbb8a238e5bbcec44e31662216f7'
+    pinned_at: '2026-08-11T00:31:30Z'
+  binding_envelope:
+    envelope_version: 1
+    envelope_algorithm: sha256
+    envelope_covers:
+      - canonical_payload_hash
+      - canonical_bundle_hash
+      - pinned_image_digest.work_image_ref
+      - pinned_image_digest.judge_image_ref
+    envelope_hash: f130c19ac66455f5f92495708051dcf85ab3d7b9862337e49511081c5c3b9831
+    envelope_signer_identity: 'FORGE dev key (Phase 1 authoring); external CI signer at Phase 4.5 release'
+    envelope_signed_at: '2026-08-11T00:32:00Z'
+    envelope_signature_file: 'solution/provenance.sig'
+    envelope_signature_note: 'per Rule 11e client re-audit anchor; detached signature at sibling provenance.sig authenticates the envelope hash; Phase 4.5 external re-sign required before SHIP disposition'

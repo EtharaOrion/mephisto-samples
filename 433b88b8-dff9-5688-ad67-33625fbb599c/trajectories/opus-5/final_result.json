@@ -1,0 +1,16 @@
+{
+  "agent": "openhands",
+  "task": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+  "run_id": "p6zeta-v2-opus5-openhands-20260905-2106",
+  "model": "claude-opus-5[1m]",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-16",
+  "total_rounds": 42,
+  "agent_submissions": 19,
+  "auto_submissions": 23,
+  "timed_out": true,
+  "runtime_seconds": 43200.12589931488,
+  "archive_size_bytes": 170675,
+  "resume_count": 0,
+  "best_score": 0.932148
+}

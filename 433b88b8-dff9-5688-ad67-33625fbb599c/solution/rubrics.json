@@ -1,0 +1,37 @@
+{
+  "cascade": "sum then clip to [0, 100], with KILL band collapsing total to 0",
+  "lanes": [
+    {
+      "detail": "Fraction of instances passing schema check and status agreement with oracle.",
+      "id": "L1_structural",
+      "max_points": 10,
+      "name": "Structural / feasibility"
+    },
+    {
+      "detail": "Piecewise credit on |reported - optimum| / max(|optimum|, 1) via curve at gap thresholds 0.00, 0.005, 0.01, 0.02, 0.05, 0.10 (v2: tightened; optima are HiGHS-certified).",
+      "id": "L2_optimality_gap",
+      "max_points": 30,
+      "name": "Optimality gap threshold curve"
+    },
+    {
+      "detail": "Top-K=8 precision on the multi-dimensional-knapsack cohort against oracle hardness by wall-clock.",
+      "id": "L3_topk_precision",
+      "max_points": 25,
+      "name": "Top-K hardness ranking precision"
+    },
+    {
+      "detail": "Mean progression-curve area credit across instances; requires at least 2 BEST tokens per instance.",
+      "id": "L4_anytime_progression",
+      "max_points": 20,
+      "name": "Anytime progression"
+    },
+    {
+      "detail": "Fraction of unperturbed L2 credit retained across 7 deterministic perturbations of a fixed 21-instance subset (3 per family); outputs un-perturbed before grading; zero base credit earns zero (v2: replaces v1's stability formula that paid 15/15 to the all-zero control).",
+      "id": "L5_perturbation_robustness",
+      "max_points": 15,
+      "name": "Perturbation robustness"
+    }
+  ],
+  "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+  "total_max": 100
+}

@@ -1,0 +1,1219 @@
+{
+  "run_id": "p6zeta-v2-gpt56sol-merged",
+  "best_score": 0.83843,
+  "best_pass_rate": 0.0,
+  "best_round": "agent-41",
+  "agent_submissions": 42,
+  "auto_submissions": 24,
+  "entries": [
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4edb33f5703a",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-1",
+      "pass_rate": 0.0,
+      "score": 0.681958,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "faaf9aaaa728",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-1",
+      "pass_rate": 0.0,
+      "score": 0.686727,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b751da6d1aa4",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-2",
+      "pass_rate": 0.0,
+      "score": 0.686769,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4560a296129c",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-2",
+      "pass_rate": 0.0,
+      "score": 0.68675,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d887a132ff21",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-3",
+      "pass_rate": 0.0,
+      "score": 0.686704,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-3"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4397c3384fde",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-4",
+      "pass_rate": 0.0,
+      "score": 0.700505,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-4"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "816ebeac2a3e",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-3",
+      "pass_rate": 0.0,
+      "score": 0.702987,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-3"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6b31584a95ee",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-5",
+      "pass_rate": 0.0,
+      "score": 0.70299,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-5"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4af9f448b319",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-6",
+      "pass_rate": 0.0,
+      "score": 0.703738,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-6"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "411dcd4e6783",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-4",
+      "pass_rate": 0.0,
+      "score": 0.703516,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-4"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b7e2395c0634",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-7",
+      "pass_rate": 0.0,
+      "score": 0.704247,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-7"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8a179a4c0270",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-5",
+      "pass_rate": 0.0,
+      "score": 0.704247,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-5"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ec04c98c2303",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-8",
+      "pass_rate": 0.0,
+      "score": 0.704247,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-8"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e10ba1c5e1c1",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-9",
+      "pass_rate": 0.0,
+      "score": 0.703983,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-9"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "59f73c73200d",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-6",
+      "pass_rate": 0.0,
+      "score": 0.704055,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-6"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "3fdecb7d4a75",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-10",
+      "pass_rate": 0.0,
+      "score": 0.710803,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-10"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "574c2509d3b8",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-11",
+      "pass_rate": 0.0,
+      "score": 0.712516,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-11"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "98dae64c12ea",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-7",
+      "pass_rate": 0.0,
+      "score": 0.712849,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-7"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a77445b9e6fe",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-12",
+      "pass_rate": 0.0,
+      "score": 0.713424,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-12"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "523eeb403050",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-13",
+      "pass_rate": 0.0,
+      "score": 0.712879,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-13"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b0e14f145c9e",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-8",
+      "pass_rate": 0.0,
+      "score": 0.712778,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-8"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b19700b3a370",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-14",
+      "pass_rate": 0.0,
+      "score": 0.714845,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-14"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "fa3be5e4f8bc",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-9",
+      "pass_rate": 0.0,
+      "score": 0.713529,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-9"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "02fec9eb706d",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-15",
+      "pass_rate": 0.0,
+      "score": 0.714065,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-15"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "7c11610de1fe",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-16",
+      "pass_rate": 0.0,
+      "score": 0.71279,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-16"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d982594c6183",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-10",
+      "pass_rate": 0.0,
+      "score": 0.712357,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-10"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5059599ebf38",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-17",
+      "pass_rate": 0.0,
+      "score": 0.713783,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-17"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "98a7df347f58",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-11",
+      "pass_rate": 0.0,
+      "score": 0.714461,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-11"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d506dbe53663",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-18",
+      "pass_rate": 0.0,
+      "score": 0.714453,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-18"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "38a3e012141f",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-19",
+      "pass_rate": 0.0,
+      "score": 0.715274,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-19"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a0e884b45f61",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-12",
+      "pass_rate": 0.0,
+      "score": 0.713367,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-12"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "9bc26275e3a7",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-20",
+      "pass_rate": 0.0,
+      "score": 0.713251,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-20"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "380b82a4b085",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-21",
+      "pass_rate": 0.0,
+      "score": 0.714702,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-21"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1f7a1893f07d",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-13",
+      "pass_rate": 0.0,
+      "score": 0.713261,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-13"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6a5dae9039b8",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-22",
+      "pass_rate": 0.0,
+      "score": 0.71384,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-22"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5e4a2fcd72f6",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-23",
+      "pass_rate": 0.0,
+      "score": 0.714795,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-23"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "062467254131",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-14",
+      "pass_rate": 0.0,
+      "score": 0.713278,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-14"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a4ced55b547b",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-24",
+      "pass_rate": 0.0,
+      "score": 0.714084,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-24"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ae10690b7a83",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-25",
+      "pass_rate": 0.0,
+      "score": 0.714933,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-25"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "cfa1d9869acf",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-15",
+      "pass_rate": 0.0,
+      "score": 0.71446,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-15"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "18ad410d082d",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-26",
+      "pass_rate": 0.0,
+      "score": 0.714083,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-26"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "cb0ac404eee3",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-27",
+      "pass_rate": 0.0,
+      "score": 0.713652,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-27"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5665af4e5958",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-16",
+      "pass_rate": 0.0,
+      "score": 0.713272,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-16"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1df857df2e27",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-28",
+      "pass_rate": 0.0,
+      "score": 0.714093,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-28"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6845150d71a0",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-29",
+      "pass_rate": 0.0,
+      "score": 0.714206,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-29"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5308109bcb34",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-17",
+      "pass_rate": 0.0,
+      "score": 0.713218,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-17"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "795995a7398b",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-30",
+      "pass_rate": 0.0,
+      "score": 0.714424,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-30"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "7933af4b8b96",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-31",
+      "pass_rate": 0.0,
+      "score": 0.714451,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-31"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4e23a78fc5a8",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-18",
+      "pass_rate": 0.0,
+      "score": 0.713273,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-18"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5d1dddfb2a2d",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-32",
+      "pass_rate": 0.0,
+      "score": 0.714429,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-32"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a895965f2b40",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-33",
+      "pass_rate": 0.0,
+      "score": 0.714074,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-33"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "cc03b8e35d47",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-19",
+      "pass_rate": 0.0,
+      "score": 0.713165,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-19"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5f86032a9966",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-34",
+      "pass_rate": 0.0,
+      "score": 0.715172,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-34"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "0548af0b83ef",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-35",
+      "pass_rate": 0.0,
+      "score": 0.714095,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-35"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "cc7af7110e5b",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-20",
+      "pass_rate": 0.0,
+      "score": 0.713162,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-20"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c8808d99c8c4",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-36",
+      "pass_rate": 0.0,
+      "score": 0.715182,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-36"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "563c6f0ea5b7",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-21",
+      "pass_rate": 0.0,
+      "score": 0.713148,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-21"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1682a1138403",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-37",
+      "pass_rate": 0.0,
+      "score": 0.71374,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-37"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1df3432440df",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-38",
+      "pass_rate": 0.0,
+      "score": 0.714693,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "agent-38"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a7cd67c2ba3f",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-22",
+      "pass_rate": 0.0,
+      "score": 0.713379,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 1,
+        "round": "auto-22"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8443a9787c4c",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-39",
+      "pass_rate": 0.0,
+      "score": 0.715528,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "2292fd8a6d04",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-40",
+      "pass_rate": 0.0,
+      "score": 0.776403,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-2"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b457974119b9",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-23",
+      "pass_rate": 0.0,
+      "score": 0.775824,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-1"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4adff81a0506",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-41",
+      "pass_rate": 0.0,
+      "score": 0.83843,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-3"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1bdd05a35ab9",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "agent-42",
+      "pass_rate": 0.0,
+      "score": 0.71463,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "agent-4"
+      }
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "25afbe22c5ff",
+      "task_id": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "round": "auto-24",
+      "pass_rate": 0.0,
+      "score": 0.714136,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null,
+      "merged_from": {
+        "part": 2,
+        "round": "auto-2"
+      }
+    }
+  ],
+  "merged": true,
+  "merged_by": "scripts/merge_runs.py",
+  "merged_at": "2026-09-06T09:46:50",
+  "parts": [
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-openhands-20260905-2106/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-openhands-20260905-2106",
+      "rounds": 60,
+      "best_score": 0.715274,
+      "runtime_seconds": 39888.241535425186
+    },
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-20260906-seeded/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-20260906-seeded",
+      "rounds": 6,
+      "best_score": 0.83843,
+      "runtime_seconds": 4335.35195684433
+    }
+  ],
+  "collapsed_gap": false,
+  "merged_note": "Round ids were renumbered per kind in part order; each entry keeps its original id under merged_from. This is a TASK-level record, not one continuous session: between parts the container, the installed state and the model's context were all fresh, and any work a part did after its last submission is not present. runtime_seconds is the sum of the parts' agent time and excludes the wall clock between them."
+}

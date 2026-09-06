@@ -1,0 +1,134 @@
+## Iterative Evaluation Mode
+
+You are working with iterative test feedback. After implementing code, you can submit your work for evaluation at any time to see which tests pass and which fail, then iterate based on the results.
+
+### How to Test Your Code
+
+- Run `sforge-submit` to submit your current code for evaluation. It will package the files, send them to the judge server, and return results showing score, pass rate, and a summary of findings.
+- Run `sforge-submit --details` to submit and see detailed per-test results.
+- Run `sforge-submit --list` to view all previous submissions and their scores for this run.
+
+You should use these regularly to check your progress and identify issues.
+
+### Submitted Files
+
+Only the following paths are submitted for evaluation: `build.sh`, `solve`, `src/`
+
+**Keep these files in a compilable/runnable state at all times.** A background process periodically auto-evaluates your code — if the submitted files are broken, incomplete, or contain syntax errors at that moment, the auto-evaluation will fail. Write changes to disk promptly and ensure the submitted files always represent your current best solution.
+
+### Submission Limits
+
+- You have a **limited number of submissions (60 total)**. Plan carefully and validate locally before submitting.
+- There is a **minimum interval of 900s** between submissions.
+
+### Network Environment
+
+**This environment has NO internet access.** Only the judge server and the AI API are reachable. Do not attempt to download packages, fetch remote resources, or access external URLs — all dependencies are pre-installed in the workspace.
+
+### Strategy
+
+- **Implement incrementally**: Complete one module/project at a time
+- **Read test feedback carefully**: Failed test names often hint at what's broken
+- **Iterate**: Fix failing tests based on the feedback, then submit again
+
+### Scoring
+
+- Your **best score** across all submissions is your final score
+- You don't lose points for failed attempts — experimentation is encouraged
+
+---
+
+Read the complete task instructions in `/home/workspace/task_instruction.md` before beginning any work. That file is the authoritative agent-facing specification for this task; the summary below exists only to point you at it.
+
+# Zero-One Integer Programming Solver from Scratch (v2)
+
+## Role
+
+You are implementing a from-scratch 0-1 integer programming (0-1 IP) solver. The evaluator invokes your `./solve` binary once per instance across a private set of 90 held-out instances drawn from seven NP-hard families, then again on a fixed subset under seven deterministic perturbations. Your job is to maximize your 5-lane score under the constraints below.
+
+The hidden instances are structurally harder than the seven-instance develop set suggests: correlated multi-dimensional knapsacks with tight capacities, almost-subset-sum and strongly correlated single knapsacks with coefficients up to 10^6, dense near-unicost set covers, min-cost type-D generalized assignment, facility location with aggregated capacities only, dense graph colouring with a tight colour budget, and full-subtour-row TSPs. Every hidden optimum was certified by an exact solver; expect that a 60-second budget does not reach the optimum on every instance, so anytime behaviour and gap quality matter.
+
+## Deliverable
+
+Provide three submission paths at your working directory root:
+
+- `build.sh` - shell script the judge runs once before evaluation to compile or install any local artifacts your solver needs. May be empty. Only tools already present in the judge image are available; there is no network.
+- `solve` - executable entrypoint. The judge invokes `./solve <path/to/input.ip.json>` per instance and expects a JSON solution on stdout. Structured progression tokens `BEST ts=<seconds> obj=<value>` on stderr contribute to the anytime-progression lane.
+- `src/` - directory containing your solver source. All source under `src/` ships with the submission; nothing outside these three paths is considered.
+
+## Input format
+
+Each instance is a JSON file with the following schema:
+
+```json
+{"instance_id": "p6zeta__hidden__<family>__NNN",
+ "family": "<one of seven families>",
+ "n_vars": <positive int>,
+ "objective_sense": "max" | "min",
+ "objective_coefficients": [<n_vars floats>],
+ "constraints": [
+   {"coefficients": [<n_vars floats>],
+    "rhs": <float>,
+    "sense": "<=" | ">=" | "=="}
+ ]
+}
+```
+
+All decision variables are binary (values 0 or 1). Feasibility is defined row-by-row against the sense. Coefficient rows are dense. An optional `comment` key may be present. Key order and whitespace are not guaranteed; parse the JSON, do not pattern-match the text.
+
+## Output format
+
+Print a single JSON document to stdout:
+
+```json
+{"instance_id": "<echoed input id>",
+ "status": "optimal" | "feasible" | "infeasible" | "unknown",
+ "variables": [<n_vars 0/1 ints>] | null,
+ "objective_value": <float> | null
+}
+```
+
+`variables` and `objective_value` may be `null` only when `status` is `infeasible` or `unknown`. Echo the `instance_id` exactly as read from the input. Report `optimal` only when you have proved it; a wrong `optimal` on a feasible-but-not-optimal answer costs the structural lane.
+
+## Progression tokens (optional but graded)
+
+Emit lines to stderr of the exact form `BEST ts=<seconds_since_start> obj=<current_incumbent>` each time you find an improved incumbent. At least two such tokens are required to earn any anytime-progression credit for an instance. Credit is the area under the best-so-far curve over the 60-second window, so an early good incumbent is worth more than the same incumbent found late.
+
+## Provided inputs
+
+Your working environment contains:
+
+- `data/develop/*.ip.json` - 7 example instances (one per family) generated by the same generator family as the hidden set, at the small end of the hidden size range. Use for local development.
+- `data/ip_format_spec.md` - byte-level format specification.
+- `p6zeta_lib.py` - shared reference library (validators, feasibility check, objective computation, canonical JSON helpers, lane formulas). You may import or copy from it as you see fit.
+
+## Scoring (0 to 100)
+
+Five lanes summed then clipped:
+
+- L1 structural (10 pts): fraction of instances passing schema check and status agreement with the oracle.
+- L2 optimality gap (30 pts): threshold curve on the relative gap to the certified optimum. Gap <= 0.00 earns 30; <= 0.005 earns 27; <= 0.01 earns 24; <= 0.02 earns 18; <= 0.05 earns 10; <= 0.10 earns 4; otherwise 0. Awarded only when the oracle status is optimal, your status agrees, and your variables are feasible.
+- L3 top-K precision (25 pts): write a JSON list of instance ids to `l3_ranking.json` in your submission root at evaluation time, naming what you judge to be the hardest multi-dimensional-knapsack instances, hardest first. Only the first K=8 count. The oracle ranking is the exact solver's wall-clock time per instance, descending. Precision = |your top 8 ∩ oracle top 8| / 8.
+- L4 anytime progression (20 pts): mean progression-curve credit across instances, requires >= 2 BEST tokens per instance.
+- L5 perturbation robustness (15 pts): the judge re-runs your solver on a fixed 21-instance subset (the first 3 of each family in sorted id order) under seven deterministic perturbations of the input file: variable order permuted consistently across objective and rows; constraints reordered; each row and its rhs multiplied by a positive integer; instance_id given a salted suffix; whitespace reformatted; JSON keys reordered; trailing whitespace appended. Outputs are mapped back to the original instance before grading. For each perturbation the credit is the fraction of your unperturbed L2 credit on the subset that you retain under the perturbation (gains do not count; zero base credit means zero); the lane is the mean over the seven perturbations times 15. A deterministic, order-invariant solver that parses JSON properly keeps everything it earned.
+
+## KILL band (score to 0)
+
+Any of the following collapses your total to 0:
+
+- Importing or shelling out to a forbidden solver library (cplex, gurobi, ortools, pulp, cbc, glpk, scip, highs, mosek, xpress, cvxpy, python-mip, scipy.optimize.milp, scipy.optimize.linprog, z3-solver, cvc5, minisat, kissat, cadical, and others listed in `p6zeta_lib.FORBIDDEN_LIBRARY_STEMS`).
+- Any outbound network egress attempt.
+- Reading a private artifact outside your submission surface.
+- Emitting the ShortcutScore mine-and-return signature (verbatim oracle answer for hidden instances that were not provided to you).
+
+## Runtime constraints
+
+- 60 second per-instance wall-clock timeout (the judge kills your process).
+- 16 parallel judge workers. Each `./solve` invocation is pinned to a single CPU with `taskset`; multithreading buys nothing.
+- 7200 second whole-run wall-clock budget for the judge sweep (base cohort plus the lane-5 subset).
+- 43200 second total agent budget.
+- No network access at agent time or judge time.
+
+## Submission and feedback
+
+Submit with `sforge-submit` from your working directory. The judge packages `build.sh`, `solve` and `src/`, grades them in a separate container, and returns a single scalar score in [0, 1] (your total divided by 100). You may submit repeatedly: at most 300 submissions with a 120 second cooldown between them. A byte-identical resubmission returns the previous score without regrading. Per-lane breakdowns and per-instance results are not returned; use the develop set and `p6zeta_lib.py` to measure lanes locally.

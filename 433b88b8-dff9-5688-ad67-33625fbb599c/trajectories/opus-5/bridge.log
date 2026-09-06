@@ -1,0 +1,1566 @@
+2026-09-05 21:06:15,952 INFO claude_oauth.bridge: Using multi-account pool with 1 slots
+INFO:     Started server process [339381]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:9091 (Press CTRL+C to quit)
+2026-09-05 21:07:16,488 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[bridge] credentials OK (token prefix: sk-ant-oat0<redacted>)
+[bridge] listening on http://0.0.0.0:9091
+[bridge] point clients at:
+           export ANTHROPIC_API_BASE=http://0.0.0.0:9091
+           export ANTHROPIC_API_KEY=kaiju-cc-stub
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:07:20,448 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:07:23,472 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:07:26,477 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:07:29,362 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38880 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:07:36,841 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45440 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36726 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:09:41,359 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:09:58,222 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47538 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50506 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41742 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:13:05,486 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:13:15,254 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46380 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:14:07,351 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:14:34,231 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37964 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:15:10,297 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:15:16,227 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59976 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:15:51,593 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:16:03,507 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41964 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42602 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:17:48,887 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55178 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:19:03,429 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48758 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:20:00,036 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58634 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:21:13,335 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53516 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:22:02,634 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48538 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49458 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:23:40,747 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59388 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:25:01,760 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:17,074 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:20,291 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:29,656 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:33,029 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49446 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:25:37,781 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:47,718 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:25:50,841 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59958 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:26:13,433 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57430 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:26:16,428 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57430 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:26:29,554 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57430 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:26:32,906 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57430 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49748 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:27:12,124 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57930 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59030 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49274 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59964 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59748 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53978 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:31:50,799 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54982 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:32:02,322 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54982 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:32:06,757 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54982 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48356 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:33:14,363 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40512 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:33:25,992 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40512 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:33:35,357 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40512 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54672 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:33:40,085 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40512 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:34:33,006 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39770 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59004 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:34:36,767 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39770 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49624 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43152 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:36:54,813 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:37:04,796 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:37:12,349 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:37:23,757 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:37:27,782 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:37:31,651 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36628 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:37:36,748 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35246 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:38:08,844 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55060 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:38:13,852 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55060 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:38:18,271 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55060 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:38:35,250 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48878 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53490 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44990 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40976 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53888 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38410 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46818 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49838 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53328 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50586 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56474 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51588 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57942 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45740 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36218 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41504 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37404 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37270 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51652 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43702 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33376 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:57:53,475 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53338 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:58:35,573 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53338 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45484 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 21:58:40,777 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53338 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:59:07,255 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53338 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 21:59:12,459 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53338 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52324 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42576 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:00:53,730 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:01:12,433 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:01:23,411 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:01:28,053 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58538 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:01:43,080 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:01:48,160 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47666 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59494 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:03:34,379 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60868 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53848 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39188 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:04:49,825 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60868 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:04:54,321 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60868 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53814 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:05:43,357 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41064 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:05:48,031 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41064 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52632 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:07:06,249 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51628 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:07:10,375 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51628 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59848 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:07:57,444 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:34770 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:08:00,824 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:34770 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51864 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60056 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52814 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45522 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44390 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:13:01,642 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:13:06,047 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:13:10,701 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:13:14,662 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:13:29,491 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:13:33,830 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50402 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53444 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:14:19,815 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48030 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:14:23,968 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48030 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44578 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46830 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42594 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:16:39,987 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33576 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:16:44,038 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33576 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:16:49,147 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33576 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:16:54,391 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33576 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:16:59,470 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33576 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38624 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56734 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:19:20,114 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49190 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42596 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:19:53,868 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49190 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:20:01,082 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49190 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37238 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59018 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:22:14,608 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57036 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:22:20,591 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57036 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45916 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:23:37,402 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36820 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:23:45,708 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:23:54,355 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:24:25,016 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:24:32,805 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57140 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:24:38,729 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:24:43,104 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:24:48,366 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:25:05,751 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:25:11,710 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53882 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47228 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44268 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:27:16,498 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60144 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43908 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:28:04,447 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60144 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:28:26,265 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60144 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58040 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42140 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44884 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:31:29,792 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:31:34,286 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59768 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36630 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:32:55,201 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:33:00,759 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:33:06,102 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:33:12,676 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:33:38,161 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49670 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:34:00,972 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:34:08,294 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:34:16,294 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:34:32,367 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:34:38,371 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38442 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45902 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60098 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:35:39,319 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39008 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:35:47,619 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39008 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 22:36:00,766 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39008 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41420 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:36:57,065 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45004 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43626 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57706 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54648 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54494 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57402 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 22:41:51,217 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40148 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45346 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36196 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47764 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35356 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50762 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35860 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39486 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38778 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59442 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59648 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34632 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47064 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54678 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41492 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37940 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42460 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40696 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59442 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:00:31,421 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:00:35,565 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47700 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:00:57,298 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:01:04,035 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:01:10,122 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:01:16,791 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42056 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38576 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42218 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:03:17,161 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33318 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:03:22,965 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33318 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:03:28,341 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33318 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37450 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36654 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:04:45,641 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49902 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:04:55,297 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49902 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:05:01,012 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49902 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:05:06,562 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49902 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45322 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:06:25,313 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:06:31,133 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37042 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:06:49,454 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:07:02,527 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:07:09,887 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:07:17,138 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:07:22,468 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54222 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59102 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:08:24,614 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58536 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:08:33,707 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58536 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34824 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:08:46,842 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58536 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:08:52,193 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58536 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:08:57,776 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58536 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56468 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:10:06,880 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41684 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:10:38,341 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41684 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38236 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:10:48,385 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41684 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:10:54,830 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41684 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36860 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:11:54,126 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60630 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:12:01,623 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60630 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:12:07,020 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60630 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40116 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44022 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57494 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56882 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48646 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46080 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33880 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49100 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46022 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49022 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45430 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54598 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40210 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51766 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58426 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39472 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52944 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58358 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51886 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50708 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34356 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:32:47,035 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47012 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:32:55,366 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47012 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:33:00,641 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47012 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:33:18,769 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40266 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48172 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46636 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47700 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57216 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54892 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59754 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56700 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58304 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50338 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34344 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33330 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59072 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40330 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49832 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57322 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54606 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51212 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:51:38,046 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35520 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36758 - "GET /quota HTTP/1.1" 200 OK
+2026-09-05 23:51:46,638 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35520 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-05 23:51:52,062 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35520 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46530 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40640 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47120 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46648 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55334 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59730 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51038 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46852 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56400 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36234 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51206 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39342 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35126 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43494 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51634 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56050 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42106 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50684 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33172 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:11:14,699 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:11:20,910 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:11:27,160 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:11:32,466 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:11:39,546 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44148 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:11:45,283 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58452 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:12:10,584 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:34016 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49090 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42202 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60940 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59804 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33264 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52770 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53260 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36152 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33122 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55290 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46646 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37510 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55506 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35030 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37104 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48142 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35606 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49080 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60494 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46162 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:31:53,253 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48926 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:32:01,450 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48926 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43626 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:32:48,297 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54614 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:32:55,995 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54614 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:33:01,754 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:54614 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45108 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60450 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49218 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55554 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58134 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52508 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43716 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42818 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56292 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45306 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32982 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34768 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44752 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52640 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60592 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60328 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58674 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34756 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:52:14,116 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:52:20,750 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:52:37,194 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47468 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:52:59,402 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:53:06,005 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:53:10,387 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37638 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58046 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58772 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:55:41,321 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:56:26,926 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:56:34,455 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43004 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:57:15,760 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:57:43,382 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52588 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:58:05,475 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:58:10,547 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:58:15,554 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:58:21,295 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:58:27,263 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49244 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:58:45,223 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39730 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36432 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 00:59:21,721 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:36626 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:59:27,170 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:36626 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 00:59:34,415 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:36626 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50746 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59920 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49910 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56838 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48944 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49666 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35016 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54056 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34110 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:08:23,765 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43188 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58064 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54684 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:10:04,739 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38008 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:10:11,711 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43270 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:10:17,049 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43270 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:10:22,492 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43270 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:10:28,928 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43270 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55012 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48764 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58518 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:13:15,541 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51956 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59964 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:13:47,893 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51956 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:13:57,715 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51956 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:14:04,277 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51956 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34714 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45400 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44624 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:17:21,028 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46586 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:17:25,100 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46586 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:17:29,991 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46586 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:17:41,950 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46586 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54344 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:18:05,920 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47654 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33086 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:19:22,394 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45878 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:19:27,665 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45878 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:19:34,255 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45878 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33488 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39004 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41010 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38838 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56334 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:24:29,474 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39620 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43920 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50600 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60270 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:27:25,185 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48658 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:27:43,602 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48658 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54782 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45658 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:29:29,301 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45802 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:29:43,856 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45802 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39610 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48780 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44972 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33414 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33764 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49228 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56488 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41104 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36568 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46856 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55634 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37360 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43496 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43954 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37488 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44092 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33290 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59892 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36196 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:48:39,396 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37864 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:49:01,671 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:49:10,664 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:49:21,633 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:49:26,720 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:49:32,965 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57872 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57696 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:50:15,813 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45614 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:50:20,215 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45614 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:50:36,308 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45614 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 01:50:41,206 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45614 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59912 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47618 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33686 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 01:53:21,312 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56966 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38976 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45964 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36622 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59242 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52060 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35086 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43152 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55894 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54930 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54736 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33226 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46786 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38706 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50036 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37910 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:08:29,335 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60760 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43890 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:09:30,528 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60760 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:09:36,125 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60760 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58280 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39896 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60358 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48396 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60008 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48680 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36658 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36424 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39424 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47738 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48696 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33634 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45948 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53842 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59180 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40582 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52014 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57876 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47686 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38424 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50876 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57486 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44548 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33898 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58060 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:34:43,598 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43892 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32920 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35244 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45412 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55238 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59886 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48438 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55726 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39312 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44588 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53802 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44402 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39998 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41278 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57772 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47438 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34116 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43548 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57542 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57198 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40482 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:54:49,232 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43878 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:55:28,604 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:55:37,319 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:55:46,626 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45244 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 02:55:53,680 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:55:58,773 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:56:04,033 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55490 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:56:39,617 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40972 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 02:56:44,808 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40972 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49424 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52042 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33140 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43036 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42004 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34214 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43584 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53944 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40590 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58206 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50670 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:07:47,347 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51364 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54666 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:08:11,823 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51364 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:08:16,689 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51364 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:08:51,575 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51364 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50718 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:08:58,302 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51364 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:09:36,005 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56002 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50748 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:09:57,761 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47552 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45156 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48300 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53898 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43068 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34916 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42260 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55048 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35780 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52886 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48212 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33668 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34714 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49600 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46034 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43988 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58386 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52776 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41552 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:29:20,474 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56862 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:29:27,115 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56862 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:29:33,124 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56862 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53822 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:30:32,168 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50124 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60918 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40538 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51378 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55288 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47022 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38186 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42478 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39594 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38298 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35696 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43676 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47308 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33212 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38970 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54644 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57642 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42792 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48548 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:48:45,529 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55228 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51214 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:49:23,647 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55228 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33464 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:50:18,901 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55228 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:50:24,688 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55228 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55126 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36960 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:52:40,958 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:52:46,294 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58748 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51226 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50922 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54984 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46332 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60946 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58650 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51000 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 03:59:09,110 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57390 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:59:14,540 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57390 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 03:59:18,923 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57390 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44304 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44820 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57032 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38130 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46056 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38560 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35492 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42756 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48670 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39592 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48188 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59004 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39276 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56714 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43454 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49590 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42836 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41970 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38896 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 04:18:27,554 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60852 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 04:18:33,077 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:60852 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47994 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48892 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54604 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43734 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57246 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43678 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46048 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57176 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39268 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52792 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39934 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49846 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59118 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36244 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34376 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36126 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53018 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34786 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43428 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 04:37:37,870 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41778 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 04:37:41,806 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41778 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 04:37:53,533 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41778 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44498 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 04:38:00,247 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:41778 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 04:38:18,490 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44786 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 04:38:24,059 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44786 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48198 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 04:39:06,789 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35282 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49694 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44154 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47958 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42246 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51216 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43520 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43382 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58164 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57820 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60544 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39122 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59726 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45780 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35426 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35578 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47260 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33806 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33664 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 04:57:37,078 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39788 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43518 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39640 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58118 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36454 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46664 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47928 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37836 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54652 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45886 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50274 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50138 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52024 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45300 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60582 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57470 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37300 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47808 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46018 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:15:46,535 INFO claude_oauth.credentials: Refreshing OAuth token from <credential-file>
+2026-09-06 05:15:47,059 INFO httpx: HTTP Request: POST https://console.anthropic.com/v1/oauth/token "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52576 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:16:21,785 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:36616 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:16:31,158 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:36616 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42186 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:17:01,700 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49694 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41250 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36820 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54108 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55216 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42000 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38018 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43146 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59530 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43510 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42728 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35614 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45594 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49934 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39844 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53622 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34206 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58504 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36276 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:35:24,439 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:35:30,165 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:35:34,893 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:35:42,490 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:35:47,451 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:35:52,803 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39748 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41830 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43026 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50912 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46684 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52328 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49400 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:41:19,366 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51828 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 05:41:24,558 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51828 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58236 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57364 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42634 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45794 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34478 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56090 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48274 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36280 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51674 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35506 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34404 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58250 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38304 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48628 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49208 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55496 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54830 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44150 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 05:59:55,310 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44328 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51420 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45660 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:01:15,706 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:01:36,568 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:01:54,463 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50436 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:02:12,232 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:02:39,805 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:02:51,063 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:02:57,751 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57610 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:03:09,412 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:03:15,299 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46084 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:03:53,793 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35204 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49414 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47710 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45816 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49354 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:07:12,430 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:07:22,043 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:07:36,262 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39882 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:07:50,731 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39882 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59656 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:08:09,635 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46092 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:08:15,789 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:46092 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44424 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46006 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:10:08,794 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49986 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:10:15,075 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49986 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36862 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:11:37,567 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59086 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:11:42,702 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:59086 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59610 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38574 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60574 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47036 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33674 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:16:49,527 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55710 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:16:56,651 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:55710 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55520 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44260 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:18:35,666 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:19:00,846 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52628 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:19:07,485 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:19:20,909 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:19:42,603 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:19:51,813 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:20:01,734 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58544 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:20:10,564 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:20:15,991 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:20:51,497 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:50954 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44210 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38002 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46322 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:23:09,959 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57788 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:23:14,150 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:57788 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35830 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36956 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:25:33,449 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42286 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55462 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49814 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48086 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:28:58,015 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38858 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44268 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:29:04,345 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38858 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52334 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56600 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52866 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54846 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55860 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:34:05,247 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:52280 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36030 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51876 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51984 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46470 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40624 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48818 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58864 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54984 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50950 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48350 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47780 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60144 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56474 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56620 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48974 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38538 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39100 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34130 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:52:42,316 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44290 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:53:01,052 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44290 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58560 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:53:08,774 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44290 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50388 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 06:54:25,570 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42580 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:54:29,946 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42580 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 06:54:47,753 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:42580 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32994 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60734 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51134 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56140 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56656 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38040 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34528 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:02:46,018 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44334 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39446 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58982 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50852 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:05:51,996 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:05:58,133 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:06:02,037 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33806 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:06:18,635 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:06:27,551 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:06:36,826 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:06:42,526 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:06:48,272 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:53480 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34152 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44306 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43112 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:09:07,676 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:49130 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38516 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46638 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:11:26,136 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40436 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:11:31,731 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40436 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36080 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50574 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52436 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44498 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39338 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:16:48,857 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:16:55,237 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44530 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:17:06,490 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:17:48,561 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:17:58,884 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60752 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:18:04,975 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:18:11,344 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44212 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46498 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34812 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:21:12,349 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38846 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39272 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36734 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60248 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36512 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52952 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:26:38,709 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47348 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45206 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57056 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37464 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49354 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48688 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39140 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41928 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:34:03,277 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48816 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56916 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:34:09,093 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:48816 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60868 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56782 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34464 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35528 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48784 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54432 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56224 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36160 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53582 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54960 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39456 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57268 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33862 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58942 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46040 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42434 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58798 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57286 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:53:09,032 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:53:16,130 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:53:20,628 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:53:28,504 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:53:37,235 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:53:42,573 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40898 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53866 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:54:35,593 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:54:42,675 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:54:46,733 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:54:50,306 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:55:00,575 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45970 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 07:55:06,703 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:55:29,337 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 07:55:35,054 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33620 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39426 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34518 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43422 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52246 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32910 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:00:44,316 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:00:53,063 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43680 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:01:19,853 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:01:31,894 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:01:38,493 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:01:52,096 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:01:57,920 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53192 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:02:27,762 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:56928 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:02:31,748 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:02:57,241 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:03:01,787 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45442 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54228 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:03:23,145 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45442 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:03:32,169 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:45442 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47606 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59250 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38396 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53618 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57932 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:08:54,685 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58118 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53364 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:09:07,976 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58118 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:09:12,423 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:58118 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50362 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55336 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55230 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:12:14,313 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:34612 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34014 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:13:35,858 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51138 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:14:06,203 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51138 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53514 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:14:20,127 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:51138 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:14:46,539 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:43746 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51872 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:16:06,899 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44404 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40172 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:16:14,914 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:44404 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48428 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60970 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48414 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43808 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50486 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41884 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:22:44,529 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:37022 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44146 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:23:44,169 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:24:05,492 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49428 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:24:09,540 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:24:13,925 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:24:33,963 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:24:40,753 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:32968 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52504 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52436 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45726 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54312 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42758 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36418 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47758 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49022 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49336 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36898 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55822 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:36:13,166 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38086 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:36:33,802 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:38086 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56426 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36790 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37782 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52534 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:40:39,483 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40522 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:40:45,139 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:40522 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47192 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59062 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47184 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36112 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56558 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:46:01,575 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39516 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41696 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:46:46,742 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39516 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:47:06,816 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39516 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51540 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:47:17,979 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:39516 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60452 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:48:39,820 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:48:56,875 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:49:06,064 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41524 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:49:26,528 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:49:41,720 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:49:49,426 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:47768 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49654 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:50:19,035 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33922 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:50:41,544 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:33922 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34392 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33362 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36454 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58904 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57290 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:56:05,011 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35884 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40612 - "GET /quota HTTP/1.1" 200 OK
+2026-09-06 08:56:16,289 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35884 - "POST /v1/messages HTTP/1.1" 200 OK
+2026-09-06 08:56:21,207 INFO httpx: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     172.17.0.3:35884 - "POST /v1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42878 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51246 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42852 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53346 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36932 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39858 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39642 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36808 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42976 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41986 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37932 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55314 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48076 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38340 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39612 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45452 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42058 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49570 - "GET /quota HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52986 - "GET /quota HTTP/1.1" 200 OK

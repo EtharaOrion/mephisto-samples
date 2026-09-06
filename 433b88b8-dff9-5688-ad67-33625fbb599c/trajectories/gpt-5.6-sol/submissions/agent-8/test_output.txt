@@ -1,0 +1,43 @@
++ echo '>>>>> Start Test Output'
+>>>>> Start Test Output
++ cd /home/workspace/submission
++ mkdir -p /logs/verifier
++ base64 -d
++ echo IyEvYmluL2Jhc2gKIyBwNnpldGEgdjIganVkZ2UuIERpZmZlcmVuY2VzIGZyb20gdjE6CiMgICAqIDE2IHBhcmFsbGVsIHdvcmtlcnMsIGVhY2ggLi9zb2x2ZSBwaW5uZWQgdG8gT05FIGNwdSAodGFza3NldCkgc28gYSBzb2x2ZXIKIyAgICAgY2Fubm90IGJ1eSBzY29yZSB3aXRoIHRocmVhZHMgYW5kIHRpbWluZyBsYW5lcyBhcmUgY29tcGFyYWJsZSBhY3Jvc3MgaG9zdHMKIyAgICogbGFuZSA1IGlzIHJlYWw6IHNldmVuIHBlcnR1cmJhdGlvbnMgb2YgYSBmaXhlZCAyMS1pbnN0YW5jZSBzdWJzZXQgKDMgcGVyCiMgICAgIGZhbWlseSksIHNvbHZlciBvdXRwdXRzIHVuLXBlcnR1cmJlZCBhbmQgaGFuZGVkIHRvIHNjb3JlLnB5CiMgICAqIGV2ZXJ5IGtub2IgaXMgYW4gZW52IHZhciBzbyB0aGUgc2FtZSBzY3JpcHQgZ3JhZGVzIGxvY2FsbHkgYW5kIGluIENJCnNldCAtZXVvIHBpcGVmYWlsCgpta2RpciAtcCAvbG9ncy92ZXJpZmllciAvaG9tZS93b3Jrc3BhY2Uvc3VibWlzc2lvbgppZiBbIC1kIC9sb2dzL2FydGlmYWN0cy9zdWJtaXNzaW9uIF07IHRoZW4KICBjcCAtciAvbG9ncy9hcnRpZmFjdHMvc3VibWlzc2lvbi8uIC9ob21lL3dvcmtzcGFjZS9zdWJtaXNzaW9uLwpmaQpjZCAvaG9tZS93b3Jrc3BhY2Uvc3VibWlzc2lvbgppZiBbIC14IC4vYnVpbGQuc2ggXTsgdGhlbgogIC4vYnVpbGQuc2gKZmkKClM9L2hvbWUvd29ya3NwYWNlL3Njb3JpbmcKREFUQT0kUy9kYXRhL2hpZGRlbl9iZW5jaG1hcmtzClRMPSR7UDZaRVRBX1BFUl9JTlNUQU5DRV9USU1FT1VUOi02MH0KV09SS0VSUz0ke1A2WkVUQV9KVURHRV9XT1JLRVJTOi0xNn0KTDVfUEVSX0ZBTUlMWT0ke1A2WkVUQV9MNV9QRVJfRkFNSUxZOi0zfQpMNV9TQUxUPSR7UDZaRVRBX0w1X1NBTFQ6LXA2emV0YS12Mi1qdWRnZS1zYWx0LTIwMjYtMDl9CiMgQ1BVcyB0aGlzIGNvbnRhaW5lciBtYXkgYWN0dWFsbHkgdXNlIChyZXNwZWN0cyBhIGNwdXNldCBsaW1pdCwgdW5saWtlIG5wcm9jIGFsb25lKQptYXBmaWxlIC10IENQVVMgPCA8KHB5dGhvbjMgLWMgImltcG9ydCBvczsgcHJpbnQoJ1xuJy5qb2luKG1hcChzdHIsIHNvcnRlZChvcy5zY2hlZF9nZXRhZmZpbml0eSgwKSkpKSkiKQpOQ1BVPSR7I0NQVVNbQF19ClsgIiRXT1JLRVJTIiAtZ3QgIiROQ1BVIiBdICYmIFdPUktFUlM9JE5DUFUKUElOPTE7IGNvbW1hbmQgLXYgdGFza3NldCA+L2Rldi9udWxsIDI+JjEgfHwgUElOPTAKaWYgWyAiJFBJTiIgLWVxIDEgXSAmJiAhIHRhc2tzZXQgLWMgIiR7Q1BVU1swXX0iIHRydWUgPi9kZXYvbnVsbCAyPiYxOyB0aGVuIFBJTj0wOyBmaQoKbWtkaXIgLXAgJFMvb3V0cHV0cyAkUy90cmFjZXMgJFMvcGVydHVyYiAkUy9wZXJ0dXJiX3dvcmsKCiMgcnVuX2JhdGNoIDxsaXN0LWZpbGU+IDxvdXRkaXI+IDx0cmFjZWRpcj46IFdPUktFUlMgcGFyYWxsZWwgbGFuZXMsIGxhbmUgdyB0YWtlcwojIGV2ZXJ5IFdPUktFUlMtdGggaW5zdGFuY2UgYW5kIGlzIHBpbm5lZCB0byBjcHUgKHcgbW9kIE5DUFUpLgpydW5fYmF0Y2goKSB7CiAgbG9jYWwgbGlzdD0kMSBvdXRkaXI9JDIgdHJhY2VkaXI9JDMKICBtYXBmaWxlIC10IElOU1QgPCAiJGxpc3QiCiAgbG9jYWwgdG90YWw9JHsjSU5TVFtAXX0KICBmb3IgKCh3PTA7IHc8V09SS0VSUzsgdysrKSk7IGRvCiAgICAoCiAgICAgIGZvciAoKGs9dzsgazx0b3RhbDsgays9V09SS0VSUykpOyBkbwogICAgICAgIGluc3Q9IiR7SU5TVFtrXX0iOyBpZD0kKGJhc2VuYW1lICIkaW5zdCIgLmlwLmpzb24pCiAgICAgICAgaWYgWyAiJFBJTiIgLWVxIDEgXTsgdGhlbgogICAgICAgICAgdGltZW91dCAke1RMfXMgdGFza3NldCAtYyAiJHtDUFVTWyQoKHcgJSBOQ1BVKSldfSIgLi9zb2x2ZSAiJGluc3QiID4gIiRvdXRkaXIvJGlkLm91dC5qc29uIiAyPiAiJHRyYWNlZGlyLyRpZC5sb2ciIHx8IHRydWUKICAgICAgICBlbHNlCiAgICAgICAgICB0aW1lb3V0ICR7VEx9cyAuL3NvbHZlICIkaW5zdCIgPiAiJG91dGRpci8kaWQub3V0Lmpzb24iIDI+ICIkdHJhY2VkaXIvJGlkLmxvZyIgfHwgdHJ1ZQogICAgICAgIGZpCiAgICAgIGRvbmUKICAgICkgJgogIGRvbmUKICB3YWl0Cn0KCiMgLS0tLSBiYXNlIGNvaG9ydDogYWxsIGhpZGRlbiBpbnN0YW5jZXMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpscyAkREFUQS8qLmlwLmpzb24gPiAkUy9iYXNlLmxpc3QKZWNobyAianVkZ2U6IGJhc2UgY29ob3J0ICQod2MgLWwgPCAkUy9iYXNlLmxpc3QpIGluc3RhbmNlcywgJFdPUktFUlMgd29ya2VycywgJHtUTH1zIGVhY2gsIHBpbj0kUElOIiA+JjIKcnVuX2JhdGNoICRTL2Jhc2UubGlzdCAkUy9vdXRwdXRzICRTL3RyYWNlcwoKIyAtLS0tIGxhbmUgNTogc2V2ZW4gcGVydHVyYmF0aW9ucyBvZiBhIGZpeGVkIHN1YnNldCAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpweXRob24zICRTL3BlcnR1cmJfdjIucHkgbWFrZSAtLWluc3RhbmNlcyAkREFUQSAtLXdvcmsgJFMvcGVydHVyYl93b3JrIFwKICAtLXNhbHQgIiRMNV9TQUxUIiAtLXBlci1mYW1pbHkgIiRMNV9QRVJfRkFNSUxZIiA+ICRTL2w1X3N1YnNldC50eHQKZWNobyAianVkZ2U6IGxhbmUgNSBzdWJzZXQgJCh3YyAtbCA8ICRTL2w1X3N1YnNldC50eHQpIGluc3RhbmNlcyB4IDcgcGVydHVyYmF0aW9ucyIgPiYyCmZvciBuYW1lIGluIHZhcmlhYmxlX29yZGVyX3dpdGhpbl9jb25zdHJhaW50IGNvbnN0cmFpbnRfcmVvcmRlciBjb2VmZmljaWVudF9jb21tb25fc2NhbGUgXAogICAgICAgICAgICBpbnN0YW5jZV9pZF9zYWx0X3Jld3JpdGUganNvbl93aGl0ZXNwYWNlX3JlZm9ybWF0IG91dHB1dF9qc29uX2ZpZWxkX29yZGVyIFwKICAgICAgICAgICAgb3V0cHV0X2pzb25fdHJhaWxpbmdfd2hpdGVzcGFjZTsgZG8KICBscyAkUy9wZXJ0dXJiX3dvcmsvJG5hbWUvaW4vKi5pcC5qc29uID4gJFMvcGVydHVyYl93b3JrLyRuYW1lL2xpc3QKICBta2RpciAtcCAkUy9wZXJ0dXJiX3dvcmsvJG5hbWUvdHJhY2UKICBydW5fYmF0Y2ggJFMvcGVydHVyYl93b3JrLyRuYW1lL2xpc3QgJFMvcGVydHVyYl93b3JrLyRuYW1lL3JhdyAkUy9wZXJ0dXJiX3dvcmsvJG5hbWUvdHJhY2UKICBweXRob24zICRTL3BlcnR1cmJfdjIucHkgcmVzdG9yZSAtLXdvcmsgJFMvcGVydHVyYl93b3JrIC0tcGVydHVyYmF0aW9uICRuYW1lIC0tb3V0ICRTL3BlcnR1cmIKZG9uZQoKIyAtLS0tIGxhbmUgMyByYW5raW5nIGZpbGUsIGlmIHRoZSBzb2x2ZXIgd3JvdGUgb25lIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KaWYgWyAtZiAvaG9tZS93b3Jrc3BhY2Uvc3VibWlzc2lvbi9sM19yYW5raW5nLmpzb24gXTsgdGhlbgogIEwzX0FSRz0iLS1sMy1yYW5raW5nIC9ob21lL3dvcmtzcGFjZS9zdWJtaXNzaW9uL2wzX3JhbmtpbmcuanNvbiIKZWxzZQogIEwzX0FSRz0iIgpmaQoKcHl0aG9uMyAkUy9zY29yZS5weSBcCiAgLS1pbnN0YW5jZXMgJERBVEEgXAogIC0tb3B0aW1hICRTL2RhdGEvaGlkZGVuX29wdGltYS5qc29uIFwKICAtLW91dHB1dHMgJFMvb3V0cHV0cyBcCiAgLS10cmFjZXMgJFMvdHJhY2VzIFwKICAtLXBlcnR1cmJhdGlvbnMtcm9vdCAkUy9wZXJ0dXJiIFwKICAtLXBlcnR1cmJhdGlvbi1zdWJzZXQgJFMvbDVfc3Vic2V0LnR4dCBcCiAgJEwzX0FSRyBcCiAgLS1yZXdhcmQtb3V0IC9sb2dzL3ZlcmlmaWVyL3Jld2FyZC5qc29uIFwKICAtLXByaW50LXN1bW1hcnkKCnB5dGhvbjMgLWMgImltcG9ydCBqc29uOyBkPWpzb24ubG9hZChvcGVuKCcvbG9ncy92ZXJpZmllci9yZXdhcmQuanNvbicpKTsgb3BlbignL2xvZ3MvdmVyaWZpZXIvcmV3YXJkLnR4dCcsJ3cnKS53cml0ZShmXCJ7ZFsnc2NvcmUnXS8xMDAuMDouNmZ9XFxuXCIpIgo=
++ chmod +x /tmp/harbor_test.sh
++ bash /tmp/harbor_test.sh
+src/main.cpp: In function ‘void improve_mdkp_exchanges(const Instance&, const std::vector<int>&, std::vector<int>&)’:
+src/main.cpp:386:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  386 |         if(remove_a<0)break;x[remove_a]=0;if(remove_b>=0)x[remove_b]=0;x[add_a]=1;if(add_b>=0)x[add_b]=1;for(int k=0;k<(int)rows.size();++k){used[k]-=in.rows[rows[k]].a[remove_a];if(remove_b>=0)used[k]-=in.rows[rows[k]].a[remove_b];used[k]+=in.rows[rows[k]].a[add_a];if(add_b>=0)used[k]+=in.rows[rows[k]].a[add_b];}
+      |         ^~
+src/main.cpp:386:29: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  386 |         if(remove_a<0)break;x[remove_a]=0;if(remove_b>=0)x[remove_b]=0;x[add_a]=1;if(add_b>=0)x[add_b]=1;for(int k=0;k<(int)rows.size();++k){used[k]-=in.rows[rows[k]].a[remove_a];if(remove_b>=0)used[k]-=in.rows[rows[k]].a[remove_b];used[k]+=in.rows[rows[k]].a[add_a];if(add_b>=0)used[k]+=in.rows[rows[k]].a[add_b];}
+      |                             ^
+src/main.cpp: In function ‘bool facility_lns(const FacilityData&, std::vector<int>&, int)’:
+src/main.cpp:1347:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+ 1347 |     if(jobs.size()>12)jobs.resize(12);std::vector<char>removed(d.customers,0);for(int j:jobs)removed[j]=1;
+      |     ^~
+src/main.cpp:1347:39: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+ 1347 |     if(jobs.size()>12)jobs.resize(12);std::vector<char>removed(d.customers,0);for(int j:jobs)removed[j]=1;
+      |                                       ^~~
+judge: base cohort 90 instances, 16 workers, 60s each, pin=1
+judge: lane 5 subset 21 instances x 7 perturbations
+variable_order_within_constraint: restored 21 outputs -> /home/workspace/scoring/perturb/variable_order_within_constraint
+constraint_reorder: restored 21 outputs -> /home/workspace/scoring/perturb/constraint_reorder
+coefficient_common_scale: restored 21 outputs -> /home/workspace/scoring/perturb/coefficient_common_scale
+instance_id_salt_rewrite: restored 21 outputs -> /home/workspace/scoring/perturb/instance_id_salt_rewrite
+json_whitespace_reformat: restored 21 outputs -> /home/workspace/scoring/perturb/json_whitespace_reformat
+output_json_field_order: restored 21 outputs -> /home/workspace/scoring/perturb/output_json_field_order
+output_json_trailing_whitespace: restored 21 outputs -> /home/workspace/scoring/perturb/output_json_trailing_whitespace
+score=70.42/100 l1=9.89 l2=25.90 l3=0.00 l4=19.69 l5=14.95 n_eval=90 pass_l1=89 kill=[]
+++ cat /logs/verifier/reward.txt
+++ tr -dc 0-9.-
++ SCORE=0.704247
++ echo '{"score": 0.704247}'
+{"score": 0.704247}
++ EXIT_CODE=0
++ echo '>>>>> End Test Output'
+>>>>> End Test Output
++ echo 'Exit code: 0'
++ exit 0
+Exit code: 0

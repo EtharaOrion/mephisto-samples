@@ -1,0 +1,294 @@
+{
+  "best_pass_rate": 0,
+  "best_score": 0.83843,
+  "best_round": "agent-41",
+  "submissions": [
+    {
+      "kind": "agent",
+      "round": "agent-1",
+      "at": 1788643793,
+      "pass_rate": 0.0,
+      "score": 0.681958
+    },
+    {
+      "kind": "agent",
+      "round": "agent-2",
+      "at": 1788645142,
+      "pass_rate": 0.0,
+      "score": 0.686769
+    },
+    {
+      "kind": "agent",
+      "round": "agent-3",
+      "at": 1788646571,
+      "pass_rate": 0.0,
+      "score": 0.686704
+    },
+    {
+      "kind": "agent",
+      "round": "agent-4",
+      "at": 1788647504,
+      "pass_rate": 0.0,
+      "score": 0.700505
+    },
+    {
+      "kind": "agent",
+      "round": "agent-5",
+      "at": 1788648543,
+      "pass_rate": 0.0,
+      "score": 0.70299
+    },
+    {
+      "kind": "agent",
+      "round": "agent-6",
+      "at": 1788650133,
+      "pass_rate": 0.0,
+      "score": 0.703738
+    },
+    {
+      "kind": "agent",
+      "round": "agent-7",
+      "at": 1788651397,
+      "pass_rate": 0.0,
+      "score": 0.704247
+    },
+    {
+      "kind": "agent",
+      "round": "agent-8",
+      "at": 1788652425,
+      "pass_rate": 0.0,
+      "score": 0.704247
+    },
+    {
+      "kind": "agent",
+      "round": "agent-9",
+      "at": 1788653424,
+      "pass_rate": 0.0,
+      "score": 0.703983
+    },
+    {
+      "kind": "agent",
+      "round": "agent-10",
+      "at": 1788654432,
+      "pass_rate": 0.0,
+      "score": 0.710803
+    },
+    {
+      "kind": "agent",
+      "round": "agent-11",
+      "at": 1788655426,
+      "pass_rate": 0.0,
+      "score": 0.712516
+    },
+    {
+      "kind": "agent",
+      "round": "agent-12",
+      "at": 1788656453,
+      "pass_rate": 0.0,
+      "score": 0.713424
+    },
+    {
+      "kind": "agent",
+      "round": "agent-13",
+      "at": 1788657376,
+      "pass_rate": 0.0,
+      "score": 0.712879
+    },
+    {
+      "kind": "agent",
+      "round": "agent-14",
+      "at": 1788658617,
+      "pass_rate": 0.0,
+      "score": 0.714845
+    },
+    {
+      "kind": "agent",
+      "round": "agent-15",
+      "at": 1788659941,
+      "pass_rate": 0.0,
+      "score": 0.714065
+    },
+    {
+      "kind": "agent",
+      "round": "agent-16",
+      "at": 1788660971,
+      "pass_rate": 0.0,
+      "score": 0.71279
+    },
+    {
+      "kind": "agent",
+      "round": "agent-17",
+      "at": 1788662037,
+      "pass_rate": 0.0,
+      "score": 0.713783
+    },
+    {
+      "kind": "agent",
+      "round": "agent-18",
+      "at": 1788663211,
+      "pass_rate": 0.0,
+      "score": 0.714453
+    },
+    {
+      "kind": "agent",
+      "round": "agent-19",
+      "at": 1788664098,
+      "pass_rate": 0.0,
+      "score": 0.715274
+    },
+    {
+      "kind": "agent",
+      "round": "agent-20",
+      "at": 1788665016,
+      "pass_rate": 0.0,
+      "score": 0.713251
+    },
+    {
+      "kind": "agent",
+      "round": "agent-21",
+      "at": 1788665937,
+      "pass_rate": 0.0,
+      "score": 0.714702
+    },
+    {
+      "kind": "agent",
+      "round": "agent-22",
+      "at": 1788666853,
+      "pass_rate": 0.0,
+      "score": 0.71384
+    },
+    {
+      "kind": "agent",
+      "round": "agent-23",
+      "at": 1788667855,
+      "pass_rate": 0.0,
+      "score": 0.714795
+    },
+    {
+      "kind": "agent",
+      "round": "agent-24",
+      "at": 1788668765,
+      "pass_rate": 0.0,
+      "score": 0.714084
+    },
+    {
+      "kind": "agent",
+      "round": "agent-25",
+      "at": 1788669678,
+      "pass_rate": 0.0,
+      "score": 0.714933
+    },
+    {
+      "kind": "agent",
+      "round": "agent-26",
+      "at": 1788670592,
+      "pass_rate": 0.0,
+      "score": 0.714083
+    },
+    {
+      "kind": "agent",
+      "round": "agent-27",
+      "at": 1788671550,
+      "pass_rate": 0.0,
+      "score": 0.713652
+    },
+    {
+      "kind": "agent",
+      "round": "agent-28",
+      "at": 1788672452,
+      "pass_rate": 0.0,
+      "score": 0.714093
+    },
+    {
+      "kind": "agent",
+      "round": "agent-29",
+      "at": 1788673363,
+      "pass_rate": 0.0,
+      "score": 0.714206
+    },
+    {
+      "kind": "agent",
+      "round": "agent-30",
+      "at": 1788674299,
+      "pass_rate": 0.0,
+      "score": 0.714424
+    },
+    {
+      "kind": "agent",
+      "round": "agent-31",
+      "at": 1788675212,
+      "pass_rate": 0.0,
+      "score": 0.714451
+    },
+    {
+      "kind": "agent",
+      "round": "agent-32",
+      "at": 1788676137,
+      "pass_rate": 0.0,
+      "score": 0.714429
+    },
+    {
+      "kind": "agent",
+      "round": "agent-33",
+      "at": 1788677061,
+      "pass_rate": 0.0,
+      "score": 0.714074
+    },
+    {
+      "kind": "agent",
+      "round": "agent-34",
+      "at": 1788678077,
+      "pass_rate": 0.0,
+      "score": 0.715172
+    },
+    {
+      "kind": "agent",
+      "round": "agent-35",
+      "at": 1788679011,
+      "pass_rate": 0.0,
+      "score": 0.714095
+    },
+    {
+      "kind": "agent",
+      "round": "agent-36",
+      "at": 1788680012,
+      "pass_rate": 0.0,
+      "score": 0.715182
+    },
+    {
+      "kind": "agent",
+      "round": "agent-37",
+      "at": 1788681172,
+      "pass_rate": 0.0,
+      "score": 0.71374
+    },
+    {
+      "kind": "agent",
+      "round": "agent-38",
+      "at": 1788682263,
+      "pass_rate": 0.0,
+      "score": 0.714693
+    }
+  ],
+  "merged": true,
+  "merged_by": "scripts/merge_runs.py",
+  "merged_at": "2026-09-06T09:46:50",
+  "parts": [
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-openhands-20260905-2106/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-openhands-20260905-2106",
+      "rounds": 60,
+      "best_score": 0.715274,
+      "runtime_seconds": 39888.241535425186
+    },
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-20260906-seeded/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-20260906-seeded",
+      "rounds": 6,
+      "best_score": 0.83843,
+      "runtime_seconds": 4335.35195684433
+    }
+  ],
+  "collapsed_gap": false,
+  "merged_note": "Round ids were renumbered per kind in part order; each entry keeps its original id under merged_from. This is a TASK-level record, not one continuous session: between parts the container, the installed state and the model's context were all fresh, and any work a part did after its last submission is not present. runtime_seconds is the sum of the parts' agent time and excludes the wall clock between them."
+}

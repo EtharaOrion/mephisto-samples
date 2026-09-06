@@ -1,0 +1,16 @@
+build.sh
+solve
+src/util.hpp
+src/instance.hpp
+src/report.hpp
+src/generic.hpp
+src/tsp.hpp
+src/coloring.hpp
+src/knapsack.hpp
+src/setcover.hpp
+src/assign.hpp
+src/l3rank.hpp
+src/main.cpp
+src/lp.hpp
+src/mdkp.hpp
+src/p6zsolver

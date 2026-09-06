@@ -1,0 +1,47 @@
+schema_version = "1.4"
+
+[task]
+name = "edgebench/p6zeta_zero_one_ip_solver_from_scratch_v2"
+description = "v2 of p6zeta: from-scratch 0-1 integer programming solver over seven NP-hard families with a harder hidden set (HiGHS-certified optima), a real lane-5 perturbation sweep, and a 16-worker one-cpu-per-solve judge. No external solvers, no benchmark lookups."
+keywords = ["edgebench", "mephisto", "combinatorial-optimization"]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p6zeta_zero_one_ip_solver_from_scratch:v2-41d69325de35@sha256:41d69325de35d03f622a5e8060db07e48234fd020338b8413edbd9ce8841658c"
+network_mode = "no-network"
+workdir = "/home/workspace/p6zeta"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p6zeta_zero_one_ip_solver_from_scratch:v2-968885e234f0@sha256:968885e234f05fc1faef321baeccc07b9faef4fa71c77014c4756fbdedc42881"
+network_mode = "no-network"
+# tests/test.sh cds here and runs ./build.sh + ./solve, so this is where the
+# submission archive must be extracted inside the judge image.
+workdir = "/home/workspace/submission"
+
+[extensions.sforge]
+task_id = "p6zeta_zero_one_ip_solver_from_scratch_v2"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["build.sh", "solve", "src/"]
+submit_exclude = ["__pycache__/", "*.pyc", ".pytest_cache/", "*.log"]
+work_image_tag = "v2-41d69325de35"
+judge_image_tag = "v2-968885e234f0"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "Mephisto FORGE (author-generated synthetic instances)"
+data_license = "CC-BY-4.0"
+license_class = "cc-by-4.0"
+provenance_flags = ["author-generated", "synthetic-instances"]

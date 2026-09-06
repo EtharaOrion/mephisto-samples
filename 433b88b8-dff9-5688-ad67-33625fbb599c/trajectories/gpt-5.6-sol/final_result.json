@@ -1,0 +1,37 @@
+{
+  "agent": "openhands",
+  "task": "p6zeta_zero_one_ip_solver_from_scratch_v2",
+  "run_id": "p6zeta-v2-gpt56sol-merged",
+  "model": "gpt-5.6-sol",
+  "best_pass_rate": 0.0,
+  "best_round": "agent-41",
+  "total_rounds": 66,
+  "agent_submissions": 42,
+  "auto_submissions": 24,
+  "timed_out": false,
+  "runtime_seconds": 44223.593492269516,
+  "archive_size_bytes": 165208,
+  "resume_count": 0,
+  "merged": true,
+  "merged_by": "scripts/merge_runs.py",
+  "merged_at": "2026-09-06T09:46:50",
+  "parts": [
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-openhands-20260905-2106/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-openhands-20260905-2106",
+      "rounds": 60,
+      "best_score": 0.715274,
+      "runtime_seconds": 39888.241535425186
+    },
+    {
+      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/p6zeta-v2-gpt56sol-20260906-seeded/p6zeta_zero_one_ip_solver_from_scratch_v2",
+      "run_id": "p6zeta-v2-gpt56sol-20260906-seeded",
+      "rounds": 6,
+      "best_score": 0.83843,
+      "runtime_seconds": 4335.35195684433
+    }
+  ],
+  "collapsed_gap": false,
+  "merged_note": "Round ids were renumbered per kind in part order; each entry keeps its original id under merged_from. This is a TASK-level record, not one continuous session: between parts the container, the installed state and the model's context were all fresh, and any work a part did after its last submission is not present. runtime_seconds is the sum of the parts' agent time and excludes the wall clock between them.",
+  "best_score": 0.83843
+}
