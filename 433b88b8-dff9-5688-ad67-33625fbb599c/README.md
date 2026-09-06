@@ -1,63 +1,93 @@
-# Zero-One Integer Programming Solver from Scratch (v2)
+# Zero-One Integer Programming Solver from Scratch
 
-Task id: `p6zeta_zero_one_ip_solver_from_scratch_v2`
+Build a 0-1 integer programming solver from scratch, in C or C++, with no external optimization
+libraries. The judge runs the submitted `./solve` against 90 hidden instances drawn from seven
+NP-hard families, under a 60 second per-instance timeout and no network access.
 
-Derived on 2026-09-05 from bundle `f5e2f024-213f-58cf-aa21-594a53624a8b` (v1). v1 is left
-untouched; this bundle replaces the hidden set, the judge script and the agent instruction.
+## Hidden set
 
-## Why v2 exists
+Seven families, one JSON schema, dense coefficient rows, binary variables, constraints in
+`<=`, `>=` or `==`:
 
-Two frontier runs on v1 (Claude Opus 5 on OpenHands, 2026-09-04 and 2026-09-05) showed:
+- **multi-dimensional knapsack** — Chu-Beasley correlated profits with tight capacities (30 instances)
+- **zero-one knapsack** — almost-subset-sum and strongly/inversely correlated, coefficients to 10^6, which defeats dynamic programming
+- **set cover** — dense random cover with near-unicost costs, so the LP relaxation is fractional
+- **generalized assignment** — Martello-Toth type D min-cost, 5-8 machines against 40-60 jobs
+- **capacitated facility location** — aggregated capacity only, giving a weak LP bound
+- **graph colouring** — dense graphs, DSATUR-tight colour budget, symmetry-breaking rows
+- **TSP cutting plane** — 10-11 cities with every subtour row enumerated
 
-1. Every one of the 90 hidden instances was solved to the proven optimum inside the 60-second
-   budget within the first 40 minutes. Lane 2 (30 points) and lane 4 (20 points) saturated
-   immediately; the only lane left to climb was lane 3.
-2. Lane 5 (15 points) was declared in `score.py`, `p6zeta_lib.py`, the instruction and TRUTH.md,
-   but `tests/test.sh` never generated perturbed cohorts nor passed `--perturbations-root`, so
-   every submission scored 0 there and the task's ceiling was 85 against a full-reward threshold
-   of 95. The instruction told the agent the judge ran the sweep; it did not.
-3. TRUTH.md described a lane-3 judge that ranked instances from agent-reported wall times;
-   the real judge reads a K=8 `l3_ranking.json` written by the solver.
+Hardness comes from structure rather than size. Optima are certified by HiGHS
+(`scipy.optimize.milp`, `mip_rel_gap=0`); only instances proved optimal were admitted, selected
+hardest-certified-first within each family. The develop set under `environment/data/develop`
+carries one instance per family, generated the same way.
 
-## What changed
+## Scoring
 
-| Area | v1 | v2 |
+100 points across five lanes, with a full-reward threshold of 0.95:
+
+| Lane | Points | Measures |
 |---|---|---|
-| Hidden instances | small (MDK n 71-97, knapsack n 259-393, ...), all solved to optimum in < 60 s by a from-scratch solver | same seven families, same schema; Chu-Beasley MDK with tight capacities, almost-subset-sum and strongly correlated knapsacks with coefficients to 10^6, dense near-unicost set cover, min-cost type-D GAP (5-8 machines), aggregated-capacity CFL, DSATUR-tight colouring with symmetry-breaking rows, 10-11 city TSP with all subtour rows. Optima certified by HiGHS (`scipy.optimize.milp`, `mip_rel_gap=0`), hardest-certified-first selection per family |
-| Lane 5 | never executed | `tests/perturb_v2.py` builds the seven perturbations on a fixed 21-instance subset (first 3 per family), the judge solves them and un-perturbs the outputs before `score.py` |
-| Judge parallelism | serial | 16 lanes, each `./solve` pinned to one cpu with `taskset` |
-| Agent instruction | claimed single-shot submission and a lane-5 sweep | describes the real `sforge-submit` loop (60 submissions, 900 s cooldown, scalar feedback, identical archives not regraded), the real lane-3 file contract, the real lane-5 subset and formula |
-| Develop set | 6 instances, no MDK | 7 instances, one per family, same generator as the hidden set |
-| `p6zeta_lib.py` | | `TASK_ID` = v2 id, `L5_SUBSET_PER_FAMILY = 3` |
-| Lane 2 curve | 30 at gap 0, 27 at <= 2%, 24 at 5%, 18 at 10%, 10 at 20%, 4 at 35% | 30 at 0, 27 at <= 0.5%, 24 at 1%, 18 at 2%, 10 at 5%, 4 at 10%. Optima are certified, so exactness is rewarded and near-misses are no longer almost free |
+| L1 | 10 | status agreement (feasible / infeasible / unknown) per instance |
+| L2 | 30 | optimality gap against the certified optimum |
+| L3 | 25 | top-K=8 precision of a solver-written `l3_ranking.json` against the HiGHS wall-time ranking of the 30-instance multi-dimensional-knapsack cohort |
+| L4 | 20 | solution validity and reporting discipline |
+| L5 | 15 | invariance under seven deterministic perturbations |
 
+The L2 curve awards 30 at gap 0, 27 at <= 0.5%, 24 at 1%, 18 at 2%, 10 at 5% and 4 at 10%. Because
+the optima are certified, exactness is rewarded and near-misses are not close to free.
 
-## Calibration on the v2 judge (2026-09-05, final images)
+L5 rebuilds a fixed 21-instance subset (the first 3 of each family) under seven perturbations —
+variable order within a constraint, constraint reorder, common coefficient scaling, instance-id
+salt rewrite, JSON whitespace reformat, output field order, and output trailing whitespace. The
+judge solves the perturbed cohorts, un-perturbs the outputs, and grades them alongside the base
+cohort.
+
+A KILL band clips the total to 0 for a forbidden optimization library, network egress, reading a
+private artifact, or mining and returning the answer key.
+
+The judge runs 16 lanes in parallel with each `./solve` pinned to a single cpu via `taskset`, so a
+solver cannot buy score with threads and the timing lanes stay comparable across hosts.
+
+## Submission loop
+
+The agent submits with `sforge-submit`, which packages `build.sh`, `solve` and `src/`, grades them
+in a separate container, and returns a single scalar in [0, 1]. Submissions are capped with a
+cooldown between them, a byte-identical resubmission returns the previous score without regrading,
+and no per-lane or per-instance breakdown is returned — local measurement against the develop set
+is the only fine-grained feedback available.
+
+## Calibration
+
+Measured on the shipped judge, 2026-09-05:
 
 | Solver | Total | L1 | L2 | L3 | L4 | L5 |
 |---|---|---|---|---|---|---|
-| Today's v1 frontier artifact (Opus 5 / OpenHands, 75.62 on v1) | 79.67 | 9.78 | 23.69 | 12.50 | 19.29 | 14.42 |
-| Yesterday's v1 frontier artifact (Opus 5 / OpenHands, 81.87 on v1) | 72.07 | 10.00 | 24.39 | 3.12 | 19.69 | 14.88 |
+| Frontier artifact A (Opus 5 / OpenHands) | 79.67 | 9.78 | 23.69 | 12.50 | 19.29 | 14.42 |
+| Frontier artifact B (Opus 5 / OpenHands) | 72.07 | 10.00 | 24.39 | 3.12 | 19.69 | 14.88 |
 | Reference solver (calibration artifact) | 24.23 | 1.11 | 3.33 | 0.00 | 5.50 | 14.29 |
 | All-zero control | 4.44 | 4.44 | 0 | 0 | 0 | 0 |
 
-Per-family gap profile of the frontier artifacts under 60 s: facility location 2-10%+, GAP 1-5%,
-MDK 0-1%, colouring/TSP/knapsack/set cover at or near the optimum. Lane 2 now spreads instead of
-saturating; lane 5 is live and the all-zero control no longer collects it.
+Per-family gap profile of the frontier artifacts under 60 s: facility location 2-10%+, generalized
+assignment 1-5%, multi-dimensional knapsack 0-1%, and colouring, TSP, knapsack and set cover at or
+near the optimum. Lane 2 spreads rather than saturating, and the all-zero control does not collect
+lane 5.
 
 ## Layout
 
 ```
-task.toml                    v2 task id; images pinned by digest after build
-instruction.md               pointer + full agent instruction
-task_instruction.md          agent-facing spec (also copied into the work image)
-environment/                 work image: Dockerfile, README, p6zeta_lib.py, data/develop (7), ip_format_spec.md
-tests/                       judge image: Dockerfile, score.py, p6zeta_lib.py, perturb_v2.py, test.sh, data/
-tests/data/hidden_benchmarks 90 instances   tests/data/hidden_optima.json  HiGHS-certified optima + wall times
-solution/                    private oracle tree: TRUTH.md, reference_solver.py, rubrics.json, solve.sh
-solution/reference_solver.py        unchanged v1 reference (calibration artifact)
-solution/TRUTH.md                   ground-truth record for the v2 route
-trajectories/                two recorded runs: opus-5 (42 submissions), gpt-5.6-sol (66, merged)
+task.toml                    task contract; images pinned by digest
+instruction.md               pointer to the agent-facing specification
+environment/                 work image: Dockerfile, README, solver library, agent spec,
+                             7 develop instances, byte-level format spec
+tests/                       judge image: Dockerfile, score.py, solver library,
+                             perturbation builder, test.sh, data/
+tests/data/hidden_benchmarks 90 hidden instances
+tests/data/hidden_optima.json  HiGHS-certified optima plus solver wall times
+solution/                    private oracle tree: TRUTH.md, reference_solver.py,
+                             rubrics.json, solve.sh
+trajectories/                two recorded runs: opus-5 (42 submissions),
+                             gpt-5.6-sol (66, merged from two parts)
 plots/score_vs_submissions.svg      both runs on one axis
 plots/opus-5.svg                    opus-5 alone
 plots/gpt-5.6-sol.svg               gpt-5.6-sol alone

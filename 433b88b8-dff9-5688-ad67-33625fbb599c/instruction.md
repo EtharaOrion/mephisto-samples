@@ -1,4 +1,3 @@
-Read the complete task instructions in `/home/workspace/task_instruction.md` before beginning any work. That file is the authoritative agent-facing specification for this task; the summary below exists only to point you at it.
 
 # Zero-One Integer Programming Solver from Scratch (v2)
 
