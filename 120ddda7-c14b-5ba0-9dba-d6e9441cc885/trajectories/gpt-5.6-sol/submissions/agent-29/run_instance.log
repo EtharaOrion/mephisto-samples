@@ -1,0 +1,9 @@
+2026-09-06 22:44:22,357 - INFO - Judge container started: f176c3dca61a876b86a74cbb0e26f871b809e19641cd0196a088f8bc12a9f233
+2026-09-06 22:44:22,357 - INFO - Archive saved (15001 bytes)
+2026-09-06 22:44:22,568 - INFO - Archive extracted: 13 file(s) allowed, 0 rejected
+2026-09-06 22:44:22,598 - INFO - Running eval script...
+2026-09-06 22:44:26,318 - INFO - Test runtime: 3.72s, timed_out: False
+2026-09-06 22:44:26,318 - INFO - Result: 0/0 passed (pass_rate=0.00%)
+2026-09-06 22:44:26,318 - INFO - Stopping container edgebench.judge.libpcap_bpf_codegen_fidelity.d1fdecce973c...
+2026-09-06 22:44:26,664 - INFO - Removing container edgebench.judge.libpcap_bpf_codegen_fidelity.d1fdecce973c...
+2026-09-06 22:44:26,669 - INFO - Container edgebench.judge.libpcap_bpf_codegen_fidelity.d1fdecce973c removed.

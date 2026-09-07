@@ -1,19 +1,19 @@
 {
-  "run_id": "120ddda7-c14b-5ba0-9dba-d6e9441cc885-d1a3e7a1c37f",
-  "task": "libpcap_bpf_codegen_fidelity",
-  "best_score": 0.95318,
-  "best_round": "agent-102",
-  "agent_submissions": 103,
+  "run_id": "libpcap-opus5-openhands-20260906b",
+  "best_score": 0.971848,
+  "best_pass_rate": 0.0,
+  "best_round": "agent-49",
+  "agent_submissions": 52,
   "auto_submissions": 23,
   "entries": [
     {
       "type": "submission",
       "status": "completed",
-      "submission_id": "ccb9e383bb0a",
+      "submission_id": "4b342087fc8a",
       "task_id": "libpcap_bpf_codegen_fidelity",
-      "round": "agent-1",
+      "round": "auto-1",
       "pass_rate": 0.0,
-      "score": 0.0,
+      "score": 0.01983,
       "passed": 0,
       "failed": 0,
       "total_tests": 0,
@@ -23,11 +23,11 @@
     {
       "type": "submission",
       "status": "completed",
-      "submission_id": "cf3456935ec7",
+      "submission_id": "53b09077ff3d",
       "task_id": "libpcap_bpf_codegen_fidelity",
-      "round": "agent-2",
+      "round": "auto-2",
       "pass_rate": 0.0,
-      "score": 0.0,
+      "score": 0.55419,
       "passed": 0,
       "failed": 0,
       "total_tests": 0,
@@ -36,748 +36,1025 @@
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "b650bdc826eb",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-1",
+      "pass_rate": 0.0,
+      "score": 0.587761,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "9b24965cf89c",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-2",
+      "pass_rate": 0.0,
+      "score": 0.671115,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e17ae93345a4",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "agent-3",
-      "score": 0.548849,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.782591,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "6fcd141c37ce",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "agent-4",
-      "score": 0.704015,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.838023,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "e61bdebffd5d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "agent-5",
-      "score": 0.780265,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.84373,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "7c26680ffbc7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "agent-6",
-      "score": 0.801605,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-7",
-      "score": 0.822875,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-8",
-      "score": 0.861603,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-9",
-      "score": 0.909806,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-10",
-      "score": 0.915845,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-11",
-      "score": 0.91678,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-12",
-      "score": 0.919069,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-13",
-      "score": 0.919631,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-14",
-      "score": 0.919501,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-15",
-      "score": 0.919651,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-16",
-      "score": 0.919994,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-17",
-      "score": 0.924841,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-18",
-      "score": 0.925228,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-19",
-      "score": 0.925768,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-20",
-      "score": 0.926639,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-21",
-      "score": 0.927642,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-22",
-      "score": 0.927789,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-23",
-      "score": 0.929035,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-24",
-      "score": 0.928755,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-25",
-      "score": 0.929297,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-26",
-      "score": 0.929617,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-27",
-      "score": 0.931374,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-28",
-      "score": 0.932244,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-29",
-      "score": 0.93177,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-30",
-      "score": 0.932855,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-31",
-      "score": 0.9321,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-32",
-      "score": 0.933647,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-33",
-      "score": 0.933491,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-34",
-      "score": 0.934177,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-35",
-      "score": 0.935482,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-36",
-      "score": 0.936136,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-37",
-      "score": 0.936123,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-38",
-      "score": 0.936067,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-39",
-      "score": 0.936478,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-40",
-      "score": 0.93738,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-41",
-      "score": 0.937702,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-42",
-      "score": 0.937337,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-43",
-      "score": 0.93752,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-44",
-      "score": 0.938812,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-45",
-      "score": 0.941083,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-46",
-      "score": 0.939003,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-47",
-      "score": 0.939345,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-48",
-      "score": 0.939488,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-49",
-      "score": 0.939396,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-50",
-      "score": 0.9394,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-51",
-      "score": 0.939909,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-52",
-      "score": 0.939551,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-53",
-      "score": 0.939235,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-54",
-      "score": 0.871452,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-55",
-      "score": 0.940818,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-56",
-      "score": 0.939628,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-57",
-      "score": 0.939639,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-58",
-      "score": 0.939879,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-59",
-      "score": 0.939756,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-60",
-      "score": 0.940631,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-61",
-      "score": 0.940108,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-62",
-      "score": 0.940844,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-63",
-      "score": 0.940186,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-64",
-      "score": 0.940124,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-65",
-      "score": 0.93986,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-66",
-      "score": 0.940309,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-67",
-      "score": 0.941075,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-68",
-      "score": 0.940699,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-69",
-      "score": 0.940381,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-70",
-      "score": 0.94123,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-71",
-      "score": 0.942521,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-72",
-      "score": 0.940869,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-73",
-      "score": 0.940908,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-74",
-      "score": 0.940266,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-75",
-      "score": 0.940623,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-76",
-      "score": 0.943239,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-77",
-      "score": 0.940374,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-78",
-      "score": 0.940888,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-79",
-      "score": 0.940272,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-80",
-      "score": 0.940067,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-81",
-      "score": 0.940248,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-82",
-      "score": 0.94094,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-83",
-      "score": 0.94206,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-84",
-      "score": 0.940773,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-85",
-      "score": 0.940969,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-86",
-      "score": 0.941061,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-87",
-      "score": 0.941009,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-88",
-      "score": 0.940972,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-89",
-      "score": 0.941019,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-90",
-      "score": 0.940878,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-91",
-      "score": 0.941371,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-92",
-      "score": 0.941219,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-93",
-      "score": 0.94265,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-94",
-      "score": 0.941094,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-95",
-      "score": 0.94199,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-96",
-      "score": 0.940733,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-97",
-      "score": 0.940914,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-98",
-      "score": 0.940737,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-99",
-      "score": 0.940464,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-100",
-      "score": 0.940778,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-101",
-      "score": 0.94094,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-102",
-      "score": 0.95318,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "agent-103",
-      "score": 0.940774,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "auto-1",
-      "score": 0.01983,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
-      "round": "auto-2",
-      "score": 0.548849,
-      "submission_id": null
-    },
-    {
-      "type": "submission",
+      "pass_rate": 0.0,
+      "score": 0.853151,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "aeb905751342",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-3",
-      "score": 0.909401,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.853927,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "f9d3a6cbe3a3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-7",
+      "pass_rate": 0.0,
+      "score": 0.861994,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "93e7db58089d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-8",
+      "pass_rate": 0.0,
+      "score": 0.863232,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "918837769b7f",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-9",
+      "pass_rate": 0.0,
+      "score": 0.869245,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "959c89d1569d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-10",
+      "pass_rate": 0.0,
+      "score": 0.869245,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "50dfb58715d7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-4",
-      "score": 0.925099,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.91441,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "75d95480a724",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-11",
+      "pass_rate": 0.0,
+      "score": 0.91595,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e8150f9d57f1",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-5",
-      "score": 0.93083,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.917004,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "0b6f480961a2",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-12",
+      "pass_rate": 0.0,
+      "score": 0.921888,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a4679b6b6510",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-13",
+      "pass_rate": 0.0,
+      "score": 0.92473,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c32131d121b8",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-14",
+      "pass_rate": 0.0,
+      "score": 0.953843,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a0c9f8f3298d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-6",
-      "score": 0.936193,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.953843,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "40cadaf3fa70",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-15",
+      "pass_rate": 0.0,
+      "score": 0.953681,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c143473cffe8",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-16",
+      "pass_rate": 0.0,
+      "score": 0.955418,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a0103c0721a3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-7",
-      "score": 0.0,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.955994,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "a16fe0285125",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-17",
+      "pass_rate": 0.0,
+      "score": 0.957362,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e0cb6aa974d5",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-18",
+      "pass_rate": 0.0,
+      "score": 0.958486,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "a6616feb229d",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-19",
+      "pass_rate": 0.0,
+      "score": 0.958677,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "f636f43ab144",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-20",
+      "pass_rate": 0.0,
+      "score": 0.958819,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5d11b03505f4",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-21",
+      "pass_rate": 0.0,
+      "score": 0.961411,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6d19578f20e7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-8",
-      "score": 0.940823,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.961659,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "69114dcd5b8e",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-22",
+      "pass_rate": 0.0,
+      "score": 0.963417,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c7f5c9e1838e",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-23",
+      "pass_rate": 0.0,
+      "score": 0.961862,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ffc8101fd1e3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-24",
+      "pass_rate": 0.0,
+      "score": 0.962245,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c4c65150d5bd",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-9",
-      "score": 0.940722,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.962845,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "91e4c84441c0",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-25",
+      "pass_rate": 0.0,
+      "score": 0.963199,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8080014ca7dc",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-26",
+      "pass_rate": 0.0,
+      "score": 0.962441,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b2f3b42384b5",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-27",
+      "pass_rate": 0.0,
+      "score": 0.962566,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "23b5e41ea71b",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-28",
+      "pass_rate": 0.0,
+      "score": 0.962779,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "48d1cfc241c0",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-29",
+      "pass_rate": 0.0,
+      "score": 0.962779,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "d88ca2ffeaf2",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-10",
-      "score": 0.940637,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.962779,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "2903ad0bf540",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-30",
+      "pass_rate": 0.0,
+      "score": 0.965181,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "3fda1774c18a",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-31",
+      "pass_rate": 0.0,
+      "score": 0.965211,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "918dcfd5882a",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-32",
+      "pass_rate": 0.0,
+      "score": 0.966051,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "7df6f125d51f",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-33",
+      "pass_rate": 0.0,
+      "score": 0.967352,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6da0a5edaf91",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-11",
-      "score": 0.940951,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.967352,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "e1280fabc8c9",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-12",
-      "score": 0.940142,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.965858,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "f4d476523087",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-34",
+      "pass_rate": 0.0,
+      "score": 0.965858,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "1a366f572871",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-35",
+      "pass_rate": 0.0,
+      "score": 0.965798,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "26cad43352c1",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-13",
-      "score": 0.940509,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.965798,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "b22f8ba4381f",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-36",
+      "pass_rate": 0.0,
+      "score": 0.966051,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "c3cc03e9ec5c",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-14",
-      "score": 0.94125,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.966066,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "642a356afef3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-37",
+      "pass_rate": 0.0,
+      "score": 0.966244,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "e1d388871c83",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-15",
-      "score": 0.94047,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "aef5ae204bd4",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-38",
+      "pass_rate": 0.0,
+      "score": 0.966184,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8e7f7e28444a",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-39",
+      "pass_rate": 0.0,
+      "score": 0.966126,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4157a74154f6",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-40",
+      "pass_rate": 0.0,
+      "score": 0.96563,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b7ad06e20021",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-16",
-      "score": 0.9406,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.96563,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "4227441a3b57",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-41",
+      "pass_rate": 0.0,
+      "score": 0.965594,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ccb8bb3836f7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-42",
+      "pass_rate": 0.0,
+      "score": 0.965611,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b47ae5594568",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-43",
+      "pass_rate": 0.0,
+      "score": 0.965773,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "cdf8589a9232",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-17",
-      "score": 0.940753,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.965714,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "39435b733a22",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-44",
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "460d105bfb05",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-18",
-      "score": 0.940397,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "97ef2f616763",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-45",
+      "pass_rate": 0.0,
+      "score": 0.966446,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "ebe4941b5bc3",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-46",
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "35ca8fa5ebba",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-19",
-      "score": 0.940478,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "1f4ce67ae2a0",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-47",
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "5e510b428cbf",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-20",
-      "score": 0.940576,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.966602,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "32263a28c423",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-48",
+      "pass_rate": 0.0,
+      "score": 0.966902,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "305161fa60b9",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-49",
+      "pass_rate": 0.0,
+      "score": 0.971848,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "4613872dec35",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-21",
-      "score": 0.940739,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.971848,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "69e3af6893a7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-22",
-      "score": 0.940945,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.966642,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     },
     {
       "type": "submission",
+      "status": "completed",
+      "submission_id": "e9b141a57560",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-50",
+      "pass_rate": 0.0,
+      "score": 0.966817,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "6e7b9c3b4be7",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-51",
+      "pass_rate": 0.0,
+      "score": 0.966577,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "b97f1d731e54",
+      "task_id": "libpcap_bpf_codegen_fidelity",
       "round": "auto-23",
-      "score": 0.940378,
-      "submission_id": null
+      "pass_rate": 0.0,
+      "score": 0.966949,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
+    },
+    {
+      "type": "submission",
+      "status": "completed",
+      "submission_id": "8d80a2bfec18",
+      "task_id": "libpcap_bpf_codegen_fidelity",
+      "round": "agent-52",
+      "pass_rate": 0.0,
+      "score": null,
+      "passed": 0,
+      "failed": 0,
+      "total_tests": 0,
+      "valid": true,
+      "summary": null
     }
-  ],
-  "_recovered": "Merged from judge /api/v1/history payloads captured in agent_output.txt plus the supervisor score table."
+  ]
 }
