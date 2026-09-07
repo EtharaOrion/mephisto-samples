@@ -70,13 +70,14 @@ For reference, the starter tree in `environment/src/` measures 0.0198 on the gra
 
 **Paths in the `gpt-5.6-sol` record are relative to the repository root.** The merge wrote the authoring host's absolute layout into four files; the prefix was stripped after the run. Only that prefix changed - scores, round ids and the `parts` provenance are as the harness produced them.
 
-**The oracle ships in this bundle.** `solution/` holds the generated golden trajectory (`TRUTH.md`, canary-tagged), the checker grounding, and executable recompute tooling. Anyone holding this directory can reproduce a calibrated result directly, so the task cannot be used to evaluate a model that has had access to it.
+**The oracle ships in this bundle.** `solution/` holds the golden trajectory (`TRUTH.md`, canary-tagged), the grading rubrics, and the reference entry point. Anyone holding this directory can reproduce a calibrated result directly, so the task cannot be used to evaluate a model that has had access to it. The authoring-side sources that generated `TRUTH.md` are not shipped.
 
 ## Files
 
 ```
 README.md                   this file
-inspect.html                single-file visual report over this bundle
+inspector.html              single-file visual report over this bundle
+plots/                      score curves per cohort, and score vs submissions
 instruction.md              the objective handed to the agent
 task.toml                   manifest: budgets, images, network mode, submit paths, selection,
                             mutation provenance (mut1.patch sha256, acceptance-equivalence count)
@@ -87,9 +88,8 @@ tests/                      the judge container: test.sh (the 7-step verifier), 
                             (score.py, similarity.py, validator.py, containment.py),
                             hidden_test_data/ (12,000 cases + golden outputs + fingerprints),
                             rubrics.jsonl (6 trajectory-level conduct rubrics)
-solution/                   PRIVATE - the oracle: TRUTH.md golden trajectory (generated,
-                            canary-tagged), grounding/policy/provenance YAMLs, recompute.py,
-                            solve.sh, rubrics.json
+solution/                   PRIVATE - the oracle: TRUTH.md golden trajectory
+                            (canary-tagged), rubrics.json, solve.sh
 trajectories/
   opus-5/                   claude-opus-5[1m], native 12.00 h session: run config, run ledger,
                             host-side state, the raw session stream, final workspace archive
