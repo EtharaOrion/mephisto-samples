@@ -19589,7 +19589,8 @@ Makefile
 <tr><td><code>solution/rubrics.json</code></td><td>3,160</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>solution/recompute.py</code></td><td>23,321</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>solution/solve.sh</code></td><td>674</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
-<tr><td><code>inspect.html</code></td><td>1,255,757</td><td>this file</td></tr>
+<tr><td><code>plots/</code></td><td>59,915</td><td>3 SVG charts: per-model score curves and the combined score-vs-submissions view</td></tr>
+<tr><td><code>inspector.html</code></td><td>1,255,900</td><td>this file</td></tr>
 </table>
 <h3>Trajectories</h3>
 <h4>trajectories/opus-5/</h4>
@@ -19629,7 +19630,7 @@ Makefile
 <tr><td><code>started_at</code></td><td>39</td><td>ISO timestamp and unix epoch of container start</td></tr>
 <tr><td><code>submissions/</code></td><td>15,925,051</td><td>173 round directories, 1,014 files. 167 rounds carry the full six-file layout (<code>report.json</code>, <code>eval.sh</code>, <code>submission.tar.gz</code>, <code>test_output.txt</code>, <code>run_instance.log</code>, <code>allowed_files.txt</code>); the 6 de-duplicated rounds carry <code>DEDUPLICATED.txt</code> and <code>report.json</code> only</td></tr>
 </table>
-<div class='note'>Whole bundle: 57,337,729 bytes across 1,492 files, of which 23,910,196 bytes are the two raw transcripts and 7,087,896 bytes are the private graded corpus.</div>
+<div class='note'>Whole bundle: 57,397,787 bytes across 1,495 files, of which 23,910,196 bytes are the two raw transcripts and 7,087,896 bytes are the private graded corpus.</div>
 <h2>What this report cannot tell you</h2>
 <table><tr><th>absent</th><th>consequence</th></tr>
 <tr><td>the C / P split behind any score</td><td><code>score.py</code> writes conformance, throughput, per-stratum means and <code>N_exact</code> to <code>/logs/verifier/reward.json</code> inside the judge container. That path is not carried into either trajectory. <code>report.json</code> has <code>metrics: {}</code> and <code>test_output.txt</code> carries only <code>TOTAL_SCORE</code>. So for all 237 scored rounds in this bundle the single float is everything. The inequality bounds derived above are the most that can be said: they pin C and P to intervals, never to values, and they say nothing at all about how the conformance was distributed across the eight strata.</td></tr>
