@@ -59,7 +59,11 @@ is the only fine-grained feedback available.
 
 ## Calibration
 
-Measured on the shipped judge, 2026-09-05:
+Measured on the shipped judge, 2026-09-05. The two frontier artifacts are the
+v1 solvers re-scored on the v2 judge, not v2 runs: they are what a strong v1
+submission is worth once lane 5 actually executes and the lane-2 curve is
+tightened. The v2 trajectories under `trajectories/` scored higher (93.21 and
+83.84) because those agents worked against the v2 judge from the start.
 
 | Solver | Total | L1 | L2 | L3 | L4 | L5 |
 |---|---|---|---|---|---|---|

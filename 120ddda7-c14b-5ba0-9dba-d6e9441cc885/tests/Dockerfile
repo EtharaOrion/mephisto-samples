@@ -1,18 +1,9 @@
 # Verifier image for libpcap_bpf_codegen_fidelity.
 #
-# REWRITTEN after an adversarial review. The previous revision:
-#   * COPYd four asset names that existed nowhere in the build tree, so the
-#     image could not build at all;
-#   * COPYd 430 KB of verbatim libpcap source into /opt/verifier/upstream_ngrams
-#     under a comment claiming it shipped fingerprints;
-#   * left golden.jsonl at the COPY default 0644 while the agent's binary ran as
-#     root in this container, so reading the answers was a one-line exploit;
-#   * declared no USER, so agent-authored code ran as root with write access to
-#     every grading asset and to the reward file itself.
-#
-# The trust model this image exists to enforce: the agent's Makefile and the
-# agent's binary run here, as an unprivileged user, with the answers unreadable
-# to that user. Nothing about that is left to convention; test.sh asserts it
+# TRUST MODEL. The agent's Makefile and the agent's binary run here, as an
+# unprivileged user, with the answers unreadable to that user and the oracle
+# unreachable by it. None of that is left to convention: the ownership and mode
+# of every grading asset are set explicitly below, and test.sh re-asserts them
 # before it grades.
 
 # THE MUTATED ORACLE. This must be the same compiler that produced
@@ -49,7 +40,7 @@ RUN useradd --create-home --shell /usr/sbin/nologin --uid 1001 runner
 
 # A SECOND unprivileged identity, used only to run the timing reference.
 #
-# Phase 3 Hacker defeated the previous revision with 28 lines of C: the oracle
+# Defence in depth is not enough on its own here: the oracle
 # binary sat at mode 0755 in the same container as agent code and answers the
 # identical invocation contract, so posix_spawn on it returned C = 1.000000.
 # posix_spawn is not in the import denylist, and it never can be made safe by
@@ -156,7 +147,7 @@ RUN set -e; \
     rm -f /tmp/probe.jsonl /tmp/probe_out.jsonl /tmp/probe_expected.jsonl; \
     echo "embedded oracle asserted as the mutated build"
 
-# Assert that no upstream source text reached this image. The previous revision
+# Assert that no upstream source text reached this image. An earlier build
 # shipped gencode.c here, so this check exists because the failure happened.
 RUN set -e; \
     if find / -xdev \( -name 'gencode.c' -o -name 'optimize.c' -o -name 'grammar.y' \

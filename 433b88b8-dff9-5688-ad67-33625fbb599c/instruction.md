@@ -1,4 +1,3 @@
-
 # Zero-One Integer Programming Solver from Scratch (v2)
 
 ## Role

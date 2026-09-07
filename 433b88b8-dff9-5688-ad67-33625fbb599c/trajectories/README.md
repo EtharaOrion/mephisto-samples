@@ -77,11 +77,3 @@ real graded peak, not a plateau.
 The 93.21 − 83.84 spread is therefore mostly one lane: Opus reached 21.88 on
 lane 3, gpt-5.6-sol peaked at 12.50 and did not hold it. On every other lane the
 two models are within ~0.3 points.
-
-## Known bundle issue these runs surfaced
-
-`instruction.md` / `task_instruction.md` still carry v1's submission economics —
-*"at most 300 submissions with a 120 second cooldown"* — while the harness
-enforces 60 and 900 s. Both figures reach the agent in the same prompt. Part 1's
-agent believed the 120 s number and ran a `sleep 121; sforge-submit` loop,
-producing 48 cooldown rejections. Fixing the text requires a work-image rebuild.
