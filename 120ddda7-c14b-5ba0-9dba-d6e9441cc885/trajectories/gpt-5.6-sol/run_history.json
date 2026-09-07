@@ -3126,112 +3126,112 @@
   "merged_at": "2026-09-07T06:33:19",
   "parts": [
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906",
       "rounds": 4,
       "best_score": 0.66693,
       "runtime_seconds": 3852.180614233017
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r1/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r1/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r1",
       "rounds": 14,
       "best_score": 0.815846,
       "runtime_seconds": 7324.349780797958
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r2/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r2/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r2",
       "rounds": 18,
       "best_score": 0.837098,
       "runtime_seconds": 4015.925516843796
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r3/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r3/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r3",
       "rounds": 0,
       "best_score": null,
       "runtime_seconds": 96.31738233566284
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r4/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r4/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r4",
       "rounds": 3,
       "best_score": 0.46957,
       "runtime_seconds": 2098.0328509807587
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r230436/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r230436/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r230436",
       "rounds": 53,
       "best_score": 0.860087,
       "runtime_seconds": 7989.297187328339
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r011840/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r011840/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r011840",
       "rounds": 18,
       "best_score": 0.885184,
       "runtime_seconds": 2853.624750137329
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r020641/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r020641/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r020641",
       "rounds": 6,
       "best_score": 0.861345,
       "runtime_seconds": 1004.4369659423828
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r022341/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r022341/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r022341",
       "rounds": 5,
       "best_score": 0.859623,
       "runtime_seconds": 1088.052980184555
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r024242/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r024242/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r024242",
       "rounds": 1,
       "best_score": 0.859553,
       "runtime_seconds": 329.3892910480499
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r024842/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r024842/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r024842",
       "rounds": 0,
       "best_score": null,
       "runtime_seconds": 70.2864785194397
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r025042/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r025042/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r025042",
       "rounds": 1,
       "best_score": 0.85888,
       "runtime_seconds": 218.7379665374756
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r025403/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r025403/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r025403",
       "rounds": 15,
       "best_score": 0.860055,
       "runtime_seconds": 5642.461405992508
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r044006/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r044006/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r044006",
       "rounds": 19,
       "best_score": 0.864889,
       "runtime_seconds": 3337.620968580246
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r053607/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r053607/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r053607",
       "rounds": 14,
       "best_score": 0.86018,
       "runtime_seconds": 2555.663150072098
     },
     {
-      "run_dir": "/home/ec2-user/Mephisto/mephisto/trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r061909/libpcap_bpf_codegen_fidelity",
+      "run_dir": "trajectories/openhands/codex/runs/libpcap-gpt56sol-openhands-20260906-r061909/libpcap_bpf_codegen_fidelity",
       "run_id": "libpcap-gpt56sol-openhands-20260906-r061909",
       "rounds": 2,
       "best_score": 0.859724,
