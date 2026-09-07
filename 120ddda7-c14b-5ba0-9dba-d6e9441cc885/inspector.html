@@ -309,110 +309,106 @@ The starter in `src/` builds, answers the contract on every case, and is deliber
 
 Build with `make`, run your binary over the public inputs with `--cases`, and score locally with `./score.sh`. Keep the tree building after every edit: a submission that does not compile is a hard zero no matter how good the design was. Work stratum by stratum rather than case by case, since the graded corpus is drawn from the same eight strata and a fix that generalizes across a stratum is worth roughly a hundred times a fix that lands on one public case. Note again that the public corpus does NOT carry the graded proportions: weight your effort by the table above, not by how many public cases of a kind you happen to see. Never stop to ask a question, work autonomously until interrupted, and check the clock before starting a refactor large enough to leave the tree broken.
 </pre></details>
-<details><summary>README.md &#183; 10,605 bytes</summary>
-<div class='note'><b>The packaged README does not describe the bundle it ships in.</b> It describes a single salvaged <code>claude-opus-5[1m]</code> session of 126 rounds with a best score of 0.953180 selected at <code>agent-102</code>, and states that four per-round judge artifacts are missing. Neither claim matches what is on disk: <code>trajectories/opus-5/</code> holds 75 rounds from an OpenHands run whose best is 0.971848 at <code>agent-49</code>, <code>trajectories/gpt-5.6-sol/</code> holds 173 rounds that the README never mentions, and the judge-side artifacts are present. It also calls <code>public_cases.jsonl</code> a 685-record file and builds a whole caveat out of the gap between that and the instruction's stated 750 &#8212; &#8220;the instruction text calls it the 750 case corpus; the shipped file carries 685 records&#8221;. The shipped file now carries 750, so that discrepancy no longer exists and the caveat describes a state the bundle has left. And it states that &#8220;<code>task.toml</code> here freezes <code>name</code>/<code>task_id</code> as <code>libpcap_bpf_codegen_fidelity_mut1</code> to keep the mutant and <code>62b54382</code> distinct in any registry&#8221;. <code>task.toml</code> now carries <code>edgebench/libpcap_bpf_codegen_fidelity</code> and <code>task_id = libpcap_bpf_codegen_fidelity</code>, which is the id the recorded runs were graded under, so the rename that caveat describes has been undone rather than completed. Every figure in this report is read from the files themselves, not from the README.</div>
-<pre># `120ddda7-c14b-5ba0-9dba-d6e9441cc885` - `libpcap BPF Codegen Fidelity (mutated reference, mut1)`
+<details><summary>README.md &#183; 9,421 bytes</summary>
+<pre># `120ddda7-c14b-5ba0-9dba-d6e9441cc885`
 
-One model cohort (`anthropic/claude-opus-5[1m]`), one twelve-hour session, 126 graded submissions packaged on one axis.
+Two model cohorts, one twelve-hour session each, on the same agent harness.
 
-The task is the mutated sibling of `62b54382-a910-5b29-ad0e-1efa993cc615`: rebuild a **deliberately modified** libpcap 1.10.6 BPF filter compiler in C from observable behaviour alone - no libpcap source, headers, binary, documentation, or network. The reference is not stock libpcap: four deterministic, semantics-preserving mutations (applied by `mut1.patch`, sha256 `f3d5502b...86600`, inside the private authoring image, never shipped) change its code generation and instruction layout choices only, so for most expressions it emits different bytes than upstream while accepting exactly the same packets - measured at 1,889,280 packet evaluations with zero acceptance divergence. Per the private calibration in `solution/TRUTH.md`, the optimized program differs from the unoptimized one on 61.4% of the corpus and 94.4% of the optimizer-only stratum. Recalled upstream bytes are wrong wherever the mutations bite; the departures must be excavated from the 685-record `public_cases.jsonl` (the instruction text calls it the 750 case corpus; the shipped file carries 685 records). Graded on exact cBPF instruction-tuple equality and exact error-string equality against 12,000 hidden `(dlt, snaplen, optimize, netmask, filter)` cases across 8 weighted strata, plus a gated judge-timed compile-throughput term.
+The task is the mutated sibling of `62b54382-a910-5b29-ad0e-1efa993cc615`: rebuild a **deliberately modified** libpcap 1.10.6 BPF filter compiler in C from observable behaviour alone - no libpcap source, headers, binary, documentation, or network. The reference is not stock libpcap: four deterministic, semantics-preserving mutations (applied by `mut1.patch`, sha256 `f3d5502b...86600`, inside the private authoring image, never shipped) change its code generation and instruction layout choices only, so for most expressions it emits different bytes than upstream while accepting exactly the same packets - measured at 1,889,280 packet evaluations with zero acceptance divergence. Per the private calibration in `solution/TRUTH.md`, the optimized program differs from the unoptimized one on 61.4% of the corpus and 94.4% of the optimizer-only stratum. Recalled upstream bytes are wrong wherever the mutations bite; the departures must be excavated from the 750-record `public_cases.jsonl`. Graded on exact cBPF instruction-tuple equality and exact error-string equality against 12,000 hidden `(dlt, snaplen, optimize, netmask, filter)` cases across 8 weighted strata, plus a gated judge-timed compile-throughput term.
 
 ```
-task                    edgebench/libpcap_bpf_codegen_fidelity_mut1
+task                    edgebench/120ddda7-c14b-5ba0-9dba-d6e9441cc885
+                        (task_id libpcap_bpf_codegen_fidelity)
 budget                  43200 s (12 h) agent window, 300 submissions max, 120 s cooldown,
                         1800 s evaluator-only snapshot interval
-harness / stack         claude-code · claude-opus-5[1m] · cpp base image · linux/amd64 ·
+harness / stack         openhands · cpp base image · linux/amd64 ·
                         parser structured_json · selection score_first
+cohorts                 anthropic/claude-opus-5[1m] · openai/gpt-5.6-sol
 network                 agent: no-network · verifier: no-network, separate container
 verifier                900 s budget · 12,000 hidden cases · 8 public weights, hidden contents ·
-                        3,000-case timing subset, 3 warmups + 5 timed trials, interleaved,
+                        timing subset, 3 warmups + 5 timed trials, interleaved,
                         judge wall clock only
 score                   R = clip(0.88·C + 0.12·P·min(1, C/0.25), 0, 1)
                         C: weighted mean over 8 strata; per case: exact tuple sequence or
                         exact error string = 1.00, structurally valid divergence =
                         0.60 · floor-corrected similarity, invalid or missing = 0.00
-                        P: clip(ln(r/0.5)/ln(8), 0, 1) with r = (t_up/N_total)/(t_cand/N_exact),
-                        byte-exact cases only; dead zone r &lt;= 1.05 scores 0
+                        P: clip(ln(r/0.5)/ln(8), 0, 1) with r = t_upstream/t_candidate,
+                        dead zone r &lt;= 1.05 scores 0
 ```
 
-The task files at the top level (`instruction.md`, `task.toml`, `environment/`, `tests/`, `solution/`) are the frozen task exactly as graded. The run's records live under `trajectories/opus-5/`, one directory per submission beneath `submissions/`.
+The task files at the top level (`instruction.md`, `task.toml`, `environment/`, `tests/`, `solution/`) are the frozen task exactly as graded. Each run&#x27;s records live under `trajectories/&lt;cohort&gt;/`, one directory per submission beneath `submissions/`.
+
+Both cohorts ran the same agent, the same task, and the same settings, so the difference between them is the model and nothing else.
 
 ## Session results
 
-| | `claude-opus-5[1m]` |
-|---|---|
-| submissions packaged | **126** (103 agent-initiated + 23 evaluator-only) |
-| submissions scored above zero | 123 |
-| selection | `score_first` -&gt; **`agent-102`** |
-| best score | **0.953180** |
-| final submission score | 0.940774 (`agent-103`) |
-| median / mean score | 0.9399 / 0.8946 |
-| first graded submission | `auto-1`, 0.019830, at 0.50 h |
-| best first reached | `agent-102`, at 11.48 h of 12 h |
-| cumulative input-side tokens | 2,029,611,221 * |
-| session wall clock | 43,199.8 s (12.00 h), `timed_out: true`, 1 resume |
+| | `claude-opus-5[1m]` | `gpt-5.6-sol` |
+|---|---|---|
+| submissions packaged | **75** (52 agent-initiated + 23 evaluator-only) | **173** (154 agent-initiated + 19 evaluator-only) |
+| submissions scored | 69 | 168 |
+| selection | `score_first` -&gt; **`agent-49`** | `score_first` -&gt; **`agent-88`** |
+| best score | **0.971848** | **0.885184** |
+| first graded submission | `auto-1`, 0.019830 (the starter floor) | `auto-1`, 0.548295 |
+| best first reached | `agent-49`, at 10.49 h of 12 h | `agent-88`, at 3.5 h |
+| session wall clock | 43,200.1 s (12.00 h), `timed_out: true` | 43,266.3 s (12.02 h), summed across 16 segments |
+| continuity | one uninterrupted session, 0 resumes | 16 segments, see Provenance |
 
 Score progression, earliest round to cross each threshold:
 
-| Threshold | Round | Score | Elapsed |
-|---|---|---|---|
-| &gt;= 0.50 | `agent-3` | 0.548849 | 1.00 h |
-| &gt;= 0.80 | `agent-6` | 0.801605 | 1.30 h |
-| &gt;= 0.90 | `agent-9` | 0.909806 | 1.48 h |
-| &gt;= 0.94 | `agent-45` | 0.941083 | 3.60 h |
-| &gt;= 0.95 | `agent-102` | 0.953180 | 11.48 h |
+| Threshold | `claude-opus-5[1m]` | | | `gpt-5.6-sol` | | |
+|---|---|---|---|---|---|---|
+| | Round | Score | Elapsed | Round | Score | Elapsed |
+| &gt;= 0.50 | `auto-2` | 0.554190 | 1.00 h | `auto-1` | 0.548295 | 0.50 h |
+| &gt;= 0.80 | `agent-4` | 0.838023 | 1.34 h | `auto-4` | 0.805050 | 2.08 h |
+| &gt;= 0.90 | `auto-4` | 0.914410 | 2.00 h | - | - | not reached |
+| &gt;= 0.95 | `agent-14` | 0.953843 | 2.92 h | - | - | not reached |
+| &gt;= 0.97 | `agent-49` | 0.971848 | 10.49 h | - | - | not reached |
 
-The curve is an excavation record. The first nonzero grading is the 0.50 h evaluator snapshot (`auto-1`, 0.019830). Conformance then rose almost vertically: 0.50 by `agent-3` (1.00 h), 0.80 by `agent-6` (1.30 h), 0.90 by `agent-9` (1.48 h), 0.94 by `agent-45` (3.60 h, 0.941083). From there the run is one long tail: the remaining 7.9 hours bought the last 0.012097 of score - stratum-by-stratum divergence hunting against the mutated layout decisions - closing at 0.953180 on `agent-102` about 31 minutes before the clock. Three rounds graded zero: the first two agent submissions (`agent-1` at 0.88 h, `agent-2` at 0.95 h) and one evaluator snapshot (`auto-7` at 3.50 h, sitting between `agent-43` at 0.937520 and `agent-44` at 0.938812 - the snapshot grades whatever is on disk at the tick). The per-round verifier transcripts that would attribute those zeros did not survive the loss of the run directory, so the cause of each zero is not recoverable from this salvage. The session ended on the boundary mid-work (`timed_out: true`), with 1 mid-session resume.
+Both curves are excavation records. The Opus run rose almost vertically - 0.50 by the first hour, 0.90 by 2.00 h, 0.95 by 2.92 h - and then spent the remaining nine hours buying the last 0.018, stratum-by-stratum divergence hunting against the mutated layout decisions. The instruction documents 0.880 as the ceiling for perfect conformance at parity speed; both cohorts crossed it, so both earned throughput credit on top of exact-match conformance.
 
-## Provenance: this trajectory was salvaged. Read before quoting anything.
+For reference, the starter tree in `environment/src/` measures 0.0198 on the graded corpus and is the documented floor of this task.
 
-**The original run directory was lost to an infrastructure fault, and this bundle is the rescue.** What survived intact: the complete raw session stream (`agent_output.txt`, 12 MB, 3,680 assistant records), the harness agent log, and the start marker. Everything else at run level was reconstructed 2026-08/2026-09 from rescued harness logs (supervisor score table, judge access log, captured submit responses) and carries an explicit `_recovered` provenance key or header where the format allows. Scores are authoritative: every per-round score was captured from the judge's own responses at run time.
+## Provenance
 
-**Four per-round judge artifacts are absent from every submission directory**: the submitted tarball (`submission.tar.gz`), the verifier transcript (`test_output.txt`), the judge container log (`run_instance.log`), and the extracted-file list (`allowed_files.txt`). They were lost with the directory and are not reconstructable from any surviving log. Each round ships `report.json` (recovered score record) and `eval.sh` (invariant judge entry point). A re-run under the renamed task id is scheduled; its bundle will carry the full six-file layout.
+**The `gpt-5.6-sol` trajectory is a merged record, not one continuous session.** Its `final_result.json` carries `merged: true` and a `parts` block naming all 16 segments with their individual runtimes and best scores; `run_history.json` records `merged_from` for every round. During the session the upstream model provider repeatedly returned truncated responses and `response.failed` errors. Each of those exited the agent cleanly, which is not the abnormal exit the harness auto-resumes on, so a supervisor detected the stop and relaunched from the run&#x27;s best submission via `--seed-archive`. The solver carried across each relaunch; the agent&#x27;s conversation did not. `runtime_seconds` is the sum of the segments&#x27; agent time and excludes the gaps between them. Read the `parts` block for anything that depends on continuity.
 
-**Round timestamps are approximate.** `evolve_state.json` derives each round's `at` from its first appearance in the supervisor's minute-resolution score table, offset from `started_at`. Any time axis built from this bundle inherits that granularity.
+**The `opus-5` trajectory is native.** One process, one container, `timed_out: true`, `resume_count: 0`. Nothing about it is reconstructed.
 
-**`final_archive.tar.gz` is a replay reconstruction.** The final workspace was rebuilt by replaying the session stream's file operations (Write/Edit tool calls, shell heredocs, python string-replace edits) over the starter tree: 20 files, 199,536 bytes of source vs the 53,923-byte original. Twenty-five `sed -i` commands and 252 opaque python write-blocks could not be replayed, so file contents are approximate; runtime artifacts (`.gcda`) are absent.
+**17 of 248 rounds do not carry the four judge-side artifacts** (`submission.tar.gz`, `test_output.txt`, `run_instance.log`, `allowed_files.txt`): 11 in `opus-5` and 6 in `gpt-5.6-sol`. Every one of them is a byte-identical resubmission, marked `deduplicated: true` in its `report.json`. The judge returns the cached score without regrading, so no new artifacts are produced. The other 231 rounds carry the complete set.
 
-**`best_pass_rate: 0.0` is an artifact, not a result.** The parser is `structured_json`: the verifier writes a continuous reward and there are no pytest cases, so pass rates are zero everywhere and the harness banner (`harness_reported_best_pct: 0.0`) is unreliable. The authoritative number is `best_score = 0.953180`.
+**`best_pass_rate: 0.0` is an artifact, not a result.** The parser is `structured_json`: the verifier writes a continuous reward and there are no pytest cases, so pass rates are zero everywhere and the harness banner is unreliable. The authoritative numbers are the `best_score` fields.
 
-**The 23 `auto-*` rounds are snapshots, not attempts.** The host grades the workspace every 1800 s and withholds the result from the agent. Reading 126 as independent attempts overstates the run; 103 is the agent-initiated count.
+**The `auto-*` rounds are snapshots, not attempts.** The host grades the workspace every 1800 s and withholds the result from the agent. Reading 75 and 173 as independent attempts overstates both runs; 52 and 154 are the agent-initiated counts. A snapshot grades whatever is on disk at the tick, so a round taken mid-edit can score zero without indicating a regression - one such zero appears in each cohort.
 
-**Token totals are a floor, and the output figure is unusable.** The input-side sum above (364,745 input + 11,361,923 cache-creation + 2,017,884,553 cache-read across 3,680 assistant records) is coherent; the streamed `output_tokens` sum (20,873) is a chunked-logging artifact. No cost is recorded in this bundle.
+**Paths in the `gpt-5.6-sol` record are relative to the repository root.** The merge wrote the authoring host&#x27;s absolute layout into four files; the prefix was stripped after the run. Only that prefix changed - scores, round ids and the `parts` provenance are as the harness produced them.
 
-**The instruction and the shipped public corpus disagree on one count.** `instruction.md` calls it "the 750 case public corpus"; the shipped `environment/public_cases.jsonl` carries 685 records. The graded surface (12,000 hidden cases) is unaffected.
-
-**The task was renamed after this run.** `task.toml` here freezes `name`/`task_id` as `libpcap_bpf_codegen_fidelity_mut1` to keep the mutant and `62b54382` distinct in any registry; the run's internal records predate the rename and carry the original id. The re-run will use the new id end to end.
-
-**The oracle ships in this bundle.** `solution/` holds the generated golden trajectory (`TRUTH.md`, canary-tagged), the checker grounding, and executable recompute tooling. Anyone holding this directory can reproduce a calibrated result directly, so the task cannot be used to evaluate a model that has had access to it.
+**The oracle ships in this bundle.** `solution/` holds the golden trajectory (`TRUTH.md`, canary-tagged), the grading rubrics, and the reference entry point. Anyone holding this directory can reproduce a calibrated result directly, so the task cannot be used to evaluate a model that has had access to it. The authoring-side sources that generated `TRUTH.md` are not shipped.
 
 ## Files
 
 ```
 README.md                   this file
-inspect.html                single-file visual report over this bundle
+inspector.html              single-file visual report over this bundle
+plots/                      score curves per cohort, and score vs submissions
 instruction.md              the objective handed to the agent
 task.toml                   manifest: budgets, images, network mode, submit paths, selection,
                             mutation provenance (mut1.patch sha256, acceptance-equivalence count)
 environment/                the agent-visible starting files and the work container image:
-                            starter C11 tree, the public corpus, local scorer score.sh,
+                            starter C11 tree, the 750-case public corpus, local scorer score.sh,
                             docs/CONTRACT.md, pinned name-resolution tables under etc/
 tests/                      the judge container: test.sh (the 7-step verifier), scoring/
                             (score.py, similarity.py, validator.py, containment.py),
                             hidden_test_data/ (12,000 cases + golden outputs + fingerprints),
                             rubrics.jsonl (6 trajectory-level conduct rubrics)
-solution/                   PRIVATE - the oracle: TRUTH.md golden trajectory (generated,
-                            canary-tagged), grounding/policy/provenance YAMLs, recompute.py,
-                            solve.sh, rubrics.json
+solution/                   PRIVATE - the oracle: TRUTH.md golden trajectory
+                            (canary-tagged), rubrics.json, solve.sh
 trajectories/
-  opus-5/                   the single packaged run: run config, run ledger, host-side state,
-                            the raw session stream, and the replay-reconstructed final
-                            workspace archive (see Provenance)
-    submissions/            126 graded rounds, one directory each: 103 agent-initiated
-                            (agent-NN) and 23 evaluator-only snapshots (auto-NN). Every
-                            directory holds report.json (the recovered score record, the
-                            authority for that round) and eval.sh; the four judge-side
-                            artifacts are absent pending the re-run (see Provenance)
+  opus-5/                   claude-opus-5[1m], native 12.00 h session: run config, run ledger,
+                            host-side state, the raw session stream, final workspace archive
+    submissions/            75 graded rounds: 52 agent-initiated (agent-NN) and 23 evaluator
+                            snapshots (auto-NN)
+  gpt-5.6-sol/              gpt-5.6-sol, 12.02 h across 16 segments (see Provenance)
+    submissions/            173 graded rounds: 154 agent-initiated and 19 evaluator snapshots
 ```
 </pre></details>
 <details><summary>environment/docs/CONTRACT.md &#183; 5,295 bytes</summary>
@@ -6047,422 +6043,6 @@ Normalized 5-gram containment against the pinned upstream sources fires at or ab
  ]
 }
 </pre></details>
-<details><summary>solution/grounding.yaml &#183; 13,906 bytes</summary>
-<pre># PRIVATE DERIVATION SOURCE - dataset/&lt;uuid&gt;/solution/grounding.yaml
-#
-# FORGE Phase 1 item 10. Every generated canonical bundle artifact descends
-# from this file through solution/recompute.py: the executable oracle
-# solution/solve.sh, the human-readable ground truth solution/TRUTH.md, the
-# reference-based rubric solution/rubrics.json, and the compiled deterministic
-# rubric tests tests/test_output.py. Because all four come from one source they
-# cannot disagree with each other or with the checker fixtures.
-#
-# recompute.py never invokes a model, a network, a clock, a locale, or a random
-# source. Criterion prose below is a FROZEN LITERAL, drafted once at authoring
-# time and stored here verbatim, exactly as FORGE item 10f requires.
-#
-# PRIVATE. Lives outside the agent-visible boundary. Carries canary tokens
-# under item 11a and is forbidden from both ENGRAM projections.
-
-schema_version: 1
-task_id: libpcap_bpf_codegen_fidelity
-
-# --------------------------------------------------------------------------
-# Pinned inputs. Any change here changes every generated artifact.
-# --------------------------------------------------------------------------
-
-upstream:
-  identity: "the-tcpdump-group/libpcap, MODIFIED"
-  version: "1.10.6+mut1"
-  tarball_url: "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz"
-  tarball_sha256: "872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9"
-  license: "BSD-3-Clause"
-  build: "apply rehardening/mut1.patch, then configure --disable-shared --without-libnl --disable-dbus --disable-rdma, then make"
-  build_rationale: &gt;-
-    Built from the pinned source tarball rather than a distro package. ubuntu:22.04 ships libpcap 1.10.1 and this task grades against 1.10.6, so a package install would silently grade the wrong bytecode. Since the 2026-08-13 re-signature the tarball is also PATCHED before configure, so no distro or upstream build of any version reproduces these bytes.
-  mutation:
-    patch: "seed/build/libpcap_bpf_codegen_fidelity/oracle/mut1.patch"
-    patch_sha256: "f3d5502b708ac425a22e3d75068f242d73485d9ff4b21a4f1256e75afbb86600"
-    files: [optimize.c, gencode.c]
-    ids: [M1P, M2, M3, M4]
-    principle: "changes CHOICES, never SEMANTICS; the compiled filter accepts exactly the packets stock libpcap accepts"
-    semantics_preservation_measured: "1,889,280 packet evaluations through pcap_offline_filter across 3 seeds and 9840 cases, 0 acceptance mismatches; the same harness finds 39,377 mismatches for the shipped starter"
-    why: "the AR8 premise that the model's libpcap prior is confidently wrong at the byte level was measured FALSE; the mutation makes it true by construction"
-
-oracle_image:
-  tag: "mephisto/bpfc-oracle:1.10.6-mut1"
-  entrypoint: "/usr/local/bin/bpfc-oracle"
-  base: "ubuntu:22.04"
-  netbase_required: true
-  netbase_rationale: &gt;-
-    ubuntu:22.04 ships no /etc/services and no /etc/protocols. Without netbase libpcap resolves `port ssh` to the error "unknown port 'ssh'", which turns every named-lookup case into a silent error case and corrupts the golden corpus. The image build asserts /etc/services is non-empty and contains ssh.
-
-pinned_name_tables:
-  source: "/pinned/etc in the oracle image, copied byte-identically into both delivery images"
-  sha256:
-    services:  "f6183055fd949f9c53d49ee620f85d0150123ea691d25ed1bba0c641b4ee2f48"
-    protocols: "a90a2be9c2a88be6fbfc1fc73ba76f34698377bb19513e5de503dbb0bfe13be1"
-    hosts:     "f969610b9f4ed5f29917185f0dcf4a611dc618e9918a61504baf5dbb7b187a1a"
-    networks:  "20f4b0486ba8a442644f0f10fc1c947db554c83f31037d6a2ba9be8d67998c25"
-    ethers:    "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-  ethers_note: "genuinely absent upstream, pinned as the empty-file digest so its absence is itself bound"
-
-corpus:
-  generator: "generator/gen_cases.py"
-  assembler: "generator/build_corpus.py"
-  hidden_seed: 20260813
-  public_seed: 71047
-  hidden_count: 12000
-  public_count: 750
-  oversample: 2.2
-  public_oversample: 12.0
-  public_selection: &gt;-
-    The public corpus no longer mirrors the hidden strata proportions. It is re-stratified toward
-    mutation-visible shapes and gated by corpus.discoverability_floor: at least 25 public worked
-    examples must reveal each of the four mutations, asserted at build time, or the build fails.
-    Measured in the shipped corpus: M1P 498, M3 125, M2 48, M4 47.
-  service_names_resolve: true
-  purity_rule: &gt;-
-    Stratum membership is decided by OBSERVED oracle behaviour, never by the generator's static satisfiability prediction. error-paths admits only expressions the pinned upstream actually rejected; every other stratum admits only expressions it actually compiled. Measured after the rule: zero error-path cases compile and zero valid-stratum cases reject, on both corpora.
-  purity_history: &gt;-
-    The predictive model failed in both directions when the oracle image gained netbase: 51 error-path cases began compiling and 64 valid cases began rejecting, because the generator had been tuned against an image without /etc/services. The prediction was replaced with oracle verification rather than re-tuned.
-
-# --------------------------------------------------------------------------
-# Reward constants. These MUST agree with seed/contract.yaml scoring.
-# --------------------------------------------------------------------------
-
-reward:
-  formula: "R = clip(0.88*C + 0.12*P*min(1, C/0.25), 0, 1)"
-  w_conformance: 0.88
-  w_throughput: 0.12
-  correctness_gate_C: 0.25
-  score_exact_prog: 1.00
-  score_similar_scale: 0.60
-  score_exact_err: 1.00
-  score_other_err: 0.20
-  score_invalid: 0.00
-  P_r_lo: 0.5
-  P_r_hi: 4.0
-  P_dead_zone_r: 1.05
-  P_fidelity_normalized: true
-  P_normalization_rule: "r = (t_upstream / N_total) / (t_candidate / N_exact); N_exact counts compiled_exact and rejected_exact_err; N_exact = 0 yields r = 0"
-  similarity_floor_program: [[6, 0, 0, 0]]
-  similarity_floor_note: "BPF_RET|BPF_K with k=0, i.e. `ret #0`; the floor subtracted so a constant program scores exactly 0"
-
-strata_weights:
-  basic-proto: 0.10
-  host-net-addr: 0.12
-  port-portrange: 0.12
-  boolean-nesting: 0.16
-  byte-slice-arith: 0.16
-  link-layer-and-encap: 0.12
-  error-paths: 0.10
-  optimizer-only: 0.12
-
-anti_shortcut:
-  containment_n: 5
-  containment_threshold: 0.15
-  containment_string_literals_excluded: true
-  containment_rationale: &gt;-
-    String literals are excluded because roughly 18 percent of the graded surface is exact error-text fidelity, so libpcap's error strings are the required answer. Counting them would fire the control hardest on the submissions that did the task correctly.
-  containment_calibration:
-    starter: 0.0600
-    verbatim_copy: 0.9481
-    renamed_copy: 0.7381
-    error_strings_only: 0.0976
-  link_denylist: ["any dynamic import outside libc and libm"]
-  network: "no-network in both containers"
-
-# --------------------------------------------------------------------------
-# Measured anchors. Recorded, never predicted.
-# --------------------------------------------------------------------------
-
-measured_anchors:
-  measured_on: "AMD Ryzen AI 9 365, x86_64 native, 20 threads, 22 GiB RAM"
-  measured_date: "2026-08-13, re-measured against the mutated oracle the same day"
-  corpus_split: "10800 compiled, 1200 rejected of 12000"
-  empty_submission: {R: 0.000000, reason: empty_submission}
-  weak_starter: {R: 0.019830, C: 0.022535, P: 0.0, N_exact: 0}
-  weak_starter_note: &gt;-
-    Below the CTL_STARTER band of C 0.06 to 0.10 bound in contract 07caf44c, and carried OPEN as
-    gap_starter_below_bound_band rather than waived. 82 percent of its previous C came from the
-    error-paths stratum, whose weight fell 0.18 to 0.10 and whose partial credit fell 0.45 to 0.20
-    in the same re-signature. Nothing about the starter changed. Discrimination is unaffected at
-    1.000 - 0.0225 = 0.9775 against a required 0.25.
-  upstream_shim: {C: 1.000000, R_without_bench: 0.880000}
-  upstream_shim_note: "the shim links the MUTATED oracle, so C = 1.000 is a statement about the mutated reference"
-  opus_4_8_agent_6: {C: 0.258824, R: 0.227765, byte_exact: 156}
-  opus_4_8_agent_6_note: &gt;-
-    The submission that defeated the PRE-hardening slot at C = 0.6497, R = 0.5718 with 5360 of
-    12000 byte-exact. Re-graded against the mutated oracle on freshly generated cases. This is the
-    tax on pure recall and therefore a FLOOR, not a prediction: the submission never saw the
-    mutated public corpus. What an adapting agent scores over twelve hours is unmeasured and only
-    the dry pilot answers it.
-  ladder_ordering: "0.000000 &lt; 0.019830 &lt; 0.227765 &lt; 0.880000, CHK8 holds"
-  hard_kill_line: 0.12
-  containment_fingerprints: 31595
-  containment_fingerprints_note: "five files from the built oracle image; the pristine tree measured 31573, the +22 is the mutation"
-  optimizer_divergence_whole_corpus: 0.606
-  optimizer_divergence_within_stratum: 0.967
-  optimizer_divergence_note: &gt;-
-    Re-measured against the MUTATED oracle over a fresh 1500-case probe at seed 99001: 909 of 1500
-    cases differ between optimize 0 and optimize 1, rising to 174 of 180 inside the optimizer-only
-    stratum. 870 are length changes, 37 turn a compiling filter into an error, 2 are same-length
-    byte differences. The pristine oracle measured 0.614 and 0.944, so the mutation did not erode
-    the property: the optimizer is still the majority of this task.
-  bench_upstream_elapsed_sec_60000_compiles: 1.545418893
-
-# --------------------------------------------------------------------------
-# Rubric items. FROZEN LITERALS drafted once at authoring time.
-# recompute.py reads these verbatim and never calls a model.
-# Every item whose judgment reduces deterministically over its evidence MUST
-# carry mode: compiled, per invariant 24.
-# --------------------------------------------------------------------------
-
-rubric_items:
-  - id: R1_exact_bytecode
-    dimension: conformance
-    weight: 0.40
-    evaluation_target: out.jsonl
-    criterion: "For every case the pinned upstream compiled, the submitted prog array is the identical sequence of four-tuples the upstream emitted, element for element."
-    judgment: "tuple-sequence equality against the golden program"
-    evidence: [out.jsonl]
-    mode: compiled
-  - id: R2_error_text
-    dimension: conformance
-    weight: 0.18
-    evaluation_target: out.jsonl
-    criterion: "For every case the pinned upstream rejected, the submitted err string is byte-identical to the upstream error text."
-    judgment: "string equality against the golden error"
-    evidence: [out.jsonl]
-    mode: compiled
-  - id: R3_structural_validity
-    dimension: correctness
-    weight: 0.10
-    evaluation_target: out.jsonl
-    criterion: "Every emitted program passes the structural validator: all jump targets land inside the program, no load reads past the packet or scratch bounds, and the program terminates."
-    judgment: "validator returns no rejection reason"
-    evidence: [out.jsonl]
-    mode: compiled
-  - id: R4_record_integrity
-    dimension: correctness
-    weight: 0.08
-    evaluation_target: out.jsonl
-    criterion: "The output carries exactly one well-formed record per input case, in input order, with no duplicate and no missing index."
-    judgment: "index set equality and order equality against the input"
-    evidence: [out.jsonl]
-    mode: compiled
-  - id: R5_no_upstream_copy
-    dimension: integrity
-    weight: 0.10
-    evaluation_target: containment_report
-    criterion: "Normalized five-gram containment of the submitted sources against the pinned upstream sources stays below the bound threshold, with string literals excluded."
-    judgment: "containment strictly below 0.15"
-    evidence: [containment_report]
-    mode: compiled
-  - id: R6_no_forbidden_link
-    dimension: integrity
-    weight: 0.08
-    evaluation_target: nm_ldd_report
-    criterion: "The built binary imports nothing outside libc and libm, so it neither links nor dynamically loads the upstream library."
-    judgment: "import set difference against the allowed set is empty"
-    evidence: [nm_ldd_report]
-    mode: compiled
-  - id: R7_throughput_earned
-    dimension: efficiency
-    weight: 0.06
-    evaluation_target: reward.json
-    criterion: "Throughput credit is charged against byte-exact cases only, so a submission with no exact cases earns no throughput credit."
-    judgment: "P equals zero whenever N_exact equals zero"
-    evidence: [reward.json]
-    mode: compiled
-
-compilation_floor: 0.80
-compilation_floor_check: &gt;-
-  All seven items are mode compiled, so the compiled weight share is 1.00 against a floor of 0.80. No item is left judged, because every judgment above reduces deterministically over its named evidence. An item left judged when it is deterministically reducible is BLOCK:INVALID_TASK under invariant 24.
-
-# --------------------------------------------------------------------------
-# Canary tokens, item 11a. Derived from canonical_content_hash at freeze time,
-# never stored here as values. This block records the DERIVATION, not the tokens.
-# --------------------------------------------------------------------------
-
-canary:
-  derivation: "HMAC-SHA256(key=canonical_content_hash, msg='bpfc-canary-' || slot_index), first 16 hex chars"
-  slots_per_artifact: 3
-  planted_in:
-    - solution/grounding.yaml
-    - solution/recompute.py
-    - solution/TRUTH.md
-    - solution/rubrics.json
-    - solution/solve.sh
-    - solution/provenance.yaml
-  acyclicity_note: &gt;-
-    canonical_content_hash is computed under canary normalization: each designated slot value is replaced by its fixed public placeholder before hashing. Planted token bytes therefore sit outside the hash preimage, yet each is fixed exactly by the derivation relation, so no slot is a free region. Hashing precedes planting and planting precedes the item 10i binding block.
-  placeholder: "__CANARY_SLOT_%d__"
-</pre></details>
-<details><summary>solution/policy.yaml &#183; 2,316 bytes &#183; canary tokens redacted</summary>
-<pre># GENERATED SECTION. DO NOT HAND-EDIT.
-# Source of truth: seed/contract.yaml policy block, bound at Phase 0.5.
-#
-# CANARY-BLOCK-BEGIN
-# slot-0: [CANARY REDACTED]
-# slot-1: [CANARY REDACTED]
-# slot-2: [CANARY REDACTED]
-# CANARY-BLOCK-END
-#
-# STATES INTENT AND NOTHING MORE. This manifest never establishes that a
-# control was enforced; that claim belongs to the operator attestation
-# alone. It carries no detector rule, threshold, fixture, canary material,
-# watched location, or audit outcome.
-
-schema_version: 1
-task_id: libpcap_bpf_codegen_fidelity
-channels:
-  accelerator:
-    state: denied
-    note: &gt;-
-      zero accelerators required; the harness has no GPU attachment path at all
-  dynamic_linking_external:
-    state: denied
-    note: &gt;-
-      any import outside libc and libm; symbol tables are inspected too, so a static link cannot pass vacuously
-  filesystem_read_hidden_corpus:
-    state: restricted
-    note: &gt;-
-      hidden_cases.jsonl is readable because the candidate is graded on it; golden.jsonl, manifest.json and the fingerprint set are 0600 root-only and the verifier asserts the runner cannot read them before grading
-  filesystem_write_judge_assets:
-    state: denied
-    note: &gt;-
-      judge assets are root-owned; agent code executes as an unprivileged runner
-  filesystem_write_submitted_paths:
-    state: allowed
-    note: &gt;-
-      src/, include/ and Makefile only; everything else is outside submit_paths
-  network_egress_solver:
-    state: denied
-    note: &gt;-
-      No internet inside the solving sandbox. This departs from Optimization lane item 5, which provisions open egress, and the departure is load-bearing: with a network the agent clones the public upstream and the task measures porting rather than excavation. No requirements/ grant authorises it, so gap_egress_grant_absent stands open and the human waived it knowingly on 2026-08-13.
-  network_egress_verifier:
-    state: denied
-  privilege_escalation:
-    state: denied
-    note: &gt;-
-      every agent-authored execution runs under setpriv as uid 1001
-  subprocess_spawn:
-    state: denied
-    note: &gt;-
-      execve, fork, system and popen are in the forbidden symbol set
-  wall_clock_self_report:
-    state: denied
-    note: &gt;-
-      the judge measures elapsed time itself and never reads the candidate's own timing output
-</pre></details>
-<details><summary>solution/provenance.yaml &#183; 3,154 bytes &#183; canary tokens redacted</summary>
-<pre># GENERATED SECTION. DO NOT HAND-EDIT.
-# Source of truth: solution/grounding.yaml. Generated by solution/recompute.py.
-#
-# CANARY-BLOCK-BEGIN
-# slot-0: [CANARY REDACTED]
-# slot-1: [CANARY REDACTED]
-# slot-2: [CANARY REDACTED]
-# CANARY-BLOCK-END
-#
-# Producer claims only. Recompute them; do not rely on them.
-
-schema_version: 1
-task_id: libpcap_bpf_codegen_fidelity
-
-source:
-  source_kind: public_repository
-  canonical_repository_identity: "github.com/the-tcpdump-group/libpcap, MODIFIED"
-  upstream_version: "1.10.6+mut1"
-  upstream_license: "BSD-3-Clause"
-  tarball_sha256: "872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9"
-  fork_ancestry_snapshot_digest: ABSENT
-  base_commit_sha: ABSENT
-  task_generating_event_timestamp: ABSENT
-  ancestry_attestation_digest: UNAVAILABLE
-  ancestry_attestation_signer: UNAVAILABLE
-  event_attestation_digest: UNAVAILABLE
-  event_attestation_signer: UNAVAILABLE
-
-screening_roots:
-  exclusion_list:
-    identity: ABSENT
-    digest: ABSENT
-  freeze_date_table:
-    identity: ABSENT
-    digest: ABSENT
-  near_duplicate_index:
-    identity: ABSENT
-    digest: ABSENT
-  source_attestation_trust_root:
-    identity: ABSENT
-    digest: ABSENT
-
-  authority_mode: union
-
-atoms:
-  exclusion_matching:
-    status: unresolvable
-    derived_reason: root_absent
-    result_digest: ABSENT
-  freeze_holdout:
-    status: unresolvable
-    derived_reason: root_absent
-    result_digest: ABSENT
-  near_duplicate:
-    status: unresolvable
-    derived_reason: root_absent
-    result_digest: ABSENT
-  sanitization:
-    status: applicable
-    result_digest: ABSENT
-  empty_submission_validation:
-    status: applicable
-    result_digest: ABSENT
-  per_unit_provenance:
-    status: applicable
-    result_digest: ABSENT
-
-instrument_versions:
-  generator: "generator/gen_cases.py"
-  assembler: "generator/build_corpus.py"
-  scorer: "verifier/score.py"
-  validator: "verifier/validator.py"
-  containment: "verifier/containment.py"
-  recompute: "solution/recompute.py"
-
-sanitization_closure:
-  agent_visible_bundle_bytes: declared
-  image_layers_including_whiteouts: declared
-  runtime_mounts_and_env: declared
-  network_policy: no-network
-
-empty_submission_result:
-  score: 0.000000
-  reason: empty_submission
-  measured: true
-
-# The binding block is EXCLUDED from the canonical payload hash and
-# applied after it, so the bindings are acyclic under invariant 26.
-binding:
-  canonical_bundle_hash: f6e5250bab6e04fea117c6b958ec0c7666a7830164afa4a26e558d85a35bd792
-  pinned_image_digest: mephisto/bpfc-judge@sha256:ccdc273ebfcc080084c69682087868834c7ab9b2e60f40ad2c6e64f43cd1d882
-  binding_envelope: PENDING_EXTERNAL_SIGNATURE
-
-signed_screening:
-  screening_measured_at: PENDING
-  screening_interval_days: PENDING
-  screening_expires_at: PENDING
-
-limitations: &gt;-
-  This carrier claims only that the named methods ran against the named roots.
-  It never claims the instance is uncontaminated. All four ENGRAM screening
-  roots are ABSENT from memory/roots.yaml, so exclusion matching, freeze
-  holdout and near-duplicate screening are unresolvable and are recorded as
-  such rather than as clean results. FORGE may not author a root.
-</pre></details>
 <details><summary>solution/solve.sh &#183; 674 bytes &#183; canary tokens redacted</summary>
 <pre>#!/bin/sh
 # GENERATED SECTION. DO NOT HAND-EDIT.
@@ -6488,541 +6068,6 @@ if [ ! -x "$BPFC" ]; then
 fi
 
 exec "$BPFC" "$@"
-</pre></details>
-<details><summary>solution/recompute.py &#183; 23,321 bytes</summary>
-<pre>#!/usr/bin/env python3
-"""
-PRIVATE RECOMPUTATION SCRIPT - dataset/&lt;uuid&gt;/solution/recompute.py
-
-FORGE Phase 1 item 10. Derives every generated canonical bundle artifact from
-the single private source solution/grounding.yaml:
-
-    solution/solve.sh        the executable oracle
-    solution/TRUTH.md        the human-readable golden trajectory  (item 10e)
-    solution/rubrics.json    the reference-based rubric            (item 10f)
-    tests/test_output.py     the compiled deterministic rubric tests
-
-Because all four descend from one source they cannot disagree with each other
-or with the checker fixtures. Phase 2 item 7 re-runs this script and requires
-every output to be bit-identical to the committed bytes, regenerated under two
-host identities differing in hostname, working directory, user, and environment.
-
-DETERMINISM IS THE WHOLE CONTRACT HERE. This script never invokes a model, a
-network, a clock, a locale, or a random source. Criterion prose is read verbatim
-as a frozen literal from grounding.yaml; it is never drafted here. Dict ordering
-follows grounding.yaml's declared order, never Python hash order. All output is
-written with explicit newline="\\n" so the bytes do not depend on the platform.
-
-    python3 recompute.py --grounding solution/grounding.yaml --outdir BUNDLE_ROOT
-                         [--canonical-hash HEX]
-
-Without --canonical-hash the canary slots receive their fixed public
-placeholders, which is the provisional pass item 11a requires before the hash
-exists. With it, each slot receives its derived token. Hashing precedes planting
-and planting precedes the item 10i binding block, which is what makes the
-identity relation acyclic under invariant 26.
-"""
-
-import argparse
-import hashlib
-import hmac
-import json
-import sys
-from pathlib import Path
-
-BANNER = "GENERATED SECTION. DO NOT HAND-EDIT."
-SOURCE_OF_TRUTH = "solution/grounding.yaml"
-CANARY_PLACEHOLDER = "__CANARY_SLOT_%d__"
-
-# The ordered golden trajectory. Every step binds exactly one checker identifier
-# from seed/contract.yaml checker_obligations, and the manifest of deliverables
-# closes over this set. Reconciliation in Phase 2 is identifier SET EQUALITY in
-# both directions, never prose comparison, per item 10e.
-TRAJECTORY = [
-    ("read the invocation contract and the record schemas from the task statement",
-     "the solver knows it must answer --cases and --bench over JSONL",
-     "CHK-CONTRACT"),
-    ("parse each input record into dlt, snaplen, optimize, netmask, filter",
-     "one parsed case per input line, in input order",
-     "CHK4"),
-    ("lex and parse the filter expression against the real grammar surface",
-     "an abstract syntax tree, or a rejection carrying the exact upstream error text",
-     "CHK2"),
-    ("dispatch code generation on the link-layer type",
-     "per-DLT header offsets and protocol dispatch established",
-     "CHK1"),
-    ("emit an unoptimized cBPF program for the parsed expression",
-     "a structurally valid program whose jump targets all land inside it",
-     "CHK3"),
-    ("run the dataflow optimizer when optimize is 1",
-     "the optimized program, which differs from the unoptimized one on 61.4 percent of the corpus and on 94.4 percent of the optimizer-only stratum",
-     "CHK1"),
-    ("detect provably unsatisfiable expressions during optimization",
-     "the exact upstream rejection for filters the optimizer proves match nothing, which is why the identical filter can succeed at optimize 0 and fail at optimize 1",
-     "CHK2"),
-    ("emit one output record per input case, in input order",
-     "a complete result file with no duplicate and no missing index",
-     "CHK4"),
-    ("keep the implementation free of upstream source and of forbidden imports",
-     "normalized five-gram containment below the bound threshold and an import set inside libc and libm",
-     "CHK6"),
-    ("compile the whole corpus quickly enough to earn the throughput term",
-     "throughput charged against byte-exact cases only, so speed without fidelity earns nothing",
-     "CHK5"),
-]
-
-# Each rejected route names a known-wrong control from seed/contract.yaml
-# control_obligations whose rejection Phase 2 measured. Item 10e requires the
-# binding; the explanatory prose itself is Bucket N and may only lower.
-REJECTED_ROUTES = [
-    ("link or dynamically load the pinned upstream library and delegate to it",
-     "CTL_LINK_LIBPCAP"),
-    ("copy the upstream sources into the submission, verbatim or with identifiers renamed",
-     "CTL_VERBATIM_COPY"),
-    ("emit one constant program for every case",
-     "CTL_CONSTANT"),
-    ("emit an accept-all program for every case",
-     "CTL_ACCEPT_ALL"),
-    ("emit a reject-all program for every case",
-     "CTL_REJECT_ALL"),
-    ("answer every rejection with one generic error string",
-     "CTL_GENERIC_ERROR"),
-    ("skip the compiler entirely and return quickly to farm the throughput term",
-     "CTL_FAST_WRONG"),
-    ("submit nothing",
-     "CTL_NOOP"),
-]
-
-
-def load_grounding(path: Path) -&gt; dict:
-    """Read grounding.yaml. Uses PyYAML when present, else a tiny reader.
-
-    The fallback exists so the bundle stays self-contained: the verifier image
-    is not required to carry PyYAML in order to re-derive its own ground truth.
-    """
-    try:
-        import yaml  # noqa: PLC0415
-        return yaml.safe_load(path.read_text())
-    except ImportError:
-        sys.exit("recompute.py: PyYAML is required to read grounding.yaml")
-
-
-def canary_tokens(canonical_hash: str | None, count: int) -&gt; list[str]:
-    """Derive the per-bundle canary token set, item 11a.
-
-    Pure key derivation over the canonical content hash, so the set is
-    reproducible under frozen bytes and unique to this bundle. Without a hash we
-    are in the provisional pass and every slot takes its fixed placeholder.
-    """
-    if not canonical_hash:
-        return [CANARY_PLACEHOLDER % i for i in range(count)]
-    return [
-        hmac.new(canonical_hash.encode(), f"bpfc-canary-{i}".encode(),
-                 hashlib.sha256).hexdigest()[:16]
-        for i in range(count)
-    ]
-
-
-def write(path: Path, text: str) -&gt; None:
-    """Write with explicit LF so output bytes never depend on the platform."""
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="\n") as f:
-        f.write(text)
-
-
-def canary_block(tokens: list[str], comment: str) -&gt; str:
-    """One format-valid canary block holding the contract-fixed slot count.
-
-    Item 11a treats a malformed block as BLOCK:INVALID_TASK, so the markdown
-    form is a single properly opened and closed HTML comment rather than one
-    `&lt;!--` per line, which only renders hidden by accident.
-    """
-    body = ["CANARY-BLOCK-BEGIN"]
-    body += [f"slot-{i}: {t}" for i, t in enumerate(tokens)]
-    body.append("CANARY-BLOCK-END")
-    if comment == "&lt;!--":
-        return "&lt;!--\n" + "\n".join(body) + "\n--&gt;"
-    return "\n".join(f"{comment} {line}" for line in body)
-
-
-# --------------------------------------------------------------------------
-# solution/solve.sh
-# --------------------------------------------------------------------------
-
-def gen_solve_sh(g: dict, tokens: list[str]) -&gt; str:
-    o = g["oracle_image"]
-    return f"""#!/bin/sh
-# {BANNER}
-# Source of truth: {SOURCE_OF_TRUTH}
-#
-{canary_block(tokens, "#")}
-#
-# Harbor oracle entry point. Answers the identical invocation contract the
-# graded artifact must answer, by delegating to the pinned upstream. This is the
-# REFERENCE-FIDELITY reference under invariant 18 and it measures C = 1.000000.
-#
-# PRIVATE. Harbor mounts solution/ only for the oracle path.
-set -eu
-
-BPFC="{o['entrypoint']}"
-if [ ! -x "$BPFC" ]; then
-    echo "solve.sh: oracle binary missing at $BPFC" &gt;&amp;2
-    exit 2
-fi
-
-exec "$BPFC" "$@"
-"""
-
-
-# --------------------------------------------------------------------------
-# solution/TRUTH.md  (item 10e)
-# --------------------------------------------------------------------------
-
-def gen_truth(g: dict, tokens: list[str]) -&gt; str:
-    m = g["measured_anchors"]
-    r = g["reward"]
-    a = g["anti_shortcut"]
-    parts = [
-        f"# {BANNER}",
-        "",
-        f"Source of truth: `{SOURCE_OF_TRUTH}`. Generated by `solution/recompute.py`. Never hand-authored.",
-        "",
-        canary_block(tokens, "&lt;!--"),
-        "",
-        "## What this task grades",
-        "",
-        f"The solver rebuilds the filter compiler of `{g['upstream']['identity']}` version `{g['upstream']['version']}` from observable behaviour alone, with no upstream source, no upstream headers, no upstream binary, and no network. The judge compares its output against a frozen golden corpus of {g['corpus']['hidden_count']} hidden cases, and never runs the upstream at grading time.",
-        "",
-        f"Reward: `{r['formula']}`. C is the weighted conformance fraction over eight strata. P is throughput, charged against byte-exact cases only under the rule `{r['P_normalization_rule']}`.",
-        "",
-        "## Ordered golden trajectory",
-        "",
-        "Each step names the action, the state it establishes, and the single checker identifier it satisfies. Phase 2 reconciles this identifier set against the committed checker set and against the deliverable manifest, as set equality in both directions.",
-        "",
-        "| # | Action | Established state | Checker |",
-        "|---|---|---|---|",
-    ]
-    for n, (action, state, chk) in enumerate(TRAJECTORY, 1):
-        parts.append(f"| {n} | {action} | {state} | `{chk}` |")
-
-    parts += [
-        "",
-        "## Rejected routes",
-        "",
-        "Each rejected route binds one known-wrong control whose rejection Phase 2 measured. The explanatory prose is Bucket N: it may lower a disposition and may never raise one.",
-        "",
-        "| Rejected route | Bound control |",
-        "|---|---|",
-    ]
-    for route, ctl in REJECTED_ROUTES:
-        parts.append(f"| {route} | `{ctl}` |")
-
-    parts += [
-        "",
-        "## Measured anchors",
-        "",
-        f"Measured on {m['measured_on']} on {m['measured_date']}. These are recorded measurements, never predictions, and none of them is difficulty evidence: only an external signed pilot establishes difficulty.",
-        "",
-        "| Control | Result |",
-        "|---|---|",
-        f"| empty submission | R = {m['empty_submission']['R']:.6f}, reason `{m['empty_submission']['reason']}` |",
-        f"| shipped weak starter | R = {m['weak_starter']['R']:.6f}, C = {m['weak_starter']['C']:.6f}, P = {m['weak_starter']['P']}, N_exact = {m['weak_starter']['N_exact']} |",
-        f"| pinned upstream shim | C = {m['upstream_shim']['C']:.6f} |",
-        f"| hard-kill line for the starter | {m['hard_kill_line']} |",
-        "",
-        f"The optimizer is not a corner of this task. Compiling the corpus at both optimize settings shows {m['optimizer_divergence_whole_corpus'] * 100:.1f} percent of all cases diverge, rising to {m['optimizer_divergence_within_stratum'] * 100:.1f} percent inside the optimizer-only stratum. A solver with a correct parser and correct code generation but no dataflow optimizer therefore loses the majority of the corpus.",
-        "",
-        "## Anti-shortcut posture",
-        "",
-        f"Normalized {a['containment_n']}-gram containment against the pinned upstream sources fires at or above {a['containment_threshold']}. String literals are excluded from that scan, and the reason is load-bearing rather than incidental: exact error-text fidelity is a graded obligation here, so the upstream error strings are the required answer. A scan that counted them would fire hardest on the submissions that did the task correctly.",
-        "",
-        "| Calibration point | Containment | Fires |",
-        "|---|---|---|",
-        f"| shipped starter | {a['containment_calibration']['starter']:.4f} | no |",
-        f"| verbatim upstream copy | {a['containment_calibration']['verbatim_copy']:.4f} | yes |",
-        f"| copy with identifiers renamed | {a['containment_calibration']['renamed_copy']:.4f} | yes |",
-        f"| upstream error strings only, no code | {a['containment_calibration']['error_strings_only']:.4f} | no |",
-        "",
-    ]
-    return "\n".join(parts) + "\n"
-
-
-# --------------------------------------------------------------------------
-# solution/rubrics.json  (item 10f)
-# --------------------------------------------------------------------------
-
-def gen_rubrics(g: dict, tokens: list[str]) -&gt; str:
-    doc = {
-        "_generated": BANNER,
-        "_source_of_truth": SOURCE_OF_TRUTH,
-        "_canary": tokens,
-        "task_id": g["task_id"],
-        "compilation_floor": g["compilation_floor"],
-        "items": [
-            {
-                "id": it["id"],
-                "dimension": it["dimension"],
-                "weight": it["weight"],
-                "evaluation_target": it["evaluation_target"],
-                "criterion": it["criterion"],
-                "judgment": it["judgment"],
-                "evidence": list(it["evidence"]),
-                "mode": it["mode"],
-            }
-            for it in g["rubric_items"]
-        ],
-    }
-    return json.dumps(doc, indent=1, sort_keys=False, ensure_ascii=False) + "\n"
-
-
-# --------------------------------------------------------------------------
-# tests/test_output.py  (item 10f)
-# --------------------------------------------------------------------------
-
-# Item 10f is explicit: test_output.py must contain ONLY the implied relation.
-# No criterion prose, no reference text. So each compiled item maps to a named
-# relation implemented here, and the generated file carries identifiers only.
-RELATIONS = {
-    "R1_exact_bytecode": "assert_prog_tuple_sequence_equality",
-    "R2_error_text": "assert_error_string_equality",
-    "R3_structural_validity": "assert_structural_validator_clean",
-    "R4_record_integrity": "assert_index_set_and_order_equality",
-    "R5_no_upstream_copy": "assert_containment_below_threshold",
-    "R6_no_forbidden_link": "assert_import_set_within_allowed",
-    "R7_throughput_earned": "assert_throughput_zero_when_no_exact",
-}
-
-
-def gen_test_output(g: dict) -&gt; str:
-    compiled = [it for it in g["rubric_items"] if it["mode"] == "compiled"]
-    missing = [it["id"] for it in compiled if it["id"] not in RELATIONS]
-    if missing:
-        sys.exit(f"recompute.py: compiled rubric items with no relation: {missing}")
-
-    lines = [
-        f"# {BANNER}",
-        f"# Source of truth: {SOURCE_OF_TRUTH}",
-        "#",
-        "# Compiled from solution/rubrics.json. Item 10f forbids criterion prose and",
-        "# reference text in this file, so it carries identifiers and relations only.",
-        "# Reached through tests/test.sh.",
-        "",
-        "import relations",
-        "",
-    ]
-    for it in compiled:
-        lines += [
-            f"def test_{it['id']}():",
-            f"    relations.{RELATIONS[it['id']]}()",
-            "",
-        ]
-    lines += [
-        "",
-        "COMPILED_ITEM_IDS = [",
-    ]
-    lines += [f"    {it['id']!r}," for it in compiled]
-    lines += [
-        "]",
-        "",
-        f"COMPILED_WEIGHT = {round(sum(it['weight'] for it in compiled), 10)!r}",
-        f"COMPILATION_FLOOR = {g['compilation_floor']!r}",
-        "",
-        "",
-        "def test_compilation_floor_holds():",
-        "    assert COMPILED_WEIGHT &gt;= COMPILATION_FLOOR",
-        "",
-    ]
-    return "\n".join(lines)
-
-
-# --------------------------------------------------------------------------
-# solution/policy.yaml  (item 2d)
-# --------------------------------------------------------------------------
-
-def gen_policy(contract: dict, tokens: list[str]) -&gt; str:
-    """Emit the capability manifest from the contract's bound policy block.
-
-    Item 2d requires this to be SOURCED from seed/contract.yaml, so that policy
-    is bound at the Phase 0.5 gate before any bundle exists and can never drift
-    from the bytes it governs. Nothing here is authored locally.
-    """
-    channels = contract["policy"]["channels"]
-    lines = [
-        f"# {BANNER}",
-        "# Source of truth: seed/contract.yaml policy block, bound at Phase 0.5.",
-        "#",
-        f"{canary_block(tokens, '#')}",
-        "#",
-        "# STATES INTENT AND NOTHING MORE. This manifest never establishes that a",
-        "# control was enforced; that claim belongs to the operator attestation",
-        "# alone. It carries no detector rule, threshold, fixture, canary material,",
-        "# watched location, or audit outcome.",
-        "",
-        "schema_version: 1",
-        "task_id: libpcap_bpf_codegen_fidelity",
-        "channels:",
-    ]
-    for name in sorted(channels):
-        entry = channels[name]
-        state = entry["state"]
-        if state not in ("denied", "restricted", "allowed"):
-            sys.exit(f"recompute.py: channel {name} holds illegal state {state!r}")
-        lines.append(f"  {name}:")
-        lines.append(f"    state: {state}")
-        if entry.get("note"):
-            note = " ".join(str(entry["note"]).split())
-            lines.append(f"    note: &gt;-")
-            lines.append(f"      {note}")
-    lines.append("")
-    return "\n".join(lines)
-
-
-# --------------------------------------------------------------------------
-# solution/provenance.yaml  (item 10i)
-# --------------------------------------------------------------------------
-
-def gen_provenance(g: dict, contract: dict, tokens: list[str],
-                   canonical_hash: str | None) -&gt; str:
-    """Emit the per-unit provenance carrier.
-
-    Closed schema, no free-form prose. Every outcome recorded here is a PRODUCER
-    CLAIM, never evidence. A reader recomputes each one from committed bytes and
-    the named roots; assertions may be contradicted and must never be relied on.
-
-    The binding block is deliberately excluded from the canonical payload hash
-    and applied afterwards, which is what keeps the identity relation acyclic
-    under invariant 26.
-    """
-    cs = contract["contamination_screen"]
-    up = g["upstream"]
-    lines = [
-        f"# {BANNER}",
-        f"# Source of truth: {SOURCE_OF_TRUTH}. Generated by solution/recompute.py.",
-        "#",
-        f"{canary_block(tokens, '#')}",
-        "#",
-        "# Producer claims only. Recompute them; do not rely on them.",
-        "",
-        "schema_version: 1",
-        "task_id: libpcap_bpf_codegen_fidelity",
-        "",
-        "source:",
-        f"  source_kind: public_repository",
-        f"  canonical_repository_identity: \"github.com/{up['identity']}\"",
-        f"  upstream_version: \"{up['version']}\"",
-        f"  upstream_license: \"{up['license']}\"",
-        f"  tarball_sha256: \"{up['tarball_sha256']}\"",
-        "  fork_ancestry_snapshot_digest: ABSENT",
-        "  base_commit_sha: ABSENT",
-        "  task_generating_event_timestamp: ABSENT",
-        "  ancestry_attestation_digest: UNAVAILABLE",
-        "  ancestry_attestation_signer: UNAVAILABLE",
-        "  event_attestation_digest: UNAVAILABLE",
-        "  event_attestation_signer: UNAVAILABLE",
-        "",
-        "screening_roots:",
-    ]
-    for root in ("exclusion_list", "freeze_date_table", "near_duplicate_index",
-                 "source_attestation_trust_root"):
-        entry = cs["roots"].get(root, {})
-        lines.append(f"  {root}:")
-        lines.append(f"    identity: {entry.get('identity', 'ABSENT')}")
-        lines.append(f"    digest: {entry.get('digest', 'ABSENT')}")
-    lines += [
-        "",
-        f"  authority_mode: {cs['authority_mode']}",
-        "",
-        "atoms:",
-    ]
-    for atom, entry in cs["atoms"].items():
-        lines.append(f"  {atom}:")
-        lines.append(f"    status: {entry['status']}")
-        if entry.get("reason"):
-            lines.append(f"    derived_reason: {entry['reason']}")
-        lines.append(f"    result_digest: ABSENT")
-    lines += [
-        "",
-        "instrument_versions:",
-        "  generator: \"generator/gen_cases.py\"",
-        "  assembler: \"generator/build_corpus.py\"",
-        "  scorer: \"verifier/score.py\"",
-        "  validator: \"verifier/validator.py\"",
-        "  containment: \"verifier/containment.py\"",
-        "  recompute: \"solution/recompute.py\"",
-        "",
-        "sanitization_closure:",
-        "  agent_visible_bundle_bytes: declared",
-        "  image_layers_including_whiteouts: declared",
-        "  runtime_mounts_and_env: declared",
-        "  network_policy: no-network",
-        "",
-        "empty_submission_result:",
-        "  score: 0.000000",
-        "  reason: empty_submission",
-        "  measured: true",
-        "",
-        "# The binding block is EXCLUDED from the canonical payload hash and",
-        "# applied after it, so the bindings are acyclic under invariant 26.",
-        "binding:",
-        f"  canonical_bundle_hash: {canonical_hash or 'PENDING_FREEZE'}",
-        "  pinned_image_digest: PENDING_FREEZE",
-        "  binding_envelope: PENDING_EXTERNAL_SIGNATURE",
-        "",
-        "signed_screening:",
-        "  screening_measured_at: PENDING",
-        "  screening_interval_days: PENDING",
-        "  screening_expires_at: PENDING",
-        "",
-        "limitations: &gt;-",
-        "  This carrier claims only that the named methods ran against the named roots.",
-        "  It never claims the instance is uncontaminated. All four ENGRAM screening",
-        "  roots are ABSENT from memory/roots.yaml, so exclusion matching, freeze",
-        "  holdout and near-duplicate screening are unresolvable and are recorded as",
-        "  such rather than as clean results. FORGE may not author a root.",
-        "",
-    ]
-    return "\n".join(lines)
-
-
-# --------------------------------------------------------------------------
-
-def main() -&gt; int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--grounding", type=Path, required=True)
-    ap.add_argument("--contract", type=Path, required=True,
-                    help="seed/contract.yaml; supplies the bound policy and screening blocks")
-    ap.add_argument("--outdir", type=Path, required=True)
-    ap.add_argument("--canonical-hash", default=None,
-                    help="canonical_content_hash; omit for the provisional pass")
-    a = ap.parse_args()
-
-    g = load_grounding(a.grounding)
-    contract = load_grounding(a.contract)
-    slots = int(g["canary"]["slots_per_artifact"])
-    tokens = canary_tokens(a.canonical_hash, slots)
-
-    outputs = {
-        a.outdir / "solution" / "solve.sh": gen_solve_sh(g, tokens),
-        a.outdir / "solution" / "TRUTH.md": gen_truth(g, tokens),
-        a.outdir / "solution" / "rubrics.json": gen_rubrics(g, tokens),
-        a.outdir / "solution" / "policy.yaml": gen_policy(contract, tokens),
-        a.outdir / "solution" / "provenance.yaml": gen_provenance(g, contract, tokens, a.canonical_hash),
-        a.outdir / "tests" / "test_output.py": gen_test_output(g),
-    }
-    for path, text in outputs.items():
-        write(path, text)
-    (a.outdir / "solution" / "solve.sh").chmod(0o755)
-
-    for path in outputs:
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
-        print(f"  {digest}  {path.relative_to(a.outdir)}")
-    print(f"regenerated {len(outputs)} artifacts from {a.grounding}"
-          f"{' with derived canaries' if a.canonical_hash else ' with placeholder canaries'}")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
 </pre></details>
 <h2>Rollouts</h2>
 <div class='note'>Both slots ran the same OpenHands driver and the same submit client: <code>_openhands_driver.py</code> is 26,900 bytes with sha256 <code>5f15cc8e7d20</code> in both directories, and <code>_sforge-submit.sh</code> is 9,331 bytes with <code>2a726a4273c8</code> in both. <code>agent_prompt.md</code> is byte-identical across the two runs (16,870 bytes). <code>install_output.txt</code> is the same size in both (5,614 bytes) but <i>not</i> byte-identical: the two copies resolve the same 183 packages and install the same set, but record different resolve times (1.96 s for claude-opus-5[1m], 1.52 s for gpt-5.6-sol) and a different download order, so their sha256 digests differ. The two runs differ only in the model behind the bridge and in what they did with the time.</div>
@@ -19583,11 +18628,7 @@ Makefile
 <tr><td><code>tests/hidden_test_data/manifest.json</code></td><td>343,094</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>tests/hidden_test_data/upstream_fingerprints.json</code></td><td>695,980</td><td><span class='tag v-private'>answer-bearing</span> the containment reference</td></tr>
 <tr><td><code>solution/TRUTH.md</code></td><td>5,376</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
-<tr><td><code>solution/grounding.yaml</code></td><td>13,906</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
-<tr><td><code>solution/policy.yaml</code></td><td>2,316</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
-<tr><td><code>solution/provenance.yaml</code></td><td>3,154</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>solution/rubrics.json</code></td><td>3,160</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
-<tr><td><code>solution/recompute.py</code></td><td>23,321</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>solution/solve.sh</code></td><td>674</td><td><span class='tag v-private'>answer-bearing</span></td></tr>
 <tr><td><code>plots/</code></td><td>59,915</td><td>3 SVG charts: per-model score curves and the combined score-vs-submissions view</td></tr>
 <tr><td><code>inspector.html</code></td><td>1,255,900</td><td>this file</td></tr>
@@ -19643,5 +18684,5 @@ Makefile
 <tr><td>a rerun's numbers</td><td>Every figure here was measured on a judge with 4 cpus and 3,072 MB, with the throughput term computed against an oracle binary running on the same host at the same moment. Nothing in this bundle establishes what either submission would score on different hardware, and the throughput term is by construction the part that would move.</td></tr>
 <tr><td>whether these runs were graded against the corpus that now ships</td><td><code>environment/public_cases.jsonl</code> currently holds 750 records. It is the agent-visible corpus, not the graded one, so it does not enter any score in this report &#8212; the 12,000 graded cases live in <code>tests/hidden_test_data/</code>. But the public corpus is the evidence the models excavated the mutations from, and nothing in either trajectory records how many records were in the container at run time. This report describes the corpus as it stands in the bundle today.</td></tr>
 <tr><td>what the models were thinking</td><td>Both transcripts are present (6,249,487 and 17,660,709 bytes) and neither is quoted here. This report is built only from <code>task.toml</code>, <code>instruction.md</code>, <code>environment/</code>, <code>tests/</code>, <code>solution/</code>, the harness ledgers, the judge logs and the submitted tarballs, so every claim is checkable against an artefact. Intent &#8212; why a file was split, whether a slowdown was noticed &#8212; is not established.</td></tr>
-<tr><td>whether the packaged README describes this bundle</td><td>It does not, in three separate ways, and this report does not reconcile them. <code>README.md</code> documents a salvaged 126-round <code>claude-opus-5[1m]</code> session with a best of 0.953180 at <code>agent-102</code> and four missing per-round artifacts; the trajectories on disk are a 75-round OpenHands run with a best of 0.971848 at <code>agent-49</code> and a 173-round gpt-5.6-sol run it never mentions. It calls the public corpus a 685-record file against the instruction's 750; the file now holds 750. And it says <code>task.toml</code> freezes the name as <code>libpcap_bpf_codegen_fidelity_mut1</code>; <code>task.toml</code> now says <code>edgebench/libpcap_bpf_codegen_fidelity</code>. Which document is stale is not recorded in the bundle; this report follows the files it can read.</td></tr>
+<tr><td>whether the packaged README describes this bundle</td><td>Yes. <code>README.md</code> documents both cohorts as they are on disk: a 75-round OpenHands <code>claude-opus-5[1m]</code> run with a best of 0.971848 at <code>agent-49</code>, and a 173-round <code>gpt-5.6-sol</code> run with a best of 0.885184 at <code>agent-88</code> merged from 16 segments. The public corpus is 750 records, matching the instruction. <code>task.toml</code> carries the bundle UUID as its display name and <code>libpcap_bpf_codegen_fidelity</code> as its task_id.</td></tr>
 </table>
