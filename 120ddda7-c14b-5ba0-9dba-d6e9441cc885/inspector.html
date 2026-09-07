@@ -374,7 +374,7 @@ For reference, the starter tree in `environment/src/` measures 0.0198 on the gra
 
 **The `opus-5` trajectory is native.** One process, one container, `timed_out: true`, `resume_count: 0`. Nothing about it is reconstructed.
 
-**17 of 248 rounds do not carry the four judge-side artifacts** (`submission.tar.gz`, `test_output.txt`, `run_instance.log`, `allowed_files.txt`): 11 in `opus-5` and 6 in `gpt-5.6-sol`. Every one of them is a byte-identical resubmission, marked `deduplicated: true` in its `report.json`. The judge returns the cached score without regrading, so no new artifacts are produced. The other 231 rounds carry the complete set.
+**17 of 248 rounds do not carry the four judge-side artifacts** (`submission.tar.gz`, `test_output.txt`, `run_instance.log`, `allowed_files.txt`): 11 in `opus-5` and 6 in `gpt-5.6-sol`. Every one of them is a byte-identical resubmission, marked by a `DEDUPLICATED.txt` sidecar and a `deduplicated_from` field naming the earlier submission in its `report.json`. The judge returns the cached score without regrading, so no new artifacts are produced. The other 231 rounds carry the complete set.
 
 **`best_pass_rate: 0.0` is an artifact, not a result.** The parser is `structured_json`: the verifier writes a continuous reward and there are no pytest cases, so pass rates are zero everywhere and the harness banner is unreliable. The authoritative numbers are the `best_score` fields.
 
