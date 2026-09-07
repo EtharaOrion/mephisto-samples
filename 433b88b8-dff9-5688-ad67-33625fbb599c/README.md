@@ -1,4 +1,4 @@
-# Zero-One Integer Programming Solver from Scratch
+# 433b88b8-dff9-5688-ad67-33625fbb599c
 
 Build a 0-1 integer programming solver from scratch, in C or C++, with no external optimization
 libraries. The judge runs the submitted `./solve` against 90 hidden instances drawn from seven
@@ -9,13 +9,13 @@ NP-hard families, under a 60 second per-instance timeout and no network access.
 Seven families, one JSON schema, dense coefficient rows, binary variables, constraints in
 `<=`, `>=` or `==`:
 
-- **multi-dimensional knapsack** — Chu-Beasley correlated profits with tight capacities (30 instances)
-- **zero-one knapsack** — almost-subset-sum and strongly/inversely correlated, coefficients to 10^6, which defeats dynamic programming
-- **set cover** — dense random cover with near-unicost costs, so the LP relaxation is fractional
-- **generalized assignment** — Martello-Toth type D min-cost, 5-8 machines against 40-60 jobs
-- **capacitated facility location** — aggregated capacity only, giving a weak LP bound
-- **graph colouring** — dense graphs, DSATUR-tight colour budget, symmetry-breaking rows
-- **TSP cutting plane** — 10-11 cities with every subtour row enumerated
+- **multi-dimensional knapsack** - Chu-Beasley correlated profits with tight capacities (30 instances)
+- **zero-one knapsack** - almost-subset-sum and strongly/inversely correlated, coefficients to 10^6, which defeats dynamic programming
+- **set cover** - dense random cover with near-unicost costs, so the LP relaxation is fractional
+- **generalized assignment** - Martello-Toth type D min-cost, 5-8 machines against 40-60 jobs
+- **capacitated facility location** - aggregated capacity only, giving a weak LP bound
+- **graph colouring** - dense graphs, DSATUR-tight colour budget, symmetry-breaking rows
+- **TSP cutting plane** - 10-11 cities with every subtour row enumerated
 
 Hardness comes from structure rather than size. Optima are certified by HiGHS
 (`scipy.optimize.milp`, `mip_rel_gap=0`); only instances proved optimal were admitted, selected
@@ -37,7 +37,7 @@ carries one instance per family, generated the same way.
 The L2 curve awards 30 at gap 0, 27 at <= 0.5%, 24 at 1%, 18 at 2%, 10 at 5% and 4 at 10%. Because
 the optima are certified, exactness is rewarded and near-misses are not close to free.
 
-L5 rebuilds a fixed 21-instance subset (the first 3 of each family) under seven perturbations —
+L5 rebuilds a fixed 21-instance subset (the first 3 of each family) under seven perturbations -
 variable order within a constraint, constraint reorder, common coefficient scaling, instance-id
 salt rewrite, JSON whitespace reformat, output field order, and output trailing whitespace. The
 judge solves the perturbed cohorts, un-perturbs the outputs, and grades them alongside the base
@@ -54,7 +54,7 @@ solver cannot buy score with threads and the timing lanes stay comparable across
 The agent submits with `sforge-submit`, which packages `build.sh`, `solve` and `src/`, grades them
 in a separate container, and returns a single scalar in [0, 1]. Submissions are capped with a
 cooldown between them, a byte-identical resubmission returns the previous score without regrading,
-and no per-lane or per-instance breakdown is returned — local measurement against the develop set
+and no per-lane or per-instance breakdown is returned - local measurement against the develop set
 is the only fine-grained feedback available.
 
 ## Calibration
