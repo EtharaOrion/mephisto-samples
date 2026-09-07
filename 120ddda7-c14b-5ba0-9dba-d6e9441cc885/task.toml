@@ -12,8 +12,8 @@
 schema_version = "1.4"
 
 [task]
-name = "edgebench/libpcap_bpf_codegen_fidelity"
-description = "Rebuild a deliberately modified libpcap 1.10.6 BPF filter compiler in C from observable behaviour alone, with no libpcap source, header, binary, or network. The reference is not stock libpcap: four semantics-preserving mutations change its codegen and layout choices, so recalled upstream bytes are wrong where they diverge, and the departures must be discovered from the public corpus. Graded on exact cBPF bytecode tuple equality and exact libpcap error-string equality against 12,000 hidden (dlt, snaplen, optimize, netmask, filter) cases across 8 weighted strata, plus a gated interleaved compile-throughput term."
+name = "edgebench/120ddda7-c14b-5ba0-9dba-d6e9441cc885"
+description = "Reconstruct a modified reference compiler in C from observable behaviour alone, with no reference source, header, binary, or network. Graded on exact bytecode tuple equality and exact error-string equality against 12,000 hidden cases across 8 weighted strata, plus a gated interleaved compile-throughput term."
 
 # 'optimization' and 'bounded-continuous' are the lane tags for this task.
 keywords = [
