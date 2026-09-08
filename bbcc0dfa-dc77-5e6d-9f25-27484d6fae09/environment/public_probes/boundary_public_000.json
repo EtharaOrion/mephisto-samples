@@ -1,0 +1,70 @@
+{
+ "family": "boundary",
+ "id": "boundary_public_000",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "e0.bin",
+   "op": "put"
+  },
+  {
+   "file": "e1.bin",
+   "op": "put"
+  },
+  {
+   "file": "e2.bin",
+   "op": "put"
+  },
+  {
+   "file": "e3.bin",
+   "op": "put"
+  },
+  {
+   "file": "e4.bin",
+   "op": "put"
+  },
+  {
+   "id": "d7772eec3a89b1098da54e3d9deb200e0753dbdc8ab9e4ddafc86c01708c4c08",
+   "op": "get_unknown",
+   "out": "never.bin"
+  },
+  {
+   "id": "zz-not-hex",
+   "op": "get_unknown",
+   "out": "never2.bin"
+  },
+  {
+   "id": "c09185e28f92e9f9e138659b27b755ffc0a54472e63c49be322b40992ef2bd62",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "d196221bad946cb30ac393c3590ed6731894801805aabdf7e2ee05eaec4e1b94",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "45bd548dae650d60726eaf7f445345a90cd36938fae40954ad6cfe908d376cb0",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "id": "c77ff0555e2836786e9187537e01c5f40167dcbddc703a7cd2bcef757586407b",
+   "op": "get",
+   "out": "g3.bin"
+  },
+  {
+   "id": "ffe679bb831c95b67dc17819c63c5090d221aac6f4c7bf530f594ab43d21fa1e",
+   "op": "get",
+   "out": "g4.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

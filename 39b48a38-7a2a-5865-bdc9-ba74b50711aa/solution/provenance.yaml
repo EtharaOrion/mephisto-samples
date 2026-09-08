@@ -1,0 +1,55 @@
+{
+  "_banner": "GENERATED SECTION. DO NOT HAND-EDIT. Source: solution/grounding.yaml",
+  "binding": {
+    "binding_envelope": null,
+    "canonical_bundle_hash": "0e8095dc36c86743621a4f493e22db99d1e757b9a405c30f7d5171bb6e7c55df",
+    "pinned_image_digest": null
+  },
+  "bundle_uuid": "39b48a38-7a2a-5865-bdc9-ba74b50711aa",
+  "canary_normalization_domain_version": "chronopack-canary/1",
+  "producer_claim_note": "Every outcome recorded here is a producer claim rather than evidence. A reader recomputes it from the committed bytes and the named roots.",
+  "schema_version": "1",
+  "screening_expires_at": "2026-11-10T00:00:00Z",
+  "screening_interval_days": 90,
+  "screening_measured_at": "2026-08-12T00:00:00Z",
+  "screening_roots": {
+    "exclusion_list": {
+      "content_digest": "6ce0b70292a2238202708f6c396edf56308264437eb30d1bdd6604d29a289c56",
+      "root_identity": "mephisto.exclusion-list"
+    },
+    "freeze_date_table": {
+      "content_digest": "98d7b4be261633453c13eaebba04ca13b29888e4e298750f97fdef86147c04ec",
+      "root_identity": "mephisto.freeze-date-table"
+    },
+    "neardup_index": {
+      "content_digest": "b461a9c87c38afa30b211ff85716baf612f5630985ff031cd6ff4b562cb95460",
+      "root_identity": "mephisto.neardup-index"
+    },
+    "source_attestation": {
+      "content_digest": "726647ade219fe466b078f2b7424a26e7bf9d81beed394d79c64b5ff92a0e672",
+      "root_identity": "mephisto.source-attestation-trust-root"
+    }
+  },
+  "task_id": "chronopack_undocumented_encoder",
+  "upstream_provenance": {
+    "license": "project-owned",
+    "modifications": null,
+    "origin": "original",
+    "provenance_date": "2026-08-12",
+    "source": {
+      "ancestry_attestation_digest": null,
+      "ancestry_attestation_signer": null,
+      "attestation_status": "attestation-unavailable",
+      "base_commit_sha": null,
+      "canonical_repository_identity": null,
+      "event_attestation_digest": null,
+      "event_attestation_signer": null,
+      "fork_ancestry_snapshot_digest": null,
+      "generation_inputs_digest": "0eb0443d359eda1ece49e8589006eae4591fed5a0c57c89004f28ad711bc8faf",
+      "generator_identity": "mephisto.forge.chronopack",
+      "source_kind": "synthetic",
+      "task_generating_event_timestamp": "2026-08-12T00:00:00Z"
+    },
+    "upstream_identity": null
+  }
+}

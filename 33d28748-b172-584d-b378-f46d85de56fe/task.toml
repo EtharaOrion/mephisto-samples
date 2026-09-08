@@ -1,0 +1,59 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/cftc_positioning.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/positioning_results.json" },
+]
+
+[task]
+name = "edgebench/cftc_futures_positioning_book"
+description = "CFTC COT cross-sectional futures-market positioning book across 25 CFTC-regulated contracts (energy, metals, grains, livestock, rates, FX). Agent produces per-market per-week direction + magnitude bucket + crowding regime + extreme flag + rank probability across a hidden 2025-01-07 to 2026-07-22 weekly window (80 CFTC publication dates x 25 markets = 2000 pairs). Scored on 8 lanes, 0-100."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "cftc-cot-positioning",
+  "cross-market-futures",
+  "commercial-hedger-flow",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.cftc_futures_positioning_book:v4@sha256:57e94afb9d8049c8309931053875509271db280ccc697b3cd4cc64f9ea849ad6"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cftc_futures_positioning_book:v4@sha256:98a16ee8f95dd166492f159dcfcd7336ddfe6d823dfc0f6314dcf6ddf822cc31"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "cftc_futures_positioning_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["cftc_positioning.py", "requirements.txt", "positioning_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "v4"
+judge_image_tag = "v4"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "CFTC publicreporting.cftc.gov + FRED fred.stlouisfed.org - US Government public domain"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "CFTC public data policy + Federal Reserve Bank of St. Louis (FRED) redistribution route for DFF/IORB/DGS*"
+bundle_uuid_note = "see enclosing dataset/<uuid>/ directory name"

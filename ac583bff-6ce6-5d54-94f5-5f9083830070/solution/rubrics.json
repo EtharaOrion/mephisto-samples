@@ -1,0 +1,123 @@
+{
+  "_generated_header": "GENERATED. Source: seed/build/cryoem_single_particle_reconstruction/grounding.yaml. Regenerator: seed/build/cryoem_single_particle_reconstruction/recompute.py.",
+  "task_id": "cryoem_single_particle_reconstruction",
+  "schema_version": 1,
+  "compilation_floor": 0.7,
+  "compiled_weight_share": 1.0,
+  "canary_tokens": [
+    "CRYOEM_CANARY_APOFERRITIN_K7X3M9Q2",
+    "CRYOEM_CANARY_ALDOLASE_R5V1B8N4",
+    "CRYOEM_CANARY_PDB_LOOKUP_L9P6T2W3"
+  ],
+  "items": [
+    {
+      "id": "rubric_l1",
+      "dimension": "answer_format",
+      "weight": 3,
+      "evaluation_target": "answer_json_meta",
+      "criterion": "answer.json has all required fields with valid values",
+      "judgment": "deterministic recomputation via evaluate.py score_L1_format",
+      "evidence": [
+        "answer.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l2",
+      "dimension": "parameter_bounds",
+      "weight": 2,
+      "evaluation_target": "answer_json_meta",
+      "criterion": "box/pixel/symmetry within declared ranges",
+      "judgment": "deterministic recomputation via evaluate.py score_L2_bounds",
+      "evidence": [
+        "answer.json",
+        "public_problem_config.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l3",
+      "dimension": "public_sanity",
+      "weight": 10,
+      "evaluation_target": "reconstructed_volume_mrc",
+      "criterion": "FSC-0.143 resolution smooth linear good=15A bad=30A",
+      "judgment": "deterministic recomputation via evaluate.py score_L3_public_sanity",
+      "evidence": [
+        "reconstruction.mrc"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l4",
+      "dimension": "handedness_gate",
+      "weight": 5,
+      "evaluation_target": "reconstructed_volume_mrc",
+      "criterion": "correct chirality via Ewald/flip NCC detectability",
+      "judgment": "deterministic recomputation via evaluate.py score_L4_handedness",
+      "evidence": [
+        "reconstruction.mrc",
+        "answer.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l5",
+      "dimension": "symmetry_correctness",
+      "weight": 5,
+      "evaluation_target": "answer_json_meta",
+      "criterion": "declared symmetry vs true; abuse (higher order) = 0",
+      "judgment": "deterministic recomputation via evaluate.py score_L5_symmetry",
+      "evidence": [
+        "answer.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l6",
+      "dimension": "method_workflow",
+      "weight": 5,
+      "evaluation_target": "method_description_free_text",
+      "criterion": "method text + non-baseline .py + recon-primitive keywords in code",
+      "judgment": "deterministic recomputation via evaluate.py score_L6_method_workflow",
+      "evidence": [
+        "answer.json",
+        "*.py"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l7",
+      "dimension": "reconstruction_quality",
+      "weight": 55,
+      "evaluation_target": "reconstructed_volume_mrc",
+      "criterion": "coarse+precise FSC + NCC + pose scores; DOMINANT lane",
+      "judgment": "deterministic recomputation via evaluate.py score_L7_reconstruction",
+      "evidence": [
+        "reconstruction.mrc",
+        "poses.star"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l8",
+      "dimension": "resolution_physics",
+      "weight": 15,
+      "evaluation_target": "reconstructed_volume_mrc",
+      "criterion": "phase-randomization + signal-present + local consistency; gated by L7>=10",
+      "judgment": "deterministic recomputation via evaluate.py score_L8_resolution_physics",
+      "evidence": [
+        "reconstruction.mrc",
+        "answer.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "DIVERGENCE"
+    }
+  ]
+}

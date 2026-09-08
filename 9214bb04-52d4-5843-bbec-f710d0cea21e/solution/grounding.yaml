@@ -1,0 +1,442 @@
+schema_version: 2
+task_id: p3gamma_sec_opmargin_expansion_book
+family: "Framework A: outcome-anchored book"
+
+# Bytes reachable by recompute.py when it emits dataset/<uuid>/solution/TRUTH.md.
+# TRUTH.md carries the 13 mandated elements per FORGE.md :94 + :212 + Invariant 22
+# and no extras. alternative_routes measured ladder, mephisto_extensions block, and
+# reference feature set stay internal to this file and never propagate to TRUTH.md.
+
+canary_tokens:
+  - "MEPHISTO_CANARY_P3GAMMASOM_20260808_A7B4C9D1"
+  - "MEPHISTO_CANARY_P3GAMMASOM_20260808_E2F8B5A3"
+  - "MEPHISTO_CANARY_P3GAMMASOM_20260808_6D1E4C87"
+
+golden_trajectory:
+  reference_method_name: >-
+    hindsight-perfect realized_opmargin_change_rank derived from post-outcome
+    SEC EDGAR XBRL us-gaap:OperatingIncomeLoss / us-gaap:Revenues (ASC 606 tag
+    union) at CY2026Q1 vs CY2025Q1 on a no-dimension consolidated basis,
+    sector-residualized at SIC-2 (submissions API SIC first-2 digits), snapshot
+    2026-08-08 covering measure window CY2025Q1-CY2026Q1, rank-transformed by
+    descending sector-relative Delta_pp with ties broken by cik ascending, joined
+    to the 2799-cik inner-intersection universe (CY2026Q1 & CY2025Q1 OpIncomeLoss
+    + Revenues both quarters, Revenues>0 both quarters, SIC known)
+  ordered_steps:
+    - step: 1
+      action: >-
+        Read the 2799-cik graded universe from universe_p3gamma_2026.csv and the
+        judge-private realized_opmargin_change_rank for every one of them from the
+        hidden panel.
+      state: >-
+        Graded universe enumerated with realized sector-relative Delta OpMargin
+        fully known on the judge side.
+      drift_survived: >-
+        Agent-visible copy of sec_xbrl_panel_stripped.csv carries op_income_loss_
+        cy2025q1 + revenues_cy2025q1 + revenues_cy2026q1 + opmargin_cy2025q1_level
+        + prior_year_opmargin_level_rank + 8 raw sibling columns (gross_profit,
+        ocf, assets 4-quarter I). Judge-side hidden_opmargin_change_realized.csv
+        carries (cik, sector_relative_delta_opmargin_pp, realized_opmargin_change_rank)
+        but score.py never emits realized magnitudes in production emission
+        (VERIFIER OPACITY block; P3GAMMASOM_JUDGE_AUDIT env gate off in Harbor).
+      checker: >-
+        L1 structural gate: every submitted cik must lie in universe; every
+        universe member appears exactly once with a rank in [1, 2799].
+    - step: 2
+      action: >-
+        For every graded cik, emit realized_opmargin_change_rank as prediction,
+        honoring convention (1 = MOST margin EXPANSION = largest positive sector-
+        relative Delta_pp; 2799 = MOST margin COMPRESSION = largest negative)
+        and permutation constraint.
+      state: >-
+        Prediction vector = realized reality identically; spearman = 1.0, top-K
+        precision = 1.0, decile calibration MAE = 0.
+      drift_survived: >-
+        Any prediction different from realized reality reduces spearman (L2 above
+        threshold curve slope = LANE_L2/(1-L2_RHO_THRESHOLD) = 60), disturbs
+        top-K precision (L3), disturbs bin-mean tightness (L4). Missing/extra cik,
+        duplicate rank, out-of-range rank fails L1 structural gate and cascades
+        total to 0.
+      checker: >-
+        L2 reaches 30/30 (rho = 1.0 well above threshold 0.5); L3 reaches 25/25
+        (top-K identical); L4 reaches 20/20 (bin means track expected centers
+        exactly); L5 reaches at most ~3/15 by empirical cross-sibling partial
+        correlation bounds in Nissim 2023 + Amir/Kama/Livnat 2011 literature.
+    - step: 3
+      action: >-
+        Write submission/opmargin_change_ranks.csv (2799 data rows + 1 header,
+        bijective, rank permutation of {1..2799}) to /home/workspace/submission/
+        opmargin_change_ranks.csv.
+      state: "Single graded artifact on the path the verifier reads."
+      drift_survived: >-
+        Missing/wrong header, row-count off from 2799, duplicate cik, missing/
+        extra cik, rank outside [1,2799], duplicate rank each zeroes total via
+        L1 cascade. No separate policy re-run.
+      checker: "L1 structural gate."
+
+near_miss_routes:
+  - route: >-
+      The 4-sibling DuPont ensemble reference solver preserved at solution/
+      reference_solver.py (weighted composite W_GM=0.45 * gm_rank + W_ATO=0.10 *
+      ato_rank + W_OCFM=0.25 * ocfm_rank + W_REV=0.20 * revgrowth_rank; each
+      sibling raw value sector-residualized at SIC-2 then ranked descending;
+      neutral midpoint (N+1)/2 fallback for CIKs where a sibling raw signal is
+      missing from the visible panel).
+    rejection_reason: >-
+      Legitimate decision-time method reflecting analyst-realistic effort
+      building on the agent-visible sec_xbrl_panel_stripped.csv (GP+OCF+Assets+
+      Revenues+SIC-2); lands in [24, 44] band (measured 27.942 on 2026-08-08).
+      Cannot reach hindsight-perfect because (a) L5 partial correlations cap by
+      Nissim 2023 + Amir-Kama-Livnat 2011 literature bounds and (b) L2 threshold
+      curve at rho=0.5 gates raw Spearman signal below 0.5.
+  - route: "Predict prior_year_opmargin_level_rank persistence."
+    rejection_reason: >-
+      Persist-of-boundary MUST land below 24 (Stage-2b HARD KILL GATE). Screen
+      measured spearman(prior_year_opmargin_level_rank, realized_opmargin_change_
+      rank) = +0.248 (requirements/PKW-FAMILIES.md §3 wave 2026-07-18). Under
+      rubric (L2_RHO_THRESHOLD=0.5, L5 partial correlation controlling for
+      prior_year_opmargin_level_rank), persist earns 0 on L2 (rho below threshold),
+      essentially 0 on L5 (partial(agent, sibling_i | boundary) = 0 by
+      construction when agent = boundary). Measured persist total on 2026-08-08:
+      14.012, 9.988 pts below KILL bar (10-pt headroom).
+  - route: "Predict single constant rank (e.g. midpoint 1400) for every cik."
+    rejection_reason: "Fails L1: not permutation, 2799 duplicate ranks. Total = 0 via cascade."
+  - route: "Predict uniformly-random permutation of {1..2799}."
+    rejection_reason: >-
+      Passes L1. L2 rho ~ 0 below threshold -> 0 pts. L3 top-K precision ~ K/N =
+      0.036. L4 tightness ~ 0. L5 partial correlations ~ 0. Total ~ 10.25 (measured
+      2026-08-08 seed=20260808).
+  - route: "Use single sibling measure alone (e.g. rank by Delta GM only)."
+    rejection_reason: >-
+      Bounded by single-sibling correlation to realized (~0.30-0.45 range). Under
+      threshold curve L2 grants 0-8 pts at most. Expected total 15-22, above
+      persist but below reference band, illustrates value of ensemble.
+  - route: "Hand-tune CSV after inspecting verifier feedback without coherent method."
+    rejection_reason: >-
+      Judge emits ONLY 5 lane scalars + structural feedback + submitted
+      distributional shape (min, max, mean, stddev of submitted ranks). No
+      per-cik hit list, no ground-truth cik, no realized value, no rho scalar,
+      no per-sibling partial. L4 is real-valued MAE-normalized (metric-continuous),
+      L3 is precision-at-K aggregate over K-item set, L5 is mean of partial
+      correlations. Best-of-N gain bounded by calibration-search on N continuous
+      weights against 5 aggregate scalars; no per-item bits leak. See §15
+      declaration in mephisto_extensions.
+
+lane_reconciliation:
+  - lane: "L1 structural (10 pts)"
+    satisfied_by_steps: [1, 3]
+    detail: >-
+      Step 1 fixes universe, step 3 places CSV. Structural pass grants 10; any
+      structural failure cascades total to 0. Formula binding:
+      p3gamma_lib.structural_check() reasons list must be empty.
+  - lane: "L2 spearman_rank_threshold (30 pts)"
+    satisfied_by_steps: [2]
+    detail: >-
+      Perfect rank agreement -> rho = 1.0, lane clamps at 30 via threshold curve.
+      Formula binding: p3gamma_lib.score_l2_rank_correlation = LANE_L2_POINTS *
+      max(0, (rho - L2_RHO_THRESHOLD) / (1 - L2_RHO_THRESHOLD)) with
+      L2_RHO_THRESHOLD=0.5. Persist-of-boundary shortcuts (rho ~ +0.248) earn 0.
+  - lane: "L3 top_k_worst (25 pts)"
+    satisfied_by_steps: [2]
+    detail: >-
+      Top-K by prediction (largest ranks = most-compression cohort) and by
+      realized are identical when prediction = realized; precision-at-K = 1.0,
+      lane clamps at 25. Formula binding: p3gamma_lib.score_l3_topk_worst =
+      LANE_L3 * precision_at_k(top_k_ids(agent, K), top_k_ids(realized, K)).
+      Aggregate over K-item set (K=100), does not invert to per-item ground-truth
+      membership.
+  - lane: "L4 decile_calibration_tightness (20 pts)"
+    satisfied_by_steps: [2]
+    detail: >-
+      10 equal-count bins ordered by agent rank; mean(realized) per bin tracks
+      expected_center exactly when agent=realized. Formula binding:
+      p3gamma_lib.score_l4_decile_calibration = LANE_L4 * max(0, 1 -
+      sum|bin_mean_realized - bin_expected_center| / MAE_naive). Only saturates
+      for tight bin-level calibration, not for weak monotonic signal.
+  - lane: "L5 cross_sibling_consistency (15 pts, bonus)"
+    satisfied_by_steps: [2]
+    detail: >-
+      Partial rank correlation of agent vs each of 4 siblings (delta_gross_margin_
+      rank, delta_asset_turnover_rank, delta_ocf_margin_rank, revenue_growth_rank)
+      after controlling for prior_year_opmargin_level_rank. Formula binding:
+      p3gamma_lib.score_l5_cross_condition_consistency = LANE_L5 *
+      mean(max(0, partial_spearman(agent, sibling_i | L5_CONTROL_COLUMN))).
+      Persist-of-boundary shortcuts collapse to 0 by construction (partial when
+      agent=boundary is 0). Empirical L5 ceiling at hindsight is ~3/15 per
+      Nissim 2023 + Amir/Kama/Livnat 2011 cross-sibling correlation literature
+      bounds; measured 2.610/15 on 2026-08-08 for oracle route.
+  - lane: "anti-fabrication (veto, no points)"
+    satisfied_by_steps: [3]
+    detail: >-
+      Deliverable is a permutation with exact universe bijection; L1 structural
+      gate fully captures anti-fabrication surface. A permutation cannot lie
+      about its own distribution.
+
+alternative_routes:
+  measured_at: "2026-08-08T18:00:00Z"
+  measured_by: >-
+    seed/build/p3gamma_sec_opmargin_expansion_book/_measure_control_ladder.py
+    invoked in-process against seed/build/p3gamma_sec_opmargin_expansion_book/
+    hidden_opmargin_change_realized.csv + hidden_sibling_ranks.csv over sample
+    submissions produced by reference_solver.py (4-sibling DuPont), persist
+    (rank by prior_year_opmargin_level_rank ascending), random (seed=20260808),
+    and oracle (byte-copy of realized ranks).
+  graded_universe_size: 2799
+  top_k: 100
+  n_deciles: 10
+  n_sibling_measures: 4
+  l2_rho_threshold: 0.5
+  l5_control_column: "prior_year_opmargin_level_rank"
+  screen_persist_rho_measured: 0.248
+  screen_persist_rho_measured_source: >-
+    requirements/PKW-FAMILIES.md §3 wave 2026-07-18 record for sec_opmargin_
+    change: Spearman rho +0.248 at RHO_LOW=0.20 floor, n_eff 307.9, axis-4b 0.32
+    (well below 0.45 AUTHOR_READY threshold). Persist route measurement
+    2026-08-08 confirms rho below L2 threshold 0.5 (persist earns L2=0).
+  routes:
+    - route: "random-permutation (seed=20260808)"
+      score_reached_measured: 10.250
+      expected_range: [8, 13]
+      detail: >-
+        L1 10.00 / L2 0.000 (rho below threshold) / L3 0.250 / L4 0.000 / L5
+        0.000. Passes L1 by construction; every rank-based lane collapses to
+        random floor.
+    - route: "persist (rank by prior_year_opmargin_level_rank ascending)"
+      score_reached_measured: 14.012
+      expected_range: [12, 20]
+      detail: >-
+        L1 10.00 / L2 0.000 (rho=+0.248 below 0.5) / L3 4.000 / L4 0.000 / L5
+        0.012. MUST land < 24 for Stage-2b HARD KILL compliance. Measured 14.012
+        gives 9.988 pts headroom below KILL bar (~42% margin).
+    - route: "reference (4-sibling DuPont ensemble)"
+      score_reached_measured: 27.942
+      expected_range: [24, 44]
+      detail: >-
+        L1 10.00 / L2 0.000 (raw Spearman below threshold 0.5) / L3 5.750 / L4
+        4.081 / L5 8.111. Honest ceiling for analyst-realistic decision-time
+        method using agent-visible sec_xbrl_panel_stripped.csv (GP/OCF/Assets/
+        Revenues raw columns for 4 DuPont-orthogonal siblings + SIC-2 sector-
+        residualization). L2 lane threshold at 0.5 gates raw rho signal to 0.
+        L5 partial-correlation bonus is the primary source of reference credit
+        (~half of L5 max), consistent with Amir-Kama-Livnat 2011 conditional-
+        persistence result.
+    - route: "reference receiving verifier feedback over max_submissions=400 spaced by cooldown=120s"
+      score_reached_measured: 27.942
+      expected_range: [24, 44]
+      detail: >-
+        §15 MANDATED ROUTE. Simulated against REDACTED emission only (P3GAMMASOM_
+        JUDGE_AUDIT unset). Best-of-N gain over single-shot bounded to <5 pts
+        (calibration-search on 4 continuous weights against 5 aggregate scalars;
+        no per-item bits leak from submitted_rank_stats min/max/mean/stddev).
+    - route: "hindsight-perfect oracle"
+      score_reached_measured: 87.610
+      expected_range: [85, 90]
+      detail: >-
+        L1 10.00 / L2 30.000 / L3 25.000 / L4 20.000 / L5 2.610. L5 caps at
+        ~3/15 by cross-sibling partial correlation literature bounds after
+        controlling for prior_year_opmargin_level_rank (Nissim 2023 shows
+        Operating Profit Margin less persistent than Asset Turnover; Amir-
+        Kama-Livnat 2011 shows OPM/ATO conditionally negatively correlated
+        cross-sectionally; residual cross-sibling partial correlations after
+        boundary control sit near 0.15-0.25). L5 bonus lane bounded by
+        empirical ceilings, not defect. Full-marks (100) unreachable by design.
+  best_of_n_gate:
+    full_reward_threshold: 0.95
+    unblock_bar: 86.0
+    best_of_n_score_measured: 27.942
+    verdict: >-
+      PASS -- single-shot reference measurement 27.942 does not approach 86.0
+      unblock bar; best-of-N gain bounded to <5 pts by aggregate-scalar-only
+      feedback surface. HOLD:BEST_OF_N_LEAK does not fire.
+
+oracle_reconciliation:
+  invoked_at: "2026-08-08T18:00:00Z"
+  method: >-
+    Score numbers below measured by running emitted solution/ artifacts through
+    in-process p3gamma_lib.score_all against seed/build/p3gamma_sec_opmargin_
+    expansion_book/hidden_opmargin_change_realized.csv + hidden_sibling_ranks.csv,
+    with /home/workspace/submission/opmargin_change_ranks.csv path pointed at
+    pre-computed dataset/<uuid>/solution/oracle_opmargin_change_ranks.csv
+    (byte-copied by solve.sh under Harbor -a oracle), P3GAMMASOM_JUDGE_AUDIT
+    unset (redacted emission).
+  work_image_ref: "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p3gamma_sec_opmargin_expansion_book:phase1-222826dbd90d@sha256:4b3b13a4f5d85723322dbb94d811ed4964c228c8ff5af1b511e303d6e4bb4db2"
+  judge_image_ref: "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p3gamma_sec_opmargin_expansion_book:phase1-222826dbd90d@sha256:8e2d0a671fa5e1a391d31dbaf3dfe0207c4224ef2845bed13f2b4bee702a5640"
+  oracle_command_work: >-
+    docker run --rm --platform linux/amd64 -v <solution>:/solution:ro
+    -v <workspace>:/home/workspace --entrypoint bash <work_image>
+    /solution/solve.sh
+  oracle_command_judge: >-
+    docker run --rm --platform linux/amd64
+    -v <workspace/submission>:/home/workspace/submission:ro --entrypoint bash
+    <judge_image> -c 'python3 /home/workspace/scoring/score.py'
+  total_score_raw: 87.610
+  total_score_normalized: 0.87610
+  full_reward_threshold: 0.95
+  full_reward_reached: false
+  per_lane_measured:
+    L1_structural: {score: 10.000, max: 10, satisfied_by: [step_1, step_3]}
+    L2_spearman_rank_threshold: {score: 30.000, max: 30, satisfied_by: [step_2]}
+    L3_top_k_worst: {score: 25.000, max: 25, satisfied_by: [step_2]}
+    L4_decile_calibration_tightness: {score: 20.000, max: 20, satisfied_by: [step_2]}
+    L5_cross_sibling_consistency: {score: 2.610, max: 15, satisfied_by: [step_2]}
+  score_gap_analysis: >-
+    Oracle reaches 87.610 not 100.000: the 12.390-pt gap sits entirely in L5.
+    L5 measures partial rank correlation of agent-rank vs each of 4 siblings
+    (delta_gross_margin_rank, delta_asset_turnover_rank, delta_ocf_margin_rank,
+    revenue_growth_rank) after controlling for prior_year_opmargin_level_rank.
+    Even at hindsight-perfect, cross-sibling partial correlations after removing
+    prior-level component sit around 0.15-0.25 per Amir-Kama-Livnat 2011 +
+    Nissim 2023 (OPM less persistent than ATO; OPM/ATO conditionally negatively
+    correlated). L5 bonus lane bounded by empirical cross-sibling correlation
+    ceilings, not defect.
+
+mephisto_extensions:
+  framework: "A"
+  task_shape: "structured-classification-strong-signal"
+  honest_reference_ceiling_estimate: 32
+  reference_self_score_target_band: [24, 44]
+  reference_self_score_measured: 27.942
+  expert_effort_hours_estimate: 60
+  expert_effort_basis: >-
+    (a) SEC EDGAR XBRL frame fetch methodology - reading data.sec.gov API docs,
+    understanding the frame ccp='CY2026Q1' vs 'CY2026Q1I' duration/instant
+    distinction, User-Agent + 10rps rate limit discipline, ASC 606 revenue tag
+    union to handle post-2018 filers who dropped us-gaap:Revenues: ~6h.
+    (b) Consolidated-vs-segment discipline - DQC_0150 no-dimension filter,
+    handling of custom tag extensions, non-calendar fiscal year alignment via
+    frame assembler vs companyfacts fallback: ~4h.
+    (c) 4-sibling DuPont design - reading Nissim-Penman 2001 + Nissim 2023 +
+    Amir/Kama/Livnat 2011 + Sloan 1996 for orthogonal signal set, understanding
+    why raw OPM level rank is autocorrelated (persist trap) but Delta OPM is
+    less persistent, deciding on TTM aggregates vs single-quarter, deciding on
+    sector-residualization at SIC-2 vs FF12 vs GICS: ~10h.
+    (d) Weight calibration - iterating W_GM/W_ATO/W_OCFM/W_REV against small
+    labeled sample, understanding relative contribution: ~4h.
+    (e) Sector taxonomy build - SIC-2 from submissions API per CIK: ~2h.
+    (f) Point-in-time restatement discipline - earliest-filed per (period, tag)
+    selection: ~3h.
+    (g) Anti-fab surface (universe bijection + rank permutation) + submission
+    CSV formatting: ~2h.
+    (h) Assembly, validation, sanity checks: ~15h.
+    (i) Contingencies + iteration on inevitable data-shape surprises: ~14h.
+    Total: 60h.
+  frontier_12h_defeat_evidence: >-
+    Mechanism-prose per MEPHISTO.md:302 form-a, backed by measurement.
+    Mechanism (b) iteration depth + (d) data heterogeneity narrative. Cite
+    measured control ladder 2026-08-08: persist rho +0.248 total 14.012,
+    random total 10.250, reference (4-sibling DuPont) total 27.942, oracle
+    total 87.610. A 12h frontier solver would need to (i) fetch 14 XBRL frames
+    with correct UA + throttle + gzip handling + duration vs instant
+    distinction, (ii) implement no-dimension consolidated filter + ASC 606
+    Revenue tag union, (iii) build SIC-2 sector-residualization per CIK,
+    (iv) implement TTM asset averaging for ATO with 4 instant frames per CIK,
+    (v) design 4-sibling weighted ensemble with defensible weights, (vi) handle
+    ~46% missing GM + ~15% missing OCF gracefully via neutral midpoint fallback,
+    (vii) resist the persist-of-boundary trap (rank by prior_year_opmargin_
+    level_rank scores only 14.012 << 24 KILL bar). NOTE: authoring-time
+    mechanism evidence. 12h live probe pending Phase 4 (see coverage_gap_
+    frontier_probe_pending in contract).
+  method_opacity_verified: true
+  method_opacity_evidence: >-
+    Three-step check per MEPHISTO.md:313. Tier-1 identifier tokens list:
+    W_GM, W_ATO, W_OCFM, W_REV, 4-sibling-DuPont, DuPont-orthogonal-composite,
+    prior_opmargin_reversion, revenue_growth_leverage_signal, sector-relative-
+    delta-opmargin, cross_sibling_partial_correlation. Scan all agent-visible
+    surfaces case-insensitively tolerant of hyphen/underscore/space
+    substitution. RESULT: expect ZERO tier-1 hits (verified at Phase 1 closure
+    by build_task.py output via assert_no_solver_identifiers_in_agent_surfaces).
+    Bare public column names (cik, sic2, prior_year_opmargin_level_rank as
+    boundary column string, raw column names gross_profit_cy2025q1 etc. in
+    visible panel) appear on agent surface per MEPHISTO.md:321 (raw signal
+    + evaluation surface permitted). Anti-fab surface is universe-bijection
+    + rank-permutation, cannot serve as checksum for reference method.
+  cost_structure_documented: true
+  cost_structure: >-
+    Lane weights L1 10 / L2 30 threshold-gated / L3 25 K=100 / L4 20 MAE-
+    normalized / L5 15 partial-correlation-bonus. Bar constants K=100 (K/N
+    floor ~3.6%), N_DECILES=10, L2_RHO_THRESHOLD=0.5, L5_CONTROL_COLUMN=
+    prior_year_opmargin_level_rank. All bar constants agent-visible in
+    p3gamma_lib.py; nothing about scorer hidden. Only hidden: realized
+    Delta OpMargin ranks + pre-computed sibling rank vectors used as L5
+    control + partial-correlation inputs.
+  expected_submission_budget:
+    max_submissions: 400
+    submission_cooldown_sec: 120
+    declared_in_instruction: true
+    rationale: >-
+      §15 requires universes <=50 items with K>=10% to cap max_submissions<=5.
+      This universe is 2799 items with permutation deliverable and 5 aggregate
+      lane scalars in redacted emission. No list-size dimension for agent to
+      search per lane (L3 is fixed-K precision at K=100 = 3.6% of universe,
+      L5 is mean of partial correlations across 4 fixed siblings). Rule places
+      this in higher-budget class provided score.py fully opaque; anti-fab
+      surface trivially satisfied by valid permutations, cannot be searched
+      for per-item ground truth. Best-of-N gain bounded by calibration-search
+      on 4 continuous weights against 5 aggregate scalars, expected <5 pts.
+  pkw_families_invariants_satisfied:
+    - "1. Two-container isolation (work + judge) via Harbor delivery format"
+    - >-
+      2. Hidden evaluation split (realized Delta OpMargin ranks + pre-computed
+      sibling rank vectors judge-only; agent sees prior_year_opmargin_level_
+      rank as visible boundary column + raw sibling data GP/OCF/Assets/Revenues/
+      SIC-2 for own computation + regulatory sources URL index stub. Judge-side
+      hidden_*.csv assertion-checked absent from agent surface at build time.)
+    - >-
+      3. No judge-only reference in grading path (Framework A: graded against
+      realized reality). Reference solver ships in solution/ for calibration
+      only; never the grading target. Reference method OPAQUE across every
+      agent-visible surface per MEPHISTO.md:313 M5.
+    - >-
+      4. Multi-dimension partial credit (0-100 across 5 weighted metric-
+      continuous lanes: L1 structural 10, L2 spearman_rank_threshold 30
+      (rho > 0.5 curve), L3 top_k_worst 25, L4 decile_calibration_tightness 20,
+      L5 cross_sibling_consistency 15 (partial correlation bonus, empirical
+      ceiling ~3/15). L4 MAE-normalized non-invertible per §15. L3 precision-
+      at-K aggregate over K-item set, aggregate-scalar-only in redacted
+      emission. L5 partial correlation controlling for prior_year_opmargin_
+      level_rank collapses persist-of-boundary shortcuts to 0 by construction.
+    - >-
+      5. Anti-gaming: universe-bijection + rank-permutation enforcement at L1
+      (structural cascade to 0 on violation); deliverable is self-checking
+      permutation; score.py emits ONLY 5 aggregate lane scalars + structural
+      feedback + submitted distributional shape (mean, stddev, min, max). No
+      per-item hit, no ground-truth cik, no realized value, no per-sibling
+      partial in redacted emission.
+    - >-
+      6. Rubric hidden from agent -- PARTIAL BY DESIGN: score.py and realized
+      Delta OpMargin data live only in judge image, but p3gamma_lib.py (every
+      lane constant, K constant, formula) deliberately agent-visible byte-
+      identical to judge copy, following treasury/EIA pattern-carrier. Task
+      is financial forecasting skill, not scorer-guessing.
+    - >-
+      7. Structured machine-parseable output (score.py emits STRUCTURED_RESULT_
+      JSON on stderr + TOTAL_SCORE on stdout; test.sh normalizes to
+      /logs/verifier/reward.txt in [0,1])
+
+calibration_binding:
+  present: true
+  reason: >-
+    Multi-tier task family: PKW frontier ceiling for outcome-anchored book
+    (Framework A) in corporate-financial-margin subdomain.
+  target_band_source: >-
+    touchstones/README.md verdict-table PKW frontier ceilings; anchor read
+    2026-08-08. Band [24, 44] taken from plan §2 pre-measurement estimate;
+    reference measured 27.942 lands 3.942 pts above lower bound, well inside
+    band, confirming honest-analyst method feasibility.
+  cited_touchstones:
+    - {name: portfolio_risk_calibration, max_score: 25.0, role: "tightest numeric-PKW analog for a rank-forecast task"}
+    - {name: ordinal_notation_well_foundedness, max_score: 24.7}
+    - {name: college_english_exam_bank, max_score: 39.8}
+    - {name: k12_math_recommendation, max_score: 44.3, role: "reference analog for knowledge-heavy PKW task with sibling-composition signals"}
+    - {name: graph_node_classification, max_score: 66.6, note: "outlier -- not tightest analog"}
+  empirical_pkw_frontier_ceiling_range: [20, 55]
+  reference_self_score_measured_on_target: 27.942
+  target_band_derivation: >-
+    reference_self_score_target_band=[24, 44] chosen to sit inside empirical
+    frontier ceiling range [20, 55] and above persist-of-boundary KILL bar of
+    24. Anchored near k12_math_recommendation (44.3) for sibling-composed PKW
+    tasks. Reference measured value 27.942 lands 3.942 pts above lower bound;
+    if measured < 24 (KILL bar) the reference would have failed KILL GATE
+    (composite weights insufficient); if measured > 44 the reference would be
+    over-fit or lanes silently tightened. 27.942 is a defensible honest-
+    analyst-effort score.

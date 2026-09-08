@@ -1,0 +1,39 @@
+harbor_schema_version = "1.4"
+name = "edgebench/cap_set_extremal_construction"
+task_id = "cap_set_extremal_construction"
+capability_family = "combinatorial-optimization"
+tags = ["optimization", "bounded-continuous"]
+max_timeout_hours = 15
+max_attempts = 50
+final_selection = "best"
+solver_egress_mode = "setup_only"
+compute_envelope = "one H100 total"
+
+[environment]
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:7c43d71cfe4e30475db8d4d9e798b6ad2f5402d68dec831670afece9043d94b4"
+platform = "linux/amd64"
+
+[verifier]
+mode = "separate"
+image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto@sha256:a4ffabdfc90b20f52b5c0ebadcf3414fb2b1ae98e59ca3d18fd620b7d6dcd413"
+entrypoint = "tests/test.sh"
+reward_path = "/logs/verifier/reward.json"
+
+[network]
+verifier_policy = "no-network"
+solver_policy = "setup_only"
+allowlist = []
+
+[reward]
+metric = "score"
+range = [0.0, 1.0]
+full_reward_value = 1.0
+aggregation = "single"
+
+[artifacts]
+graded = ["<uuid>_D1_construct.py", "<uuid>_D2_construction_bundle.json", "<uuid>_D3_reward_log.jsonl"]
+
+[rubric]
+present = true
+compilation_floor = 0.7
+trajectory_rubrics = "tests/rubrics.jsonl"

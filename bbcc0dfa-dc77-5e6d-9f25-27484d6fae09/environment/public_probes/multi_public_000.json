@@ -1,0 +1,76 @@
+{
+ "family": "multi",
+ "id": "multi_public_000",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "m0.bin",
+   "op": "put"
+  },
+  {
+   "file": "m1.bin",
+   "op": "put"
+  },
+  {
+   "id": "f4566757d6d9beae72565d7aa9a1ee8702eee3e945c7e4521208cd13a75e4ab1",
+   "op": "get",
+   "out": "mid1.bin"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "file": "m2.bin",
+   "op": "put"
+  },
+  {
+   "file": "m3.bin",
+   "op": "put"
+  },
+  {
+   "id": "f4566757d6d9beae72565d7aa9a1ee8702eee3e945c7e4521208cd13a75e4ab1",
+   "op": "get",
+   "out": "mid3.bin"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "file": "m4.bin",
+   "op": "put"
+  },
+  {
+   "id": "f4566757d6d9beae72565d7aa9a1ee8702eee3e945c7e4521208cd13a75e4ab1",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "dd6c771f61045a6c6c56da02c683c427e32ccdb066d06ff28a9508abf6914abf",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "83a1f17cdc22a784b109e65b251bd2c354a12834263e209e803c634d4fa4fa78",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "id": "40df28fa8835fdf39dc60575cfcce6a705a6f220068c3fc6b984451fe0c3e3db",
+   "op": "get",
+   "out": "g3.bin"
+  },
+  {
+   "id": "dd4ca0b96d5e44c6804d60f446cbee9a3a8f26be3542a24bb67d8e5598d84b8f",
+   "op": "get",
+   "out": "g4.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

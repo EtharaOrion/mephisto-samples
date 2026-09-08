@@ -1,0 +1,104 @@
+{
+  "task_id": "cryoem_single_particle_reconstruction",
+  "schema_version": 1,
+  "box_size_px": 64,
+  "pixel_size_ang": 2.5,
+  "box_size_range": [
+    32,
+    128
+  ],
+  "pixel_size_range_ang": [
+    1.0,
+    4.0
+  ],
+  "symmetry_vocabulary": [
+    "C1",
+    "C2",
+    "C4",
+    "D2",
+    "D4",
+    "O",
+    "I"
+  ],
+  "handedness_vocabulary": [
+    "right",
+    "left"
+  ],
+  "true_symmetry": "D2",
+  "true_handedness": "right",
+  "true_symmetry_order": 4,
+  "public_n": 500,
+  "hidden_n": 5000,
+  "public_snr": 0.1,
+  "hidden_snr": 0.1,
+  "forward_model": {
+    "voltage_kv": 300.0,
+    "cs_mm": 2.7,
+    "amplitude_contrast": 0.07,
+    "defocus_range_ang": [
+      8000.0,
+      20000.0
+    ]
+  },
+  "L3_public_sanity": {
+    "points": 10,
+    "good_ang": 15.0,
+    "bad_ang": 30.0,
+    "gamma": 1.4
+  },
+  "L7_coarse": {
+    "fsc_143_coarse": {
+      "points": 10,
+      "good_ang": 15.0,
+      "bad_ang": 30.0,
+      "gamma": 1.4
+    },
+    "ncc_map_coarse": {
+      "points": 8,
+      "good": 0.3,
+      "bad": 0.05,
+      "gamma": 1.3
+    },
+    "pose_angular_coarse": {
+      "points": 7,
+      "good_deg": 15.0,
+      "bad_deg": 45.0,
+      "gamma": 1.3
+    }
+  },
+  "L7_precise": {
+    "fsc_143_precise": {
+      "points": 15,
+      "good_ang": 10.0,
+      "bad_ang": 18.0,
+      "gamma": 2.2
+    },
+    "ncc_map_precise": {
+      "points": 10,
+      "good": 0.6,
+      "bad": 0.25,
+      "gamma": 2.4
+    },
+    "pose_angular_precise": {
+      "points": 5,
+      "good_deg": 5.0,
+      "bad_deg": 15.0,
+      "gamma": 2.2
+    }
+  },
+  "L7_gate_for_L8": 10.0,
+  "L8_phase_random_threshold": 0.1,
+  "L8_local_variance_denominator": 0.05,
+  "RL3_symmetry_abuse_cap_factor": 0.5,
+  "canary_tokens": [
+    "CRYOEM_CANARY_APOFERRITIN_K7X3M9Q2",
+    "CRYOEM_CANARY_ALDOLASE_R5V1B8N4",
+    "CRYOEM_CANARY_PDB_LOOKUP_L9P6T2W3"
+  ],
+  "canary_tokens_short": [
+    "7A6A",
+    "6ALD",
+    "EMD-12358",
+    "EMD-7551"
+  ]
+}

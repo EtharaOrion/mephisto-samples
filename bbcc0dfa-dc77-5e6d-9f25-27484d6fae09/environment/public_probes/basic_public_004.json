@@ -1,0 +1,36 @@
+{
+ "family": "basic",
+ "id": "basic_public_004",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "f0.bin",
+   "op": "put"
+  },
+  {
+   "file": "f1.bin",
+   "op": "put"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "id": "c90325e9d801e4b2ff2a5b8d1ac0114c1d8857778357782d144a960f10ff12d1",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "b9caf11dbd0f74e5197344969a0514e1dc8d0cbcb463e7c99bf2896a3d2ca50b",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+[package]
+name = "lattice-cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "lattice"
+path = "src/main.rs"
+
+[dependencies]
+lattice-types = { path = "../lattice-types" }
+lattice-store = { path = "../lattice-store" }

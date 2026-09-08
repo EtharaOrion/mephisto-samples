@@ -1,0 +1,40 @@
+{
+ "family": "recovery",
+ "id": "recovery_public_000",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "r0.bin",
+   "op": "put"
+  },
+  {
+   "file": "r1.bin",
+   "op": "put"
+  },
+  {
+   "drop": 43,
+   "op": "truncate_journal"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "id": "6bb208e82ef0a24dba6817f230d8eec8269e0452ad55e20f3ee978a2e618bbae",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "2670dd9405301fc9b38473bf8820b87523fefae6b061d71bfef3a021ee1f0ac3",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

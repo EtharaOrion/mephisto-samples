@@ -1,0 +1,49 @@
+{
+ "family": "recovery",
+ "id": "recovery_public_001",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "r0.bin",
+   "op": "put"
+  },
+  {
+   "file": "r1.bin",
+   "op": "put"
+  },
+  {
+   "file": "r2.bin",
+   "op": "put"
+  },
+  {
+   "drop": 13,
+   "op": "truncate_journal"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "id": "fac69fe083a802443227c96319c3f47a46c8101fea19c66235f6509997be7a4e",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "262b7739e68832c70e38efb9d569cd161316391b519a66dcba285432d958b7fc",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "ed0807b6dae1b5fb47a94ef6237e0be52a5e6a9c78b0392ad68b05c0c1319d72",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

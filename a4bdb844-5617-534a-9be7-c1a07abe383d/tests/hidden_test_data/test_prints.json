@@ -1,0 +1,396 @@
+{
+  "prints": [
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-01",
+      "release_date": "2025-01-15",
+      "realized_value": 318.961,
+      "prior_year_value": 309.698,
+      "realized_yoy_pct": 2.990978
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-01",
+      "release_date": "2025-01-15",
+      "realized_value": 324.638,
+      "prior_year_value": 314.319,
+      "realized_yoy_pct": 3.28297
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-01",
+      "release_date": "2025-01-31",
+      "realized_value": 125.417,
+      "prior_year_value": 122.23,
+      "realized_yoy_pct": 2.60738
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-01",
+      "release_date": "2025-01-31",
+      "realized_value": 124.587,
+      "prior_year_value": 121.217,
+      "realized_yoy_pct": 2.780138
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-02",
+      "release_date": "2025-02-15",
+      "realized_value": 319.679,
+      "prior_year_value": 310.967,
+      "realized_yoy_pct": 2.801583
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-02",
+      "release_date": "2025-02-15",
+      "realized_value": 325.465,
+      "prior_year_value": 315.564,
+      "realized_yoy_pct": 3.137557
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-02",
+      "release_date": "2025-03-03",
+      "realized_value": 125.921,
+      "prior_year_value": 122.598,
+      "realized_yoy_pct": 2.710485
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-02",
+      "release_date": "2025-03-03",
+      "realized_value": 125.145,
+      "prior_year_value": 121.537,
+      "realized_yoy_pct": 2.968643
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-03",
+      "release_date": "2025-03-15",
+      "realized_value": 319.785,
+      "prior_year_value": 312.345,
+      "realized_yoy_pct": 2.381981
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-03",
+      "release_date": "2025-03-15",
+      "realized_value": 325.69,
+      "prior_year_value": 316.792,
+      "realized_yoy_pct": 2.808783
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-03",
+      "release_date": "2025-03-31",
+      "realized_value": 125.941,
+      "prior_year_value": 123.038,
+      "realized_yoy_pct": 2.359434
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-03",
+      "release_date": "2025-03-31",
+      "realized_value": 125.267,
+      "prior_year_value": 122.009,
+      "realized_yoy_pct": 2.670295
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-04",
+      "release_date": "2025-04-15",
+      "realized_value": 320.302,
+      "prior_year_value": 313.023,
+      "realized_yoy_pct": 2.325388
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-04",
+      "release_date": "2025-04-15",
+      "realized_value": 326.467,
+      "prior_year_value": 317.649,
+      "realized_yoy_pct": 2.77602
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-04",
+      "release_date": "2025-05-01",
+      "realized_value": 126.15,
+      "prior_year_value": 123.341,
+      "realized_yoy_pct": 2.277426
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-04",
+      "release_date": "2025-05-01",
+      "realized_value": 125.502,
+      "prior_year_value": 122.304,
+      "realized_yoy_pct": 2.614796
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-05",
+      "release_date": "2025-05-15",
+      "realized_value": 320.62,
+      "prior_year_value": 313.175,
+      "realized_yoy_pct": 2.377265
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-05",
+      "release_date": "2025-05-15",
+      "realized_value": 326.893,
+      "prior_year_value": 318.095,
+      "realized_yoy_pct": 2.76584
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-05",
+      "release_date": "2025-05-31",
+      "realized_value": 126.38,
+      "prior_year_value": 123.348,
+      "realized_yoy_pct": 2.458086
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-05",
+      "release_date": "2025-05-31",
+      "realized_value": 125.79,
+      "prior_year_value": 122.383,
+      "realized_yoy_pct": 2.783883
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-06",
+      "release_date": "2025-06-15",
+      "realized_value": 321.435,
+      "prior_year_value": 313.044,
+      "realized_yoy_pct": 2.680454
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-06",
+      "release_date": "2025-06-15",
+      "realized_value": 327.658,
+      "prior_year_value": 318.39,
+      "realized_yoy_pct": 2.910895
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-06",
+      "release_date": "2025-07-01",
+      "realized_value": 126.743,
+      "prior_year_value": 123.539,
+      "realized_yoy_pct": 2.593513
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-06",
+      "release_date": "2025-07-01",
+      "realized_value": 126.121,
+      "prior_year_value": 122.677,
+      "realized_yoy_pct": 2.807372
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-07",
+      "release_date": "2025-07-15",
+      "realized_value": 322.169,
+      "prior_year_value": 313.569,
+      "realized_yoy_pct": 2.742618
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-07",
+      "release_date": "2025-07-15",
+      "realized_value": 328.682,
+      "prior_year_value": 318.94,
+      "realized_yoy_pct": 3.054493
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-07",
+      "release_date": "2025-07-31",
+      "realized_value": 126.96,
+      "prior_year_value": 123.736,
+      "realized_yoy_pct": 2.605547
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-07",
+      "release_date": "2025-07-31",
+      "realized_value": 126.43,
+      "prior_year_value": 122.911,
+      "realized_yoy_pct": 2.863047
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-08",
+      "release_date": "2025-08-15",
+      "realized_value": 323.291,
+      "prior_year_value": 314.062,
+      "realized_yoy_pct": 2.938592
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-08",
+      "release_date": "2025-08-15",
+      "realized_value": 329.7,
+      "prior_year_value": 319.75,
+      "realized_yoy_pct": 3.111806
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-08",
+      "release_date": "2025-08-31",
+      "realized_value": 127.293,
+      "prior_year_value": 123.889,
+      "realized_yoy_pct": 2.747621
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-08",
+      "release_date": "2025-08-31",
+      "realized_value": 126.714,
+      "prior_year_value": 123.128,
+      "realized_yoy_pct": 2.912416
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-09",
+      "release_date": "2025-09-15",
+      "realized_value": 324.245,
+      "prior_year_value": 314.732,
+      "realized_yoy_pct": 3.022572
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-09",
+      "release_date": "2025-09-15",
+      "realized_value": 330.418,
+      "prior_year_value": 320.732,
+      "realized_yoy_pct": 3.019967
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-09",
+      "release_date": "2025-10-01",
+      "realized_value": 127.625,
+      "prior_year_value": 124.164,
+      "realized_yoy_pct": 2.787442
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-09",
+      "release_date": "2025-10-01",
+      "realized_value": 126.954,
+      "prior_year_value": 123.466,
+      "realized_yoy_pct": 2.825069
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-10",
+      "release_date": "2025-10-15",
+      "realized_value": 324.245,
+      "prior_year_value": 315.631,
+      "realized_yoy_pct": 2.729136
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-10",
+      "release_date": "2025-10-15",
+      "realized_value": 330.418,
+      "prior_year_value": 321.731,
+      "realized_yoy_pct": 2.700082
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-10",
+      "release_date": "2025-10-31",
+      "realized_value": 127.871,
+      "prior_year_value": 124.494,
+      "realized_yoy_pct": 2.712581
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-10",
+      "release_date": "2025-10-31",
+      "realized_value": 127.243,
+      "prior_year_value": 123.832,
+      "realized_yoy_pct": 2.754538
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-11",
+      "release_date": "2025-11-15",
+      "realized_value": 325.063,
+      "prior_year_value": 316.528,
+      "realized_yoy_pct": 2.696444
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-11",
+      "release_date": "2025-11-15",
+      "realized_value": 331.043,
+      "prior_year_value": 322.657,
+      "realized_yoy_pct": 2.599045
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-11",
+      "release_date": "2025-12-01",
+      "realized_value": 128.152,
+      "prior_year_value": 124.637,
+      "realized_yoy_pct": 2.82019
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-11",
+      "release_date": "2025-12-01",
+      "realized_value": 127.469,
+      "prior_year_value": 123.962,
+      "realized_yoy_pct": 2.829093
+    },
+    {
+      "series": "CPIAUCSL",
+      "ref_month": "2025-12",
+      "release_date": "2025-12-15",
+      "realized_value": 326.031,
+      "prior_year_value": 317.604,
+      "realized_yoy_pct": 2.653304
+    },
+    {
+      "series": "CPILFESL",
+      "ref_month": "2025-12",
+      "release_date": "2025-12-15",
+      "realized_value": 331.814,
+      "prior_year_value": 323.259,
+      "realized_yoy_pct": 2.646485
+    },
+    {
+      "series": "PCEPI",
+      "ref_month": "2025-12",
+      "release_date": "2025-12-31",
+      "realized_value": 128.576,
+      "prior_year_value": 124.979,
+      "realized_yoy_pct": 2.878084
+    },
+    {
+      "series": "PCEPILFE",
+      "ref_month": "2025-12",
+      "release_date": "2025-12-31",
+      "realized_value": 127.886,
+      "prior_year_value": 124.196,
+      "realized_yoy_pct": 2.97111
+    }
+  ],
+  "count": 48,
+  "series": [
+    "CPIAUCSL",
+    "CPILFESL",
+    "PCEPI",
+    "PCEPILFE"
+  ],
+  "window": "2025-01-01..2025-12-31"
+}

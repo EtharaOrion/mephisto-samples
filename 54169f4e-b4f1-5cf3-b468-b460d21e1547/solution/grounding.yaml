@@ -1,0 +1,8 @@
+schema_version: 1
+task_id: sec_earnings_distress_forecast
+source: SEC EDGAR XBRL frames (public domain)
+boundary_quarter: CY2025Q3
+graded_quarter: CY2026Q1 (net loss)
+train_pair: CY2025Q1 boundary -> CY2025Q3 outcome
+naive_auc_anchor: 0.807
+reference_model_auc: 0.887 (score 41)

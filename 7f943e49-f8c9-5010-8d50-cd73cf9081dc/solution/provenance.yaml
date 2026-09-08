@@ -1,0 +1,64 @@
+# Per-unit provenance (FORGE rule 10i). Canonical payload = everything below
+# EXCEPT the binding block and any signature; recompute.py must regenerate the
+# payload byte-identically from grounding.yaml plus the frozen asset tree.
+schema_version: '1'
+task_id: p8theta_rasterlab_bitexact_rewrite
+provenance_date: '2026-08-11'
+origin: original
+source_kind: synthetic
+asserts_no_upstream_lift: true
+license: project-owned
+generator_identity: seed/build/p8theta_rasterlab_bitexact_rewrite/workload_generator.py
+generator_version: 968ada910954bf972994ff37e5e3ccbfdf246d86
+generation_inputs:
+  base_seed: '20260811'
+  sub_seed_derivation: sha256("{BASE_SEED}|{family}|{split}|{index}")[:16]
+  keyed_stream_derivation: sha256("{BASE_SEED}|{key}|{counter}")
+  split_plan:
+    public: 34
+    dev: 64
+    hidden: 188
+units:
+- unit: environment/rasterlab-src
+  kind: reference-implementation-source
+  authored_by: FORGE
+  derivation: original C99 authorship this round; no upstream lift; RL-92 colorspace
+    matrices, kernel tables, container format and CLI surface are project-invented.
+- unit: environment/rasterlab.1
+  kind: agent-facing-specification
+  authored_by: FORGE
+  derivation: sparse man page derived by hand from rasterlab-src; intentionally
+    underspecifies numeric behaviour.
+- unit: environment/public_probes
+  kind: public-workload-set
+  authored_by: FORGE
+  derivation: workload_generator.py materialize("public"); deterministic from
+    base_seed; recorded expected outputs produced by the reference binary built
+    from environment/rasterlab-src at -O2.
+- unit: tests/workload_generator.py
+  kind: verifier-asset
+  authored_by: FORGE
+  derivation: identical bytes to the build-dir generator; hidden split regenerated
+    fresh from sealed seeds at verify time, never shipped.
+- unit: tests/verify.py
+  kind: verifier
+  authored_by: FORGE
+  derivation: original; lane constants bound in solution/grounding.yaml.
+- unit: solution/oracle-rust
+  kind: reference-solution
+  authored_by: FORGE
+  derivation: hand-written Rust port of rasterlab-src; verified bit-exact on
+    286/286 workloads across dev, public and hidden splits on 2026-08-11.
+- unit: solution/grounding.yaml
+  kind: ground-truth
+  authored_by: FORGE
+  derivation: original; single source for TRUTH.md and rubrics.json via
+    solution/recompute.py.
+external_provenance_attestation: attestation-unavailable
+trust_root_identity: ENGRAM synthetic-source trust root PENDING
+binding:
+  canonical_bundle_hash: PENDING_PHASE_1_FREEZE
+  pinned_image_digest: PENDING_PHASE_4_PILOT
+  binding_envelope: PENDING_PHASE_4_PILOT
+
+canary_marker: CANARY-89752de633af5042fee22190ec169fdb

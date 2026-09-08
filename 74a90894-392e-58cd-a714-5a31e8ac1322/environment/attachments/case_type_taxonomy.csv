@@ -1,0 +1,10 @@
+bucket_code,description,typical_nature_of_suit_examples
+civil_general,"General civil litigation (contract, tort, property)","other statutes: economic regulations; contract: other; tort: other"
+criminal,"Criminal appeals","criminal: other; U.S. criminal; usc criminal"
+prisoner_petition,"Prisoner petitions (habeas, 1983, 2254, 2255)","prisoner petitions: motion to vacate; 2254; 2255; 1983 civil rights"
+administrative_agency,"Administrative agency review","administrative appeals; review of agency action; APA challenges"
+immigration,"Immigration appeals","immigration: 1252 petitions; deportation; removal orders; asylum"
+labor_erisa,"Labor and ERISA","labor: FLSA; ERISA; NLRA; employment discrimination"
+ip_patent,"Intellectual property","patent; trademark; copyright; intellectual property"
+tax,"Federal tax","tax; 26 USC; IRS enforcement; refund"
+other,"Uncategorized or missing NOS",""

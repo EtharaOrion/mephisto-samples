@@ -1,0 +1,48 @@
+{
+ "family": "boundary",
+ "id": "boundary_public_007",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "e0.bin",
+   "op": "put"
+  },
+  {
+   "file": "e1.bin",
+   "op": "put"
+  },
+  {
+   "file": "e2.bin",
+   "op": "put"
+  },
+  {
+   "argv": [
+    "frobnicate"
+   ],
+   "op": "raw"
+  },
+  {
+   "id": "fb9f9578de0b6e3ea5d1cc1be85b8aaa52621251526d05a48fe6593cdb520ea8",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "8253f1521a88173dcac32e5f10751d1fecfdcc4627d51286b27de828a323ced9",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "8d0af999ede353a3060d402f5e7557e568ed00b6ff2e0df34aa7107cb7ac41cc",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

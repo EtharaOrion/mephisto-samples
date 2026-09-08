@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "lattice-types",
+    "lattice-chunk",
+    "lattice-codec",
+    "lattice-index",
+    "lattice-log",
+    "lattice-store",
+    "lattice-cli",
+]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"

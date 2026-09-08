@@ -1,0 +1,55 @@
+{
+  "_banner": "GENERATED SECTION. DO NOT HAND-EDIT. Source: solution/grounding.yaml",
+  "adversarial_count": 60,
+  "baselines": {
+    "L6_block_choice": 0.946,
+    "L7_size_fidelity": 0.706
+  },
+  "batches": [
+    {
+      "count": 60,
+      "grade_decode": false,
+      "graded": false,
+      "lane": "L2_corpus_reproduction",
+      "name": "public_mirror"
+    },
+    {
+      "count": 80,
+      "grade_decode": true,
+      "graded": false,
+      "lane": "L3_hidden_typical",
+      "name": "hidden_typical"
+    },
+    {
+      "count": 120,
+      "grade_decode": true,
+      "graded": true,
+      "lane": "L4_hidden_shifted",
+      "name": "hidden_edges"
+    }
+  ],
+  "bonus_count": 40,
+  "denominator": 120,
+  "format_revision": 1,
+  "gates": {
+    "L1_container_conformance": 0.99,
+    "L8_anti_fabrication": 0.999
+  },
+  "lanes": {
+    "B1_unseen_magnitude": 24,
+    "L1_container_conformance": 0,
+    "L2_corpus_reproduction": 6,
+    "L3_hidden_typical": 14,
+    "L4_hidden_shifted": 24,
+    "L5_boundary_seams": 26,
+    "L6_block_choice": 8,
+    "L7_size_fidelity": 8,
+    "L8_anti_fabrication": 0,
+    "L9_calibration": 10
+  },
+  "public_batch": "public_mirror",
+  "public_seed": "chronopack-public-corpus",
+  "reward_path": "/logs/verifier/reward.txt",
+  "sealed_seed": "chronopack-sealed-2026-08-12",
+  "submission_path": "/home/workspace/submission/codec.py"
+}

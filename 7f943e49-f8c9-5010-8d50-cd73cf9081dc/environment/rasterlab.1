@@ -1,0 +1,50 @@
+.TH RASTERLAB 1 "August 2026" "rasterlab 1.2.0" "User Commands"
+.SH NAME
+rasterlab \- legacy fixed-point raster container tool
+.SH SYNOPSIS
+.B rasterlab
+.I command
+[\fIargs\fR]
+.SH DESCRIPTION
+Operates on RasterLab raster containers (.rlr). All arithmetic is
+integer-only fixed point. Output bytes are deterministic for a given
+input and command line.
+.SH COMMANDS
+.TP
+.B info \fIin.rlr\fR
+Print container metadata and CRC to stdout.
+.TP
+.B checksum \fIin.rlr\fR
+Print container CRC and per-plane sums to stdout.
+.TP
+.B convert \-f \fIformat\fR \fIin.rlr\fR \fIout.rlr\fR
+Convert between pixel formats. Formats: GRAY8, RGB24, BGR24, RGBA32,
+BGRA32, YCC420P, YCC422P, YCC444P (or codes 0-7).
+.TP
+.B resize \-w \fIwidth\fR \-h \fIheight\fR \-k \fIkernel\fR \fIin.rlr\fR \fIout.rlr\fR
+Resample to a new geometry. Kernels: point, tent, cubic4.
+Dimensions accepted in [1, 32768].
+.TP
+.B chain \fIspec\fR \fIin.rlr\fR \fIout.rlr\fR
+Apply a semicolon-separated pipeline, e.g.
+"convert:RGB24;resize:320x240:tent;convert:YCC420P".
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 2
+Usage error.
+.TP
+.B 3
+File cannot be opened or written.
+.TP
+.B 4
+Unsupported format, kernel or dimensions.
+.TP
+.B 5
+Corrupt container.
+.SH NOTES
+The exact numeric behaviour of colourspace conversion, chroma
+subsampling and resampling is defined by the reference implementation,
+not by this page. Consult the source.

@@ -1,0 +1,107 @@
+{
+  "task_id": "courtlistener_appellate_disposition_timing_calibration",
+  "bundle_uuid": "74a90894-392e-58cd-a714-5a31e8ac1322",
+  "framework": "B",
+  "score_scale": "0-110",
+  "scoring_direction": "higher-better",
+  "entrypoint": "eval_script.py",
+  "kind": "shell",
+  "command": [
+    "/bin/bash",
+    "-lc",
+    "python3 /home/workspace/scoring/eval_script.py --submission-dir /home/workspace --input-dir /home/workspace/scoring/dataset --output /home/workspace/score_report.json"
+  ],
+  "working_dir": "/home/workspace",
+  "required_submission_files": [
+    "timing_results.json"
+  ],
+  "required_scoring_files": [
+    "eval_script.py",
+    "score.py",
+    "scorer_manifest.json",
+    "appellate_timing_reference.py",
+    "dataset/dockets_test.csv",
+    "dataset/dockets_train.csv",
+    "dataset/true_disposition_days.json",
+    "dataset/true_stall_flags.json",
+    "dataset/true_motion_counts.json",
+    "dataset/true_circuit_month_regime.json",
+    "dataset/q2_2025_case_ids.json",
+    "dataset/test_case_ids.json"
+  ],
+  "score_output": {
+    "source": "stdout",
+    "format": "regex",
+    "pattern": "(?:TOTAL_SCORE\\s+|Final total score:\\s*)(-?\\d+(?:\\.\\d+)?)",
+    "scale_max": 110
+  },
+  "score_normalization": {
+    "raw_min": 0,
+    "raw_max": 110,
+    "target_min": 0,
+    "target_max": 110
+  },
+  "failure_policy": {
+    "missing_submission": "zero_score",
+    "missing_dependency": "infra_error",
+    "missing_scoring_file": "infra_error",
+    "parse_failure": "zero_score",
+    "nonzero_exit_without_score": "zero_score"
+  },
+  "lanes": [
+    {"id": "L1_timing_rmse_lane", "weight": 20, "metric": "RMSE-to-median-days-ratio", "anchor_full": 0.30, "anchor_zero": 1.00, "anchor_source": "Federal Judicial Center 2019 appellate case processing report; median disposition times per circuit ~340-460 days"},
+    {"id": "L2_circuit_regime_classification", "weight": 15, "metric": "4-class accuracy", "anchor_floor": 0.25, "anchor_full": 0.85, "anchor_source": "K=4 K-means analog baseline 25%; skilled 55-75% per Priest-Klein 1984 case-selection literature"},
+    {"id": "L3_stall_detection", "weight": 15, "metric": "binary F1", "anchor_floor": 0.10, "anchor_full": 1.00, "anchor_source": ">1yr no-motion threshold per Federal Judicial Center 2019 appellate processing report"},
+    {"id": "L4_case_type_ordering", "weight": 10, "metric": "mean Spearman rho per (circuit, case-type) group", "anchor_floor": 0.00, "anchor_full": 0.50, "anchor_source": "Priest-Klein 1984 case-selection literature on case-type dispositional variance"},
+    {"id": "L5_motion_count_regression", "weight": 10, "metric": "R^2 on predicted vs realized motion counts", "anchor_floor": 0.00, "anchor_full": 0.50, "anchor_source": "Federal Judicial Center 2019 report on typical motion-count distributions"},
+    {"id": "L6_disposition_timing_pnl", "weight": 10, "metric": "Sharpe of certainty-weighted timing PnL vs equal-weight baseline", "anchor_floor": 0.0, "anchor_full": 1.5, "anchor_source": "T-bill-analog positioning-book Sharpe range 0.5-1.5"},
+    {"id": "L7_anti_fabrication", "weight": 5, "metric": "self_report vs judge_recomputed tolerance",
+      "tolerances": {
+        "L1_timing_rmse_lane_est": 0.20,
+        "L2_circuit_regime_classification_est": 0.20,
+        "L3_stall_detection_est": 0.20,
+        "L4_case_type_ordering_est": 0.20,
+        "L5_motion_count_regression_est": 0.20,
+        "L6_disposition_timing_pnl_est": 0.20,
+        "L8_cross_month_stability_est": 0.20
+      }},
+    {"id": "L8_cross_month_stability", "weight": 10, "metric": "cross-month mean_perf × variance-penalty", "variance_baseline": 0.08},
+    {"id": "timing_calibration_bonus", "weight": 10, "metric": "backlog-clearing precision on 2025-Q2 court-operations normalization transition cases", "saturation_precision": 0.75}
+  ],
+  "lane_total": 95,
+  "free_padding": 5,
+  "base_total": 100,
+  "bonus_total": 10,
+  "grand_max": 110,
+  "parser": {
+    "submission_schema": {
+      "task_id": "string",
+      "bundle_uuid": "string",
+      "per_case": [
+        {
+          "case_id": "string (CourtListener docket_id)",
+          "court_id": "one of ca1|ca2|ca3|ca4|ca5|ca6|ca7|ca8|ca9|ca10|ca11|cadc|cafc",
+          "case_type_bucket": "one of civil_general|criminal|prisoner_petition|administrative_agency|immigration|labor_erisa|ip_patent|tax|other",
+          "regime_label": "one of low_complexity|moderate_complexity|elevated_complexity|backlog_pressure",
+          "predicted_days_to_disposition": "float >= 0",
+          "predicted_disposition_date": "ISO YYYY-MM-DD",
+          "stall_probability": "float [0,1]",
+          "stall_flag": "bool",
+          "predicted_motion_count": "float >= 0",
+          "case_type_rank_key": "string ('court_id|bucket')",
+          "self_reported_certainty": "float [0,1]",
+          "age_at_boundary_days": "int or null"
+        }
+      ],
+      "circuit_month_regime": "dict of {court|YYYY-MM: regime_label} for cross-month regime scoring",
+      "self_reported_metrics": "dict"
+    }
+  },
+  "confidence": "high",
+  "evidence": [
+    "Framework B reference-anchored projector per requirements/PKW-FAMILIES.md §3.",
+    "8 lanes + timing_calibration_bonus weights match seed/contract.yaml.reference_emulation exactly (95 base + 5 free = 100 + bonus 10 = 110).",
+    "GRADER_SALT-seeded perturbation PRE-BUILT at Phase 1 (preempts T6 Phase 2b retrofit) with per-(case_id,cell) SHA-256 determinism.",
+    "Method-family opacity per PKW-FAMILIES §3 Framework B: class names AppellateDocketVelocityProjector, CircuitProceduralComplexityDetector, CaseTypeStratifiedRegressor, RegimeConditionalTimingPositioner NEVER appear in solution/*.py or agent-visible surfaces (function names only)."
+  ]
+}

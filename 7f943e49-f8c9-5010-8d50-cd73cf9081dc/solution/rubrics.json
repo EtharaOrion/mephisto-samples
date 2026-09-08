@@ -1,0 +1,88 @@
+{
+  "banner": "GENERATED SECTION. DO NOT HAND-EDIT.",
+  "compilation_floor": 1.0,
+  "compiled_weight": 1.0,
+  "items": [
+    {
+      "criterion": "4.0 points for a clean `cargo build --release --offline` producing candidate/target/release/rasterlab; plus 6.0 * (matched / total) over the fresh public split transcript comparison.",
+      "dimension": "outcome",
+      "evaluation_target": "L1_build_surface_conformance",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L1_build_surface_conformance",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.1
+    },
+    {
+      "criterion": "45.0 iff every hidden pixel-family workload (convert, resize_up, resize_down, chain, perf) matches the reference transcript on all compared fields; any mismatch fires kill_band_bit_mismatch and zeroes L2, L3 and L4.",
+      "dimension": "outcome",
+      "evaluation_target": "L2_bitexact_hidden_workloads",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L2_bitexact_hidden_workloads",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.45
+    },
+    {
+      "criterion": "15.0 iff every hidden CLI-family workload (metadata, errors) matches on exit code, stdout bytes and normalized stderr; shares the L2 kill band.",
+      "dimension": "outcome",
+      "evaluation_target": "L3_cli_behavioral_equivalence",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L3_cli_behavioral_equivalence",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.15
+    },
+    {
+      "criterion": "Evaluated only when L2 and L3 are both full. r = geometric mean of (reference_median / candidate_median) over the hidden perf specs, 3 timed repeats each, median per side. Each repeat consumes a fresh rep-seeded input variant (same format, dims, pattern; key '{seed}|perfrep|{rep}') so cross-rep output caching is useless, and every timed candidate output is compared field-for-field against the reference output for the same variant; any timed-rep mismatch fires kill_band_bit_mismatch. Score = 0 for r <= 0.6, linear 25 * (r - 0.6) / 0.9 on (0.6, 1.5), capped at 25.",
+      "dimension": "outcome",
+      "evaluation_target": "L4_performance_ratio",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L4_performance_ratio",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.25
+    },
+    {
+      "criterion": "5.0 iff the integrity scan is clean: no canary tokens, no forbidden patterns (asm!, global_asm!, /reference, rasterlab-src), no symlinks, no third-party or build dependencies, no build.rs, no .cargo config, total source under 32 MiB.",
+      "dimension": "outcome",
+      "evaluation_target": "L5_integrity",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L5_integrity",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.05
+    },
+    {
+      "criterion": "any hidden-workload field mismatch",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_bit_mismatch",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_bit_mismatch",
+      "judgment": "L2 = L3 = L4 = 0; structural score cap = L1 + L5 <= 15",
+      "mode": "compiled",
+      "weight": 0.0
+    },
+    {
+      "criterion": "canary token found in submission bytes",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_canary",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_canary",
+      "judgment": "total score 0; BLOCK:INVALID_TASK escalation",
+      "mode": "compiled",
+      "weight": 0.0
+    },
+    {
+      "criterion": "forbidden pattern (inline asm or reference wrap/invoke)",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_wrap",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_wrap",
+      "judgment": "total score 0",
+      "mode": "compiled",
+      "weight": 0.0
+    }
+  ],
+  "task_id": "p8theta_rasterlab_bitexact_rewrite"
+}

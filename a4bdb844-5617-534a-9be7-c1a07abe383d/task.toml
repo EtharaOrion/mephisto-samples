@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/cpi_nowcast_book.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/nowcast_results.json" },
+]
+
+[task]
+name = "edgebench/cpi_nowcast_positioning_book"
+description = "US macroeconomic monthly inflation-print prediction + Treasury rates positioning book. Agent produces per-month per-series forward nowcasts for headline CPI (CPIAUCSL), core CPI (CPILFESL), headline PCE (PCEPI), core PCE (PCEPILFE) plus a Treasury duration + breakeven-inflation positioning book for the 1-week window post-print, plus a Fed policy regime label. Scored on realized 2025 monthly BLS/BEA releases plus 1-week post-print market response across 12 months x 4 series = 48 hidden prints, with a cross-series stability lane and a Fed-pivot-detection bonus."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "macro-inflation-nowcast",
+  "rates-positioning-book",
+  "fed-regime-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.cpi_nowcast_positioning_book:cb487cbd68ee@sha256:cb487cbd68ee7136f3e77d2a91440ceaea2697f6d3609dccd92b7dbcd514952f"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cpi_nowcast_positioning_book:1b5c0da32fcd@sha256:1b5c0da32fcd14a97067cc09802a3f3d7b0208c17d3057957f35ce54bc22768b"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "cpi_nowcast_positioning_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["cpi_nowcast_book.py", "requirements.txt", "nowcast_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "cb487cbd68ee"
+judge_image_tag = "1b5c0da32fcd"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "FRED (fred.stlouisfed.org) — US Government redistribution of BLS CPI (CPIAUCSL, CPILFESL), BEA PCE (PCEPI, PCEPILFE), BLS PPI + wages (PPIACO, PPIFIS, CES0500000003, UNRATE), EIA WTI (DCOILWTICO), Census HOUST, and Federal Reserve H.15 rates + breakevens (DGS10, DGS2, DFII10, DFF, T10Y2Y)"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "Federal Reserve Bank of St. Louis (FRED) + BLS + BEA + EIA + US Census + Federal Reserve H.15 release"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
+provenance_source = "FORGE-authored 2026-07-31, structural mirror of touchstones/portfolio_risk_calibration/"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-07-31"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ per PKW-FAMILIES section 3 Framework B, differentiated from Tasks 1/2/3 by the monthly-cadence macro-inflation-nowcast + Treasury-positioning-book domain (dual-output: forecast + book) across 48 hidden 2025 prints (12 months x 4 CPI/PCE series)."

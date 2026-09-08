@@ -1,0 +1,92 @@
+{
+ "basic_public_000": {
+  "store_state": "98c8626fadcaa497b9fd32d2131d4272342ae1c77a0240dd88c5a6c1b1faca4d"
+ },
+ "basic_public_001": {
+  "store_state": "df0923a48ebad1f737bc6dc067c04646c44fc7776b4814f2a718249cb3f25359"
+ },
+ "basic_public_002": {
+  "store_state": "60bc6f6ed3f3428c5f834282e27cdb18be93b2f52aec9add4b238b14c196f402"
+ },
+ "basic_public_003": {
+  "store_state": "526d02f018c990b33f7fbc18fa51dcb3d39cdefa39fdd12047c1a6f4cd8b50b7"
+ },
+ "basic_public_004": {
+  "store_state": "b33e717396de6b8e21ca05b770fb949e7006ee0cd34cf167e5ce04236b2260c6"
+ },
+ "basic_public_005": {
+  "store_state": "5cdb83eee93a7975f11c8badb0f84fbf43f74b050c67609a5e2ee3d3c8e064df"
+ },
+ "basic_public_006": {
+  "store_state": "b26825067421105ebf16f3ef5f1d2d14f57aa31e88c84c5ff87313f2c3429e7d"
+ },
+ "basic_public_007": {
+  "store_state": "961c03277d98a663d40edead3afe1b9822ba126dda1102e64288852fba68dd4f"
+ },
+ "boundary_public_000": {
+  "store_state": "335df86635a4d53c541f4011aaf9ea9a02d6d76c9f005d687c8b3d00f4b09e3e"
+ },
+ "boundary_public_001": {
+  "store_state": "430a7986cfe0712af01a53784764dc208fef41cb1ac044dcf69170a49c4d8b3c"
+ },
+ "boundary_public_002": {
+  "store_state": "1fa617c6f336f0f7bf4c11e97f18281b828af04f50d8f476f5c22991c21ed55e"
+ },
+ "boundary_public_003": {
+  "store_state": "4979a66df90a0f3c7db579f82be50d9717af34857422cf9270dc40a1ff38d30b"
+ },
+ "boundary_public_004": {
+  "store_state": "2837e4918140bd43ad113be804388ecc6b5c19a4255b87b69f2590628bf2fd46"
+ },
+ "boundary_public_005": {
+  "store_state": "9ea316f5c52a7868a47edd6ba559521f10f4f308f89f6ce83a9636d5d15b6f37"
+ },
+ "boundary_public_006": {
+  "store_state": "0bedf70ed587ee156691d25fce7e011fd11b54ddf64b194ad0b809a079555aab"
+ },
+ "boundary_public_007": {
+  "store_state": "8df1733556ec9952d8eb35cfcb8fecc7885a42852c52255219619770aaf324bb"
+ },
+ "corrupt_public_000": {
+  "store_state": "f6817a1afa8cb764c929d6343e33e3c6e5fb21d130b3d5240334b4609ceff730"
+ },
+ "corrupt_public_001": {
+  "store_state": "f19c57fb7213094423962d0a4bad013cb3df0cffa3700bc204baa93be2accda7"
+ },
+ "corrupt_public_002": {
+  "store_state": "77f386c84779562ff6353ffad10f9e8583b1a2d0220feb8e2a68d497fd1373c3"
+ },
+ "dedupe_public_000": {
+  "store_state": "9ebc7b5a864cc2e662d433147542bf4ba43d9f0e0202ef8c970355a71ad63197"
+ },
+ "dedupe_public_001": {
+  "store_state": "452c4cdbfa6b2e8476530500fb97e0a13be0181573065ff05014039eb17f4c07"
+ },
+ "dedupe_public_002": {
+  "store_state": "8dda91f90be15b28a5add2b36ad10b567a4c4b6a50f7dd8b8b5a1fd6b8d95e50"
+ },
+ "dedupe_public_003": {
+  "store_state": "def0ac178416e4a69988b2e1fa4da4b9930cfce01617c656f5f75eaec4751945"
+ },
+ "dedupe_public_004": {
+  "store_state": "83b8453e085b245f8fb14d8c1f2f71d82bdb5564969c5b8255868f21316f02cf"
+ },
+ "multi_public_000": {
+  "store_state": "bedf45f4de697d5b77642793531b44e4d43a647eb8915b2b34f81f9d565ec2b0"
+ },
+ "multi_public_001": {
+  "store_state": "89b8fbcaacf94595c5904ae2b245a1b1690dc727c50501ddd97526fb8aa44c74"
+ },
+ "multi_public_002": {
+  "store_state": "43f39482314174db069ce3e762043dd02978090c7fb279c2acdb2fcb8535e515"
+ },
+ "multi_public_003": {
+  "store_state": "028a319a482b7eacf5c640f982fc705b9d50e093739ee9a35ca66ca0867b0948"
+ },
+ "recovery_public_000": {
+  "store_state": "e7d287b4870e1e42b155e57ab575507d1698d8f8659a8e62fae4e033973458fe"
+ },
+ "recovery_public_001": {
+  "store_state": "37f30337ea1875116f9073628392290d1f4867f15c025e54b7507fb3a8a779c9"
+ }
+}

@@ -1,0 +1,41 @@
+{
+  "task_id": "cryoem_single_particle_reconstruction",
+  "problem_summary": "Reconstruct a 3D density map from 2D noisy random-orientation cryoEM projections. Recover per-particle poses, declare handedness and symmetry.",
+  "box_size_px": 64,
+  "pixel_size_ang": 2.5,
+  "box_size_range": [32, 128],
+  "pixel_size_range_ang": [1.0, 4.0],
+  "symmetry_vocabulary": ["C1", "C2", "C4", "D2", "D4", "O", "I"],
+  "handedness_vocabulary": ["right", "left"],
+  "public_particle_count": 500,
+  "public_snr": 0.1,
+  "forward_model": {
+    "voltage_kv": 300.0,
+    "cs_mm": 2.7,
+    "amplitude_contrast": 0.07,
+    "defocus_range_ang": [8000.0, 20000.0],
+    "projection_convention": "parallel projection along +Z after rotation by ZYZ Euler angles (alpha, beta, gamma) in degrees",
+    "translation_convention": "translation in Angstrom, converted to pixels by dividing by pixel_size_ang; rlnOriginXAngst is along column axis (x), rlnOriginYAngst along row axis (y)"
+  },
+  "pose_file_format": {
+    "format": "RELION STAR 3.1+",
+    "required_columns": [
+      "rlnAngleRot",
+      "rlnAngleTilt",
+      "rlnAnglePsi",
+      "rlnOriginXAngst",
+      "rlnOriginYAngst"
+    ],
+    "particle_ordering": "row i corresponds to particles[i] in public_micrographs.npz"
+  },
+  "outputs_required": {
+    "answer.json": "structured metadata with declared symmetry, handedness, method, box, pixel size",
+    "reconstruction.mrc": "3D density map, MRC float32, box_size_px cubed",
+    "poses.star": "RELION STAR file with rlnAngleRot/Tilt/Psi + rlnOriginXAngst/YAngst",
+    "reconstruct.py": "non-baseline pipeline script"
+  },
+  "reference_files": {
+    "public_micrographs.npz": "500 noisy CTF-modulated projections + true poses/defoci at agent-visible SNR",
+    "initial_model.mrc": "low-resolution (~25A) featureless spherical starting model at correct box/pixel size"
+  }
+}

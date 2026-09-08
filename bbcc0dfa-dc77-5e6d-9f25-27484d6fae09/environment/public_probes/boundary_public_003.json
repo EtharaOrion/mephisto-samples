@@ -1,0 +1,52 @@
+{
+ "family": "boundary",
+ "id": "boundary_public_003",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "e0.bin",
+   "op": "put"
+  },
+  {
+   "file": "e1.bin",
+   "op": "put"
+  },
+  {
+   "file": "e2.bin",
+   "op": "put"
+  },
+  {
+   "id": "d96304ec7471825738a76d57ed62e10e195b06ba85a0e78fae6d67fd2ed99510",
+   "op": "get_unknown",
+   "out": "never.bin"
+  },
+  {
+   "id": "zz-not-hex",
+   "op": "get_unknown",
+   "out": "never2.bin"
+  },
+  {
+   "id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "38223040a0995366da80322fada55f416a5d583609b4c9a639c8121408016e70",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "6b9e441a3d09edd384b01356b162c6789b49517a23e1732640c6cff8ad6d5c95",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

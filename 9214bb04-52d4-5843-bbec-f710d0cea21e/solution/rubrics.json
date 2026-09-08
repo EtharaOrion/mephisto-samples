@@ -1,0 +1,37 @@
+{
+  "task_id": "p3gamma_sec_opmargin_expansion_book",
+  "lanes": [
+    {
+      "id": "L1",
+      "name": "structural",
+      "max_points": 10,
+      "detail": "row count 2799, header exact, universe bijection, rank permutation of [1, 2799]. Cascade to 0 on any failure."
+    },
+    {
+      "id": "L2",
+      "name": "spearman_rank_threshold",
+      "max_points": 30,
+      "detail": "30 * max(0, (rho - L2_RHO_THRESHOLD) / (1 - L2_RHO_THRESHOLD)) with L2_RHO_THRESHOLD=0.5."
+    },
+    {
+      "id": "L3",
+      "name": "top_k_worst",
+      "max_points": 25,
+      "detail": "25 * |agent_top_K intersect realized_top_K| / K with K=100."
+    },
+    {
+      "id": "L4",
+      "name": "decile_calibration_tightness",
+      "max_points": 20,
+      "detail": "20 * max(0, 1 - MAE(bin_mean_realized, bin_expected_center) / MAE_naive) over 10 equal-count bins ordered by agent rank."
+    },
+    {
+      "id": "L5",
+      "name": "cross_sibling_consistency",
+      "max_points": 15,
+      "detail": "15 * mean(max(0, partial_spearman(agent, sibling_i | prior_year_opmargin_level_rank))) across 4 sibling measures."
+    }
+  ],
+  "total_max": 100,
+  "cascade": "structural or anti-fabrication failure zeros the total, not per-lane deduction."
+}

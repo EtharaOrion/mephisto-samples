@@ -1,0 +1,11 @@
+[package]
+name = "lattice-store"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lattice-types = { path = "../lattice-types" }
+lattice-chunk = { path = "../lattice-chunk" }
+lattice-codec = { path = "../lattice-codec" }
+lattice-index = { path = "../lattice-index" }
+lattice-log = { path = "../lattice-log" }

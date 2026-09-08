@@ -1,0 +1,20 @@
+# Capability channel policy for p9iota_latticestore_workspace_reconstruction.
+# Closed vocabulary per channel: denied | restricted | allowed.
+schema_version: '1'
+task_id: p9iota_latticestore_workspace_reconstruction
+channels:
+  network:
+    state: denied
+    detail: network_mode no-network in both agent and judge environments; cargo runs with --offline and CARGO_NET_OFFLINE=true
+  subprocess:
+    state: allowed
+    detail: agent may run cargo, rustc, make, gcc, python3, and the frozen reference binary for development-time comparison inside its own environment
+  filesystem:
+    state: restricted
+    detail: agent works under /home/workspace; submission is workspace/ excluding target/; judge verifier writes only under /logs and scratch temp dirs
+  reference_binary:
+    state: restricted
+    detail: /reference/lattice may be executed for development-time comparison only; submitted code that invokes, wraps, links, or reads it at runtime triggers kill_band_wrap
+  verifier_introspection:
+    state: denied
+    detail: probing the verifier, sealed seeds, or private artifacts is forbidden; canary tokens in the submission trigger kill_band_canary

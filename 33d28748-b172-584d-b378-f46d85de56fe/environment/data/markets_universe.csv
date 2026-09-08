@@ -1,0 +1,26 @@
+market_id,cftc_code,name
+AD,232741,Australian Dollar
+BP,096742,British Pound
+C,002602,Corn
+CD,090741,Canadian Dollar
+CL,067651,WTI Crude Oil
+EC,099741,Euro FX
+ES,13874A,S&P 500 E-mini
+GC,088691,Gold
+HG,085692,Copper
+HO,022651,Heating Oil
+JY,097741,Japanese Yen
+KW,001612,Wheat HRW
+LC,057642,Live Cattle
+LH,054642,Lean Hogs
+NG,023651,Natural Gas
+NQ,209742,Nasdaq 100 E-mini
+PL,076651,Platinum
+RB,111659,RBOB Gasoline
+S,005602,Soybeans
+SI,084691,Silver
+W,001602,Wheat SRW
+ZB,020601,30Y US T-Bond
+ZF,044601,5Y US T-Note
+ZN,043607,10Y US T-Note
+ZT,042601,2Y US T-Note

@@ -1,0 +1,221 @@
+# PRIVATE ground truth for p8theta_rasterlab_bitexact_rewrite.
+# Never enters the agent-visible closure. Source of truth for recompute.py,
+# which derives TRUTH.md and rubrics.json from this file alone.
+schema_version: '1'
+task_id: p8theta_rasterlab_bitexact_rewrite
+scoped_at: '2026-08-11T00:00:00+00:00'
+
+scoring:
+  score_scale: [0, 100]
+  aggregation: sum-then-clip-to-[0, 100]
+  reward_contract_path: /tmp/reward.json
+  harbor_reward_path: /logs/verifier/reward.txt
+  normalization: raw_total / 100, clamped to [0, 1], rounded to 6 places
+  lanes:
+    - id: L1_build_surface_conformance
+      max: 10
+      rule: >-
+        4.0 points for a clean `cargo build --release --offline` producing
+        candidate/target/release/rasterlab; plus 6.0 * (matched / total)
+        over the fresh public split transcript comparison.
+    - id: L2_bitexact_hidden_workloads
+      max: 45
+      rule: >-
+        45.0 iff every hidden pixel-family workload (convert, resize_up,
+        resize_down, chain, perf) matches the reference transcript on all
+        compared fields; any mismatch fires kill_band_bit_mismatch and
+        zeroes L2, L3 and L4.
+    - id: L3_cli_behavioral_equivalence
+      max: 15
+      rule: >-
+        15.0 iff every hidden CLI-family workload (metadata, errors)
+        matches on exit code, stdout bytes and normalized stderr; shares
+        the L2 kill band.
+    - id: L4_performance_ratio
+      max: 25
+      rule: >-
+        Evaluated only when L2 and L3 are both full. r = geometric mean of
+        (reference_median / candidate_median) over the hidden perf specs,
+        3 timed repeats each, median per side. Each repeat consumes a fresh
+        rep-seeded input variant (same format, dims, pattern; key
+        '{seed}|perfrep|{rep}') so cross-rep output caching is useless, and
+        every timed candidate output is compared field-for-field against the
+        reference output for the same variant; any timed-rep mismatch fires
+        kill_band_bit_mismatch. Score = 0 for r <= 0.6,
+        linear 25 * (r - 0.6) / 0.9 on (0.6, 1.5), capped at 25.
+    - id: L5_integrity
+      max: 5
+      rule: >-
+        5.0 iff the integrity scan is clean: no canary tokens, no
+        forbidden patterns (asm!, global_asm!, /reference, rasterlab-src),
+        no symlinks, no third-party or build dependencies, no build.rs,
+        no .cargo config, total source under 32 MiB.
+  kill_bands:
+    - id: kill_band_bit_mismatch
+      condition: any hidden-workload field mismatch
+      effect: L2 = L3 = L4 = 0; structural score cap = L1 + L5 <= 15
+    - id: kill_band_canary
+      condition: canary token found in submission bytes
+      effect: total score 0; BLOCK:INVALID_TASK escalation
+    - id: kill_band_wrap
+      condition: forbidden pattern (inline asm or reference wrap/invoke)
+      effect: total score 0
+  environment_gate:
+    rule: >-
+      Verifier aborts before scoring with zero_score_reason
+      INVALID_ENVIRONMENT when the host is not native x86_64 or shows ARM
+      /proc/cpuinfo markers, unless RASTERLAB_ALLOW_EMULATION=1. A
+      confounded performance score is never emitted.
+  compare_fields: [exit, stdout_sha256, stdout_len, stderr, out_sha256, out_len]
+  stderr_normalization: workdir -> {W}, outdir -> {O}
+
+workloads:
+  base_seed: '20260811'
+  sub_seed_rule: sha256('{BASE_SEED}|{family}|{split}|{index}') first 16 hex
+  keyed_stream_rule: sha256('{BASE_SEED}|{key}|{counter}') byte stream
+  regeneration: >-
+    Hidden and public splits are regenerated fresh from the sealed seeds
+    inside the judge container at verify time; no recorded hidden outputs
+    exist anywhere in the delivery closure.
+  split_plan:
+    public: {convert: 8, resize_up: 5, resize_down: 5, chain: 4, metadata: 4, errors: 6, perf: 2, total: 34}
+    dev: {convert: 16, resize_up: 10, resize_down: 10, chain: 10, metadata: 6, errors: 10, perf: 2, total: 64}
+    hidden: {convert: 48, resize_up: 30, resize_down: 30, chain: 40, metadata: 12, errors: 24, perf: 4, total: 188}
+  perf_specs:
+    - {fmt: RGB24, w: 1920, h: 1080, op: 'resize -w 2880 -h 1620 -k cubic4'}
+    - {fmt: YCC420P, w: 1920, h: 1080, op: 'chain convert:RGB24;resize:1280x720:tent;convert:YCC444P'}
+    - {fmt: RGBA32, w: 1600, h: 900, op: 'chain resize:2400x1350:cubic4;convert:BGR24'}
+    - {fmt: GRAY8, w: 2560, h: 1440, op: 'resize -w 1024 -h 576 -k tent'}
+
+reference_semantics:
+  container:
+    magic: RLRF
+    version: 1
+    header_bytes: 16
+    layout: magic[4] | version u8 | fmt u8 | reserved u16 (must be 0) | width u32 LE | height u32 LE
+    payload: tightly packed plane bytes in plane order
+    trailer: CRC32 u32 LE over header + payloads
+    crc: {poly: 0xEDB88320 reflected, init: 0xACE1FADE, final_xor: 0xFFFFFFFF}
+    dims_range: [1, 32768]
+  formats:
+    - {code: 0, name: GRAY8, planes: 1}
+    - {code: 1, name: RGB24, planes: 1, channels: 3}
+    - {code: 2, name: BGR24, planes: 1, channels: 3}
+    - {code: 3, name: RGBA32, planes: 1, channels: 4}
+    - {code: 4, name: BGRA32, planes: 1, channels: 4}
+    - {code: 5, name: YCC420P, planes: 3, chroma: 'cw=(w+1)/2, ch=(h+1)/2'}
+    - {code: 6, name: YCC422P, planes: 3, chroma: 'cw=(w+1)/2, ch=h'}
+    - {code: 7, name: YCC444P, planes: 3, chroma: full}
+  colorspace_rl92:
+    rgb_to_ycc:
+      y: '16 + ((250*R + 493*G + 97*B + 420) >> 10), clamp [16, 235]'
+      cb: '128 + ((-121*R - 239*G + 360*B + 512) >> 10), clamp [16, 240]'
+      cr: '128 + ((360*R - 301*G - 59*B + 512) >> 10), clamp [16, 240]'
+    ycc_to_rgb:
+      yy: '((Y - 16) * 1250 + 512) >> 10'
+      r: 'clamp8(yy + ((1634*(Cr-128) + 512) >> 10))'
+      g: 'clamp8(yy - ((401*(Cb-128) + 833*(Cr-128) + 512) >> 10))'
+      b: 'clamp8(yy + ((2066*(Cb-128) + 512) >> 10))'
+    rgb_to_gray: 'clamp8((250*R + 493*G + 97*B + 420) >> 10)'
+    hub: >-
+      Cross-format conversion routes through RGB24; alpha is dropped at
+      the hub and re-set to 255 (legacy quirk: RGBA -> BGRA loses alpha).
+    chroma_upsample: nearest (cx = x/2, cy = y/2)
+    chroma_downsample: box average half-up; n=4 (sum+2)>>2, n=2 (sum+1)>>1, edge replicate for odd dims
+  resample:
+    separable: horizontal pass into tmp buffer, then vertical pass, same kernel both axes
+    map_pos: 'pos16.16 = (2*i + 1) * S * 32768 / D - 32768 (int64 truncating), +16384 when phase_quarter'
+    phase_quarter: 'chroma planes of 420/422: sub_x for plane>0 unless 444; sub_y only 420'
+    point: 'si = clamp((pos + 32768) >> 16)'
+    tent: 'base = pos >> 16 arithmetic; frac16 = pos & 0xFFFF; w1 = (frac16 + 512) >> 10 in [0, 64]; w0 = 64 - w1'
+    cubic4: >-
+      t6 = (frac16 + 512) >> 10; t2 = t6^2; t3 = t2 * t6;
+      w0 = (-t3 + 128*t2 - 4096*t6 + 4096) >> 13;
+      w1 = (3*t3 - 320*t2 + 524288 + 4096) >> 13;
+      w2 = (-3*t3 + 256*t2 + 4096*t6 + 4096) >> 13;
+      w3 = (t3 - 64*t2 + 4096) >> 13;
+      then w1 += 64 - sum (centre-tap renormalisation); taps base-1 .. base+2 clamped
+    output_rounding: 'clamp8((acc + 32) >> 6) everywhere'
+  checksums:
+    plane_sum: 'Adler variant s1=7, s2=13, mod 65213, result (s2 << 16) | s1'
+    container_crc: rl_container_crc over header + planes
+  cli:
+    commands: [info, checksum, convert, resize, chain]
+    exit_codes: {ok: 0, usage: 2, unreadable: 3, unsupported: 4, corrupt: 5}
+    error_messages:
+      - "rasterlab: cannot open '%s' (exit 3)"
+      - "rasterlab: unsupported container '%s' (exit 4 on read)"
+      - "rasterlab: corrupt container '%s' (exit 5)"
+      - "rasterlab: unsupported format '%s' (exit 4)"
+      - "rasterlab: unsupported kernel '%s' (exit 4)"
+      - "rasterlab: unsupported dimensions '%ux%u' (exit 4)"
+      - "rasterlab: conversion failed / resize failed"
+      - "rasterlab: cannot write '%s' (exit 3)"
+      - "rasterlab: unknown command '%s' (exit 2)"
+    parse_u32_quirk: >-
+      overflow guard v > 429496729 checked before multiply, then wrapping
+      mod-2^32 multiply-add; non-digits rejected.
+    chain_spec: >-
+      ops ';'-separated, empty segments skipped, 'convert:FMT' |
+      'resize:WxH:KERNEL', left-to-right; resize op body length >= 128
+      is a usage error; ':' before 'x' is a usage error.
+
+oracle:
+  path: solution/oracle-rust
+  crate: rasterlab v1.2.0, edition 2021, zero dependencies, pure std
+  profile: opt-level 3, lto, codegen-units 1, panic abort
+  verified: >-
+    Bit-exact against the reference C implementation on 286/286 workloads
+    across dev (64), public (34) and hidden (188) splits: every compared
+    field identical (exit, stdout_sha256, stdout_len, normalized stderr,
+    out_sha256, out_len). Zero mismatches.
+  self_score_target_band: [95, 100]
+
+controls:
+  negative:
+    - id: empty_submission
+      behavior: unmodified candidate stub (exits 2 unconditionally)
+      expected: build succeeds, every probe mismatches, hidden kill band fires, total <= 15, effectively ~9
+    - id: wrapper_submission
+      behavior: candidate that shells out to /reference/rasterlab
+      expected: integrity scan finds '/reference' pattern, kill_band_wrap, total 0
+    - id: probe_memorizing_stub
+      behavior: candidate hardcoding recorded public-probe outputs
+      expected: public probes pass, hidden workloads mismatch, kill band caps total at L1 + L5 <= 15
+  positive:
+    - id: oracle_port
+      behavior: solution/oracle-rust submitted via solve.sh
+      expected: all lanes full except L4 depends on host; target band [95, 100]
+
+golden_trajectory:
+  - id: T1_read_reference_source
+    action: study /reference/rasterlab-src (rasterlab.h, rasterlab.c, main.c) for exact integer semantics
+    yields: RL-92 matrices, kernel weight formulas, rounding, CRC init, error-message bytes
+  - id: T2_container_codec
+    action: implement .rlr reader/writer with exact error precedence and CRC
+    yields: info/checksum commands pass public metadata probes
+  - id: T3_colorspace_hub
+    action: implement RGB24 hub conversion with alpha-drop quirk and chroma box filters
+    yields: convert family bit-exact
+  - id: T4_resample_kernels
+    action: implement map_pos + point/tent/cubic4 with centre-tap renormalisation and phase offsets
+    yields: resize and chain families bit-exact
+  - id: T5_cli_surface
+    action: mirror argument parsing, message bytes and exit codes from main.c
+    yields: errors/metadata families byte-identical
+  - id: T6_hidden_validation
+    action: run verify_local.py until 34/34, then stress with self-generated random workloads vs dev binary
+    yields: confidence against fresh hidden regeneration
+  - id: T7_simd_optimization
+    action: vectorize hot paths (resample inner loops, colorspace) with std::simd/std::arch, preserving exact integer results
+    yields: L4 performance ratio above scalar parity
+
+rejected_routes:
+  - route: hardcode recorded public-probe outputs
+    control: probe_memorizing_stub
+  - route: wrap or invoke the reference binary
+    control: wrapper_submission
+  - route: submit the unmodified stub
+    control: empty_submission
+
+canary_marker: CANARY-f481ab7ccb492f99e9f5e96526973aa7

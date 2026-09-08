@@ -1,0 +1,57 @@
+schema_version = "1.4"
+
+artifacts = [
+    { source = "/home/workspace/workspace" },
+]
+
+[task]
+name = "mephisto/p9iota_latticestore_workspace_reconstruction"
+description = "Reconstruct every stripped implementation in a seven-crate content-addressed storage workspace so the rebuilt CLI is byte-identical to the frozen reference on hidden regenerated workloads, then optionally beat its performance."
+keywords = [
+    "rust",
+    "multi-crate-workspace",
+    "content-addressed-storage",
+    "bit-exact-reconstruction",
+    "crash-recovery",
+    "performance",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p9iota_latticestore_workspace_reconstruction:phase1-bed35bfc281b@sha256:0df5a544358d2aa4d72c8228a2f5d082cf97d5d334c8fde82d4a4e66d1223169"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p9iota_latticestore_workspace_reconstruction:phase1-bed35bfc281b@sha256:4ad76ee7e22bc1dc4cb636f1594b069c59db95b803ad06b9dcad3d70c459cdd1"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "p9iota_latticestore_workspace_reconstruction"
+base_image = "rust"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["workspace/"]
+submit_exclude = ["workspace/target/"]
+work_image_tag = "phase1-bed35bfc281b"
+judge_image_tag = "phase1-bed35bfc281b"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "n/a (fully synthetic, FORGE-authored)"
+data_license = "project-owned"
+license_class = "permissive-internal"
+license_source = "FORGE-authored original work"
+provenance_flags = "synthetic; no upstream lift; attestation-unavailable"

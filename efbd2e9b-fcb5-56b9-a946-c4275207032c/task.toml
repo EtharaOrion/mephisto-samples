@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/strategy/policy.py" },
+  { source = "/home/workspace/strategy/book_report.json" },
+  { source = "/home/workspace/strategy/memo.md" },
+]
+
+[task]
+name = "edgebench/fdic_community_credit_triage"
+description = "Community-bank credit-review triage book. The agent allocates a finite review-capacity budget across 2,728 US community banks ($100M-$1B) as of the 2025-12-31 boundary, targeting emerging credit deterioration. Graded on the net charge-offs the reviewed banks actually realized in Q1-2026 FDIC call reports. Score floor is the measured mechanical copy frontier; full marks is the unreachable hindsight oracle."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "bank-credit-surveillance",
+  "cross-sectional-allocation",
+  "copy-frontier-anchored",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.fdic_community_credit_triage:v2-20260806@sha256:dc5fad2cd5e4857cdcef6302f2caa49cbc9b93e774a9c5a2d4be3fac477af120"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.fdic_community_credit_triage:v2-20260806@sha256:bdccabc20203ee09abf364b4946960e23cf0b144b2ca44e2f86b2704ad241c4d"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "fdic_community_credit_triage"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["strategy/policy.py", "strategy/book_report.json", "strategy/memo.md"]
+submit_exclude = ["data", "check.py", "README.md", "credit_lib.py", "gate.py", "__pycache__", "*.pyc"]
+work_image_tag = "v2-20260806"
+judge_image_tag = "v2-20260806"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "FDIC BankFind Suite financials endpoint (banks.data.fdic.gov / api.fdic.gov)"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "US FDIC"
+provenance_flags = ["mephisto-native", "copy-frontier-anchored-triage-book"]
+provenance_source = "FORGE-authored 2026-08-06; anchor shared with archived fdic_bank_credit_surveillance (never shipped); design original"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-08-06"
+asserts_no_upstream_lift = true
+modifications = "No upstream benchmark lift. Graded data is a US-government public-domain record (FDIC call reports REPDTE 20260331, index risview_20260608210616) authored by 2,698 independent filers; task statement, scoring and harness authored here."

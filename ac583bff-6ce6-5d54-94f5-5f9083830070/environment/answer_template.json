@@ -1,0 +1,11 @@
+{
+  "method": "REPLACE with a >=20-char description of your reconstruction pipeline (e.g. iterative EM refinement from provided initial model at 25A, 5 iterations, angular grid 15deg, direct back-projection, symmetry search over {C1,C2,C4,D2,D4,O,I}).",
+  "reconstruction_path": "reconstruction.mrc",
+  "pose_file_path": "poses.star",
+  "declared_symmetry": "C1",
+  "declared_handedness": "right",
+  "box_size_px": 64,
+  "pixel_size_ang": 2.5,
+  "declared_resolution_ang": 25.0,
+  "notes": "Optional free-text notes about parameter choices."
+}

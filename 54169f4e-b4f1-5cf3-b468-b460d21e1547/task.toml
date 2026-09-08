@@ -1,0 +1,44 @@
+schema_version = "1.4"
+artifacts = [
+  { source = "/home/workspace/forecast/predictions.csv" },
+  { source = "/home/workspace/forecast/model.py" },
+  { source = "/home/workspace/forecast/notes.md" },
+]
+[task]
+name = "edgebench/sec_earnings_distress_forecast"
+description = "Corporate earnings-distress forecast: predict which US public companies report a net loss next quarter from SEC fundamentals. Graded deterministically by AUC of submitted probabilities vs realized SEC filings on a hidden cohort, anchored so naive persistence scores 0 and perfect foresight 100. Medium-hard: a features model lands ~41 (AUC 0.887) vs naive 0.807 vs perfect 1.0."
+keywords = ["professional-knowledge-work","finance","equity-credit-analysis","forecasting","medium-hard","auc-graded"]
+[[task.authors]]
+name = "Mephisto"
+[agent]
+timeout_sec = 43200
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.sec_earnings_distress_forecast:v1-20260808@sha256:302f5b46a05a9af4bef958806ac5aa187f95edadeef9b26588b559574beeab48"
+network_mode = "no-network"
+workdir = "/home/workspace"
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.sec_earnings_distress_forecast:v1-20260808@sha256:e346ac854b7d67e0be51c11e49033e0fc39466b818258ecfead1f5a88606165e"
+network_mode = "no-network"
+workdir = "/home/workspace"
+[extensions.sforge]
+task_id = "sec_earnings_distress_forecast"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["forecast/predictions.csv","forecast/model.py","forecast/notes.md"]
+submit_exclude = ["data","check.py","README.md","metric_lib.py","__pycache__","*.pyc"]
+[metadata]
+provenance_schema_version = "1"
+source_host = "SEC EDGAR XBRL frames API (data.sec.gov)"
+data_license = "US Government work / public filings, public domain"
+license_class = "us-gov-public-domain"
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-08-08"
+asserts_no_upstream_lift = true
+modifications = "No upstream benchmark lift. Public-domain SEC XBRL frames; task, split, reference model, AUC grader authored here."

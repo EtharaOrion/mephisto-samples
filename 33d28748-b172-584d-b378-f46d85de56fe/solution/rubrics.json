@@ -1,0 +1,118 @@
+{
+  "_generated_header": "GENERATED. Source: seed/build/cftc_futures_positioning_book/grounding.yaml. Regenerator: seed/build/cftc_futures_positioning_book/recompute.py. Bundle UUID is the enclosing dataset/<uuid>/ directory name.",
+  "task_id": "cftc_futures_positioning_book",
+  "schema_version": 1,
+  "compilation_floor": 0.7,
+  "compiled_weight_share": 1.0,
+  "canary_tokens": [
+    "MEPHISTO_CANARY_CFBP_2026_08_06_K7X3M9Q2",
+    "MEPHISTO_CANARY_CFBP_2026_08_06_R5V1B8N4",
+    "MEPHISTO_CANARY_CFBP_2026_08_06_L9P6T2W3"
+  ],
+  "items": [
+    {
+      "id": "rubric_l1",
+      "dimension": "commercial_direction",
+      "weight": 20,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "accuracy of commercial_net_direction across all (mid, week) pairs",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L1",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l2",
+      "dimension": "magnitude_bucket",
+      "weight": 15,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "accuracy of magnitude_bucket across all pairs",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L2",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l3",
+      "dimension": "crowding_regime",
+      "weight": 15,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "accuracy of crowding_regime across all pairs",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L3",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l4",
+      "dimension": "extreme_flag",
+      "weight": 10,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "F1 of extreme_positioning_flag",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L4",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l5",
+      "dimension": "rank_correlation",
+      "weight": 10,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "mean Spearman rank correlation per week",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L5",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "ORDERING"
+    },
+    {
+      "id": "rubric_l6",
+      "dimension": "rate_regime_adaptive",
+      "weight": 10,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "L1 restricted to FOMC/CPI weeks",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L6",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "VALUE"
+    },
+    {
+      "id": "rubric_l7",
+      "dimension": "confidence_calibration",
+      "weight": 5,
+      "evaluation_target": "per_item_confidence",
+      "criterion": "Brier score of per-item direction confidence vs realized correctness",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L7",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "INVARIANT"
+    },
+    {
+      "id": "rubric_l8",
+      "dimension": "cross_quarter_stability",
+      "weight": 15,
+      "evaluation_target": "per_market_per_week_predictions",
+      "criterion": "variance-adjusted quarterly L1",
+      "judgment": "deterministic recomputation via cftc_book_lib.score_L8",
+      "evidence": [
+        "positioning_results.json"
+      ],
+      "mode": "compiled",
+      "checker_taxonomy": "DIVERGENCE"
+    }
+  ]
+}

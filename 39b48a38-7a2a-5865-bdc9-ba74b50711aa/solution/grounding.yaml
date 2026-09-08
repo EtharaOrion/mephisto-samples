@@ -1,0 +1,330 @@
+schema_version: '1'
+task_id: chronopack_undocumented_encoder
+format_revision: 1
+reward:
+  path: /logs/verifier/reward.txt
+  schema: single float on the closed interval from zero to one, higher is better
+  full_reward: 1.0
+  denominator: 120
+  lanes:
+    L1_container_conformance: 0
+    L2_corpus_reproduction: 6
+    L3_hidden_typical: 14
+    L4_hidden_shifted: 24
+    L5_boundary_seams: 26
+    L6_block_choice: 8
+    L7_size_fidelity: 8
+    L8_anti_fabrication: 0
+    L9_calibration: 10
+    B1_unseen_magnitude: 24
+  gates:
+    L1_container_conformance: 0.99
+    L8_anti_fabrication: 0.999
+  gates_rationale: Two lanes paid every submission ever measured their full weight, including one that
+    recovered no policy at all, so thirteen points bought showing up. They are preconditions rather than
+    achievements and they now gate, so below the bar nothing else counts and at or above it the reward
+    is the right to be graded on the undocumented policy. Container conformance is measured in a process
+    where encode was never called, because every other pass encodes a column before asking the decoder
+    about that same column, and a submission that simply returns what it was handed passed both checks
+    while owning no decoder at all.
+  baselines:
+    L6_block_choice: 0.946
+    L7_size_fidelity: 0.706
+  baselines_rationale: Measured rather than asserted. A codec that conforms to the format document, that
+    neutralises all seven undocumented policy tables and predicts uniformly, scores 0.946 on block choice
+    and 0.706 on size fidelity while recovering no rule whatsoever. Paid raw, those two lanes hand out
+    eighteen of a hundred and twenty points for reading the specification, and block choice paid that
+    zero-policy submission more than four of the six probe solvers earned. Lane credit is rescaled so the
+    baseline earns zero and only recovery above it counts.
+  weighting_rationale: Weight sits on generalisation rather than on fitting. Reproducing the published
+    corpus is table stakes because those bytes were handed over, and the hidden in-distribution batch is
+    interpolation from them, so both are worth little. The lanes that leave the evidence, the boundary
+    seams and the magnitudes the corpus never showed, together carry fifty of the hundred and twenty. A
+    probe solver that byte-matched eighty-four percent of the hidden typical columns still reached only
+    forty-three percent of the unseen-magnitude lane, and that gap is what this task exists to measure.
+  denominator_rationale: A hundred points is not the ceiling. The last ten are a bonus reached only by
+    generalising past every magnitude class the corpus showed, so a submission that recovers the policy
+    completely still has to carry it somewhere it was never evidenced. The calibration library's hardest
+    instance normalises over 110 for the same reason, and no agent in 127 attempts reached its base hundred.
+  publication_rule: No agent-visible byte states a lane, a weight, a point count or a denominator. An
+    earlier version of this task printed the whole table in instruction.md, which told a solver where
+    the points were and let it allocate effort instead of solving. The instruction now states the objective
+    and the deliverable and nothing about scoring.
+paths:
+  submission: /home/workspace/submission/codec.py
+  reference_in_verifier: harness/refimpl.py
+  corpus: /home/workspace/corpus/corpus.json
+sealed_seed: chronopack-sealed-2026-08-12
+public_seed: chronopack-public-corpus
+public_corpus_columns: 560
+batches:
+- name: public_mirror
+  count: 60
+  graded: false
+  grade_decode: false
+  lane: L2_corpus_reproduction
+- name: hidden_typical
+  count: 80
+  graded: false
+  grade_decode: true
+  lane: L3_hidden_typical
+- name: hidden_edges
+  count: 120
+  graded: true
+  grade_decode: true
+  lane: L4_hidden_shifted
+undocumented_rules:
+- id: U0
+  name: anchored minimum
+  rule: The stored minimum of a FOR_BITPACK block is the block minimum floored to a multiple of 64, and
+    of a DELTA_BITPACK block the minimum delta floored to a multiple of 16. Any minimum at or below the
+    true one yields a legal frame, so a reader who stores the true minimum produces a frame that decodes
+    correctly and does not match.
+  bites_on: nearly every block that carries a minimum
+- id: U1
+  name: width derivation
+  rule: Bit length of the span, never zero, widened by one when the block length is not a multiple of
+    eight, then rounded up to a multiple of four once it exceeds eight.
+  bites_on: every bitpacked block
+- id: U2
+  name: run gate
+  rule: run length is a candidate only when three times the run count is at most the block length
+  bites_on: blocks whose runs are moderately many
+- id: U3
+  name: dictionary gate
+  rule: dictionary is a candidate only when the block holds at most 24 distinct values and its deltas
+    hold more than 8, an interaction between two different statistics
+  bites_on: small-alphabet blocks with smooth deltas
+- id: U4
+  name: delta width limit
+  rule: delta is disqualified when any delta falls outside signed 32 bit range, in a 64 bit format
+  bites_on: columns whose steps straddle the 32 bit line
+- id: U5
+  name: penalties
+  rule: fixed additive penalties, delta 2, run length 3, dictionary 5, applied before comparison
+  bites_on: every close contest
+- id: U6
+  name: tie order
+  rule: ties break const, dictionary, delta, run length, for, raw, and below 64 values delta outranks
+    dictionary
+  bites_on: short blocks with small spans
+- id: U7
+  name: column trailer
+  rule: FNV-1a with the standard offset and prime over the four byte block count header followed by every
+    block byte, finalised by xor with the value count times 2654435761 masked to 32 bits
+  bites_on: every column without exception
+forbidden_imports:
+- os
+- io
+- sys
+- pathlib
+- shutil
+- tempfile
+- mmap
+- ctypes
+- socket
+- subprocess
+- importlib
+- random
+- time
+- builtins
+- operator
+- gc
+- inspect
+- atexit
+- threading
+canary:
+  slot_count: 4
+  placeholder_template: __CANARY_{index}__
+  normalization_domain_version: chronopack-canary/1
+  carriers:
+  - solution/TRUTH.md
+  - solution/reference/codec.py
+  - solution/rubrics.json
+  - tests/harness/refimpl.py
+  - tests/harness/runner.py
+  - tests/harness/sourcegate.py
+  - tests/harness/workloads.py
+  - tests/lanes.py
+  - tests/score.py
+truth_steps:
+- id: T1
+  action: write a decoder from the container specification before writing any encoder
+  established: the framing is complete, so the decoder is bookkeeping and it unlocks the corpus
+  survives: nothing yet, this is the entry cost
+  checker: L4_round_trip
+- id: T2
+  action: decode every corpus blob and read the fields the frame stores rather than the values it encodes
+  established: the stored minimum is not the block minimum, and the width byte is not the bit length of
+    the span
+  survives: an encoder that writes the natural minimum and the natural width, whose frames decode perfectly
+  checker: L2_hidden_byte_exact
+- id: T3
+  action: recover the anchored minimum grains, 64 for values and 16 for deltas
+  established: rule U0
+  survives: the frame remaining legal and decodable under the wrong minimum
+  checker: L2_hidden_byte_exact
+- id: T4
+  action: recover the width derivation including the parity widening and the rounding above eight bits
+  established: rule U1
+  survives: a width that is correct on every block whose length is a multiple of eight
+  checker: L2_hidden_byte_exact
+- id: T5
+  action: solve the trailing four bytes
+  established: rule U7, the domain includes the block count header and the finalisation folds in the value
+    count
+  survives: the obvious hash over the obvious domain, which matches nothing
+  checker: L2_hidden_byte_exact
+- id: T6
+  action: fit the selection policy from blocks where the smallest encoding is not the chosen one
+  established: rules U2 through U6
+  survives: a pure size argument, which explains most blocks and not all of them
+  checker: L3_block_choice
+- id: T7
+  action: generalise past the corpus distribution
+  established: the corpus samples six column shapes and the graded set draws from eleven, including shapes
+    built to sit on the gates
+  survives: a policy fitted to the corpus alone, which scores the corpus perfectly
+  checker: L2_hidden_byte_exact
+- id: T8
+  action: keep the codec inside the published import allowlist and declare the framing revision
+  established: the boundary and the declared revision
+  survives: an implementation that reaches outside its interpreter
+  checker: L5_integrity
+rejected_routes:
+- route: submit the untouched stub
+  control: control_empty_submission
+  why: encode raises and every lane scores zero
+- route: implement the container faithfully and choose the smallest encoding
+  control: control_plausible_encoder
+  why: measured at 0.361. Correct framing and a correct decoder, zero byte-exact columns, because the
+    anchored minimum, the width rule and the trailer all differ.
+- route: fit the policy to the public corpus and stop
+  control: control_corpus_overfit
+  why: the graded columns are drawn from shapes the corpus does not contain
+- route: hardcode the corpus outputs
+  control: control_memorized_corpus
+  why: no graded column appears in the corpus, and the graded columns are regenerated from a sealed seed
+- route: reach the reference through the interpreter
+  control: control_typing_sys_boundary
+  why: the runner closes an audit-hook boundary before any submission byte executes and denies the effect
+    rather than the name
+rubric_items:
+- id: R01
+  dimension: exactness
+  weight: 0.174167
+  evaluation_target: encoded_bytes
+  criterion: Every hidden column drawn from shapes the corpus does not cover encodes to bytes identical
+    to the reference.
+  judgment: the L4_hidden_shifted lane earns its full points
+  evidence:
+  - L4_hidden_shifted
+  mode: compiled
+- id: R02
+  dimension: exactness
+  weight: 0.1425
+  evaluation_target: encoded_bytes
+  criterion: Every hidden column drawn from the corpus distribution encodes to bytes identical to the
+    reference.
+  judgment: the L3_hidden_typical lane earns its full points
+  evidence:
+  - L3_hidden_typical
+  mode: compiled
+- id: R03
+  dimension: exactness
+  weight: 0.079167
+  evaluation_target: encoded_bytes
+  criterion: Every held-out column of the corpus distribution encodes byte-identically.
+  judgment: the L2_corpus_reproduction lane earns its full points
+  evidence:
+  - L2_corpus_reproduction
+  mode: compiled
+- id: R04
+  dimension: exactness
+  weight: 0.11875
+  evaluation_target: encoded_bytes
+  criterion: Every column placed on a length-class and magnitude-class seam encodes byte-identically.
+  judgment: the L5_boundary_seams lane earns its full points
+  evidence:
+  - L5_boundary_seams
+  mode: compiled
+- id: R05
+  dimension: policy
+  weight: 0.079167
+  evaluation_target: block_encodings
+  criterion: The encoding chosen for each block matches the reference, including every gate, penalty and
+    tie order.
+  judgment: the L6_block_choice lane earns its full points
+  evidence:
+  - L6_block_choice
+  mode: compiled
+- id: R06
+  dimension: policy
+  weight: 0.095
+  evaluation_target: encoded_bytes
+  criterion: Encoded size tracks the reference's size, so an approximately correct policy is visible even
+    where bytes differ.
+  judgment: the L7_size_fidelity lane earns its full points
+  evidence:
+  - L7_size_fidelity
+  mode: compiled
+- id: R07
+  dimension: decoding
+  weight: 0.063333
+  evaluation_target: decoded_values
+  criterion: Every reference-produced blob decodes back to its exact column of values.
+  judgment: the L1_container_conformance lane earns its full points
+  evidence:
+  - L1_container_conformance
+  mode: compiled
+- id: R08
+  dimension: integrity
+  weight: 0.039583
+  evaluation_target: encoded_bytes
+  criterion: 'The encoder is a function of its input: perturbing a value changes the output, reversing
+    the column changes the output, and the output survives the submission''s own decoder.'
+  judgment: the L8_anti_fabrication lane earns its full points
+  evidence:
+  - L8_anti_fabrication
+  mode: compiled
+- id: R09
+  dimension: calibration
+  weight: 0.079167
+  evaluation_target: block_encodings
+  criterion: The probability the submission assigns to each encoding is scored by log loss against what
+    the reference chose, so an unearned certainty costs more than an honest hedge.
+  judgment: the L9_calibration lane earns its full points
+  evidence:
+  - L9_calibration
+  mode: compiled
+- id: R10
+  dimension: generalisation
+  weight: 0.079167
+  evaluation_target: encoded_bytes
+  criterion: Columns at magnitudes the corpus never showed encode byte-identically.
+  judgment: the B1_unseen_magnitude lane earns its full points
+  evidence:
+  - B1_unseen_magnitude
+  mode: compiled
+- id: R11
+  dimension: integrity
+  weight: 0.05
+  evaluation_target: encoded_bytes
+  criterion: Every emitted blob decodes, under the published container rules, back to the exact column
+    it was handed.
+  judgment: the red line records no breach
+  evidence:
+  - RL1
+  mode: compiled
+adversarial_count: 60
+bonus_count: 40
+red_line:
+  id: RL1
+  name: emitted column corrupted
+  rule: 'If any blob the submission emits fails to decode, under the published container framing, back
+    to the exact column it was handed, the total reward is zero regardless of every lane. The check reads
+    the frames and ignores the trailing digest, because the digest is a policy rule and getting it wrong
+    costs the exactness lanes rather than the run. What this line names is data loss: a column that does
+    not come back. Failing to reproduce the reference encoder costs lanes. Destroying the column costs
+    the run.'
+  reason_code: red_line_column_corrupted

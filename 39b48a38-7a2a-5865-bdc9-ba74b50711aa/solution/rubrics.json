@@ -1,0 +1,152 @@
+{
+  "_banner": "GENERATED SECTION. DO NOT HAND-EDIT. Source: solution/grounding.yaml",
+  "canary_block": [
+    "CANARY-BLOCK-BEGIN",
+    "canary_slot_0: MEPH-373d1916b5939704412ba6efe8590d88",
+    "canary_slot_1: MEPH-b788c135a56267dac49d57ee8273bd4e",
+    "canary_slot_2: MEPH-c271027e98332e4ff7c37a518d7881ef",
+    "canary_slot_3: MEPH-0b50c7a3306d23690a441bc7053f21c3",
+    "CANARY-BLOCK-END"
+  ],
+  "compiled_weight": 1.000001,
+  "evaluation_targets": [
+    "block_encodings",
+    "decoded_values",
+    "encoded_bytes"
+  ],
+  "items": [
+    {
+      "criterion": "Every hidden column drawn from shapes the corpus does not cover encodes to bytes identical to the reference.",
+      "dimension": "exactness",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L4_hidden_shifted"
+      ],
+      "id": "R01",
+      "judgment": "the L4_hidden_shifted lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.174167
+    },
+    {
+      "criterion": "Every hidden column drawn from the corpus distribution encodes to bytes identical to the reference.",
+      "dimension": "exactness",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L3_hidden_typical"
+      ],
+      "id": "R02",
+      "judgment": "the L3_hidden_typical lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.1425
+    },
+    {
+      "criterion": "Every held-out column of the corpus distribution encodes byte-identically.",
+      "dimension": "exactness",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L2_corpus_reproduction"
+      ],
+      "id": "R03",
+      "judgment": "the L2_corpus_reproduction lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.079167
+    },
+    {
+      "criterion": "Every column placed on a length-class and magnitude-class seam encodes byte-identically.",
+      "dimension": "exactness",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L5_boundary_seams"
+      ],
+      "id": "R04",
+      "judgment": "the L5_boundary_seams lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.11875
+    },
+    {
+      "criterion": "The encoding chosen for each block matches the reference, including every gate, penalty and tie order.",
+      "dimension": "policy",
+      "evaluation_target": "block_encodings",
+      "evidence": [
+        "L6_block_choice"
+      ],
+      "id": "R05",
+      "judgment": "the L6_block_choice lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.079167
+    },
+    {
+      "criterion": "Encoded size tracks the reference's size, so an approximately correct policy is visible even where bytes differ.",
+      "dimension": "policy",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L7_size_fidelity"
+      ],
+      "id": "R06",
+      "judgment": "the L7_size_fidelity lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.095
+    },
+    {
+      "criterion": "Every reference-produced blob decodes back to its exact column of values.",
+      "dimension": "decoding",
+      "evaluation_target": "decoded_values",
+      "evidence": [
+        "L1_container_conformance"
+      ],
+      "id": "R07",
+      "judgment": "the L1_container_conformance lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.063333
+    },
+    {
+      "criterion": "The encoder is a function of its input: perturbing a value changes the output, reversing the column changes the output, and the output survives the submission's own decoder.",
+      "dimension": "integrity",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "L8_anti_fabrication"
+      ],
+      "id": "R08",
+      "judgment": "the L8_anti_fabrication lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.039583
+    },
+    {
+      "criterion": "The probability the submission assigns to each encoding is scored by log loss against what the reference chose, so an unearned certainty costs more than an honest hedge.",
+      "dimension": "calibration",
+      "evaluation_target": "block_encodings",
+      "evidence": [
+        "L9_calibration"
+      ],
+      "id": "R09",
+      "judgment": "the L9_calibration lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.079167
+    },
+    {
+      "criterion": "Columns at magnitudes the corpus never showed encode byte-identically.",
+      "dimension": "generalisation",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "B1_unseen_magnitude"
+      ],
+      "id": "R10",
+      "judgment": "the B1_unseen_magnitude lane earns its full points",
+      "mode": "compiled",
+      "weight": 0.079167
+    },
+    {
+      "criterion": "Every emitted blob decodes, under the published container rules, back to the exact column it was handed.",
+      "dimension": "integrity",
+      "evaluation_target": "encoded_bytes",
+      "evidence": [
+        "RL1"
+      ],
+      "id": "R11",
+      "judgment": "the red line records no breach",
+      "mode": "compiled",
+      "weight": 0.05
+    }
+  ],
+  "total_weight": 1.000001
+}

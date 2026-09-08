@@ -1,0 +1,89 @@
+{
+  "banner": "GENERATED SECTION. DO NOT HAND-EDIT.",
+  "canary": "CANARY-17bf13d5d269a708a777eb4e0f31db34",
+  "compilation_floor": 1.0,
+  "compiled_weight": 1.0,
+  "items": [
+    {
+      "criterion": "4.0 points when `cargo build --release --offline` succeeds for the submitted workspace and produces target/release/lattice, plus 6.0 times the fraction of the 30 public workloads whose full record (every step transcript plus the final store_state digest) is byte-identical to the freshly built reference run inside the judge container.",
+      "dimension": "outcome",
+      "evaluation_target": "L1_build_surface_conformance",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L1_build_surface_conformance",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.1
+    },
+    {
+      "criterion": "Hidden workloads are regenerated fresh from sealed seeds at verify time and run against reference and candidate binaries. Points are awarded all-or-nothing per layer only when every hidden workload in the layer matches the reference on the full record including the store_state digest: layer_core (basic plus boundary families) 18 points, layer_dedupe_multi (dedupe plus multi) 9 points, layer_corrupt 9 points, layer_recovery 9 points.",
+      "dimension": "outcome",
+      "evaluation_target": "L2_hidden_layered_equivalence",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L2_hidden_layered_equivalence",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.45
+    },
+    {
+      "criterion": "15 points all-or-nothing when every hidden workload's binary-step transcript fields (op, exit, stdout_sha256, stdout_len, normalized stderr, out_sha256, out_len) are byte-identical to the reference for the identical workload id set.",
+      "dimension": "outcome",
+      "evaluation_target": "L3_cli_transcript_equivalence",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L3_cli_transcript_equivalence",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.15
+    },
+    {
+      "criterion": "Gated on perfect L2 (45) and L3 (15). Three perf specs (perf_put_stream, perf_put_dedupe, perf_get, 16 MiB corpora) are timed for 3 repetitions each with fresh per-repetition inputs keyed '{spec_id}|rep{n}'. r = geometric mean over specs of reference_median_seconds / candidate_median_seconds. Score 0 at r <= 0.6, then 25 * (r - 0.6) / 0.9 linearly, capped at 25 at r >= 1.5. Timed-repetition transcripts are also compared to the reference; any divergence triggers kill_band_bit_mismatch.",
+      "dimension": "outcome",
+      "evaluation_target": "L4_performance_ratio",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L4_performance_ratio",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.25
+    },
+    {
+      "criterion": "5 points when the submission contains no canary tokens, no forbidden patterns (asm!, global_asm!, /reference, reference-src, reference-bin), no symlinks, no third-party dependencies in any workspace Cargo.toml, no build.rs, no .cargo config, and total source under 32 MiB.",
+      "dimension": "outcome",
+      "evaluation_target": "L5_integrity",
+      "evidence": "STRUCTURED_RESULT_JSON lanes block",
+      "id": "L5_integrity",
+      "judgment": "deterministic lane score emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.05
+    },
+    {
+      "criterion": "During the gated performance lane, after full L2 and L3 equivalence has already been established, a candidate timed-repetition transcript diverges from the reference. This is an anti timing-cache guard that catches a binary returning fast wrong output only while being timed. Effect: L2 and L3 are zeroed and L4 is not awarded, so the total falls back to L1 + L5 (at most 15). Ordinary hidden divergence outside the timed perf lane does not trip this band; it forfeits only the affected per-layer L2 points and, if any hidden transcript differs, all of L3.",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_bit_mismatch",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_bit_mismatch",
+      "judgment": "deterministic kill band emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.0
+    },
+    {
+      "criterion": "Any canary token from tests/canary_tokens.json appears in the submitted workspace bytes. Effect: Total score 0 and CANARY_TOKEN_IN_SUBMISSION escalation.",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_canary",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_canary",
+      "judgment": "deterministic kill band emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.0
+    },
+    {
+      "criterion": "Submitted code invokes, wraps, links, or reads the frozen reference binary or its artifacts at runtime, or embeds forbidden patterns (asm!, global_asm!, /reference, reference-src, reference-bin). Effect: Total score 0.",
+      "dimension": "integrity",
+      "evaluation_target": "kill_band_wrap",
+      "evidence": "STRUCTURED_RESULT_JSON kill_bands block",
+      "id": "kill_band_wrap",
+      "judgment": "deterministic kill band emitted by tests/verify.py",
+      "mode": "compiled",
+      "weight": 0.0
+    }
+  ],
+  "task_id": "p9iota_latticestore_workspace_reconstruction"
+}

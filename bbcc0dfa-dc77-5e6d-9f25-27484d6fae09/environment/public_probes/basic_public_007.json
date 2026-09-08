@@ -1,0 +1,45 @@
+{
+ "family": "basic",
+ "id": "basic_public_007",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "f0.bin",
+   "op": "put"
+  },
+  {
+   "file": "f1.bin",
+   "op": "put"
+  },
+  {
+   "file": "f2.bin",
+   "op": "put"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "id": "52b87edd82a8cafd5dce8bbd91275050cb71c365569074c7888279708961856e",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "id": "c3c60f0ee37f991748da63f55891e50bd11f27da9210c6f53b879ba3f9b7afac",
+   "op": "get",
+   "out": "g1.bin"
+  },
+  {
+   "id": "b8b2ca37cacb5cb34a196911cecba94589f80aaa5f23dbda9f185edb486aa8dd",
+   "op": "get",
+   "out": "g2.bin"
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

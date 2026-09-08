@@ -1,0 +1,123 @@
+schema_version: 1
+task_id: cryoem_single_particle_reconstruction
+bundle_uuid: ac583bff-6ce6-5d54-94f5-5f9083830070
+
+meta:
+  name: "edgebench/cryoem_single_particle_reconstruction"
+  category: "Scientific Problems & ML"
+  family: "Framework D: Bayesian inverse problem"
+  authored_date: "2026-08-10"
+  contract_digest: "b485dd7fb500d5d824d55f2a461ac53b3e24cc6e37eebb4f4af039b1247e60fd"
+
+canary_tokens:
+  - "CRYOEM_CANARY_APOFERRITIN_K7X3M9Q2"
+  - "CRYOEM_CANARY_ALDOLASE_R5V1B8N4"
+  - "CRYOEM_CANARY_PDB_LOOKUP_L9P6T2W3"
+
+ground_truth:
+  volume_source: "procedural three-Gaussian mixture, D2-symmetrized"
+  volume_seed: 20260810
+  box_size_px: 64
+  pixel_size_ang: 2.5
+  true_symmetry: "D2"
+  true_handedness: "right"
+  true_symmetry_order: 4
+  gaussians_ang:
+    - [30.0, 12.0, 8.0]
+    - [8.0, 28.0, 16.0]
+    - [22.0, 4.0, 22.0]
+  gaussian_sigma_ang: 7.0
+
+forward_model:
+  voltage_kv: 300.0
+  cs_mm: 2.7
+  amplitude_contrast: 0.07
+  defocus_range_ang: [8000.0, 20000.0]
+  projection: "parallel projection along +Z after ZYZ Euler rotation"
+  translation_range_pix: [-3.0, 3.0]
+
+datasets:
+  public:
+    n_particles: 500
+    snr: 0.1
+    seed: 111
+    file: "environment/public_micrographs.npz"
+    poses_visible_to_agent: true
+    note: "Ground-truth poses visible for agent sanity. Agent may use them or estimate their own."
+  hidden:
+    n_particles: 5000
+    snr: 0.1
+    seed: 222
+    file: "tests/scoring/hidden_micrographs.npz"
+    poses_file: "tests/scoring/hidden_true_poses.star"
+    note: "Not visible to agent; retained for judge robustness sampling."
+  initial_model:
+    file: "environment/initial_model.mrc"
+    kind: "featureless spherical Gaussian shell"
+    radius_ang: 45.0
+    approx_resolution_ang: 25.0
+
+hidden_files:
+  - "tests/scoring/hidden_true_volume.mrc"
+  - "tests/scoring/hidden_micrographs.npz"
+  - "tests/scoring/hidden_true_poses.star"
+  - "tests/scoring/hidden_public_true_poses.star"
+  - "tests/scoring/hidden_eval_config.json"
+  - "tests/scoring/hidden_forward_model.py"
+
+expected_baselines:
+  empty_submission:
+    expected_score: 0.0
+    trigger: "RL2 structural gate"
+  uniform_sphere:
+    expected_score_measured: 10.0
+    note: "Contract's ~5 approximate; measured value updated after judge calibration."
+  reference_solver:
+    expected_score_measured: 50.2
+    args: "--n_particles 500 --n_iters 2 --symmetry D2 --pose_noise_deg 25.0"
+    note: "Sits mid-band of contract's [30,55] target."
+  canary_leak_synthetic:
+    expected_score: 0.0
+    trigger: "RL4 canary scan"
+
+alternative_routes:
+  - id: reference_wiener_backprojection
+    description: "Wiener CTF-corrected Fourier back-projection using provided public poses, D2 symmetrization"
+    entry_point: "solution/reference_solver.py"
+    expected_score_band: [40.0, 55.0]
+    measured_score: 50.221
+    completes_in_seconds: 3.0
+  - id: reference_reduced_particles
+    description: "same pipeline with 200 particles + 25deg pose noise"
+    entry_point: "solution/reference_solver.py --n_particles 200 --pose_noise_deg 25"
+    expected_score_band: [35.0, 50.0]
+    measured_score: 45.406
+  - id: baseline_uniform_sphere
+    description: "featureless sphere baseline; declared C1"
+    entry_point: "environment/baseline_solver.py"
+    expected_score_band: [5.0, 20.0]
+    measured_score: 10.0
+
+scoring_weights_check:
+  L1_format: 3
+  L2_bounds: 2
+  L3_public_sanity: 10
+  L4_handedness: 5
+  L5_symmetry: 5
+  L6_method_workflow: 5
+  L7_reconstruction: 55
+  L8_resolution_physics: 15
+  total: 100
+
+red_line_checks:
+  RL2_structural_gate:
+    description: "missing recon.mrc or poses.star -> total=0"
+    check: "structural_gate() returns (False, reason)"
+  RL3_symmetry_abuse:
+    description: "declared symmetry order > true (4) -> L5=0 AND L7_precise *= 0.5"
+    check: "score_L5_symmetry + evaluate() RL3 cap logic"
+  RL4_canary_leak:
+    description: "canary tokens in agent-visible bytes -> total=0"
+    check: "scan_canary_leaks(submission_dir) non-empty"
+
+recompute_command: "python solution/recompute.py"

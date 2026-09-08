@@ -1,0 +1,39 @@
+{
+ "family": "corrupt",
+ "id": "corrupt_public_000",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "c0.bin",
+   "op": "put"
+  },
+  {
+   "file": "c1.bin",
+   "op": "put"
+  },
+  {
+   "file": "c2.bin",
+   "op": "put"
+  },
+  {
+   "file": "index/index.lix",
+   "offset": 205679936,
+   "op": "corrupt",
+   "skip": 4,
+   "xor": 72
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "id": "13e6eca6ea32151d1c0bee469bb833fccf1656fb9ae1a6583ab4a0efaa6e7a7d",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

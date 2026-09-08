@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/curve_positioning.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/positioning_results.json" },
+]
+
+[task]
+name = "edgebench/treasury_curve_positioning_book"
+description = "Dynamic US Treasury Yield-Curve Positioning Book with duration/convexity/butterfly exposure control, macro-regime-adaptive rebalancing, and turnover discipline. Scored across 20 disjoint held-out 3-week windows."
+keywords = [
+  "professional-knowledge-work",
+  "finance",
+  "treasury-curve-positioning",
+  "duration-convexity",
+  "macro-regime-adaptive",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.treasury_curve_positioning_book:f1a996a5d576@sha256:f1a996a5d57680a99225dae54353eb05dd95e2c8fd8e6d78affc30703b51732d"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.treasury_curve_positioning_book:55d9feedceba@sha256:7ea8994133aa506251065433bd154c5d9c19ce86e973bf16f197ffea96fe7843"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "treasury_curve_positioning_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["curve_positioning.py", "requirements.txt", "positioning_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "f1a996a5d576"
+judge_image_tag = "55d9feedceba"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "US Treasury Daily Yield Curve (home.treasury.gov) + FRED clean-series (fred.stlouisfed.org)"
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "Treasury Department + Federal Reserve Bank of St. Louis"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector"]
+provenance_source = "FORGE-authored 2026-07-30, structural mirror of touchstones/portfolio_risk_calibration/"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-07-30"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ per PKW-FAMILIES §3 Framework B."

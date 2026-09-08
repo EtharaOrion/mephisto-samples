@@ -1,0 +1,39 @@
+{
+ "family": "corrupt",
+ "id": "corrupt_public_001",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "c0.bin",
+   "op": "put"
+  },
+  {
+   "file": "c1.bin",
+   "op": "put"
+  },
+  {
+   "file": "c2.bin",
+   "op": "put"
+  },
+  {
+   "file": "objects/pack-000000.lpk",
+   "offset": 302773857,
+   "op": "corrupt",
+   "skip": 16,
+   "xor": 129
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "id": "33f548e76d490f0ff655c26cc54ab60e713f39edcc8b6f32e39725cfcaf4c077",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

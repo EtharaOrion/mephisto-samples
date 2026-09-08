@@ -1,0 +1,66 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/appellate_timing.py" },
+  { source = "/home/workspace/requirements.txt" },
+  { source = "/home/workspace/timing_results.json" },
+]
+
+[task]
+name = "edgebench/courtlistener_appellate_disposition_timing_calibration"
+description = "US federal appellate case disposition-timing calibration book — per-case time-to-disposition prediction across ~2500-5000 pending cases at Jan-2026 boundary across 13 US federal circuits (ca1..ca11, cadc, cafc). Agent produces per-case days-to-disposition + 4-class circuit-procedural-complexity regime + stall flag (>1yr no motion) + case-type rank ordering + motion-count regression + composite positioning book across hidden 2025-01-01 to 2026-07-31 test window. Scored on 8 lanes + timing-calibration bonus, 0-110."
+keywords = [
+  "professional-knowledge-work",
+  "legal",
+  "appellate-disposition-timing",
+  "circuit-court-analytics",
+  "time-to-event-calibration",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.courtlistener_appellate_disposition_timing_calibration:041080d0@sha256:041080d0bd3cfe6d739f13ca83c0012fed87ddfd25fdc02be5d07de664f9c595"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.courtlistener_appellate_disposition_timing_calibration:7a5fb32d@sha256:7a5fb32d201922a97bea573cf782fff252c3c8477d812f5a8defcdf6b4a9cae7"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "courtlistener_appellate_disposition_timing_calibration"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["appellate_timing.py", "requirements.txt", "timing_results.json"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj"]
+work_image_tag = "041080d0"
+judge_image_tag = "7a5fb32d"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "CourtListener BULK bucket (storage.courtlistener.com/bulk-data/, unauthenticated S3, CC PD Mark 1.0)"
+data_license = "CC PD Mark 1.0 (public domain, free of known copyright restrictions)"
+license_class = "cc-pd-mark-1"
+license_confidence = "high"
+license_source = "CourtListener unauthenticated bulk bucket per CARRIERS.md:37; 36 dated snapshots back to 2022"
+provenance_flags = ["mephisto-native", "framework-b-reference-anchored-projector", "multiarch-linux-amd64-arm64"]
+provenance_source = "FORGE-authored 2026-08-01 (T10/10 finance-adjacent Framework B slate, legal-PKW pivot per operator directive), structural mirror of dataset/9c463536-e514-5a50-9ff6-81ad513bae32/ (treasury_liquidity_provisioning_book, T9) per PKW-FAMILIES section 3 Framework B"
+
+[metadata.upstream_provenance]
+origin = "mephisto-native"
+provenance_date = "2026-08-01"
+asserts_no_upstream_lift = true
+modifications = "FORGE-authored bundle; no upstream image lift. Structural pattern mirrored from touchstones/portfolio_risk_calibration/ and dataset/9c463536-e514-5a50-9ff6-81ad513bae32/ (T9 treasury_liquidity_provisioning_book) per PKW-FAMILIES section 3 Framework B, differentiated to legal-PKW subdomain per operator directive after 2 measured-kill discoveries (BLS metro + first CourtListener outcome/authority-influence framing). Test cohort: ~2500-5000 US federal appellate cases pending at Jan-2026 boundary, resolved in 2025-01-01 to 2026-07-31 test window. GRADER_SALT preemptive perturbation baked in at Phase 1. Multiarch (linux/amd64 + linux/arm64) manifest lists per operator directive."

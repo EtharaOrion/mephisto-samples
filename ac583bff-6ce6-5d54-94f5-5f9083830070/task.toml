@@ -1,0 +1,61 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/cryoem_reconstruction/answer.json" },
+  { source = "/home/workspace/cryoem_reconstruction/reconstruction.mrc" },
+  { source = "/home/workspace/cryoem_reconstruction/poses.star" },
+  { source = "/home/workspace/cryoem_reconstruction/reconstruct.py" },
+  { source = "/home/workspace/cryoem_reconstruction/requirements.txt" },
+]
+
+[task]
+name = "edgebench/cryoem_single_particle_reconstruction"
+description = "CryoEM single-particle 3D density reconstruction from 2D noisy micrographs at unknown random orientations. Bayesian inverse problem in structural biology. Agent must recover: (1) 3D density map at CPU-feasible resolution (10-15A ceiling), (2) per-particle poses (rotation + translation), (3) declared handedness and symmetry. Scored on 8 lanes, 0-100."
+keywords = [
+  "scientific-problems-ml",
+  "cryo-em",
+  "structural-biology",
+  "bayesian-inverse-problem",
+  "3d-reconstruction",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.cryoem_single_particle_reconstruction:v1@sha256:a52bc80a514ca5bb265be00e6caf6142a8538c9880b1ab260ddd8e2297c33049"
+network_mode = "no-network"
+workdir = "/home/workspace/cryoem_reconstruction"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.cryoem_single_particle_reconstruction:v1@sha256:c53b771f24e5a9edeeaf3a2b6f373199abb9ef1fe0ea8481d18561a4f245c50a"
+network_mode = "no-network"
+workdir = "/home/workspace/cryoem_reconstruction"
+
+[extensions.sforge]
+task_id = "cryoem_single_particle_reconstruction"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["answer.json", "reconstruction.mrc", "poses.star", "reconstruct.py", "requirements.txt"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "bin", "obj", "score.json"]
+work_image_tag = "v1"
+judge_image_tag = "v1"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "EMPIAR EMBL-EBI (reference validation only) + procedural synthetic (agent-visible)"
+data_license = "Creative Commons CC0 / CC-BY-4.0"
+license_class = "cc-by-4.0"
+license_confidence = "high"
+license_source = "EMPIAR public data policy + procedural synthetic density generation"
+bundle_uuid_note = "ac583bff-6ce6-5d54-94f5-5f9083830070; forge_namespace c53e8f3b-526f-52c0-a04e-89e2269b237d"

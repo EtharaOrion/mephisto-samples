@@ -1,0 +1,67 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/submission" },
+]
+
+[task]
+name = "mephisto/chronopack_undocumented_encoder"
+description = "Recover the selection policy, field normalisations and trailer algorithm of a columnar block encoder that is documented nowhere, from a recorded corpus that samples its behaviour rather than specifying it, and reproduce its bytes exactly on columns drawn from a wider distribution."
+keywords = [
+  "systems-software-engineering",
+  "bit-exact",
+  "undocumented-behaviour-recovery",
+  "policy-inference",
+  "binary-format",
+  "compression",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.chronopack_undocumented_encoder:69f65820842c@sha256:d7d3c51237f37e2889108ad43413228c2d03e06a4d24554bfcedcf7fac34120b"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 5400
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.chronopack_undocumented_encoder:69f65820842c@sha256:04174f53589e21ff4154ab37cc25f150d34c709d530ca12e9aece6750b61c19e"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier.reward]
+path = "/logs/verifier/reward.txt"
+kind = "float"
+minimum = 0.0
+maximum = 1.0
+full_reward = 1.0
+direction = "maximize"
+aggregation = "single_turn"
+
+[extensions.sforge]
+task_id = "chronopack_undocumented_encoder"
+base_image = "python"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["submission/"]
+submit_exclude = ["__pycache__/", "*.pyc"]
+work_image_tag = "69f65820842c"
+judge_image_tag = "69f65820842c"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "n/a (synthetic, FORGE-authored)"
+data_license = "project-owned"
+license_class = "permissive-internal"
+license_source = "FORGE-authored original work"
+provenance_flags = "synthetic; no upstream lift; attestation-unavailable"
+canary_normalization_domain_version = "chronopack-canary/1"

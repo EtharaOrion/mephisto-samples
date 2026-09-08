@@ -1,0 +1,65 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/submission/opmargin_change_ranks.csv" },
+]
+
+[task]
+name = "edgebench/p3gamma_sec_opmargin_expansion_book"
+description = "Rank 2799 SEC filers by realized sector-relative Delta operating margin YoY (CY2026Q1 vs CY2025Q1, sector-residualized at SIC-2). Rank 1 = most margin expansion, rank 2799 = most compression."
+keywords = [
+  "professional-knowledge-work",
+  "corporate-financial",
+  "corporate-financial-margin",
+  "sec-edgar-xbrl",
+  "rank-forecasting",
+  "framework-a-outcome-anchored-book",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p3gamma_sec_opmargin_expansion_book:phase1-222826dbd90d@sha256:4b3b13a4f5d85723322dbb94d811ed4964c228c8ff5af1b511e303d6e4bb4db2"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p3gamma_sec_opmargin_expansion_book:phase1-222826dbd90d@sha256:8e2d0a671fa5e1a391d31dbaf3dfe0207c4224ef2845bed13f2b4bee702a5640"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "p3gamma_sec_opmargin_expansion_book"
+base_image = "python"
+platform = "linux/amd64,linux/arm64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["submission/"]
+submit_exclude = [".git", "__pycache__", "*.pyc", "node_modules", "data/", "README.md", "*.log"]
+work_image_tag = "phase1-222826dbd90d"
+judge_image_tag = "phase1-222826dbd90d"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "SEC EDGAR XBRL frames endpoint (data.sec.gov/api/xbrl/frames/us-gaap/OperatingIncomeLoss/USD/CY2026Q1.json and analogous frames for Revenues, GrossProfit, NetCashProvidedByUsedInOperatingActivities, Assets, and ASC 606 RevenueFromContractWithCustomerExcludingAssessedTax); sector taxonomy from data.sec.gov/submissions/CIK*.json per filer. Author-time fetch on 2026-08-08 with UA 'FORGE-Author tanmaytushar21@gmail.com' + 0.12s min throttle; JSON payloads pinned into hidden bundle; no runtime network access at grader time."
+data_license = "US Government work, public domain (no copyright)"
+license_class = "us-gov-public-domain"
+license_confidence = "high"
+license_source = "SEC Rule 100 (17 CFR 240.100) + 17 USC 105"
+provenance_flags = ["mephisto-native", "framework-a-outcome-anchored-book"]
+provenance_source = "FORGE-authored 2026-08-08"
+
+[metadata.upstream_provenance]
+origin = "original"
+provenance_date = "2026-08-08"
+asserts_no_upstream_lift = true
+modifications = "SEC EDGAR XBRL frames fetched at author time via data.sec.gov JSON API (14 frames total: OperatingIncomeLoss + Revenues + ASC 606 RevenueFromContract + GrossProfit + NetCashProvidedByUsedInOperatingActivities x CY2025Q1/CY2026Q1 + Assets x CY2024Q4I/CY2025Q1I/CY2025Q4I/CY2026Q1I). Inner-join on OpIncome_both + Revenues_both (ASC 606 union), Revenues>0 both quarters, SIC known via submissions API. Panel stripped of CY2026Q1 OperatingIncomeLoss (graded numerator) before agent-visible emit."

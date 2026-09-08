@@ -1,0 +1,12 @@
+schema_version: 1
+task_id: "cftc_futures_positioning_book"
+bundle_uuid_note: "see enclosing dataset/<uuid>/ directory name"
+canonical_payload_hash: "computed_at_freeze"
+provenance_date: "2026-08-06"
+source_kind: "synthetic"
+generator_identity: "FORGE / Mephisto harness"
+generator_version: "seed/forge/ @ 4e11b33c"
+data_sources: [{"provider": "CFTC", "series": "COT Legacy Futures-Only", "license": "US Gov public domain"}, {"provider": "FRED", "series": "DFF/IORB/DGS2/DGS5/DGS10/T10Y2Y", "license": "US Gov public domain"}]
+screening_measured_at: "2026-08-06T00:00:00Z"
+screening_interval_days: 90
+screening_expires_at: "2026-11-04T00:00:00Z"

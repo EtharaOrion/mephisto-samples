@@ -1,0 +1,271 @@
+# PRIVATE. Ground-truth source for p9iota_latticestore_workspace_reconstruction.
+# solution/recompute.py derives TRUTH.md and rubrics.json from this file only.
+# Never hand-edit generated outputs. Criterion prose below is frozen as literals.
+schema_version: '1'
+task_id: p9iota_latticestore_workspace_reconstruction
+scoped_at: '2026-08-12'
+
+scoring:
+  score_scale: [0, 100]
+  aggregation: sum-then-clip-to-[0, 100]
+  reward_contract_path: /tmp/reward.json
+  harbor_reward_path: /logs/verifier/reward.txt
+  normalization: >-
+    tests/test.sh reads the final TOTAL_SCORE line from tests/verify.py stdout,
+    divides by 100, clamps to [0, 1], rounds to 6 decimals, and writes the
+    Harbor reward file. A missing TOTAL_SCORE line writes reward 0.0.
+  lanes:
+    - id: L1_build_surface_conformance
+      max: 10
+      rule: >-
+        4.0 points when `cargo build --release --offline` succeeds for the
+        submitted workspace and produces target/release/lattice, plus 6.0 times
+        the fraction of the 30 public workloads whose full record (every step
+        transcript plus the final store_state digest) is byte-identical to the
+        freshly built reference run inside the judge container.
+    - id: L2_hidden_layered_equivalence
+      max: 45
+      rule: >-
+        Hidden workloads are regenerated fresh from sealed seeds at verify time
+        and run against reference and candidate binaries. Points are awarded
+        all-or-nothing per layer only when every hidden workload in the layer
+        matches the reference on the full record including the store_state
+        digest: layer_core (basic plus boundary families) 18 points,
+        layer_dedupe_multi (dedupe plus multi) 9 points, layer_corrupt 9
+        points, layer_recovery 9 points.
+    - id: L3_cli_transcript_equivalence
+      max: 15
+      rule: >-
+        15 points all-or-nothing when every hidden workload's binary-step
+        transcript fields (op, exit, stdout_sha256, stdout_len, normalized
+        stderr, out_sha256, out_len) are byte-identical to the reference for
+        the identical workload id set.
+    - id: L4_performance_ratio
+      max: 25
+      rule: >-
+        Gated on perfect L2 (45) and L3 (15). Three perf specs
+        (perf_put_stream, perf_put_dedupe, perf_get, 16 MiB corpora) are timed
+        for 3 repetitions each with fresh per-repetition inputs keyed
+        '{spec_id}|rep{n}'. r = geometric mean over specs of
+        reference_median_seconds / candidate_median_seconds. Score 0 at
+        r <= 0.6, then 25 * (r - 0.6) / 0.9 linearly, capped at 25 at
+        r >= 1.5. Timed-repetition transcripts are also compared to the
+        reference; any divergence triggers kill_band_bit_mismatch.
+    - id: L5_integrity
+      max: 5
+      rule: >-
+        5 points when the submission contains no canary tokens, no forbidden
+        patterns (asm!, global_asm!, /reference, reference-src,
+        reference-bin), no symlinks, no third-party dependencies in any
+        workspace Cargo.toml, no build.rs, no .cargo config, and total source
+        under 32 MiB.
+  kill_bands:
+    - id: kill_band_bit_mismatch
+      condition: >-
+        During the gated performance lane, after full L2 and L3 equivalence has
+        already been established, a candidate timed-repetition transcript
+        diverges from the reference. This is an anti timing-cache guard that
+        catches a binary returning fast wrong output only while being timed.
+      effect: >-
+        L2 and L3 are zeroed and L4 is not awarded, so the total falls back to
+        L1 + L5 (at most 15). Ordinary hidden divergence outside the timed perf
+        lane does not trip this band; it forfeits only the affected per-layer L2
+        points and, if any hidden transcript differs, all of L3.
+    - id: kill_band_canary
+      condition: >-
+        Any canary token from tests/canary_tokens.json appears in the
+        submitted workspace bytes.
+      effect: Total score 0 and CANARY_TOKEN_IN_SUBMISSION escalation.
+    - id: kill_band_wrap
+      condition: >-
+        Submitted code invokes, wraps, links, or reads the frozen reference
+        binary or its artifacts at runtime, or embeds forbidden patterns
+        (asm!, global_asm!, /reference, reference-src, reference-bin).
+      effect: Total score 0.
+  environment_gate:
+    rule: >-
+      tests/verify.py aborts with INVALID_ENVIRONMENT unless running on native
+      x86_64; the judge image sets LATTICE_ALLOW_EMULATION=1 so development
+      scoring on ARM hosts remains possible, in which case L4 timing is not
+      valid pilot evidence. Signed pilots run on native Intel x86_64 hosts per
+      seed/pilot.yaml where the override is a no-op.
+  compare_fields: [exit, stdout_sha256, stdout_len, stderr, out_sha256, out_len]
+  stderr_normalization: >-
+    Absolute scratch directory paths are replaced with {W} and workload input
+    directory paths with {D} before comparison.
+
+workloads:
+  base_seed: '20260812'
+  sub_seed_rule: >-
+    sub_seed = sha256('{BASE_SEED}|{family}|{split}|{index}') first 16 hex
+    characters.
+  keyed_stream_rule: >-
+    Byte stream = concatenated sha256('{BASE_SEED}|{key}|{counter}') digests,
+    counter incrementing from 0; integers drawn as 8 bytes big-endian modulo
+    the requested span.
+  regeneration: >-
+    Public and hidden workloads are regenerated fresh from sealed seeds inside
+    the judge container at verify time by tests/workload_generator.py. No
+    recorded hidden outputs exist anywhere in the delivery closure; there is
+    nothing to memorize.
+  split_plan:
+    families_order: [basic, boundary, dedupe, multi, corrupt, recovery]
+    public: {basic: 8, boundary: 8, dedupe: 5, multi: 4, corrupt: 3, recovery: 2}
+    dev: {basic: 12, boundary: 14, dedupe: 10, multi: 8, corrupt: 8, recovery: 8}
+    hidden: {basic: 30, boundary: 30, dedupe: 25, multi: 25, corrupt: 20, recovery: 20}
+  layer_mapping:
+    layer_core: [basic, boundary]
+    layer_dedupe_multi: [dedupe, multi]
+    layer_corrupt: [corrupt]
+    layer_recovery: [recovery]
+  perf_specs:
+    - id: perf_put_stream
+      description: init then put of one 16 MiB unique keyed stream then stats.
+    - id: perf_put_dedupe
+      description: >-
+        init then put of a 16 MiB corpus built from one 64 KiB block repeated
+        256 times plus a 4 KiB unique salt, exercising the dedupe path.
+    - id: perf_get
+      description: init, put of 16 MiB, timed get of the object, then verify.
+
+reference_semantics:
+  chunker: >-
+    Gear content-defined chunking. GEAR table entry i: state =
+    0x14650FB0739D0383 XOR (i * 0x9E3779B97F4A7C15) followed by three rounds
+    of xorshift64star (state ^= state >> 12; state ^= state << 25; state ^=
+    state >> 27; state *= 0x2545F4914F6CDD1D), all in wrapping u64 arithmetic.
+    Boundary rule: empty input yields 0; len <= CHUNK_MIN (2048) yields len;
+    h starts at 0 per chunk, h = (h << 1) + GEAR[byte]; cut after byte i when
+    (i + 1) >= CHUNK_MIN and (h AND ((1 << 13) - 1)) == 0; forced cut at
+    CHUNK_MAX (65536). The stripped black-box reference binary at /reference/lattice/ is the executable
+    specification and the Rust port is bit-exact (verified on 10 corpora
+    including sizes 0, 1, 2047, 2048, 65537, and 5 MB).
+  store_layout: >-
+    lattice.meta is exactly 64 bytes: magic LATSTORE, version u16 LE 1,
+    chunk_min u32 LE 2048, chunk_max u32 LE 65536, mask_bits u32 LE 13, zero
+    padding to byte 60, CRC32 of bytes 0..60 LE. objects/pack-000000.lpk
+    header is 16 bytes: magic LPK\x01, pack_index u32 LE 0, 8 reserved zero
+    bytes; records are [varint chunk_len][raw chunk bytes] and index offsets
+    point at the chunk bytes after the varint. manifests/{object_hex}.lmf is
+    magic LMF\x01, varint object size, varint chunk count, per chunk [32-byte
+    hash][varint len], CRC32 LE trailer. index/index.lix is magic LIX\x01,
+    varint entry count, entries sorted strictly ascending by chunk hash as
+    [32-byte hash][varint pack_id][varint offset][varint len][varint
+    refcount], CRC32 LE trailer. journal.llg records are [type u8][varint
+    payload_len][payload][CRC32 LE]; types 1 BEGIN_PUT, 2 CHUNK_APPENDED, 3
+    COMMIT_PUT, 4 CHECKPOINT. All integers little-endian, varints canonical
+    LEB128, no timestamps or nondeterminism anywhere on disk.
+  operations: >-
+    put computes object id as sha256 of full content; an existing manifest is
+    a no-op returning n_new_chunks 0 with no journal writes; refcount
+    increments once per manifest occurrence; index_crc in COMMIT_PUT is the
+    final 4 bytes of the serialized index as u32 LE; file write order is pack,
+    manifest, index, journal. Recovery on open replays the journal, truncates
+    the journal to the durable prefix, computes the committed object set from
+    all durable COMMIT_PUT records and the committed pack length from the last
+    one (else 16), removes manifests whose stem is not a committed object id
+    in sorted filename order, and truncates the pack. Recovery never rebuilds
+    the index, so a rolled-back put that appended chunks leaves a stale index
+    and a deterministic `verify` failure 'error: corrupt index at entry
+    {chunk}' with exit 5. dedup_ratio is integer math logical*10000/unique
+    rendered as '{q/10000}.{q%10000:04d}', or '0.0000' when unique is 0.
+  cli_contract: >-
+    Binary name lattice. Usage errors print 'usage: lattice
+    <init|put|get|verify|stats> ...' to stderr with exit 2. init prints
+    'initialized lattice store' exit 0, or 'error: refusing to initialize
+    non-empty directory' exit 2. put prints '{object} {n_chunks} {n_new}
+    {size}' exit 0, or 'error: cannot read input: {file}' exit 3. get writes
+    the output file then prints '{id} {size} OK' exit 0, 'error: unknown
+    object {id_arg}' exit 4 for malformed or unknown ids, 'error: cannot
+    write output: {out}' exit 5. verify prints 'packs N', 'chunks N',
+    'objects N', 'verify OK' exit 0, or 'error: corrupt {what} at {location}'
+    exit 5. stats prints six lines objects/chunks/unique_bytes/logical_bytes/
+    dedup_ratio/pack_bytes exit 0. Other store errors print 'error:
+    {message}' exit 5; a missing store prints 'error: not a lattice store'
+    exit 5.
+
+oracle:
+  path: solution/oracle-workspace
+  profile: >-
+    [profile.release] opt-level 3, lto true, codegen-units 1, panic abort. No
+    third-party dependencies in any crate.
+  verified: >-
+    35 unit tests plus the public test subset all pass; the Rust chunker was
+    cross-checked bit-exact against the C reference on 10 keyed corpora; the
+    public split was run twice through the oracle binary with byte-identical
+    outputs.
+  self_score_target_band: [80, 95]
+
+controls:
+  negative:
+    - id: empty_submission
+      behavior: no workspace directory is submitted.
+      expected: INTEGRITY_VIOLATION with total score exactly 0.
+    - id: wrapper_submission
+      behavior: >-
+        a workspace whose lattice-cli main simply executes /reference/lattice
+        and forwards argv.
+      expected: kill_band_wrap fires with total score 0.
+    - id: probe_memorizing_stub
+      behavior: >-
+        a workspace that hardcodes replies for the public probes and panics on
+        anything else.
+      expected: >-
+        no hidden layer pays out and L3 is forfeit because the freshly
+        regenerated hidden workloads diverge, so the total is bounded by
+        L1 + L5 (at most 15) through the lane structure alone with no kill band
+        raised. The verbatim stripped workspace, which panics on every probe,
+        scores L1 4.0 plus L5 5.0 equal to 9.0 with empty kill_bands.
+  positive:
+    - id: oracle_workspace
+      behavior: solution/solve.sh stages the complete reference workspace.
+      expected: total score inside self_score_target_band [80, 95].
+
+golden_trajectory:
+  - id: T1
+    action: >-
+      Read SPEC.md, the doc comments across all seven crates, and the C
+      chunker reference; build the stripped workspace to enumerate todo!()
+      stubs.
+    yields: complete inventory of the 50 production functions to reconstruct.
+  - id: T2
+    action: >-
+      Recover the gear chunker boundary rule by probing the /reference/lattice binary and reproduce it bit-exact using wrapping u64
+      arithmetic and validate spans against the latchunk binary on generated
+      corpora.
+    yields: lattice-chunk green including public tests.
+  - id: T3
+    action: >-
+      Implement lattice-codec (canonical LEB128, zigzag, delta, CRC32 IEEE)
+      against the documented check values.
+    yields: codec primitives every upper crate depends on.
+  - id: T4
+    action: >-
+      Implement lattice-index and lattice-log byte formats exactly as
+      documented including CRC trailers and durable-prefix replay.
+    yields: deterministic on-disk index and journal.
+  - id: T5
+    action: >-
+      Implement lattice-store put/get/verify/stats plus recovery with the
+      committed-set manifest sweep, pack truncation, and no index rebuild.
+    yields: byte-identical store state on all workload families.
+  - id: T6
+    action: >-
+      Implement lattice-cli argument handling and exact output literals and
+      exit codes; validate with verify_local.py against the 30 public probes.
+    yields: 30/30 public probes matching.
+  - id: T7
+    action: >-
+      Profile put and get paths and optimize (buffer reuse, single-pass
+      hashing) to hold the perf ratio at or above the reference.
+    yields: full L4 after perfect L2 and L3.
+
+rejected_routes:
+  - route: wrap or invoke the frozen /reference/lattice binary at runtime.
+    control: wrapper_submission
+  - route: hardcode recorded public probe outputs and replay them.
+    control: probe_memorizing_stub
+  - route: submit an empty or non-building workspace for partial credit.
+    control: empty_submission
+
+canary_marker: CANARY-17bf13d5d269a708a777eb4e0f31db34

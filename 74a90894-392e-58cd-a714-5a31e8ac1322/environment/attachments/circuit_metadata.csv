@@ -1,0 +1,14 @@
+court_id,circuit_name,authorized_judgeships,typical_panel_size,seat_city
+ca1,First Circuit,6,3,Boston MA
+ca2,Second Circuit,13,3,New York NY
+ca3,Third Circuit,14,3,Philadelphia PA
+ca4,Fourth Circuit,15,3,Richmond VA
+ca5,Fifth Circuit,17,3,New Orleans LA
+ca6,Sixth Circuit,16,3,Cincinnati OH
+ca7,Seventh Circuit,11,3,Chicago IL
+ca8,Eighth Circuit,11,3,St. Louis MO
+ca9,Ninth Circuit,29,3,San Francisco CA
+ca10,Tenth Circuit,12,3,Denver CO
+ca11,Eleventh Circuit,12,3,Atlanta GA
+cadc,D.C. Circuit,11,3,Washington DC
+cafc,Federal Circuit,12,3,Washington DC

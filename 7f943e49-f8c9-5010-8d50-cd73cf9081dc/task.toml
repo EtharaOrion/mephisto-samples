@@ -1,0 +1,57 @@
+schema_version = "1.4"
+
+artifacts = [
+  { source = "/home/workspace/candidate" },
+]
+
+[task]
+name = "mephisto/p8theta_rasterlab_bitexact_rewrite"
+description = "Reimplement the legacy rasterlab fixed-point raster pipeline in Rust as a drop-in binary: byte-identical stdout/stderr/exit codes and bit-exact .rlr outputs on hidden workloads, with a performance lane against the C reference rebuilt on the scoring host."
+keywords = [
+  "systems-software-engineering",
+  "bit-exact",
+  "cross-language-reimplementation",
+  "rust",
+  "fixed-point",
+  "simd",
+]
+
+[[task.authors]]
+name = "Mephisto"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.work.p8theta_rasterlab_bitexact_rewrite:phase1-544c95332faa@sha256:e7c67eb911fec3fc27ce744b2e2a37309a954650d16e96b60bbc26d79807476e"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+
+[verifier.environment]
+docker_image = "426628337772.dkr.ecr.ap-south-1.amazonaws.com/mephisto/edgebench.judge.p8theta_rasterlab_bitexact_rewrite:phase1-544c95332faa@sha256:d6dc3c3a9d5217d4736ac36885c940786ae987e1e6287296aee7785256f87367"
+network_mode = "no-network"
+workdir = "/home/workspace"
+
+[extensions.sforge]
+task_id = "p8theta_rasterlab_bitexact_rewrite"
+base_image = "rust"
+platform = "linux/amd64"
+parser = "structured_json"
+selection = "score_first"
+score_direction = "maximize"
+submit_paths = ["candidate/"]
+submit_exclude = ["candidate/target/"]
+work_image_tag = "phase1-544c95332faa"
+judge_image_tag = "phase1-544c95332faa"
+
+[metadata]
+provenance_schema_version = "1"
+source_host = "n/a (fully synthetic, FORGE-authored)"
+data_license = "project-owned"
+license_class = "permissive-internal"
+license_source = "FORGE-authored original work"
+provenance_flags = "synthetic; no upstream lift; attestation-unavailable"

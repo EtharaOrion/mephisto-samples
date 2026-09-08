@@ -1,0 +1,181 @@
+schema_version: 1
+# FORGE grounding: private source of truth for cftc_futures_positioning_book.
+# Feeds recompute.py which generates the agent-visible bundle plus
+# dataset/<uuid>/solution/TRUTH.md. Never agent-visible. Contains canary tokens
+# for the leak gate per FORGE.md Invariant 22.
+#
+# 2026-08-08 verifier redesign (client feedback: verifier tricks inflated
+# perceived difficulty). Two changes:
+#   1. L7 is now Brier-score calibration over per-item confidence (skill-based),
+#      replacing the self-report tolerance gate (Goldilocks band that could be
+#      passed by echoing recomputed values). Weight unchanged at 5 pts.
+#   2. B1_commodity_cycle_bonus removed. It was a permanent-zero lane (10 pts)
+#      because EIA data was unavailable. Its weight was reallocated to L8
+#      (10 -> 15) so total lane weights sum to 100 pts. Measured_score values
+#      below are unchanged (no route ever earned B1 points); denominator went
+#      from 110 to 100.
+# See seed/build/cftc_futures_positioning_book/FIXES_APPLIED.md.
+
+task_id: cftc_futures_positioning_book
+family: "Framework A: outcome-anchored book"
+
+# Canary tokens per FORGE.md :11a. Appear in TRUTH.md; the leak gate scans
+# agent-visible bytes for these to detect boundary violations.
+canary_tokens:
+  - "MEPHISTO_CANARY_CFBP_2026_08_06_K7X3M9Q2"
+  - "MEPHISTO_CANARY_CFBP_2026_08_06_R5V1B8N4"
+  - "MEPHISTO_CANARY_CFBP_2026_08_06_L9P6T2W3"
+
+canary_bindings:
+  MEPHISTO_CANARY_CFBP_2026_08_06_K7X3M9Q2: >-
+    Judge-side reference-solver method-family opacity boundary
+    (CommercialFlowMomentum / RegimePercentileClassifier /
+     CrossMarketRankFuser). Method-family names must never appear in
+     instruction.md or agent-visible README per FORGE.md M5 opacity rule.
+  MEPHISTO_CANARY_CFBP_2026_08_06_R5V1B8N4: >-
+    Judge-side hidden 2025-01-07 to 2026-07-22 weekly positioning panel
+    (per market_id per week_ending: realized commercial_net_direction,
+     magnitude_bucket, crowding_regime, extreme_positioning_flag,
+     derived from CFTC COT publications one week forward).
+  MEPHISTO_CANARY_CFBP_2026_08_06_L9P6T2W3: >-
+    FORGE Phase 1 build artifacts (TRUTH.md + grounding.yaml +
+    recompute.py + rubrics.json).
+
+# --- Data sources ------------------------------------------------------------
+data_sources:
+  cot:
+    provider: "CFTC (Commodity Futures Trading Commission)"
+    endpoint: "https://publicreporting.cftc.gov/resource/6dca-aqww.json"
+    format: "Socrata SoDA JSON, Legacy Futures-Only report"
+    license: "US Government work, 17 USC Sec. 105, public domain"
+    boundary: "2024-12-31"
+    graded_window: "2025-01-07 to 2026-07-22"
+    training_range: "2022-01-04 to 2024-12-31 (156 weekly prints per market)"
+  fred_macro:
+    provider: "Federal Reserve Bank of St. Louis (FRED)"
+    endpoint: "https://fred.stlouisfed.org/graph/fredgraph.csv?id=<SERIES>"
+    series: [DFF, IORB, DGS2, DGS5, DGS10, T10Y2Y]
+    license: "US Government / Federal Reserve, public domain"
+  eia:
+    provider: "US Energy Information Administration"
+    endpoint: "https://api.eia.gov/v2/petroleum/stoc/wstk/data (requires API key)"
+    status: "UNAVAILABLE (no API key). Not consumed post-fix (B1 lane removed)."
+  macro_calendar:
+    provider: "Federal Reserve + BLS (hardcoded from public announcements)"
+    fomc_dates_2025_2026: 13
+    cpi_release_dates_2025_2026: 19
+
+# --- Market universe ---------------------------------------------------------
+market_universe:
+  count: 25
+  # Full mapping in cftc_book_lib.py MARKETS dict; not duplicated here to
+  # keep the source of truth single (per FORGE house rules).
+  reference: "cftc_book_lib.py MARKETS"
+
+# --- Golden trajectory (reference solver derivation) -------------------------
+golden_trajectory:
+  reference_method_name_canary: MEPHISTO_CANARY_CFBP_2026_08_06_K7X3M9Q2
+  ordered_steps:
+    - step: 1
+      action: >-
+        Enumerate 2,025 graded (market_id, week_ending) items = 25 markets x
+        81 weekly COT publication Tuesdays from 2025-01-07 to 2026-07-21
+        (actual = 2,000 items due to occasional market outages).
+      state: "Universe fixed."
+      drift_survived: >-
+        Agent sees only training-window (<= 2024-12-31) COT data. Graded-window
+        COT data lives only in judge tree. Agent cannot look up next-week
+        commercial net directly.
+    - step: 2
+      action: >-
+        Rebuild boundary_stats per market from training rows only: mag_q1/q3
+        from last 52 weekly-change quartiles; p10_3yr/p90_3yr from last 156
+        weekly commercial_net percentiles. Agent-reproducible from training.
+      state: "25-market boundary_stats table fixed at 2024-12-31."
+      drift_survived: >-
+        A window advancing into the graded period would leak next-week outcomes
+        into the baseline. This authored task closes the window ON the boundary.
+      checker: "L2 magnitude bucket + L3 crowding regime + L4 extreme flag all
+                read through this table."
+    - step: 3
+      action: >-
+        For each graded (mid, week), read the judge-private next-week
+        commercial_net_all. Emit direction=up|down, magnitude bucket via
+        boundary quartiles, crowding regime + extreme flag via boundary
+        percentiles.
+      state: "Ground truth vectors fixed for 2,000 items."
+    - step: 4
+      action: >-
+        Reference solver emits reality itself (hindsight-perfect). This is the
+        theoretical ceiling not agent-reachable. For agent evaluation, the
+        realistic reference is a cross-market rank fuser (see
+        reference_solver.py). Measured reference score ~55-60/100 per design.
+      state: "Reference score establishes honest upper bound; hindsight-perfect
+              scores 100/100 by construction."
+    - step: 5
+      action: >-
+        Emit cftc_positioning.py (agent submission format), requirements.txt,
+        and positioning_results.json with the full deliverable schema plus a
+        per_item_confidence dict for the L7 Brier-calibration lane.
+      state: "Three graded artifacts on paths the verifier reads, mutually
+              consistent, confidence calibration lane populated."
+
+# --- Alternative routes (measured grounding ladder) -------------------------
+alternative_routes:
+  - route: "hindsight-perfect: emit realized next-week direction verbatim"
+    expected_score: 100.00
+    rationale: "Theoretical ceiling. Not agent-reachable (agent has no access
+                to judge-private t+1 data)."
+  - route: "copy-last-week: predict same direction as previous graded week"
+    expected_L1_acc: 0.527
+    expected_score: 28.0
+    measured_score: 13.37
+    rationale: "Persistence trap baseline. COT autocorrelation > 0.90 makes
+                this the naive attractor. Must be beaten by any real method."
+  - route: "uniform-up: predict up for all markets every week"
+    expected_L1_acc: 0.502
+    expected_score: 4.0
+    measured_score: 9.43
+    rationale: "Directional base rate. No skill; all lanes except L1 score 0."
+  - route: "random-classification: random 4-class regime + magnitude"
+    expected_score: 8.0
+    rationale: "Random baseline for L2/L3."
+  - route: "reference cross-market rank fuser (solution/reference_solver.py)"
+    expected_score_target: [50.0, 65.0]
+    measured_score: 27.60
+    rationale: "Honest walk-forward method. Beats copy-last but well below
+                hindsight. Real reference solver. NOTE: measured_score is well
+                below the expected_score_target range; the grounded target was
+                miscalibrated before the pilot ran. G-CAL-MONOTONICITY flags
+                this: copy-last lands near the expected reference-solver score,
+                and reference-solver lands near the expected copy-last score."
+
+# --- Lane reconciliation ---------------------------------------------------
+lane_reconciliation:
+  L1_commercial_direction:
+    driven_by_steps: [3, 4]
+    max_pts: 20
+  L2_magnitude_bucket:
+    driven_by_steps: [2, 3, 4]
+    max_pts: 15
+  L3_crowding_regime:
+    driven_by_steps: [2, 3, 4]
+    max_pts: 15
+  L4_extreme_flag:
+    driven_by_steps: [2, 3, 4]
+    max_pts: 10
+  L5_rank_correlation:
+    driven_by_steps: [3, 4]
+    max_pts: 10
+  L6_rate_regime_adaptive:
+    driven_by_steps: [3, 4]
+    max_pts: 10
+    macro_calendar_source: "hardcoded from Federal Reserve + BLS public schedules"
+  L7_confidence_calibration:
+    driven_by_steps: [5]
+    max_pts: 5
+    method: "Brier score over agent per_item_confidence vs realized L1 correctness"
+    scoring: "pts = 5 * max(0, 1 - 2 * BS); BS=0 -> 5 pts, BS=0.25 -> 2.5 pts, BS>=0.5 -> 0 pts"
+  L8_cross_quarter_stability:
+    driven_by_steps: [3, 4]
+    max_pts: 15

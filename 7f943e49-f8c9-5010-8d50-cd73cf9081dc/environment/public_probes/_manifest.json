@@ -1,0 +1,665 @@
+[
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "BGRA32",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__000",
+  "input": {
+   "fmt": "RGB24",
+   "h": 47,
+   "pattern": "gradient",
+   "w": 63
+  },
+  "seed": "b48c60be6c194d49",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "RGB24",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__001",
+  "input": {
+   "fmt": "BGR24",
+   "h": 97,
+   "pattern": "checker",
+   "w": 129
+  },
+  "seed": "bac11229991bf9d2",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "RGBA32",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__002",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 48,
+   "pattern": "flat",
+   "w": 64
+  },
+  "seed": "30463f04fb681c10",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "RGB24",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__003",
+  "input": {
+   "fmt": "YCC420P",
+   "h": 16,
+   "pattern": "gradient",
+   "w": 16
+  },
+  "seed": "e7c2b730a13597a5",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "GRAY8",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__004",
+  "input": {
+   "fmt": "YCC420P",
+   "h": 160,
+   "pattern": "flat",
+   "w": 240
+  },
+  "seed": "33cb7ec8308c78cd",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "YCC420P",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__005",
+  "input": {
+   "fmt": "RGB24",
+   "h": 97,
+   "pattern": "flat",
+   "w": 129
+  },
+  "seed": "32157eeabdeb5841",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "BGR24",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__006",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 96,
+   "pattern": "gradient",
+   "w": 128
+  },
+  "seed": "d30bc9df62eaf308",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "BGRA32",
+   "{in}",
+   "{out}"
+  ],
+  "family": "convert",
+  "id": "convert__public__007",
+  "input": {
+   "fmt": "BGR24",
+   "h": 160,
+   "pattern": "flat",
+   "w": 240
+  },
+  "seed": "8a7faa8394ccf052",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "6",
+   "-h",
+   "7",
+   "-k",
+   "tent",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_up",
+  "id": "resize_up__public__000",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 1,
+   "pattern": "flat",
+   "w": 1
+  },
+  "seed": "d9beca18194088d6",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "64",
+   "-h",
+   "49",
+   "-k",
+   "point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_up",
+  "id": "resize_up__public__001",
+  "input": {
+   "fmt": "BGR24",
+   "h": 16,
+   "pattern": "noise",
+   "w": 16
+  },
+  "seed": "e3e8cf4fad652e9a",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "9",
+   "-h",
+   "9",
+   "-k",
+   "point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_up",
+  "id": "resize_up__public__002",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 3,
+   "pattern": "gradient",
+   "w": 3
+  },
+  "seed": "4a5a0bf54b72fc48",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "967",
+   "-h",
+   "964",
+   "-k",
+   "tent",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_up",
+  "id": "resize_up__public__003",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 241,
+   "pattern": "impulse",
+   "w": 321
+  },
+  "seed": "dca3d4d6ecbe9f06",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "252",
+   "-h",
+   "144",
+   "-k",
+   "point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_up",
+  "id": "resize_up__public__004",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 47,
+   "pattern": "impulse",
+   "w": 63
+  },
+  "seed": "c0c6adb16a093bc8",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "1",
+   "-h",
+   "1",
+   "-k",
+   "tent",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_down",
+  "id": "resize_down__public__000",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 1,
+   "pattern": "noise",
+   "w": 1
+  },
+  "seed": "303867d99f30a4c8",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "4",
+   "-h",
+   "5",
+   "-k",
+   "point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_down",
+  "id": "resize_down__public__001",
+  "input": {
+   "fmt": "RGBA32",
+   "h": 13,
+   "pattern": "flat",
+   "w": 17
+  },
+  "seed": "f999834be816d893",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "4",
+   "-h",
+   "7",
+   "-k",
+   "cubic4",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_down",
+  "id": "resize_down__public__002",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 16,
+   "pattern": "impulse",
+   "w": 16
+  },
+  "seed": "f457557fd4251606",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "79",
+   "-h",
+   "53",
+   "-k",
+   "cubic4",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_down",
+  "id": "resize_down__public__003",
+  "input": {
+   "fmt": "YCC444P",
+   "h": 160,
+   "pattern": "noise",
+   "w": 240
+  },
+  "seed": "19e1507d8a9c4cbf",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "1",
+   "-h",
+   "1",
+   "-k",
+   "point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "resize_down",
+  "id": "resize_down__public__004",
+  "input": {
+   "fmt": "BGRA32",
+   "h": 3,
+   "pattern": "gradient",
+   "w": 3
+  },
+  "seed": "5965f9add292805c",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "chain",
+   "resize:151x170:tent;convert:YCC420P;convert:YCC420P;resize:277x269:tent;resize:264x256:cubic4",
+   "{in}",
+   "{out}"
+  ],
+  "family": "chain",
+  "id": "chain__public__000",
+  "input": {
+   "fmt": "BGR24",
+   "h": 29,
+   "pattern": "flat",
+   "w": 31
+  },
+  "seed": "b4b92b14be17bb32",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "chain",
+   "resize:155x199:cubic4;convert:YCC422P;resize:40x1:point;convert:BGR24;convert:GRAY8;resize:106x8:point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "chain",
+  "id": "chain__public__001",
+  "input": {
+   "fmt": "RGBA32",
+   "h": 7,
+   "pattern": "checker",
+   "w": 5
+  },
+  "seed": "9ff636b846a329d3",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "chain",
+   "convert:BGRA32;resize:163x118:tent;resize:63x1:point;resize:159x159:tent;resize:290x152:point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "chain",
+  "id": "chain__public__002",
+  "input": {
+   "fmt": "BGR24",
+   "h": 1,
+   "pattern": "checker",
+   "w": 1
+  },
+  "seed": "f9585589c8d0502a",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "chain",
+   "convert:YCC444P;convert:RGB24;resize:15x1:point;resize:111x73:cubic4;resize:131x111:point",
+   "{in}",
+   "{out}"
+  ],
+  "family": "chain",
+  "id": "chain__public__003",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 29,
+   "pattern": "gradient",
+   "w": 31
+  },
+  "seed": "3bf61ee474b7fe86",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "family": "metadata",
+  "id": "metadata__public__000",
+  "input": {
+   "fmt": "YCC444P",
+   "h": 7,
+   "pattern": "flat",
+   "w": 5
+  },
+  "seed": "2d9af97104c3e9c7",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "info",
+   "{in}"
+  ],
+  "family": "metadata",
+  "id": "metadata__public__001",
+  "input": {
+   "fmt": "GRAY8",
+   "h": 383,
+   "pattern": "gradient",
+   "w": 511
+  },
+  "seed": "d1acf2813cff95b8",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "family": "metadata",
+  "id": "metadata__public__002",
+  "input": {
+   "fmt": "YCC444P",
+   "h": 7,
+   "pattern": "checker",
+   "w": 5
+  },
+  "seed": "2bcbf6950063ca57",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "info",
+   "{in}"
+  ],
+  "family": "metadata",
+  "id": "metadata__public__003",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 5,
+   "pattern": "checker",
+   "w": 7
+  },
+  "seed": "c79260538004a6ce",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "convert",
+   "-f",
+   "YUV9",
+   "{in}",
+   "{out}"
+  ],
+  "family": "errors",
+  "id": "errors__public__000",
+  "input": {
+   "fmt": "YCC422P",
+   "h": 5,
+   "pattern": "checker",
+   "w": 7
+  },
+  "seed": "55055b7caa84a046",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "corrupt": "bad_magic",
+  "family": "errors",
+  "id": "errors__public__001",
+  "input": {
+   "fmt": "RGBA32",
+   "h": 13,
+   "pattern": "flat",
+   "w": 17
+  },
+  "seed": "a3acaaa1a8c61f63",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "corrupt": "huge_width",
+  "family": "errors",
+  "id": "errors__public__002",
+  "input": {
+   "fmt": "RGB24",
+   "h": 160,
+   "pattern": "gradient",
+   "w": 240
+  },
+  "seed": "d30d6b06abacfb19",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "corrupt": "trailing_junk",
+  "family": "errors",
+  "id": "errors__public__003",
+  "input": {
+   "fmt": "RGB24",
+   "h": 3,
+   "pattern": "checker",
+   "w": 3
+  },
+  "seed": "8c40c2a6c5b244c9",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "corrupt": "bad_crc",
+  "family": "errors",
+  "id": "errors__public__004",
+  "input": {
+   "fmt": "BGRA32",
+   "h": 47,
+   "pattern": "flat",
+   "w": 63
+  },
+  "seed": "a9523e6c23295b3c",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "checksum",
+   "{in}"
+  ],
+  "corrupt": "bad_version",
+  "family": "errors",
+  "id": "errors__public__005",
+  "input": {
+   "fmt": "RGB24",
+   "h": 2,
+   "pattern": "flat",
+   "w": 2
+  },
+  "seed": "e0a219c955815241",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "resize",
+   "-w",
+   "2880",
+   "-h",
+   "1620",
+   "-k",
+   "cubic4",
+   "{in}",
+   "{out}"
+  ],
+  "family": "perf",
+  "id": "perf__public__000",
+  "input": {
+   "fmt": "RGB24",
+   "h": 1080,
+   "pattern": "noise",
+   "w": 1920
+  },
+  "seed": "85113c8a13a89595",
+  "split": "public"
+ },
+ {
+  "argv": [
+   "chain",
+   "convert:RGB24;resize:1280x720:tent;convert:YCC444P",
+   "{in}",
+   "{out}"
+  ],
+  "family": "perf",
+  "id": "perf__public__001",
+  "input": {
+   "fmt": "YCC420P",
+   "h": 1080,
+   "pattern": "noise",
+   "w": 1920
+  },
+  "seed": "54809abcbb4ea3c5",
+  "split": "public"
+ }
+]

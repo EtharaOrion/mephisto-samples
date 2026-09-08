@@ -1,0 +1,39 @@
+{
+ "family": "corrupt",
+ "id": "corrupt_public_002",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "c0.bin",
+   "op": "put"
+  },
+  {
+   "file": "c1.bin",
+   "op": "put"
+  },
+  {
+   "file": "c2.bin",
+   "op": "put"
+  },
+  {
+   "file": "lattice.meta",
+   "offset": 381287585,
+   "op": "corrupt",
+   "skip": 0,
+   "xor": 6
+  },
+  {
+   "op": "verify"
+  },
+  {
+   "id": "a1fd944a5e11dd2666f5b9113ceda2f2bb26d7f5c534681bce4569a3e3ed2a3c",
+   "op": "get",
+   "out": "g0.bin"
+  },
+  {
+   "op": "stats"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+{
+  "corpus_identity": "edgebench.arc-program-corpus.2026-08-17",
+  "public_seed": "edgebench-acr-public-2026-08-17-6d21f0ba",
+  "holdout_seed": "edgebench-acr-holdout-2026-08-17-a41c7e39b0d5"
+}

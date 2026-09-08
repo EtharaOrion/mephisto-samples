@@ -1,0 +1,40 @@
+{
+ "family": "dedupe",
+ "id": "dedupe_public_002",
+ "steps": [
+  {
+   "op": "init"
+  },
+  {
+   "file": "a.bin",
+   "op": "put"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "file": "b.bin",
+   "op": "put"
+  },
+  {
+   "file": "a.bin",
+   "op": "put"
+  },
+  {
+   "op": "stats"
+  },
+  {
+   "id": "ba5cb25da29c24cede35af1c59b90621e12bef9effe18db2f8d88ed17c947b89",
+   "op": "get",
+   "out": "ga.bin"
+  },
+  {
+   "id": "116b6ee042f36e12b8ae5c681b01684e81b8a09a70b6fb581df094a08e209216",
+   "op": "get",
+   "out": "gb.bin"
+  },
+  {
+   "op": "verify"
+  }
+ ]
+}
